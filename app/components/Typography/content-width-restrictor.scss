@@ -1,0 +1,14 @@
+@import '~bpk-mixins';
+
+.content-width-restrictor {
+  &__outer {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__content {
+    width: 100%;
+    max-width: 71.3rem;
+  }
+}

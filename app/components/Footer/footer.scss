@@ -1,0 +1,45 @@
+@import '~bpk-mixins';
+@import 'helpers/tokens';
+
+.footer {
+  &__container {
+    justify-content: space-around;
+    height: 13rem;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 4rem;
+    color: $not-black-invert;
+    background-color: $not-black;
+    background-position: center;
+    background-size: cover;
+
+    @media (prefers-color-scheme: dark) {
+      background-color: black;
+      border-top: solid white 0.15rem;
+    }
+  }
+
+  &__social {
+    text-align: center;
+  }
+
+  &__logo {
+    text-align: center;
+  }
+
+  &__tech {
+    text-align: center;
+  }
+
+  &__site-map {
+    text-align: center;
+  }
+
+  &__copyright {
+    text-align: center;
+  }
+
+  &__centered {
+    text-align: center;
+  }
+}

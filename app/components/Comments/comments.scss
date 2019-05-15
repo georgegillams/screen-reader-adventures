@@ -1,0 +1,16 @@
+@import '~bpk-mixins';
+
+.comments {
+  &__component {
+    margin-bottom: 1rem;
+
+    &__text-box {
+      max-width: 45rem;
+      box-sizing: border-box;
+    }
+
+    &__button {
+      margin-top: 1rem;
+    }
+  }
+}

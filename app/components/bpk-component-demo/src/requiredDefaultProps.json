@@ -1,0 +1,19 @@
+{
+  "string": "\"My String\"",
+  "number": "5",
+  "boolean": "true",
+  "function": "() => {}",
+  "object": "{}",
+  "shape": "circle",
+  "oneOf": "",
+  "instanceOf": "",
+  "array": [
+    "[]"
+  ],
+  "arrayOf": [
+    "[]"
+  ],
+  "node": "<div></div>",
+  "element": "",
+  "any": "Anything goes!"
+}

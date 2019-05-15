@@ -1,0 +1,45 @@
+import { datumLoad, datumLoadSingle, datumCreate } from '../datum';
+import authentication from 'utils/authentication';
+import reqSecure from 'utils/reqSecure';
+import { UNAUTHORISED_READ } from 'helpers/constants';
+import userDetailsAllowedAttributes from './userDetailsAllowedAttributes';
+import { find } from 'utils/find';
+
+export default function load(req) {
+  const reqSecured = reqSecure(req, userDetailsAllowedAttributes);
+  return new Promise((resolve, reject) => {
+    authentication(reqSecured).then(
+      user => {
+        if (user) {
+          datumLoadSingle({
+            redisKey: 'userDetails',
+            includeDeleted: user.admin,
+            filter: ud => ud.authorId === user.id,
+          }).then(
+            loadedUserDetails => {
+              datumLoad({
+                redisKey: 'tickets',
+              }).then(ticketData => {
+                const { existingValue: ticket } = find(
+                  ticketData,
+                  user.id,
+                  'reservedTo',
+                );
+                loadedUserDetails.ticket = ticket;
+                resolve(loadedUserDetails);
+              });
+            },
+            err => {
+              resolve(
+                datumCreate({ redisKey: 'userDetails', user }, reqSecured),
+              );
+            },
+          );
+        } else {
+          resolve(UNAUTHORISED_READ);
+        }
+      },
+      err => reject(err),
+    );
+  });
+}

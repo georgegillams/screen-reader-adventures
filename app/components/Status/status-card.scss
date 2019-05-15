@@ -1,0 +1,41 @@
+@import '~bpk-mixins';
+
+@fontface {
+  font-family: 'Space Mono', monospace;
+  src: url('https://fonts.googleapis.com/css?family=Space Mono');
+}
+
+.status-card {
+  &__container {
+    max-width: 20rem;
+    width: 100%;
+    position: relative;
+  }
+
+  &__status {
+    margin-left: calc(50% - 2.5rem);
+    z-index: 1000;
+    top: 0;
+    position: absolute;
+    margin-top: -2.5rem;
+  }
+
+  &__card {
+    margin-top: 2.5rem;
+  }
+
+  &__content-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+  }
+
+  &__content-item-status {
+    margin-right: 1rem;
+  }
+
+  &__content-items {
+    margin-top: 1rem;
+  }
+}

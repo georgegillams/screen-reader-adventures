@@ -1,0 +1,66 @@
+@import '~bpk-mixins';
+
+@fontface {
+  font-family: 'Space Mono', monospace;
+  src: url('https://fonts.googleapis.com/css?family=Space Mono');
+}
+
+.status {
+  &__outer-container {
+  }
+
+  &__shadow-container {
+    height: 2.5rem;
+    overflow: hidden;
+    width: 7rem;
+    position: absolute;
+    z-index: -4;
+  }
+
+  &__shadow {
+    border-radius: 10rem;
+    width: 5rem;
+    height: 5rem;
+    box-shadow: 0.1rem 0.1rem 0.3rem 0 rgba(37, 32, 31, 0.3);
+    z-index: -3;
+  }
+
+  &__container {
+    border: 0.3rem solid blue;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: blue;
+    fill: blue;
+    background-color: white;
+    font-size: 1.5rem;
+
+    &--success {
+      border-color: green;
+      color: green;
+      fill: green;
+    }
+
+    &--warn {
+      border-color: orange;
+      color: orange;
+      fill: orange;
+    }
+
+    &--error {
+      border-color: #e02626;
+      color: #e02626;
+      fill: #e02626;
+    }
+
+    &--large {
+      width: 5rem;
+      height: 5rem;
+      border-width: 0.35rem;
+      font-size: 5rem;
+    }
+  }
+}

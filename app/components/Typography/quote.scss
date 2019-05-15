@@ -1,0 +1,15 @@
+@import '~bpk-mixins';
+@import 'helpers/tokens';
+
+.quote {
+  &__container {
+    padding: 1rem 0 1rem 2rem;
+    border-left: solid 0.3rem $primary-color;
+    border-top-right-radius: 0.4rem;
+    border-bottom-right-radius: 0.4rem;
+    color: $bpk-color-gray-500;
+    font-style: italic;
+    font-weight: bold;
+    box-shadow: 1rem 1rem 1rem #f3f2f5;
+  }
+}

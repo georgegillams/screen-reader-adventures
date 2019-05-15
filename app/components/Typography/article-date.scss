@@ -1,0 +1,16 @@
+@import '~bpk-mixins';
+
+.article-date {
+  &__date {
+    padding-bottom: 0.5rem;
+    color: $bpk-color-gray-700;
+
+    @media (prefers-color-scheme: dark) {
+      color: rgb(179, 179, 179);
+    }
+
+    &--no-padding {
+      padding: 0;
+    }
+  }
+}

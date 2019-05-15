@@ -1,0 +1,60 @@
+@import "~bpk-mixins";
+
+.tag {
+  position: relative;
+  // top: .1rem;
+  top: 0.15rem;
+  // left: .02rem;
+  height: 1rem;
+  padding: 0.17rem 0.4rem 0.27rem;
+  transition: all 0.4s;
+  border: none;
+  border-radius: 0.2rem;
+  background-color: #44aeff;
+  color: white;
+  font-family: "Quattrocento Sans", sans-serif;
+  font-size: 1rem;
+  text-decoration: none;
+  text-decoration-color: transparent;
+  text-decoration-line: none;
+
+  &--disabled {
+    opacity: 0.3;
+    filter: saturate(0.5);
+  }
+
+  &--hovered {
+    cursor: pointer;
+    filter: brightness(1.2);
+  }
+
+  &--dark-text {
+    color: #3c4451;
+  }
+
+  &--tech {
+    background-color: #fbc02d;
+    // background-image: linear-gradient(165deg, #fdd835, #f9a825);
+    color: #3c4451;
+  }
+
+  &--events {
+    background-color: #6a1b9a;
+    // background-image: linear-gradient(165deg, #7b1fa2, #4a148c);
+  }
+
+  &--travel {
+    background-color: #01579b;
+    // background-image: linear-gradient(165deg, #fdd835, #f9a825);
+  }
+
+  &--security {
+    background-color: #44aeff;
+    // background-image: linear-gradient(165deg, #6bc1ff, #44aeff);
+  }
+
+  &--photography {
+    background-color: #d84315;
+    // background-image: linear-gradient(165deg, #7b1fa2, #4a148c);
+  }
+}

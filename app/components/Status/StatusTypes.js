@@ -1,0 +1,10 @@
+const STATUS_TYPES = {
+  SUCCESS: 'SUCCESS',
+  COMPLETE: 'SUCCESS',
+  WARN: 'WARN',
+  INCOMPLETE: 'WARN',
+  ERROR: 'ERROR',
+  NOT_STARTED: 'ERROR',
+};
+
+export default STATUS_TYPES;

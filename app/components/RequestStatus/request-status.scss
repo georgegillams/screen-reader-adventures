@@ -1,0 +1,68 @@
+@import '~bpk-mixins';
+@import 'helpers/tokens';
+
+.request-status {
+  &__outer-container {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: -10rem;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+    z-index: 1000;
+    transition: all 0.4s ease-in-out;
+    background-image: linear-gradient(
+      180deg,
+      white,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0)
+    );
+    opacity: 0;
+
+    @media (prefers-color-scheme: dark) {
+      background-image: linear-gradient(
+        180deg,
+        $not-black,
+        rgba(30, 30, 30, 0),
+        rgba(30, 30, 30, 0),
+        rgba(30, 30, 30, 0)
+      );
+    }
+
+    &--statuses-showing {
+      top: 0;
+      opacity: 1;
+    }
+  }
+
+  &__status {
+    padding: 0rem 1rem;
+    border: 0.1rem #1e1e1e solid;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 0.2rem;
+    margin-top: 1rem;
+    z-index: 1000;
+
+    &--success {
+      border-color: green;
+      color: green;
+      background-color: rgb(230, 255, 230);
+    }
+
+    &--warn {
+      border-color: orange;
+      color: orange;
+      background-color: rgb(255, 246, 230);
+    }
+
+    &--error {
+      border-color: #e02626;
+      color: #e02626;
+      background-color: rgb(252, 233, 233);
+    }
+  }
+}

@@ -1,0 +1,8 @@
+@import '~bpk-mixins';
+
+.ticket {
+  &__qr {
+    width: 100%;
+    max-width: 20rem;
+  }
+}

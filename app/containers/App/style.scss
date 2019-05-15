@@ -1,0 +1,15 @@
+@import '~bpk-mixins';
+@import 'helpers/tokens';
+
+.app-wrapper {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  top: 0;
+  left: 0;
+  flex-direction: column;
+
+  &--inner {
+    flex: 1;
+  }
+}

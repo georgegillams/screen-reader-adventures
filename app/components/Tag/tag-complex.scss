@@ -1,0 +1,124 @@
+@import "~bpk-mixins";
+
+.tag {
+  &__outer {
+    position: relative;
+    top: 0;
+    height: 1.57rem;
+    padding-left: 0.6rem;
+    text-decoration: none;
+  }
+
+  &__inner-hole {
+    position: absolute;
+    top: 0.556rem;
+    left: 0.48rem;
+    width: 0.3rem;
+    height: 0.3rem;
+    border-radius: 1rem;
+    background-color: white;
+  }
+
+  &__inner-triangle {
+    position: absolute;
+    top: 0.01rem;
+    left: -0.32rem;
+    content: "";
+    width: 0;
+    height: 0;
+    transition: all 0.4s;
+    border-width: 0.77rem 1rem 0.77rem 0;
+    border-style: solid;
+    border-color: transparent #44aeff transparent transparent;
+
+    &--disabled {
+      opacity: 0.3;
+      filter: saturate(0.5);
+    }
+
+    &--hovered {
+      cursor: pointer;
+      filter: brightness(1.2);
+    }
+
+    &--tech {
+      border-color: transparent #fbc02d transparent transparent;
+      color: #3c4451;
+    }
+
+    &--events {
+      border-color: transparent #6a1b9a transparent transparent;
+    }
+
+    &--travel {
+      border-color: transparent #01579b transparent transparent;
+    }
+
+    &--security {
+      border-color: transparent #44aeff transparent transparent;
+    }
+
+    &--photography {
+      border-color: transparent #d84315 transparent transparent;
+    }
+  }
+
+  &__inner-tag {
+    position: relative;
+    // top: .1rem;
+    top: 0.15rem;
+    // left: .02rem;
+    height: 1rem;
+    padding: 0.17rem 0.4rem 0.27rem;
+    transition: all 0.4s;
+    border: none;
+    border-radius: 0.2rem;
+    background-color: #44aeff;
+    color: white;
+    font-family: "Quattrocento Sans", sans-serif;
+    font-size: 1rem;
+    text-decoration: none;
+    text-decoration-color: transparent;
+    text-decoration-line: none;
+
+    &--disabled {
+      opacity: 0.3;
+      filter: saturate(0.5);
+    }
+
+    &--hovered {
+      cursor: pointer;
+      filter: brightness(1.2);
+    }
+
+    &--dark-text {
+      color: #3c4451;
+    }
+
+    &--tech {
+      background-color: #fbc02d;
+      // background-image: linear-gradient(165deg, #fdd835, #f9a825);
+      color: #3c4451;
+    }
+
+    &--events {
+      background-color: #6a1b9a;
+      // background-image: linear-gradient(165deg, #7b1fa2, #4a148c);
+    }
+
+    &--travel {
+      background-color: #01579b;
+      // background-image: linear-gradient(165deg, #fdd835, #f9a825);
+    }
+
+    &--security {
+      background-color: #44aeff;
+      // background-image: linear-gradient(165deg, #6bc1ff, #44aeff);
+    }
+
+    &--photography {
+      background-color: #d84315;
+      // background-image: linear-gradient(165deg, #7b1fa2, #4a148c);
+    }
+  }
+}

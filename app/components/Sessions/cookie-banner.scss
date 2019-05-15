@@ -1,0 +1,62 @@
+@import '~bpk-mixins';
+
+.cookie-banner {
+  &__outer-container {
+    width: 100%;
+    background-color: #e02626;
+  }
+
+  &__component {
+    margin-bottom: 1rem;
+  }
+
+  &__clut-values {
+    position: fixed;
+    background-color: #e02626;
+    color: white;
+    z-index: 10000;
+    top: 0;
+    right: 0;
+    padding: 0 1rem;
+    @include bpk-breakpoint-tablet {
+      top: 2rem;
+    }
+  }
+
+  &__new-data-available {
+    width: 100vw;
+    background-color: green;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10000;
+    color: white;
+  }
+
+  &__inner-container {
+    display: flex;
+    padding: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__blurrb {
+    width: 75%;
+    margin-right: 1rem;
+
+    @include bpk-breakpoint-tablet {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__button {
+    width: 20%;
+
+    @include bpk-breakpoint-tablet {
+      width: auto;
+    }
+  }
+}

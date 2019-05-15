@@ -1,0 +1,19 @@
+@import "~bpk-mixins";
+
+.tag-filter {
+  &__outer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  &__tag {
+    // position: relative;
+    display: inline-block;
+    margin: 0 0.7rem 0.5rem 0;
+
+    &--deselected {
+      filter: saturate(0.1);
+    }
+  }
+}

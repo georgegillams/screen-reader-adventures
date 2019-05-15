@@ -1,0 +1,106 @@
+@import '~bpk-mixins';
+@import 'helpers/tokens';
+
+@fontface {
+  font-family: 'Bungee Inline', cursive;
+  src: url('https://fonts.googleapis.com/css?family=Bungee+Inline');
+}
+
+@fontface {
+  font-family: 'Neuton', serif;
+  src: url('https://fonts.googleapis.com/css?family=Neuton');
+}
+
+@fontface {
+  font-family: 'Quattrocento Sans', sans-serif;
+  src: url('https://fonts.googleapis.com/css?family=Quattrocento+Sans');
+}
+
+@fontface {
+  font-family: 'Iceland', cursive;
+  src: url('https://fonts.googleapis.com/css?family=Iceland');
+}
+
+@keyframes example {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.logo {
+  &__container {
+    display: flex;
+    padding-bottom: 1rem;
+    flex-direction: column;
+    transition: all 0.2s;
+
+    @include bpk-breakpoint-tablet {
+      padding-right: 2rem;
+      padding-left: 2rem;
+      align-items: center;
+    }
+
+    &--centered {
+      align-items: center;
+    }
+
+    &--no-padding {
+      padding: 0;
+    }
+
+    &--animated {
+      &:focus,
+      &:active,
+      &:hover {
+        animation-name: example;
+        animation-duration: 0.4s;
+      }
+    }
+  }
+
+  &__logo-base {
+    display: inline-block;
+    color: #1e1e1e;
+    font-family: 'Quattrocento Sans', sans-serif;
+    font-size: 1.6rem;
+
+    &--light {
+      color: $bpk-color-gray-100;
+    }
+
+    &--no-padding {
+      line-height: normal;
+    }
+  }
+
+  &__logo-large {
+    display: inline-block;
+    color: $primary-color;
+    font-family: 'Quattrocento Sans', sans-serif;
+    font-size: 5.5rem;
+    font-weight: bold;
+    line-height: 6rem;
+
+    @media (prefers-color-scheme: dark) {
+      color: $primary-color-invert;
+    }
+
+    &--smaller {
+      font-size: 3.5rem;
+
+      @include bpk-breakpoint-mobile {
+        font-size: 3rem;
+      }
+    }
+
+    &--no-padding {
+      line-height: normal;
+    }
+  }
+}

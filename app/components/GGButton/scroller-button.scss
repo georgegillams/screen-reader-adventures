@@ -1,0 +1,40 @@
+@import '~bpk-mixins';
+
+.scroller-button {
+  &__outer {
+    display: flex;
+    border: none;
+    background-color: transparent;
+  }
+
+  &__dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    transition: all 0.3s;
+    border: solid 0.2rem white;
+    border-radius: 1rem;
+    background-color: transparent;
+    box-shadow: 0 0 0.2rem white;
+
+    &--hovered {
+      background-color: white;
+      box-shadow: 0 0 0.5rem white;
+    }
+  }
+
+  &__text {
+    margin-right: 0.5rem;
+    padding: 0 0.7rem;
+    transition: all 0.3s;
+    border-radius: 1rem;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    opacity: 0;
+    overflow: hidden;
+
+    &--hovered {
+      opacity: 1;
+    }
+  }
+}
