@@ -17,6 +17,7 @@ import EmailVerificationPage from 'containers/EmailVerification/Loadable';
 import { SRFooter } from 'components/Footer';
 import GtsPage from 'containers/GeorgeTrackingSystem/Loadable';
 import HomePageSR from 'containers/HomePageSR/Loadable';
+import Level0 from 'containers/Level0/Loadable';
 import LoginPage from 'containers/Login/Loadable';
 import MagicLoginPage from 'containers/MagicLogin/Loadable';
 import NavigationBarWrapper from 'containers/NavigationBarWrapperSR';
@@ -86,6 +87,7 @@ const App = () => (
         ))}
 
         <Route exact path="/" component={HomePageSR} />
+        <Route exact path="/Level/1" component={Level0} />
         <Route path="" component={NotFoundPage} />
       </Switch>
     </div>
