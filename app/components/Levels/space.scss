@@ -3,16 +3,24 @@
 
 .space {
   &__space {
-    width: 1rem;
-    height: 1rem;
-    background-color: yellow;
+    width: 2rem;
+    height: 2rem;
+    background-color: lightgray;
+    border: solid gray 0.1rem;
+    position: relative;
 
     &--visited {
-      background-color: gray;
+      background-color: white;
     }
+  }
 
-    &--selected {
-      background-color: orange;
-    }
+  &__shadow {
+    background-color: gray;
+    opacity: 0.2;
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 }
