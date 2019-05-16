@@ -1,0 +1,18 @@
+@import '~bpk-mixins';
+@import 'helpers/tokens';
+
+.space {
+  &__space {
+    width: 1rem;
+    height: 1rem;
+    background-color: yellow;
+
+    &--visited {
+      background-color: gray;
+    }
+
+    &--selected {
+      background-color: orange;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@import '~bpk-mixins';
+@import 'helpers/tokens';
+
+.level-wrapper {
+  &__outer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  &__description {
+    max-width: 25rem;
+  }
+
+  &__level {
+    margin: 2rem 0;
+  }
+}
