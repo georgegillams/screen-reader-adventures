@@ -16,14 +16,22 @@ module.exports = Object.assign(
     apiHost: process.env.APIHOST || 'localhost',
     apiPort: process.env.APIPORT,
     app: {
-      title: 'George Gillams - open source software engineer',
-      description: 'George Gillams - open source software engineer',
+      title:
+        'Screen Reader Adventures - learn to use a screen reader the fun way',
+      description:
+        'Screen Reader Adventures - learn to use a screen reader the fun way',
       head: {
-        titleTemplate: 'George Gillams: %s',
+        titleTemplate: 'Screen Reader Adventures: %s',
         meta: [
-          { name: 'description', content: 'My personal website' },
+          {
+            name: 'description',
+            content: 'Learn to use a screen reader the fun way',
+          },
           { charset: 'utf-8' },
-          { property: 'og:site_name', content: 'My personal website' },
+          {
+            property: 'og:site_name',
+            content: 'Learn to use a screen reader the fun way',
+          },
           {
             property: 'og:image',
             content: 'https://www.screen-reader-adventures.com/favicon.ico',
@@ -33,10 +41,14 @@ module.exports = Object.assign(
             content: 'https://www.screen-reader-adventures.com/favicon.ico',
           },
           { property: 'og:locale', content: 'en_GB' },
-          { property: 'og:title', content: 'My personal website' },
+          {
+            property: 'og:title',
+            content: 'Learn to use a screen reader the fun way',
+          },
           {
             property: 'og:description',
-            content: 'George Gillams - open source software engineer',
+            content:
+              'Screen Reader Adventures - learn to use a screen reader the fun way',
           },
           { property: 'og:card', content: 'summary' },
           { property: 'og:site', content: '@georgegillams' },
