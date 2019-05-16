@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import ArticleCard, { CARD_LAYOUTS } from 'components/Cards';
+import PlatformSelector from 'components/PlatformSelector';
 import AboutPage from 'containers/About/About';
 import STYLES from 'containers/pages.scss';
 import { cssModules } from 'bpk-react-utils';
@@ -20,23 +21,7 @@ export default class HomePage extends React.PureComponent {
         )}`}
       >
         <Helmet title="Home" />
-        <span
-          style={{
-            position: 'absolute',
-            width: '100vw',
-            height: '100vh',
-            backgroundColor: 'white',
-            left: 0,
-            top: 0,
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-around',
-            fontSize: '5rem',
-            fontWeight: 'bold',
-          }}
-        >
-          COMING SOON!
-        </span>
+        <PlatformSelector />
       </div>
     );
   }

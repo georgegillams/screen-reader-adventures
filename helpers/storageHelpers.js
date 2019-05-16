@@ -1,6 +1,7 @@
 import moment from 'moment';
 
 const POST_LOGIN_REDIRECT_LOCATION = 'post-login-redirect-location';
+const USER_SELECTED_PLATFORM = 'user-selected-platform';
 
 const redirectToCurrentPageAfterLogin = () => {
   const currentLocation = window.location;
@@ -9,6 +10,10 @@ const redirectToCurrentPageAfterLogin = () => {
 
 const setPostLoginRedirect = location => {
   localStorage.setItem(POST_LOGIN_REDIRECT_LOCATION, location);
+};
+
+const setPlatform = selection => {
+  localStorage.setItem(USER_SELECTED_PLATFORM, selection);
 };
 
 const clearPostLoginRedirect = () => {
@@ -34,6 +39,7 @@ export {
   setPostLoginRedirect,
   getPostLoginRedirect,
   getPostLoginRedirectAndRemove,
+  setPlatform,
 };
 export default {
   redirectToCurrentPageAfterLogin,
@@ -41,4 +47,5 @@ export default {
   setPostLoginRedirect,
   getPostLoginRedirect,
   getPostLoginRedirectAndRemove,
+  setPlatform,
 };
