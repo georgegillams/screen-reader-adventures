@@ -3,7 +3,7 @@ import Helmet from 'react-helmet';
 import { TextLink, Section } from 'components/Typography';
 import GGButton from 'components/GGButton';
 import PhotoGallery from 'components/PhotoGallery';
-import { Space } from 'components/Levels';
+import { Space, GoalSpace } from 'components/Levels';
 import { cssModules } from 'bpk-react-utils';
 
 import STYLES from '../pages.scss';
@@ -19,7 +19,7 @@ const Level1 = props => {
       <Space spaceNumber={2} />
       <Space spaceNumber={3} />
       <Space spaceNumber={4} />
-      <Space spaceNumber={5} onVisit={() => onLevelComplete()} />
+      <GoalSpace spaceNumber={5} onVisit={() => onLevelComplete()} />
     </div>
   );
 };

@@ -16,9 +16,6 @@ export default class Space extends Component {
     const { spaceNumber, onSelect, onVisit, children, ...rest } = this.props;
 
     const classNames = [getClassName('space__space')];
-    if (this.state.selected) {
-      classNames.push(getClassName('space__space--selected'));
-    }
     if (this.state.visited) {
       classNames.push(getClassName('space__space--visited'));
     }
@@ -28,11 +25,12 @@ export default class Space extends Component {
         aria-label={`space ${spaceNumber}`}
         onFocus={() => {
           if (!this.state.visited) {
-            this.setState({ selected: true, visited: true });
+            this.setState({ visited: true });
             if (onVisit) {
               onVisit();
             }
           }
+          this.setState({ selected: true });
           if (onSelect) {
             onSelect();
           }
@@ -44,6 +42,9 @@ export default class Space extends Component {
         {...rest}
       >
         {children}
+        {this.state.selected && (
+          <div className={getClassName('space__shadow')} />
+        )}
       </button>
     );
   }
