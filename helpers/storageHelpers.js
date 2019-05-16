@@ -16,6 +16,11 @@ const setPlatform = selection => {
   localStorage.setItem(USER_SELECTED_PLATFORM, selection);
 };
 
+const getPlatform = () => {
+  const result = localStorage.getItem(USER_SELECTED_PLATFORM);
+  return result;
+};
+
 const clearPostLoginRedirect = () => {
   setInterval(() => {
     localStorage.removeItem(POST_LOGIN_REDIRECT_LOCATION);
@@ -40,6 +45,7 @@ export {
   getPostLoginRedirect,
   getPostLoginRedirectAndRemove,
   setPlatform,
+  getPlatform,
 };
 export default {
   redirectToCurrentPageAfterLogin,
@@ -48,4 +54,5 @@ export default {
   getPostLoginRedirect,
   getPostLoginRedirectAndRemove,
   setPlatform,
+  getPlatform,
 };
