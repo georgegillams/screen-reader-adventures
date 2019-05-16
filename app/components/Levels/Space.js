@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { cssModules } from 'bpk-react-utils';
+import Character from './Character';
 
 import STYLES from './space.scss';
 
@@ -45,6 +46,7 @@ export default class Space extends Component {
         {this.state.selected && (
           <div className={getClassName('space__shadow')} />
         )}
+        {this.state.selected && <Character />}
       </button>
     );
   }

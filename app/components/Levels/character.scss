@@ -1,12 +1,12 @@
 @import '~bpk-mixins';
 @import 'helpers/tokens';
 
-.goal-space {
-  &__flag {
+.character {
+  &__character {
     position: absolute;
     height: 100%;
     bottom: 0;
     right: 0;
-    z-index: 2;
+    z-index: 1;
   }
 }

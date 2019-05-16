@@ -25,6 +25,7 @@ import LoginPage from 'containers/Login/Loadable';
 import MagicLoginPage from 'containers/MagicLogin/Loadable';
 import NavigationBarWrapper from 'containers/NavigationBarWrapperSR';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
+import EndOfGame from 'containers/EndOfGame/Loadable';
 import NotificationCenter from 'containers/NotificationCenter';
 import PaymentsPage from 'containers/Payments/Loadable';
 import Photography from 'containers/Photography';
@@ -91,6 +92,7 @@ const App = () => (
 
         <Route exact path="/" component={HomePageSR} />
         <Route exact path="/Level/1" component={Level1} />
+        <Route exact path="/Level/2" component={EndOfGame} />
         <Route exact path="/setup/iOS" component={SetupIos} />
         <Route exact path="/setup/macOS" component={SetupMacos} />
         <Route exact path="/setup/Android" component={SetupAndroid} />
