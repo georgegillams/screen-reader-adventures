@@ -1,5 +1,5 @@
 import React from 'react';
-import Level0 from './Level0';
+import Level1 from './Level1';
 import LevelWrapper from 'components/Levels';
 import { getCopy } from 'helpers/copyHelpers';
 import { cssModules } from 'bpk-react-utils';
@@ -8,14 +8,14 @@ import STYLES from '../pages.scss';
 
 const getClassName = cssModules(STYLES);
 
-const Level0Page = () => {
+const Level1Page = () => {
   return (
     <LevelWrapper
       levelNumber={1}
-      description={getCopy('level0Description')}
-      level={<Level0 />}
+      description={getCopy('level1Description')}
+      level={<Level1 />}
     />
   );
 };
 
-export default Level0Page;
+export default Level1Page;

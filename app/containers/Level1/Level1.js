@@ -10,7 +10,7 @@ import STYLES from '../pages.scss';
 
 const getClassName = cssModules(STYLES);
 
-const Level0 = props => {
+const Level1 = props => {
   const { onLevelComplete, ...rest } = props;
 
   return (
@@ -24,4 +24,4 @@ const Level0 = props => {
   );
 };
 
-export default Level0;
+export default Level1;
