@@ -14,12 +14,12 @@ import BlogViewer from 'containers/BlogViewer/Loadable';
 import BlogsPage from 'containers/Blogs/Loadable';
 import ContactPage from 'containers/ContactGG/Loadable';
 import EmailVerificationPage from 'containers/EmailVerification/Loadable';
-import Footer from 'components/Footer';
+import { SRFooter } from 'components/Footer';
 import GtsPage from 'containers/GeorgeTrackingSystem/Loadable';
-import HomePageSR from 'containers/HomePageSR';
+import HomePageSR from 'containers/HomePageSR/Loadable';
 import LoginPage from 'containers/Login/Loadable';
 import MagicLoginPage from 'containers/MagicLogin/Loadable';
-import NavigationBarWrapper from 'containers/NavigationBarWrapperGG';
+import NavigationBarWrapper from 'containers/NavigationBarWrapperSR';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import NotificationCenter from 'containers/NotificationCenter';
 import PaymentsPage from 'containers/Payments/Loadable';
@@ -61,10 +61,13 @@ const getFullRedirect = destination => {
 const App = () => (
   <div className={getClassName('app-wrapper')} id="app-wrapper">
     <div className={getClassName('app-wrapper--inner')}>
-      <Helmet titleTemplate="%s - George Gillams" defaultTitle="George Gillams">
+      <Helmet
+        titleTemplate="%s - Screen Reader Adventures"
+        defaultTitle="Screen Reader Adventures"
+      >
         <meta
           name="description"
-          content="George Gillams - open source software engineer"
+          content="Screen Reader Adventures - learn to use a screen reader the fun way"
         />
       </Helmet>
       <RequestStatusWrapper />
@@ -86,7 +89,7 @@ const App = () => (
         <Route path="" component={NotFoundPage} />
       </Switch>
     </div>
-    <Footer />
+    <SRFooter />
   </div>
 );
 

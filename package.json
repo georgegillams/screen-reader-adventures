@@ -1,10 +1,10 @@
 {
-  "name": "GeorgeGillams",
+  "name": "ScreenReaderAdventures",
   "version": "1.0.0",
-  "description": "My personal website",
+  "description": "Learn to use a screen reader the fun way",
   "repository": {
     "type": "git",
-    "url": "git://github.com/georgegillams/georgegillams.co.uk.git"
+    "url": "git://github.com/georgegillams/screen-reader-adventures.git"
   },
   "engines": {
     "node": "10.13.0",
