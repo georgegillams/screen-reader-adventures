@@ -1,6 +1,9 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Switch, Route } from 'react-router-dom';
+import SetupIos from 'containers/SetupIos/Loadable';
+import SetupMacos from 'containers/SetupMacos/Loadable';
+import SetupAndroid from 'containers/SetupAndroid/Loadable';
 import AccountPage from 'containers/Account/Loadable';
 import AdminPage from 'containers/Admin';
 import AdminBlogs from 'containers/AdminBlogs/Loadable';
@@ -88,6 +91,9 @@ const App = () => (
 
         <Route exact path="/" component={HomePageSR} />
         <Route exact path="/Level/1" component={Level0} />
+        <Route exact path="/setup/iOS" component={SetupIos} />
+        <Route exact path="/setup/macOS" component={SetupMacos} />
+        <Route exact path="/setup/Android" component={SetupAndroid} />
         <Route path="" component={NotFoundPage} />
       </Switch>
     </div>

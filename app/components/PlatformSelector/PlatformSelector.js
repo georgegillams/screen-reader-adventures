@@ -14,7 +14,7 @@ const PlatformSelector = props => {
 
   const onSelect = selected => {
     setPlatform(selected);
-    window.location = '/level/1';
+    window.location = `/setup/${selected}`;
   };
 
   return (
