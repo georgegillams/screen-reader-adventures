@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { SRLogo } from 'components/Logo';
-import TechSpecs from './TechSpecs';
+import { TextLink } from 'components/Typography';
+import MadeWithLove from './MadeWithLove';
 
 import STYLES from './footer.scss';
 import { cssModules } from 'bpk-react-utils';
@@ -15,7 +15,9 @@ const SRFooter = props => {
   }
 
   return (
-    <footer id="footer" className={outerClassNameFinal.join(' ')} {...rest} />
+    <footer id="footer" className={outerClassNameFinal.join(' ')} {...rest}>
+      <MadeWithLove />
+    </footer>
   );
 };
 
