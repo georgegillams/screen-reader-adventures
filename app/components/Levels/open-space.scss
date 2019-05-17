@@ -8,5 +8,10 @@
     background-color: white;
     border: solid gray 0.1rem;
     position: relative;
+
+    @media (prefers-color-scheme: dark) {
+      background-color: gray;
+      border-color: $not-black;
+    }
   }
 }

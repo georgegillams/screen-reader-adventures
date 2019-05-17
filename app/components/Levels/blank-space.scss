@@ -5,7 +5,11 @@
   &__space {
     width: 2rem;
     height: 2rem;
-    background-color: white;
+    background-color: $background-color;
     position: relative;
+
+    @media (prefers-color-scheme: dark) {
+      background-color: $background-color-invert;
+    }
   }
 }

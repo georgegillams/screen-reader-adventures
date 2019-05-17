@@ -19,10 +19,15 @@ const MadeWithLove = props => {
         aria-label="Made with love by George Gillams"
         light
         noPadding
-        style={{ textAlign: 'center' }}
+        style={{ color: 'white', textAlign: 'center' }}
       >
         <span aria-label="Made with love by">Made with ♥️ by </span>
-        <TextLink external light href="https://www.georgegillams.co.uk/">
+        <TextLink
+          style={{ color: 'white' }}
+          external
+          light
+          href="https://www.georgegillams.co.uk/"
+        >
           George Gillams
         </TextLink>
       </Section>
