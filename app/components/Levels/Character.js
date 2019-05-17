@@ -9,6 +9,7 @@ const getClassName = cssModules(STYLES);
 
 const Character = props => (
   <img
+    aria-hidden
     className={getClassName('character__character')}
     src={robot}
     {...props}
