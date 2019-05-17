@@ -12,12 +12,7 @@ export default class GoalSpace extends Component {
     const { spaceNumber, children, ...rest } = this.props;
 
     return (
-      <Space
-        aria-label={
-          'Congratulations, you have reached the goal for this level.'
-        }
-        {...rest}
-      >
+      <Space aria-label={`Space ${spaceNumber}. Goal`} {...rest}>
         <img
           className={getClassName('goal-space__flag')}
           src={finishLineFlag}

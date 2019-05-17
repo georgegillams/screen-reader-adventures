@@ -46,7 +46,6 @@ export default class Space extends Component {
           markVisited();
         }}
         onFocus={() => {
-          markVisited();
           this.setState({ selected: true });
           if (onSelect) {
             onSelect();

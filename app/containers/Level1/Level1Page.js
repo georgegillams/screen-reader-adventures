@@ -1,5 +1,4 @@
 import React from 'react';
-import Level1 from './Level1';
 import LevelWrapper from 'components/Levels';
 import { getCopy } from 'helpers/copyHelpers';
 import { cssModules } from 'bpk-react-utils';
@@ -13,7 +12,14 @@ const Level1Page = () => {
     <LevelWrapper
       levelNumber={1}
       description={getCopy('level1Description')}
-      level={<Level1 />}
+      level={[
+        ['a', 's', 's', 's', 'a'],
+        ['b', 'b', 'b', 'b', 's'],
+        ['b', 'b', 'b', 'b', 's'],
+        ['b', 'b', 'b', 'b', 's'],
+        ['b', 'b', 'b', 'b', 'g'],
+      ]}
+      startSpace={{ x: 0, y: 0 }}
     />
   );
 };
