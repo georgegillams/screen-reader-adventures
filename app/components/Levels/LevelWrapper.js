@@ -37,29 +37,59 @@ export default class LevelWrapper extends Component {
 
     const { x, y } = startSpace;
     this.setState({ characterGamePos: startSpace });
+    const ref = this.getSquare(x, y);
+    if (ref) {
+      this.moveCharacter(ref);
+    }
+  };
+
+  getSquare = (x, y) => {
     if (
       this.spaceRefs &&
       this.spaceRefs[`row_${x}`] &&
       this.spaceRefs[`row_${x}`][`col_${y}`]
     ) {
-      const ref = this.spaceRefs[`row_${x}`][`col_${y}`];
-      this.moveCharacter(ref);
+      return this.spaceRefs[`row_${x}`][`col_${y}`];
     }
+
+    return null;
   };
 
   summonCharacter = (x, y, sender) => {
     const { characterGamePos } = this.state;
-    // Only permit moving in straight lines
-    if (x !== characterGamePos.x && y !== characterGamePos.y) {
+    let currentX = characterGamePos.x;
+    let currentY = characterGamePos.y;
+
+    if (currentX === x && currentY === y) {
       return;
     }
-    // TODO Move to next square one at a time, instead of jumping.
-    // TODO On each square, call `onVisit`
-    // TODO `OnVisit` should determine whether the character has won, or died
-    this.moveCharacter(sender);
-    if (sender.current.props.onVisit) {
-      sender.current.props.onVisit();
+
+    const movingXForwards = currentX < x;
+    const movingXBackwards = currentX > x;
+    const movingYForwards = currentY < y;
+    const movingYBackwards = currentY > y;
+    const movingXWards = movingXForwards || movingXBackwards;
+    const movingYWards = movingYForwards || movingYBackwards;
+
+    // Only permit moving in straight lines
+    if (movingXWards && movingYWards) {
+      return;
     }
+
+    while (x !== currentX || y !== currentY) {
+      currentX += movingXForwards ? 1 : 0;
+      currentX -= movingXBackwards ? 1 : 0;
+      currentY += movingYForwards ? 1 : 0;
+      currentY -= movingYBackwards ? 1 : 0;
+      const square = this.getSquare(currentX, currentY);
+      if (square) {
+        if (square.current.props.onVisit) {
+          square.current.props.onVisit();
+        }
+        this.moveCharacter(square);
+      }
+    }
+
     this.setState({ characterGamePos: { x, y } });
   };
 
