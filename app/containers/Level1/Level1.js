@@ -3,25 +3,44 @@ import Helmet from 'react-helmet';
 import { TextLink, Section } from 'components/Typography';
 import GGButton from 'components/GGButton';
 import PhotoGallery from 'components/PhotoGallery';
-import { Space, GoalSpace } from 'components/Levels';
+import { OpenSpace, Space, GoalSpace } from 'components/Levels';
 import { cssModules } from 'bpk-react-utils';
 
 import STYLES from '../pages.scss';
 
 const getClassName = cssModules(STYLES);
 
-const Level1 = props => {
-  const { onLevelComplete, ...rest } = props;
+export default class Level1 extends Component {
+  constructor(props) {
+    super(props);
 
-  return (
-    <div {...rest}>
-      <Space spaceNumber={1} />
-      <Space spaceNumber={2} />
-      <Space spaceNumber={3} />
-      <Space spaceNumber={4} />
-      <GoalSpace spaceNumber={5} onVisit={() => onLevelComplete()} />
-    </div>
-  );
-};
+    this.space1 = React.createRef();
+    this.space5 = React.createRef();
+  }
+  render() {
+    const { onLevelComplete, summonCharacter, ...rest } = this.props;
 
-export default Level1;
+    return (
+      <div {...rest}>
+        <Space
+          spaceNumber={1}
+          ref={this.space1}
+          onClick={() => {
+            summonCharacter(this.space1);
+          }}
+        />
+        <OpenSpace />
+        <OpenSpace />
+        <OpenSpace />
+        <GoalSpace
+          spaceNumber={5}
+          onVisit={() => onLevelComplete()}
+          ref={this.space5}
+          onClick={() => {
+            summonCharacter(this.space5);
+          }}
+        />
+      </div>
+    );
+  }
+}

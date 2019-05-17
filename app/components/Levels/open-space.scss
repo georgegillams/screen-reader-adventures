@@ -1,0 +1,12 @@
+@import '~bpk-mixins';
+@import 'helpers/tokens';
+
+.open-space {
+  &__space {
+    width: 2rem;
+    height: 2rem;
+    background-color: white;
+    border: solid gray 0.1rem;
+    position: relative;
+  }
+}

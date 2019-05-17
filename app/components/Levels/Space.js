@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { cssModules } from 'bpk-react-utils';
-import Character from './Character';
 
 import STYLES from './space.scss';
 
@@ -14,23 +13,40 @@ export default class Space extends Component {
   }
 
   render() {
-    const { spaceNumber, onSelect, onVisit, children, ...rest } = this.props;
+    const {
+      spaceNumber,
+      onPress,
+      onSelect,
+      onVisit,
+      children,
+      ...rest
+    } = this.props;
 
     const classNames = [getClassName('space__space')];
     if (this.state.visited) {
       classNames.push(getClassName('space__space--visited'));
     }
 
+    const markVisited = () => {
+      if (!this.state.visited) {
+        this.setState({ visited: true });
+        if (onVisit) {
+          onVisit();
+        }
+      }
+    };
+
     return (
       <button
         aria-label={`space ${spaceNumber}`}
-        onFocus={() => {
-          if (!this.state.visited) {
-            this.setState({ visited: true });
-            if (onVisit) {
-              onVisit();
-            }
+        onPress={() => {
+          if (onPress) {
+            onPress();
           }
+          markVisited();
+        }}
+        onFocus={() => {
+          markVisited();
           this.setState({ selected: true });
           if (onSelect) {
             onSelect();
@@ -46,7 +62,6 @@ export default class Space extends Component {
         {this.state.selected && (
           <div className={getClassName('space__shadow')} />
         )}
-        {this.state.selected && <Character />}
       </button>
     );
   }
