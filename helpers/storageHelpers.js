@@ -2,6 +2,7 @@ import moment from 'moment';
 
 const POST_LOGIN_REDIRECT_LOCATION = 'post-login-redirect-location';
 const USER_SELECTED_PLATFORM = 'user-selected-platform';
+const SESSION_DEBUG_VIEWS = 'showSessionDebugViews';
 
 const redirectToCurrentPageAfterLogin = () => {
   const currentLocation = window.location;
@@ -38,6 +39,14 @@ const getPostLoginRedirectAndRemove = () => {
   return result;
 };
 
+const setDebugViewsShown = newValue => {
+  localStorage.setItem(SESSION_DEBUG_VIEWS, newValue);
+};
+
+const getDebugViewsShown = () => {
+  return window.localStorage.getItem(SESSION_DEBUG_VIEWS) === 'true';
+};
+
 export {
   redirectToCurrentPageAfterLogin,
   clearPostLoginRedirect,
@@ -46,6 +55,8 @@ export {
   getPostLoginRedirectAndRemove,
   setPlatform,
   getPlatform,
+  setDebugViewsShown,
+  getDebugViewsShown,
 };
 export default {
   redirectToCurrentPageAfterLogin,
@@ -55,4 +66,6 @@ export default {
   getPostLoginRedirectAndRemove,
   setPlatform,
   getPlatform,
+  setDebugViewsShown,
+  getDebugViewsShown,
 };

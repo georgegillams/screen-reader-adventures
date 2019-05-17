@@ -1,0 +1,25 @@
+@import '~bpk-mixins';
+@import 'helpers/tokens';
+
+.untappable-scrim {
+  &__scrim {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 500;
+    top: 0;
+    left: 0;
+  }
+  &__disabled {
+    width: auto;
+    height: 1rem;
+    position: fixed;
+    z-index: 500;
+    top: 0;
+    left: 0;
+    background-color: $bpk-color-red-700;
+    padding: 1rem 0.7rem;
+    display: flex;
+    align-items: center;
+  }
+}

@@ -3,6 +3,7 @@ import { findDOMNode } from 'react-dom';
 import { Helmet } from 'react-helmet';
 import { Section } from 'components/Typography';
 import GGButton from 'components/GGButton';
+import UntappableScrim from 'components/Scrim';
 import { OpenSpace, Space, GoalSpace, BlankSpace } from 'components/Levels';
 import { cssModules } from 'bpk-react-utils';
 
@@ -92,6 +93,7 @@ export default class LevelWrapper extends Component {
         {...rest}
       >
         <Helmet title={`Level ${levelNumber}`} />
+        <UntappableScrim />
         <span className={getClassName('level-wrapper__description')}>
           {description}
         </span>
