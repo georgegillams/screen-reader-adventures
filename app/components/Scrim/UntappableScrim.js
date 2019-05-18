@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { cssModules } from 'bpk-react-utils';
-import { getDebugViewsShown } from 'helpers/storageHelpers';
+import { getPlatform, getDebugViewsShown } from 'helpers/storageHelpers';
 
 import STYLES from './untappable-scrim.scss';
 
@@ -9,10 +9,14 @@ const getClassName = cssModules(STYLES);
 const UntappableScrim = props => {
   if (getDebugViewsShown()) {
     return (
-      <div className={getClassName('untappable-scrim__disabled')}>
+      <div aria-hidden className={getClassName('untappable-scrim__disabled')}>
         Anti-cheat scrim disabled
       </div>
     );
+  }
+  const platform = getPlatform();
+  if (platform === 'Android' || platform === 'iOS') {
+    return null;
   }
   return (
     <div
