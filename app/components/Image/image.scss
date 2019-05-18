@@ -1,0 +1,20 @@
+@import '~bpk-mixins';
+@import 'helpers/tokens';
+
+.image {
+  &--dark {
+    display: none;
+
+    @media (prefers-color-scheme: dark) {
+      display: inherit;
+    }
+  }
+
+  &--light {
+    display: inherit;
+
+    @media (prefers-color-scheme: dark) {
+      display: none;
+    }
+  }
+}
