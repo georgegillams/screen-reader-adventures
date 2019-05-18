@@ -34,6 +34,7 @@ const Level1Page = props => {
           ['b', 'b', 'b', 'b', 'g'],
         ]}
         startSpace={{ x: 0, y: 0 }}
+        monsterPositions={[]}
       />
     </div>
   );
