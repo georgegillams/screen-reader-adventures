@@ -5,6 +5,7 @@ import { Section } from 'components/Typography';
 import GGButton from 'components/GGButton';
 import UntappableScrim from 'components/Scrim';
 import { OpenSpace, Space, GoalSpace, BlankSpace } from 'components/Levels';
+import { MONSTER_MOVING_SPEED } from 'helpers/constants';
 import { cssModules } from 'bpk-react-utils';
 
 import Character from './Character';
@@ -20,9 +21,9 @@ export default class LevelWrapper extends Component {
     this.state = {
       levelComplete: false,
       monsterGamePos: [],
-      monsterPos: [],
       characterGamePos: { x: 0, y: 0 },
-      characterPos: { left: 0, top: 0 },
+      targetCharacterGamePos: { x: 0, y: 0 },
+      characterIsMoving: false,
     };
     this.character = React.createRef();
     this.spaceRefs = {};
@@ -35,38 +36,22 @@ export default class LevelWrapper extends Component {
 
   componentDidMount = () => {
     const { startSpace, monsterPositions } = this.props;
-    if (!startSpace) {
-      return;
-    }
 
     this.setState({
-      characterGamePos: startSpace,
+      characterGamePos: startSpace || { x: 0, y: 0 },
       monsterGamePos: monsterPositions || [],
     });
-
-    const { x, y } = startSpace;
-    const ref = this.getSquare(x, y);
-    if (ref) {
-      this.moveCharacter(ref);
-    }
-
-    monsterPositions.forEach((monsterGamePos, i) => {
-      const squareRef = this.getSquare(monsterGamePos.x, monsterGamePos.y);
-      if (squareRef) {
-        this.moveMonster(squareRef, i);
-      }
-    });
   };
 
-  getSquare = (x, y) => {
-    return this.get3DEntity(x, y, this.spaceRefs);
+  getSquareOnScreen = (x, y) => {
+    return this.get3DEntityOnScreen(x, y, this.spaceRefs);
   };
 
-  getMonster = (x, y) => {
-    return this.get3DEntity(x, y, this.monsterRefs);
+  getMonsterOnScreen = (x, y) => {
+    return this.get3DEntityOnScreen(x, y, this.monsterRefs);
   };
 
-  get3DEntity = (x, y, references) => {
+  get3DEntityOnScreen = (x, y, references) => {
     if (
       references &&
       references[`row_${x}`] &&
@@ -81,29 +66,19 @@ export default class LevelWrapper extends Component {
     return null;
   };
 
-  addMonster = (x, y) => {
-    let monsterAlreadyRegistered = false;
-    const monsterGamePositions = JSON.parse(
-      JSON.stringify(this.state.monsterGamePos),
-    );
-    monsterGamePositions.forEach(p => {
-      if (p.x === x && p.y === y) {
-        monsterAlreadyRegistered = true;
-      }
-    });
-    if (monsterAlreadyRegistered) {
-      return;
+  moveCharacter = (xOverride, yOverride) => {
+    const { characterGamePos, targetCharacterGamePos } = this.state;
+    let { x, y } = targetCharacterGamePos;
+    if (xOverride !== undefined && yOverride !== undefined) {
+      x = xOverride;
+      y = yOverride;
     }
-    monsterGamePositions.push({ x, y });
-    this.setState({ monsterGamePos: monsterGamePositions });
-  };
-
-  summonCharacter = (x, y, sender) => {
-    const { characterGamePos } = this.state;
     let currentX = characterGamePos.x;
     let currentY = characterGamePos.y;
 
-    if (currentX === x && currentY === y) {
+    // If no movement is required, don't do anything
+    if (x === currentX && y === currentY) {
+      this.setState({ characterIsMoving: false });
       return;
     }
 
@@ -114,50 +89,85 @@ export default class LevelWrapper extends Component {
     const movingXWards = movingXForwards || movingXBackwards;
     const movingYWards = movingYForwards || movingYBackwards;
 
-    // Only permit moving in straight lines
+    // We only permit moving in straight lines
     if (movingXWards && movingYWards) {
+      this.setState({ characterIsMoving: false });
       return;
     }
 
-    // TODO refactor this to show each space movement. Possibly requires recursion
-    while (x !== currentX || y !== currentY) {
-      currentX += movingXForwards ? 1 : 0;
-      currentX -= movingXBackwards ? 1 : 0;
-      currentY += movingYForwards ? 1 : 0;
-      currentY -= movingYBackwards ? 1 : 0;
-      const square = this.getSquare(currentX, currentY);
-      if (square) {
-        if (square.current.props.onVisit) {
-          square.current.props.onVisit();
-        }
-        this.moveCharacter(square);
-        this.state.monsterGamePos.forEach(mP => {
-          if (mP.x === currentX && mP.y === currentY) {
-            this.setState({ gameOver: true });
-          }
-        });
+    // Move the character one space
+    currentX += movingXForwards ? 1 : 0;
+    currentX -= movingXBackwards ? 1 : 0;
+    currentY += movingYForwards ? 1 : 0;
+    currentY -= movingYBackwards ? 1 : 0;
+
+    const square = this.getSquareOnScreen(currentX, currentY);
+
+    if (square) {
+      if (square.current.props.onVisit) {
+        square.current.props.onVisit();
       }
+      this.state.monsterGamePos.forEach(mP => {
+        if (mP.x === currentX && mP.y === currentY) {
+          this.setState({ gameOver: true });
+        }
+      });
     }
 
-    this.setState({ characterGamePos: { x, y } });
+    this.setState({
+      characterIsMoving: true,
+      characterGamePos: { x: currentX, y: currentY },
+    });
+
+    // Recursively call the moving function to continue character movement
+    setTimeout(() => {
+      this.moveCharacter();
+    }, MONSTER_MOVING_SPEED * 1000);
   };
 
-  moveCharacter = sender => {
-    const newPos = {};
-    const square = findDOMNode(sender.current);
-    newPos.left = square.offsetLeft;
-    newPos.top = square.offsetTop;
-    this.setState({ characterPos: newPos });
+  summonCharacter = (x, y) => {
+    this.setState({ targetCharacterGamePos: { x, y } });
+    if (!this.state.characterIsMoving) {
+      this.moveCharacter(x, y);
+    }
   };
 
-  moveMonster = (sender, monsterNumber) => {
-    const monsterPositions = JSON.parse(JSON.stringify(this.state.monsterPos));
-    const newPos = {};
-    const square = findDOMNode(sender.current);
-    newPos.left = square.offsetLeft;
-    newPos.top = square.offsetTop;
-    monsterPositions[monsterNumber] = newPos;
-    this.setState({ monsterPos: monsterPositions });
+  getCharacterScreenPosition = () => {
+    const characterPosition = this.state.characterGamePos;
+    if (!characterPosition) {
+      return;
+    }
+    const result = {};
+    const squareRef = this.getSquareOnScreen(
+      characterPosition.x,
+      characterPosition.y,
+    );
+    if (!squareRef) {
+      return;
+    }
+    const square = findDOMNode(squareRef.current);
+    result.left = square.offsetLeft;
+    result.top = square.offsetTop;
+    return result;
+  };
+
+  getMonsterScreenPosition = monsterNumber => {
+    const monsterPosition = this.state.monsterGamePos[monsterNumber];
+    if (!monsterPosition) {
+      return;
+    }
+    const result = {};
+    const squareRef = this.getSquareOnScreen(
+      monsterPosition.x,
+      monsterPosition.y,
+    );
+    if (!squareRef) {
+      return;
+    }
+    const square = findDOMNode(squareRef.current);
+    result.left = square.offsetLeft;
+    result.top = square.offsetTop;
+    return result;
   };
 
   // TODO Avoid creating refs on everysingle render - it is innefficient!
@@ -208,12 +218,17 @@ export default class LevelWrapper extends Component {
           {description}
         </span>
         <div className={getClassName('level-wrapper__level')}>
-          <Character ref={this.character} style={this.state.characterPos} />
+          <Character
+            ref={this.character}
+            style={this.getCharacterScreenPosition()}
+          />
           {monsterPositions.map((mP, i) => {
-            this.addMonster(mP.x, mP.y);
             const monsterRef = this.createMonsterRef(mP.x, mP.y);
             return (
-              <Monster ref={monsterRef} style={this.state.monsterPos[i]} />
+              <Monster
+                ref={monsterRef}
+                style={this.getMonsterScreenPosition(i)}
+              />
             );
           })}
           {level.map((row, i) => (
@@ -226,7 +241,7 @@ export default class LevelWrapper extends Component {
                     <Space
                       spaceNumber={spaceNumber}
                       ref={spaceRef}
-                      onClick={() => this.summonCharacter(i, j, spaceRef)}
+                      onClick={() => this.summonCharacter(i, j)}
                     />
                   );
                 }
@@ -243,7 +258,7 @@ export default class LevelWrapper extends Component {
                       spaceNumber={spaceNumber}
                       onVisit={() => this.onLevelComplete()}
                       ref={spaceRef}
-                      onClick={() => this.summonCharacter(i, j, spaceRef)}
+                      onClick={() => this.summonCharacter(i, j)}
                     />
                   );
                 }
