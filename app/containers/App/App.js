@@ -21,6 +21,7 @@ import { SRFooter } from 'components/Footer';
 import GtsPage from 'containers/GeorgeTrackingSystem/Loadable';
 import HomePageSR from 'containers/HomePageSR/Loadable';
 import Level1 from 'containers/Level1/Loadable';
+import Level2 from 'containers/Level2/Loadable';
 import LoginPage from 'containers/Login/Loadable';
 import MagicLoginPage from 'containers/MagicLogin/Loadable';
 import NavigationBarWrapper from 'containers/NavigationBarWrapperSR';
@@ -92,7 +93,8 @@ const App = () => (
 
         <Route exact path="/" component={HomePageSR} />
         <Route exact path="/Level/1" component={Level1} />
-        <Route exact path="/Level/2" component={EndOfGame} />
+        <Route exact path="/Level/2" component={Level2} />
+        <Route exact path="/Level/3" component={EndOfGame} />
         <Route exact path="/setup/iOS" component={SetupIos} />
         <Route exact path="/setup/macOS" component={SetupMacos} />
         <Route exact path="/setup/Android" component={SetupAndroid} />

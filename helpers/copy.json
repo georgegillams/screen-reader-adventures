@@ -3,5 +3,10 @@
     "macOS": "Remember that you'll get the best experience by using Safari. Use cmd+option+shift and the arrow keys to navigate through the spaces below. Once you reach the goal at the end, you'll be able to progress to the next level 👍",
     "iOS": "Remember that you'll get the best experience by using Safari. Swipe left and right gently anywhere on your screen to navigate through the spaces below. Once you reach the goal at the end, you'll be able to progress to the next level 👍",
     "Android": "Swipe left and right gently anywhere on your screen to navigate through the spaces below. Once you reach the goal at the end, you'll be able to progress to the next level 👍"
+  },
+  "level2Description": {
+    "macOS": "In this level you'll need to be a bit speedier clicking the buttons. You need to click the goal space just in time if you want to avoid that monster.",
+    "iOS": "In this level you'll need to be a bit speedier clicking the buttons. You need to click the goal space just in time if you want to avoid that monster.",
+    "Android": "In this level you'll need to be a bit speedier clicking the buttons. You need to click the goal space just in time if you want to avoid that monster."
   }
 }
