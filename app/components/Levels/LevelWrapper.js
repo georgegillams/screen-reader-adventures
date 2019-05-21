@@ -26,9 +26,29 @@ export default class LevelWrapper extends Component {
       characterIsMoving: false,
     };
     this.character = React.createRef();
-    this.spaceRefs = {};
-    this.monsterRefs = {};
+    this.spaceRefs = this.createSpaceRefs(props.level);
+    this.monsterRefs = this.createMonsterRefs(props.monsterPositions);
   }
+
+  createSpaceRefs = level => {
+    const result = {};
+    level.forEach((row, i) => {
+      row.forEach((spaceTypeId, j) => {
+        if (spaceTypeId === 'a' || spaceTypeId === 'g' || spaceTypeId === 's') {
+          this.create3DRef(i, j, result);
+        }
+      });
+    });
+    return result;
+  };
+
+  createMonsterRefs = monsterPositions => {
+    const result = {};
+    monsterPositions.forEach(mP => {
+      this.create3DRef(mP.x, mP.y, result);
+    });
+    return result;
+  };
 
   onLevelComplete = () => {
     this.setState({ levelComplete: true });
@@ -102,6 +122,7 @@ export default class LevelWrapper extends Component {
     currentY -= movingYBackwards ? 1 : 0;
 
     const square = this.getSquareOnScreen(currentX, currentY);
+    debugger;
 
     if (square) {
       if (square.current.props.onVisit) {
@@ -172,13 +193,13 @@ export default class LevelWrapper extends Component {
 
   // TODO Avoid creating refs on everysingle render - it is innefficient!
   // Refs should be created for spaces and monsters in the constructor
-  createSpaceRef = (i, j) => {
-    return this.create3DRef(i, j, this.spaceRefs);
-  };
+  // createSpaceRef = (i, j) => {
+  //   return this.create3DRef(i, j, this.spaceRefs);
+  // };
 
-  createMonsterRef = (i, j) => {
-    return this.create3DRef(i, j, this.monsterRefs);
-  };
+  // createMonsterRef = (i, j) => {
+  //   return this.create3DRef(i, j, this.monsterRefs);
+  // };
 
   create3DRef = (i, j, currentRefs) => {
     const newRef = React.createRef();
@@ -191,6 +212,7 @@ export default class LevelWrapper extends Component {
   };
 
   render() {
+    debugger;
     const {
       startSpace,
       levelNumber,
@@ -223,10 +245,9 @@ export default class LevelWrapper extends Component {
             style={this.getCharacterScreenPosition()}
           />
           {monsterPositions.map((mP, i) => {
-            const monsterRef = this.createMonsterRef(mP.x, mP.y);
             return (
               <Monster
-                ref={monsterRef}
+                ref={this.getMonsterOnScreen(mP.x, mP.y)}
                 style={this.getMonsterScreenPosition(i)}
               />
             );
@@ -234,19 +255,23 @@ export default class LevelWrapper extends Component {
           {level.map((row, i) => (
             <div className={getClassName('level-wrapper__row')}>
               {row.map((spaceTypeId, j) => {
-                const spaceRef = this.createSpaceRef(i, j);
                 if (spaceTypeId === 'a') {
                   spaceNumber += 1;
                   return (
                     <Space
                       spaceNumber={spaceNumber}
-                      ref={spaceRef}
+                      ref={this.getSquareOnScreen(i, j)}
                       onClick={() => this.summonCharacter(i, j)}
                     />
                   );
                 }
                 if (spaceTypeId === 's') {
-                  return <OpenSpace spaceNumber={spaceNumber} ref={spaceRef} />;
+                  return (
+                    <OpenSpace
+                      spaceNumber={spaceNumber}
+                      ref={this.getSquareOnScreen(i, j)}
+                    />
+                  );
                 }
                 if (spaceTypeId === 'b') {
                   return <BlankSpace spaceNumber={spaceNumber} />;
@@ -257,7 +282,7 @@ export default class LevelWrapper extends Component {
                     <GoalSpace
                       spaceNumber={spaceNumber}
                       onVisit={() => this.onLevelComplete()}
-                      ref={spaceRef}
+                      ref={this.getSquareOnScreen(i, j)}
                       onClick={() => this.summonCharacter(i, j)}
                     />
                   );
