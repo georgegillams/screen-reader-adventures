@@ -27,10 +27,10 @@ const Level2Page = props => {
         levelNumber={2}
         description={getCopy('level2Description')}
         level={[
-          ['a', 's', 's', 's', 's', 'a'],
-          ['b', 'b', 's', 'b', 'b', 'b'],
-          ['b', 'b', 's', 'b', 'b', 'b'],
-          ['b', 'b', 'g', 'b', 'b', 'b'],
+          ['a', 's', 's', 's', 's', 's', 'a'],
+          ['b', 'b', 'b', 's', 'b', 'b', 'b'],
+          ['b', 'b', 'b', 's', 'b', 'b', 'b'],
+          ['b', 'b', 'b', 'g', 'b', 'b', 'b'],
         ]}
         startSpace={{ x: 0, y: 0 }}
         monsterPositions={[{ x: 0, y: 4 }]}
