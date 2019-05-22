@@ -6,13 +6,16 @@ import STYLES from './character.scss';
 
 const getClassName = cssModules(STYLES);
 
-const Character = props => (
-  <img
-    aria-hidden
-    className={getClassName('character__character')}
-    src={monster}
-    {...props}
-  />
-);
-
-export default Character;
+export default class Monster {
+  render() {
+    const { ...props } = this.props;
+    return (
+      <img
+        aria-hidden
+        className={getClassName('character__character')}
+        src={monster}
+        {...props}
+      />
+    );
+  }
+}
