@@ -41,6 +41,55 @@ export default class LevelWrapper extends Component {
       characterGamePos: startSpace || { x: 0, y: 0 },
       monsterGamePos: monsterPositions || [],
     });
+
+    this.interval = setInterval(() => {
+      this.updateMonsterPositions();
+    }, 1000);
+  };
+
+  getRandomInt = max => {
+    return Math.floor(Math.random() * Math.floor(max));
+  };
+
+  componentWillUnmount = () => {
+    this.interval = null;
+  };
+
+  updateMonsterPositions = () => {
+    const newMonsterPos = [];
+
+    this.state.monsterGamePos.forEach(m => {
+      const spaceLeft = this.getSquareOnScreen(m.x, m.y - 1);
+      const spaceRight = this.getSquareOnScreen(m.x, m.y + 1);
+      const spaceDown = this.getSquareOnScreen(m.x - 1, m.y);
+      const spaceUp = this.getSquareOnScreen(m.x + 1, m.y);
+
+      const availableMoves = [];
+
+      if (spaceLeft) {
+        availableMoves.push({ x: m.x, y: m.y - 1 });
+      }
+      if (spaceRight) {
+        availableMoves.push({ x: m.x, y: m.y + 1 });
+      }
+      if (spaceDown) {
+        availableMoves.push({ x: m.x - 1, y: m.y });
+      }
+      if (spaceUp) {
+        availableMoves.push({ x: m.x + 1, y: m.y });
+      }
+
+      if (m.moves === 'random') {
+        const random = this.getRandomInt(availableMoves.length);
+        const newPos = availableMoves[random];
+        newMonsterPos.push({ ...m, ...newPos });
+      } else {
+        newMonsterPos.push(m);
+      }
+    });
+
+    this.setState({ monsterGamePos: newMonsterPos });
+    this.checkCharacterDeath(this.state.characterGamePos, newMonsterPos);
   };
 
   getSquareOnScreen = (x, y) => {
@@ -82,6 +131,11 @@ export default class LevelWrapper extends Component {
       return;
     }
 
+    if (this.state.gameOver) {
+      this.setState({ characterIsMoving: false });
+      return;
+    }
+
     const movingXForwards = currentX < x;
     const movingXBackwards = currentX > x;
     const movingYForwards = currentY < y;
@@ -107,11 +161,10 @@ export default class LevelWrapper extends Component {
       if (square.current.props.onVisit) {
         square.current.props.onVisit();
       }
-      this.state.monsterGamePos.forEach(mP => {
-        if (mP.x === currentX && mP.y === currentY) {
-          this.setState({ gameOver: true });
-        }
-      });
+      this.checkCharacterDeath(
+        { x: currentX, y: currentY },
+        this.state.monsterGamePos,
+      );
     }
 
     this.setState({
@@ -125,9 +178,19 @@ export default class LevelWrapper extends Component {
     }, MONSTER_MOVING_SPEED * 1000);
   };
 
+  checkCharacterDeath = (characterPos, monsterGamePos) => {
+    monsterGamePos.forEach(mP => {
+      if (mP.x === characterPos.x && mP.y === characterPos.y) {
+        setTimeout(() => {
+          this.setState({ gameOver: true });
+        }, 400);
+      }
+    });
+  };
+
   summonCharacter = (x, y) => {
     this.setState({ targetCharacterGamePos: { x, y } });
-    if (!this.state.characterIsMoving) {
+    if (!this.state.characterIsMoving && !this.state.gameOver) {
       this.moveCharacter(x, y);
     }
   };
@@ -202,9 +265,13 @@ export default class LevelWrapper extends Component {
 
     let spaceNumber = 0;
 
-    if (this.state.gameOver) {
-      return <Section noAnchor name="GAME OVER" />;
-    }
+    const gameOverComp = (
+      <Section
+        className={getClassName('level-wrapper__game-over')}
+        noAnchor
+        name="GAME OVER"
+      />
+    );
 
     return (
       <Section
@@ -231,6 +298,7 @@ export default class LevelWrapper extends Component {
               />
             );
           })}
+          {this.state.gameOver && gameOverComp}
           {level.map((row, i) => (
             <div className={getClassName('level-wrapper__row')}>
               {row.map((spaceTypeId, j) => {
