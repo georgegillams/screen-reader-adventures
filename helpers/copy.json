@@ -8,5 +8,10 @@
     "macOS": "In this level you'll need to be a bit speedier clicking the buttons. You need to click the goal space just in time if you want to avoid that monster.",
     "iOS": "In this level you'll need to be a bit speedier clicking the buttons. You need to click the goal space just in time if you want to avoid that monster.",
     "Android": "In this level you'll need to be a bit speedier clicking the buttons. You need to click the goal space just in time if you want to avoid that monster."
+  },
+  "level3Description": {
+    "macOS": "Some monsters move around. Can you navigate the space below (moving in only straight lines) without getting eaten?",
+    "iOS": "Some monsters move around. Can you navigate the space below (moving in only straight lines) without getting eaten?",
+    "Android": "Some monsters move around. Can you navigate the space below (moving in only straight lines) without getting eaten?"
   }
 }
