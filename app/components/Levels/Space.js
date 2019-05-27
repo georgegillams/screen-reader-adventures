@@ -61,6 +61,8 @@ export default class Space extends Component {
         {this.state.selected && (
           <div className={getClassName('space__shadow')} />
         )}
+        <div className={getClassName('space__drop')} />
+        <div className={getClassName('space__drop', 'space__drop--slide')} />
       </button>
     );
   }
