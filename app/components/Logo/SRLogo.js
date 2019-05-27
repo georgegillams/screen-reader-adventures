@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import BpkText from 'bpk-component-text';
 import BpkImage from 'bpk-component-image';
+import Logo from './screen_reader_adventures.png';
 
 import STYLES from './sr-logo.scss';
 import { cssModules } from 'bpk-react-utils';
@@ -29,41 +30,35 @@ class SRLogo extends Component {
       light,
       ...rest
     } = this.props;
-    const classNameFinal = [getClassName('wessex-ccp-logo__container')];
+    const classNameFinal = [getClassName('sr-logo__container')];
     if (className) {
       classNameFinal.push(className);
     }
     if (alwaysCentered) {
-      classNameFinal.push(getClassName('wessex-ccp-logo__container--centered'));
+      classNameFinal.push(getClassName('sr-logo__container--centered'));
     }
     if (animated) {
-      classNameFinal.push(getClassName('wessex-ccp-logo__container--animated'));
+      classNameFinal.push(getClassName('sr-logo__container--animated'));
     }
 
-    const baseTextClassNameFinal = [getClassName('wessex-ccp-logo__logo-base')];
+    const baseTextClassNameFinal = [getClassName('sr-logo__logo-base')];
     if (light) {
-      baseTextClassNameFinal.push(
-        getClassName('wessex-ccp-logo__logo-base--light'),
-      );
+      baseTextClassNameFinal.push(getClassName('sr-logo__logo-base--light'));
     }
 
-    const largeTextClassNameFinal = [
-      getClassName('wessex-ccp-logo__logo-large'),
-    ];
+    const largeTextClassNameFinal = [getClassName('sr-logo__logo-large')];
     if (small) {
       largeTextClassNameFinal.push(
-        getClassName('wessex-ccp-logo__logo-large--smaller'),
+        getClassName('sr-logo__logo-large--smaller'),
       );
     }
     if (noPadding) {
-      classNameFinal.push(
-        getClassName('wessex-ccp-logo__container--no-padding'),
-      );
+      classNameFinal.push(getClassName('sr-logo__container--no-padding'));
       largeTextClassNameFinal.push(
-        getClassName('wessex-ccp-logo__logo-large--no-padding'),
+        getClassName('sr-logo__logo-large--no-padding'),
       );
       baseTextClassNameFinal.push(
-        getClassName('wessex-ccp-logo__logo-base--no-padding'),
+        getClassName('sr-logo__logo-base--no-padding'),
       );
     }
 
@@ -84,18 +79,14 @@ class SRLogo extends Component {
           onBlur={() => {
             this.setState({ hovering: false });
           }}
-          href="http://www.epicc-conference.org/"
+          href="/"
           onMouseLeave={this.onMouseLeave}
         >
           <BpkImage
-            src={
-              small
-                ? 'https://i.imgur.com/h5zmNwn.png'
-                : 'https://i.imgur.com/3nVx6yS.png'
-            }
+            src={Logo}
             className={largeTextClassNameFinal.join(' ')}
-            width={2000}
-            height={small ? 348 : 187}
+            width={1}
+            height={1}
           />
         </a>
       </div>
