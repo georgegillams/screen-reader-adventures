@@ -6,13 +6,23 @@ import STYLES from './character.scss';
 
 const getClassName = cssModules(STYLES);
 
-const Character = props => (
-  <img
-    aria-hidden
-    className={getClassName('character__character')}
-    src={monster}
-    {...props}
-  />
+// const Monster = props => (
+//   <img
+//     aria-hidden
+//     className={getClassName('character__character')}
+//     src={monster}
+//     {...props}
+//   />
+// );
+
+const Monster = props => (
+  <div aria-hidden className={getClassName('character__wrap')} {...props}>
+    <div
+      aria-hidden
+      className={getClassName('character__box', 'character__box--danger')}
+      {...props}
+    />
+  </div>
 );
 
-export default Character;
+export default Monster;

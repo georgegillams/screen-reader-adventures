@@ -3,8 +3,8 @@
 
 .open-space {
   &__space {
-    width: 2rem;
-    height: 2rem;
+    width: $space-dimension;
+    height: $space-dimension;
     background-color: white;
     border: solid gray 0.1rem;
     position: relative;

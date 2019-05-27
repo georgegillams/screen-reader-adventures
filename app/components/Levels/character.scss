@@ -4,9 +4,31 @@
 .character {
   &__character {
     position: absolute;
-    height: 2rem;
-    width: 2rem;
+    height: $space-dimension;
+    width: $space-dimension;
     z-index: 1;
     transition: all $character-move-speed;
+  }
+
+  &__wrap {
+    position: absolute;
+    height: $space-dimension;
+    width: $space-dimension;
+    z-index: 1;
+    display: flex;
+    transition: all $character-move-speed;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__box {
+    height: 1.5rem;
+    width: 1.5rem;
+    background-color: purple;
+    border-radius: 0.4rem;
+
+    &--danger {
+      background-color: red;
+    }
   }
 }

@@ -3,11 +3,12 @@
 
 .space {
   &__space {
-    width: 2rem;
-    height: 2rem;
+    width: $space-dimension;
+    height: $space-dimension;
     background-color: lightgray;
     border: solid gray 0.1rem;
     position: relative;
+    z-index: 0;
 
     &--visited {
       background-color: rgb(50, 169, 169);
@@ -21,10 +22,31 @@
   &__shadow {
     background-color: gray;
     opacity: 0.2;
-    width: 2rem;
-    height: 2rem;
+    width: $space-dimension;
+    height: $space-dimension;
     position: absolute;
     top: 0;
     left: 0;
+  }
+
+  &__drop {
+    position: absolute;
+    width: 2rem;
+    height: 0.5rem;
+    background-color: rgb(200, 200, 200);
+    left: 0.05rem;
+    top: 1.9rem;
+    z-index: 0;
+    transform: skew(30deg, 0);
+    border: solid gray 0.1rem;
+
+    &--slide {
+      width: 0.35rem;
+      height: 2rem;
+      background-color: gainsboro;
+      left: 1.83rem;
+      top: 0.12rem;
+      transform: skew(0deg, 60deg);
+    }
   }
 }
