@@ -233,6 +233,9 @@ export default class LevelWrapper extends Component {
     return result;
   };
 
+  spaceIsDisabled = (x, y) =>
+    this.state.characterGamePos.x !== x && this.state.characterGamePos.y !== y;
+
   // TODO Avoid creating refs on everysingle render - it is innefficient!
   // Refs should be created for spaces and monsters in the constructor
   createSpaceRef = (i, j) => {
@@ -307,6 +310,7 @@ export default class LevelWrapper extends Component {
                   spaceNumber += 1;
                   return (
                     <Space
+                      disabled={this.spaceIsDisabled(i, j)}
                       spaceNumber={spaceNumber}
                       ref={spaceRef}
                       onClick={() => this.summonCharacter(i, j)}
@@ -323,6 +327,7 @@ export default class LevelWrapper extends Component {
                   spaceNumber += 1;
                   return (
                     <GoalSpace
+                      disabled={this.spaceIsDisabled(i, j)}
                       spaceNumber={spaceNumber}
                       onVisit={() => this.onLevelComplete()}
                       ref={spaceRef}

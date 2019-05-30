@@ -19,6 +19,7 @@ export default class Space extends Component {
       onSelect,
       onVisit,
       children,
+      disabled,
       ...rest
     } = this.props;
 
@@ -38,16 +39,16 @@ export default class Space extends Component {
 
     return (
       <button
-        aria-label={`space ${spaceNumber}`}
+        aria-label={`Move to space ${spaceNumber}`}
         onPress={() => {
-          if (onPress) {
+          if (onPress && !disabled) {
             onPress();
           }
           markVisited();
         }}
         onFocus={() => {
           this.setState({ selected: true });
-          if (onSelect) {
+          if (onSelect && !disabled) {
             onSelect();
           }
         }}
@@ -55,6 +56,7 @@ export default class Space extends Component {
           this.setState({ selected: false });
         }}
         className={classNames.join(' ')}
+        disabled={disabled}
         {...rest}
       >
         {children}

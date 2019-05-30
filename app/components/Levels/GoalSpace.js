@@ -9,10 +9,14 @@ const getClassName = cssModules(STYLES);
 
 export default class GoalSpace extends Component {
   render() {
-    const { spaceNumber, children, ...rest } = this.props;
+    const { spaceNumber, children, disabled, ...rest } = this.props;
 
     return (
-      <Space aria-label={`Space ${spaceNumber}. Goal`} {...rest}>
+      <Space
+        aria-label={`Move to space ${spaceNumber}. Goal`}
+        disabled={disabled}
+        {...rest}
+      >
         <img
           className={getClassName('goal-space__flag')}
           src={finishLineFlag}
