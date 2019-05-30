@@ -1,0 +1,13 @@
+@import '~bpk-mixins';
+@import 'helpers/tokens';
+
+.paragraph-space {
+  &__space {
+    background-color: white;
+    margin: 0;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    background-color: gray;
+  }
+}

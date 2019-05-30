@@ -4,7 +4,14 @@ import { Helmet } from 'react-helmet';
 import { Section } from 'components/Typography';
 import GGButton from 'components/GGButton';
 import UntappableScrim from 'components/Scrim';
-import { OpenSpace, Space, GoalSpace, BlankSpace } from 'components/Levels';
+import {
+  OpenSpace,
+  Space,
+  GoalSpace,
+  BlankSpace,
+  ParagraphSpace,
+  InputSpace,
+} from 'components/Levels';
 import { MONSTER_MOVING_SPEED } from 'helpers/constants';
 import { cssModules } from 'bpk-react-utils';
 
@@ -267,6 +274,7 @@ export default class LevelWrapper extends Component {
     } = this.props;
 
     let spaceNumber = 0;
+    let inputNumber = 0;
 
     const gameOverComp = (
       <Section
@@ -319,11 +327,27 @@ export default class LevelWrapper extends Component {
                     />
                   );
                 }
+                if (spaceDef.type === 'i') {
+                  inputNumber += 1;
+                  return (
+                    <InputSpace
+                      disabled={this.spaceIsDisabled(spaceDef.x, spaceDef.y)}
+                      inputNumber={inputNumber}
+                      ref={spaceRef}
+                      onClick={() =>
+                        this.summonCharacter(spaceDef.x, spaceDef.y)
+                      }
+                    />
+                  );
+                }
                 if (spaceDef.type === 's') {
                   return <OpenSpace spaceNumber={spaceNumber} ref={spaceRef} />;
                 }
                 if (spaceDef.type === 'b') {
                   return <BlankSpace spaceNumber={spaceNumber} />;
+                }
+                if (spaceDef.type === 'p') {
+                  return <ParagraphSpace text={spaceDef.text} />;
                 }
                 if (spaceDef.type === 'g') {
                   spaceNumber += 1;

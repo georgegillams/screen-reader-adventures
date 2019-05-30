@@ -13,5 +13,10 @@
     "macOS": "Some monsters move around. Can you navigate the space below (moving in only straight lines) without getting eaten?",
     "iOS": "Some monsters move around. Can you navigate the space below (moving in only straight lines) without getting eaten?",
     "Android": "Some monsters move around. Can you navigate the space below (moving in only straight lines) without getting eaten?"
+  },
+  "level4Description": {
+    "macOS": "TODO",
+    "iOS": "TODO",
+    "Android": "TODO"
   }
 }
