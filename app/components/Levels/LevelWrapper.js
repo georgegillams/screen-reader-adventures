@@ -302,36 +302,40 @@ export default class LevelWrapper extends Component {
             );
           })}
           {this.state.gameOver && gameOverComp}
-          {level.map((row, i) => (
+          {level.map(row => (
             <div className={getClassName('level-wrapper__row')}>
-              {row.map((spaceTypeId, j) => {
-                const spaceRef = this.createSpaceRef(i, j);
-                if (spaceTypeId === 'a') {
+              {row.map(spaceDef => {
+                const spaceRef = this.createSpaceRef(spaceDef.x, spaceDef.y);
+                if (spaceDef.type === 'a') {
                   spaceNumber += 1;
                   return (
                     <Space
-                      disabled={this.spaceIsDisabled(i, j)}
+                      disabled={this.spaceIsDisabled(spaceDef.x, spaceDef.y)}
                       spaceNumber={spaceNumber}
                       ref={spaceRef}
-                      onClick={() => this.summonCharacter(i, j)}
+                      onClick={() =>
+                        this.summonCharacter(spaceDef.x, spaceDef.y)
+                      }
                     />
                   );
                 }
-                if (spaceTypeId === 's') {
+                if (spaceDef.type === 's') {
                   return <OpenSpace spaceNumber={spaceNumber} ref={spaceRef} />;
                 }
-                if (spaceTypeId === 'b') {
+                if (spaceDef.type === 'b') {
                   return <BlankSpace spaceNumber={spaceNumber} />;
                 }
-                if (spaceTypeId === 'g') {
+                if (spaceDef.type === 'g') {
                   spaceNumber += 1;
                   return (
                     <GoalSpace
-                      disabled={this.spaceIsDisabled(i, j)}
+                      disabled={this.spaceIsDisabled(spaceDef.x, spaceDef.y)}
                       spaceNumber={spaceNumber}
                       onVisit={() => this.onLevelComplete()}
                       ref={spaceRef}
-                      onClick={() => this.summonCharacter(i, j)}
+                      onClick={() =>
+                        this.summonCharacter(spaceDef.x, spaceDef.y)
+                      }
                     />
                   );
                 }
