@@ -10,6 +10,10 @@
     position: relative;
     z-index: 0;
 
+    @media (prefers-color-scheme: dark) {
+      border: solid $not-black 0.1rem;
+    }
+
     &--visited {
       background-color: rgb(50, 169, 169);
 

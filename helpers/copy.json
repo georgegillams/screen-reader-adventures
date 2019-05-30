@@ -13,5 +13,10 @@
     "macOS": "Some monsters move around. Can you navigate the space below (moving in only straight lines) without getting eaten?",
     "iOS": "Some monsters move around. Can you navigate the space below (moving in only straight lines) without getting eaten?",
     "Android": "Some monsters move around. Can you navigate the space below (moving in only straight lines) without getting eaten?"
+  },
+  "level4Description": {
+    "macOS": "Paragraphs contain clues, but cannot always be seen. Inputs need text, are not always what they seem!",
+    "iOS": "Paragraphs contain clues, but cannot always be seen. Inputs need text, are not always what they seem!",
+    "Android": "Paragraphs contain clues, but cannot always be seen. Inputs need text, are not always what they seem!"
   }
 }

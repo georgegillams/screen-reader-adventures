@@ -18,7 +18,10 @@ export default class GoalSpace extends Component {
         {...rest}
       >
         <img
-          className={getClassName('goal-space__flag')}
+          className={getClassName(
+            'goal-space__flag',
+            disabled ? null : 'goal-space__flag--enabled',
+          )}
           src={finishLineFlag}
         />
         {children}

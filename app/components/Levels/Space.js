@@ -15,7 +15,7 @@ export default class Space extends Component {
   render() {
     const {
       spaceNumber,
-      onPress,
+      onClick,
       onSelect,
       onVisit,
       children,
@@ -40,9 +40,9 @@ export default class Space extends Component {
     return (
       <button
         aria-label={`Move to space ${spaceNumber}`}
-        onPress={() => {
-          if (onPress && !disabled) {
-            onPress();
+        onClick={() => {
+          if (onClick && !disabled) {
+            onClick();
           }
           markVisited();
         }}
