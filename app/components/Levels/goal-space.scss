@@ -8,5 +8,11 @@
     bottom: 0;
     right: 0;
     z-index: 2;
+    transition: all 0.4s;
+    opacity: 0;
+
+    &--enabled {
+      opacity: 1;
+    }
   }
 }

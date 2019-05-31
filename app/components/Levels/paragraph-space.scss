@@ -1,10 +1,10 @@
 @import '~bpk-mixins';
 @import 'helpers/tokens';
 
-.open-space {
+.paragraph-space {
   &__space {
     background-color: white;
-    position: relative;
+    margin: 0;
 
     @media (prefers-color-scheme: dark) {
       background-color: gray;

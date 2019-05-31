@@ -1,0 +1,18 @@
+@import '~bpk-mixins';
+@import 'helpers/tokens';
+
+.game-over {
+  &__game-over {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 3;
+    width: 15rem;
+    height: 100%;
+
+    @media (prefers-color-scheme: dark) {
+      background-color: rgba(5, 13, 27, 0.5);
+    }
+  }
+}

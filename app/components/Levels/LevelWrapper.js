@@ -4,7 +4,15 @@ import { Helmet } from 'react-helmet';
 import { Section } from 'components/Typography';
 import GGButton from 'components/GGButton';
 import UntappableScrim from 'components/Scrim';
-import { OpenSpace, Space, GoalSpace, BlankSpace } from 'components/Levels';
+import GameOver from './GameOver.js';
+import {
+  OpenSpace,
+  Space,
+  GoalSpace,
+  BlankSpace,
+  ParagraphSpace,
+  InputSpace,
+} from 'components/Levels';
 import { MONSTER_MOVING_SPEED } from 'helpers/constants';
 import { cssModules } from 'bpk-react-utils';
 
@@ -21,6 +29,7 @@ export default class LevelWrapper extends Component {
     this.state = {
       levelComplete: false,
       monsterGamePos: [],
+      gameState: [],
       characterGamePos: { x: 0, y: 0 },
       targetCharacterGamePos: { x: 0, y: 0 },
       characterIsMoving: false,
@@ -35,11 +44,12 @@ export default class LevelWrapper extends Component {
   };
 
   componentDidMount = () => {
-    const { startSpace, monsterPositions } = this.props;
+    const { startSpace, monsterPositions, level } = this.props;
 
     this.setState({
       characterGamePos: startSpace || { x: 0, y: 0 },
       monsterGamePos: monsterPositions || [],
+      gameState: level || [],
     });
 
     this.interval = setInterval(() => {
@@ -256,6 +266,23 @@ export default class LevelWrapper extends Component {
     return newRef;
   };
 
+  getInputValue = (x, y) => {
+    const gameState = this.state.gameState;
+    if (gameState && gameState[x] && gameState[x][y] && gameState[x][y].value) {
+      return gameState[x][y].value;
+    }
+    return '';
+  };
+
+  onInputChange = (x, y, e) => {
+    const gameState = JSON.parse(JSON.stringify(this.state.gameState));
+    if (gameState && gameState[x] && gameState[x][y]) {
+      gameState[x][y].value = e.target.value;
+    }
+
+    this.setState({ gameState: gameState });
+  };
+
   render() {
     const {
       startSpace,
@@ -267,14 +294,9 @@ export default class LevelWrapper extends Component {
     } = this.props;
 
     let spaceNumber = 0;
+    let inputNumber = 0;
 
-    const gameOverComp = (
-      <Section
-        className={getClassName('level-wrapper__game-over')}
-        noAnchor
-        name="GAME OVER"
-      />
-    );
+    const gameOverComp = <GameOver />;
 
     return (
       <Section
@@ -319,17 +341,42 @@ export default class LevelWrapper extends Component {
                     />
                   );
                 }
+                if (spaceDef.type === 'i') {
+                  inputNumber += 1;
+                  return (
+                    <InputSpace
+                      disabled={this.spaceIsDisabled(spaceDef.x, spaceDef.y)}
+                      inputNumber={inputNumber}
+                      vaulue={this.getInputValue(spaceDef.x, spaceDef.y)}
+                      onChange={e =>
+                        this.onInputChange(spaceDef.x, spaceDef.y, e)
+                      }
+                      ref={spaceRef}
+                      onClick={() =>
+                        this.summonCharacter(spaceDef.x, spaceDef.y)
+                      }
+                    />
+                  );
+                }
                 if (spaceDef.type === 's') {
                   return <OpenSpace spaceNumber={spaceNumber} ref={spaceRef} />;
                 }
                 if (spaceDef.type === 'b') {
                   return <BlankSpace spaceNumber={spaceNumber} />;
                 }
+                if (spaceDef.type === 'p') {
+                  return <ParagraphSpace text={spaceDef.text} />;
+                }
                 if (spaceDef.type === 'g') {
                   spaceNumber += 1;
+                  let disabled = this.spaceIsDisabled(spaceDef.x, spaceDef.y);
+                  if (spaceDef.condition) {
+                    disabled =
+                      disabled || !spaceDef.condition(this.state.gameState);
+                  }
                   return (
                     <GoalSpace
-                      disabled={this.spaceIsDisabled(spaceDef.x, spaceDef.y)}
+                      disabled={disabled}
                       spaceNumber={spaceNumber}
                       onVisit={() => this.onLevelComplete()}
                       ref={spaceRef}
