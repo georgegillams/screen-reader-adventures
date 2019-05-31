@@ -66,7 +66,7 @@ class SRLogo extends Component {
       <div className={classNameFinal.join(' ')} {...rest}>
         <a
           role="button"
-          aria-label="Main conference page"
+          aria-label="Home page"
           onMouseEnter={() => {
             this.setState({ hovering: true });
           }}
