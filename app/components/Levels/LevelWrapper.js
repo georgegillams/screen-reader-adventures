@@ -8,6 +8,7 @@ import GameOver from './GameOver.js';
 import {
   OpenSpace,
   Space,
+  CheckboxSpace,
   GoalSpace,
   BlankSpace,
   ParagraphSpace,
@@ -294,6 +295,7 @@ export default class LevelWrapper extends Component {
     } = this.props;
 
     let spaceNumber = 0;
+    let checkboxNumber = 0;
     let inputNumber = 0;
 
     const gameOverComp = <GameOver />;
@@ -328,6 +330,19 @@ export default class LevelWrapper extends Component {
             <div className={getClassName('level-wrapper__row')}>
               {row.map(spaceDef => {
                 const spaceRef = this.createSpaceRef(spaceDef.x, spaceDef.y);
+                if (spaceDef.type === 'c') {
+                  checkboxNumber += 1;
+                  return (
+                    <CheckboxSpace
+                      disabled={this.spaceIsDisabled(spaceDef.x, spaceDef.y)}
+                      spaceNumber={checkboxNumber}
+                      ref={spaceRef}
+                      onClick={() =>
+                        this.summonCharacter(spaceDef.x, spaceDef.y)
+                      }
+                    />
+                  );
+                }
                 if (spaceDef.type === 'a') {
                   spaceNumber += 1;
                   return (
