@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
-import injectReducer from 'utils/injectReducer';
-import injectSaga from 'utils/injectSaga';
+
 import {
   makeSelectAvailableTickets,
   makeSelectLoadingAvailableTickets,
@@ -13,6 +12,9 @@ import { loadAvailableTickets } from './actions';
 import reducer from './reducer';
 import saga from './saga';
 import TicketOptions from './TicketOptions';
+
+import injectSaga from 'utils/injectSaga';
+import injectReducer from 'utils/injectReducer';
 
 const mapDispatchToProps = dispatch => ({
   loadAvailableTickets: () => dispatch(loadAvailableTickets()),

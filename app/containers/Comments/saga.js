@@ -1,4 +1,3 @@
-import { call, put, select, takeLatest } from 'redux-saga/effects';
 import {
   RELOAD_COMMENTS,
   LOAD_COMMENTS,
@@ -17,10 +16,11 @@ import {
   commentDeleteSuccess,
   commentDeleteError,
 } from './actions';
-import { pushMessage } from 'containers/RequestStatusWrapper/actions';
 import { makeSelectComment, makeSelectPageId } from './selectors';
-import { COMMUNICATION_ERROR_MESSAGE, API_ENDPOINT } from 'helpers/constants';
 
+import { pushMessage } from 'containers/RequestStatusWrapper/actions';
+import { call, put, select, takeLatest } from 'redux-saga/effects';
+import { COMMUNICATION_ERROR_MESSAGE, API_ENDPOINT } from 'helpers/constants';
 import request from 'utils/request';
 
 export function* loadComments() {

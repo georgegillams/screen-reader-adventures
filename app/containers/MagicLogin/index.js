@@ -1,22 +1,24 @@
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
-import injectReducer from 'utils/injectReducer';
-import injectSaga from 'utils/injectSaga';
+
 import {
   makeSelectLoggingIn,
   makeSelectLoginSuccessful,
   makeSelectLoginError,
 } from './selectors';
+import { login, tokenChanged } from './actions';
+import reducer from './reducer';
+import saga from './saga';
+import MagicLogin from './MagicLogin';
+
+import { setCookiesAllowed } from 'containers/App/actions';
 import {
   makeSelectUser,
   makeSelectCookiesAllowed,
 } from 'containers/App/selectors';
-import { login, tokenChanged } from './actions';
-import { setCookiesAllowed } from 'containers/App/actions';
-import reducer from './reducer';
-import saga from './saga';
-import MagicLogin from './MagicLogin';
+import injectSaga from 'utils/injectSaga';
+import injectReducer from 'utils/injectReducer';
 
 const mapDispatchToProps = dispatch => ({
   tokenChanged: newValue => dispatch(tokenChanged(newValue)),

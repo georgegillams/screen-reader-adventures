@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import BpkCheckbox from 'bpk-component-checkbox';
+import { cssModules } from 'bpk-react-utils';
+
+import STYLES from './graphic-content.scss';
+
 import GGButton from 'components/GGButton';
 
-import STYLES from './graphic-content.scss'; import {cssModules} from 'bpk-react-utils';  const getClassName = cssModules(STYLES); // REGEX_REPLACED
+const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 const GraphicContent = props => {
   const {
@@ -21,7 +25,9 @@ const GraphicContent = props => {
     classNameFinal.push(className);
   }
 
-  const contentContainerClassNames = [getClassName('graphic-content__content-container')];
+  const contentContainerClassNames = [
+    getClassName('graphic-content__content-container'),
+  ];
   if (!graphicContentInView) {
     contentContainerClassNames.push([
       'graphic-content__content-container--hidden',
@@ -32,18 +38,25 @@ const GraphicContent = props => {
     <div className={classNameFinal.join(' ')} {...rest}>
       <div className={contentContainerClassNames.join(' ')}>{children}</div>
       {!graphicContentInView && (
-        <div className={getClassName("graphic-content__warning-container")}>
-          <div className={getClassName("graphic-content__warning-container__inner")}>
-            <div className={getClassName("graphic-content__text")}>
+        <div className={getClassName('graphic-content__warning-container')}>
+          <div
+            className={getClassName(
+              'graphic-content__warning-container__inner',
+            )}
+          >
+            <div className={getClassName('graphic-content__text')}>
               This image contains graphic content
             </div>
             <br />
-            <GGButton onClick={onClick} className={getClassName("graphic-content__text")}>
+            <GGButton
+              onClick={onClick}
+              className={getClassName('graphic-content__text')}
+            >
               Show graphic content
             </GGButton>
             <br />
             <BpkCheckbox
-              className={getClassName("graphic-content__text")}
+              className={getClassName('graphic-content__text')}
               name="Always show graphic content"
               label="Always show graphic content"
               checked={alwaysShowGraphicContent}

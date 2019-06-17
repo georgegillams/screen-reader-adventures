@@ -20,14 +20,16 @@
 
 import React, { type Node } from 'react';
 import PropTypes from 'prop-types';
+import { cssModules } from 'bpk-react-utils';
+
 import DemoBooleanComponent from './DemoBooleanComponent';
 import DemoStringComponent from './DemoStringComponent';
 import DemoNumberComponent from './DemoNumberComponent';
 import DemoFunctionComponent from './DemoFunctionComponent';
+import STYLES from './bpk-demo.scss';
+
 import HelperFunctions from 'helpers/HelperFunctions';
 
-import STYLES from './bpk-demo.scss';
-import { cssModules } from 'bpk-react-utils';
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 type Props = {

@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { STRING_REGEX, ID_REGEX, ANYTHING_REGEX } from 'helpers/constants';
-import FormBuilder from './FormBuilder';
-
-import STYLES from './forms.scss';
 import { cssModules } from 'bpk-react-utils';
+
+import FormBuilder from './FormBuilder';
+import STYLES from './forms.scss';
+
+import { STRING_REGEX, ID_REGEX, ANYTHING_REGEX } from 'helpers/constants';
+
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 class CreateBlogForm extends React.Component {

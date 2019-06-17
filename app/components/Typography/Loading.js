@@ -1,6 +1,7 @@
 import React from 'react';
 import Funnies from 'funnies';
 import ReactLoading from 'react-loading';
+
 import { SubSection } from './';
 
 const funnies = new Funnies();

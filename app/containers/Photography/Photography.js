@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
+import BpkImage, {
+  withLazyLoading,
+  withLoadingBehavior,
+} from 'bpk-component-image';
+import { cssModules } from 'bpk-react-utils';
+
+import STYLES from '../pages.scss';
+
 import ArticleCard, { CARD_LAYOUTS } from 'components/Cards';
 import CreativeCommons from 'components/CreativeCommons';
 import { Section, SubSection } from 'components/Typography';
@@ -8,12 +16,7 @@ import GraphicContent, {
   withGraphicContentBehaviour,
 } from 'components/GraphicContent';
 import Comments from 'containers/Comments';
-import BpkImage, {
-  withLazyLoading,
-  withLoadingBehavior,
-} from 'bpk-component-image';
-import STYLES from '../pages.scss';
-import { cssModules } from 'bpk-react-utils';
+
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 const PAGE_ID = '857216';

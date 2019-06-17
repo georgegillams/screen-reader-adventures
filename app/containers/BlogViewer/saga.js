@@ -1,9 +1,9 @@
-import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { LOAD_BLOG } from './constants';
 import { loadBlogSuccess, loadBlogError } from './actions';
-import { API_ENDPOINT } from 'helpers/constants';
 import { makeSelectBlogId } from './selectors';
 
+import { API_ENDPOINT } from 'helpers/constants';
+import { call, put, select, takeLatest } from 'redux-saga/effects';
 import request from 'utils/request';
 
 export function* loadBlog() {

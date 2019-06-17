@@ -1,12 +1,12 @@
-import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { LOGIN } from './constants';
 import { loginSuccessful, loginError } from './actions';
+import { makeSelectCredentials } from './selectors';
+
+import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { setUser } from 'containers/App/actions';
 import { pushMessage } from 'containers/RequestStatusWrapper/actions';
 import { API_ENDPOINT, COMMUNICATION_ERROR_MESSAGE } from 'helpers/constants';
 import { makeSelectLoginRedirect } from 'containers/App/selectors';
-import { makeSelectCredentials } from './selectors';
-
 import request from 'utils/request';
 
 const magicLinkSentMessage = { type: 'success', message: 'Magic link sent!' };

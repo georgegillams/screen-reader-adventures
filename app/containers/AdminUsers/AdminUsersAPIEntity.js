@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import { APIEntity } from 'components/Auth';
 
 const AdminUsersAPIEntity = props => {
@@ -17,13 +18,7 @@ const AdminUsersAPIEntity = props => {
     backgroundColor = '#FFB964'; // orange
   }
 
-  return (
-    <APIEntity
-      style={{ backgroundColor: backgroundColor }}
-      entity={entity}
-      {...rest}
-    />
-  );
+  return <APIEntity style={{ backgroundColor }} entity={entity} {...rest} />;
 };
 
 AdminUsersAPIEntity.propTypes = {

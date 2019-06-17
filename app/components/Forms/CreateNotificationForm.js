@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import BpkInput, { INPUT_TYPES } from 'bpk-component-input';
+import { cssModules } from 'bpk-react-utils';
+
+import STYLES from './forms.scss';
+
 import { TextLink } from 'components/Typography';
 import GGButton from 'components/GGButton';
-
 import { EMAIL_REGEX, PASSWORD_REGEX } from 'helpers/constants';
 
-import STYLES from './forms.scss'; import {cssModules} from 'bpk-react-utils';  const getClassName = cssModules(STYLES); // REGEX_REPLACED
+const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 class LoginForm extends React.Component {
   static propTypes = {
@@ -47,22 +50,22 @@ class LoginForm extends React.Component {
 
     return (
       <div className={classNameFinal.join(' ')} {...rest}>
-        <label htmlFor="type" className={getClassName("forms__label")}>
+        <label htmlFor="type" className={getClassName('forms__label')}>
           Type
         </label>
         <BpkInput
-          className={getClassName("forms__component")}
+          className={getClassName('forms__component')}
           id="type"
           name="type"
           value={notification.type}
           onChange={this.onTypeChanged}
           placeholder="type"
         />
-        <label htmlFor="message" className={getClassName("forms__label")}>
+        <label htmlFor="message" className={getClassName('forms__label')}>
           Message
         </label>
         <BpkInput
-          className={getClassName("forms__component")}
+          className={getClassName('forms__component')}
           id="message"
           name="message"
           value={notification.message}
@@ -70,7 +73,10 @@ class LoginForm extends React.Component {
           placeholder="message"
         />
         <br />
-        <GGButton className={getClassName("forms__component")} onClick={onSubmit}>
+        <GGButton
+          className={getClassName('forms__component')}
+          onClick={onSubmit}
+        >
           Create notification
         </GGButton>
       </div>

@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { cssModules } from 'bpk-react-utils';
+
+import CommentInput from './CommentInput';
+import STYLES from './comments.scss';
+
 import GGButton from 'components/GGButton';
 import { BlogPreviewContent, SubSection } from 'components/Typography';
-import CommentInput from './CommentInput';
 
-import STYLES from './comments.scss';
-import { cssModules } from 'bpk-react-utils';
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 class Comment extends React.Component {

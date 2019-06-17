@@ -1,7 +1,9 @@
 import { datumLoad } from '../datum';
+
+import notificationsAllowedAttributes from './notificationsAllowedAttributes';
+
 import authentication from 'utils/authentication';
 import reqSecure from 'utils/reqSecure';
-import notificationsAllowedAttributes from './notificationsAllowedAttributes';
 
 export default function load(req) {
   const reqSecured = reqSecure(req, notificationsAllowedAttributes);

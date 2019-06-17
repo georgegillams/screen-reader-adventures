@@ -1,9 +1,11 @@
 import { datumLoad, datumCreate, datumUpdate } from '../datum';
+
+import registratiomStatusAllowedAttributes from './registratiomStatusAllowedAttributes';
+
 import authentication from 'utils/authentication';
 import reqSecure from 'utils/reqSecure';
 import getRegistrationStatus from 'utils/getRegistrationStatus';
 import { REG_EMAIL, UNAUTHORISED_READ } from 'helpers/constants';
-import registratiomStatusAllowedAttributes from './registratiomStatusAllowedAttributes';
 import { find } from 'utils/find';
 import { associate } from 'helpers/objects';
 
@@ -41,18 +43,14 @@ export default function register(req) {
                           currentUser.registration.hasArrivedAtConferenceDay1
                         ) {
                           day1.push(
-                            `${currentUser.userDetails.name}${
-                              currentUser.userDetails.surname
-                            }`,
+                            `${currentUser.userDetails.name}${currentUser.userDetails.surname}`,
                           );
                         }
                         if (
                           currentUser.registration.hasArrivedAtConferenceDay2
                         ) {
                           day2.push(
-                            `${currentUser.userDetails.name}${
-                              currentUser.userDetails.surname
-                            }`,
+                            `${currentUser.userDetails.name}${currentUser.userDetails.surname}`,
                           );
                         }
                       }

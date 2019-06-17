@@ -12,13 +12,14 @@ import {
   References,
   REFERENCE_STYLES,
 } from 'react-component-academic-reference';
+import { cssModules } from 'bpk-react-utils';
+
+import STYLES from './blog-viewer.scss';
 
 import CodeInline, { Code, CodeBashArrow } from 'components/Code';
 import { TextLink, Quote, SubSection } from 'components/Typography';
 import HelperFunctions from 'helpers/HelperFunctions';
 
-import STYLES from './blog-viewer.scss';
-import { cssModules } from 'bpk-react-utils';
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 const documentIfExists = typeof window !== 'undefined' ? document : null;

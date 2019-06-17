@@ -2,12 +2,12 @@
  * Gets the repositories of the user from Github
  */
 
-import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { LOAD_PC } from './constants';
 import { loadPCSuccess, loadPCError } from './actions';
+
+import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { API_ENDPOINT, COMMUNICATION_ERROR_MESSAGE } from 'helpers/constants';
 import { pushMessage } from 'containers/RequestStatusWrapper/actions';
-
 import request from 'utils/request';
 
 export function* doLoadPc() {

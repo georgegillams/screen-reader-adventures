@@ -2,9 +2,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import BpkSmallNewWindowIcon from 'bpk-component-icon/sm/new-window';
+import { cssModules } from 'bpk-react-utils';
 
 import STYLES from './typography.scss';
-import { cssModules } from 'bpk-react-utils';
+
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 const TextLink = props => {

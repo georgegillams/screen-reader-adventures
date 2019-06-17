@@ -1,9 +1,11 @@
 import { datumLoad, datumLoadSingle, datumCreate } from '../datum';
+
+import registratiomStatusAllowedAttributes from './registratiomStatusAllowedAttributes';
+
 import authentication from 'utils/authentication';
 import reqSecure from 'utils/reqSecure';
 import getRegistrationStatus from 'utils/getRegistrationStatus';
 import { UNAUTHORISED_READ } from 'helpers/constants';
-import registratiomStatusAllowedAttributes from './registratiomStatusAllowedAttributes';
 import { find } from 'utils/find';
 
 export default function loadAll(req) {
@@ -14,13 +16,14 @@ export default function loadAll(req) {
         if (user && user.admin) {
           datumLoad({ redisKey: 'users', includeDeleted: true }).then(
             userData => {
-              const requests = userData.map(u => {
-                return new Promise(resolve => {
-                  getRegistrationStatus(u).then(result => {
-                    resolve(result);
-                  });
-                });
-              });
+              const requests = userData.map(
+                u =>
+                  new Promise(resolve => {
+                    getRegistrationStatus(u).then(result => {
+                      resolve(result);
+                    });
+                  }),
+              );
 
               Promise.all(requests).then(result => resolve(result));
             },

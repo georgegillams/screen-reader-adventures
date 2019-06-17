@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import BpkInput, { INPUT_TYPES } from 'bpk-component-input';
+import { cssModules } from 'bpk-react-utils';
+
+import STYLES from './forms.scss';
+
 import { TextLink } from 'components/Typography';
 import GGButton from 'components/GGButton';
-
 import { EMAIL_REGEX, PASSWORD_REGEX } from 'helpers/constants';
 
-import STYLES from './forms.scss'; import {cssModules} from 'bpk-react-utils';  const getClassName = cssModules(STYLES); // REGEX_REPLACED
+const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 class GTSForm extends React.Component {
   static propTypes = {
@@ -47,33 +50,33 @@ class GTSForm extends React.Component {
 
     return (
       <div className={classNameFinal.join(' ')} {...rest}>
-        <label htmlFor="destination" className={getClassName("forms__label")}>
+        <label htmlFor="destination" className={getClassName('forms__label')}>
           Destination
         </label>
         <BpkInput
-          className={getClassName("forms__component")}
+          className={getClassName('forms__component')}
           id="destination"
           name="destination"
           value={gts.destination}
           onChange={this.onDestinationChanged}
           placeholder="Destination"
         />
-        <label htmlFor="eta" className={getClassName("forms__label")}>
+        <label htmlFor="eta" className={getClassName('forms__label')}>
           ETA
         </label>
         <BpkInput
-          className={getClassName("forms__component")}
+          className={getClassName('forms__component')}
           id="eta"
           name="eta"
           value={gts.eta}
           onChange={this.onEtaChanged}
           placeholder="eta"
         />
-        <label htmlFor="emoji" className={getClassName("forms__label")}>
+        <label htmlFor="emoji" className={getClassName('forms__label')}>
           Emoji
         </label>
         <BpkInput
-          className={getClassName("forms__component")}
+          className={getClassName('forms__component')}
           id="emoji"
           name="emoji"
           value={gts.emoji}
@@ -81,7 +84,10 @@ class GTSForm extends React.Component {
           placeholder="emoji"
         />
         <br />
-        <GGButton className={getClassName("forms__component")} onClick={onSubmit}>
+        <GGButton
+          className={getClassName('forms__component')}
+          onClick={onSubmit}
+        >
           Create GTS
         </GGButton>
       </div>

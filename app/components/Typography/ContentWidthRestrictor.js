@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { cssModules } from 'bpk-react-utils';
 
-import STYLES from './content-width-restrictor.scss'; import {cssModules} from 'bpk-react-utils';  const getClassName = cssModules(STYLES); // REGEX_REPLACED
+import STYLES from './content-width-restrictor.scss';
+
+const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 const ContentWidthRestrictor = props => {
   const { children, className, ...rest } = props;
@@ -11,7 +14,9 @@ const ContentWidthRestrictor = props => {
 
   return (
     <div className={classNameFinal.join(' ')} {...rest}>
-      <div className={getClassName("content-width-restrictor__content")}>{children}</div>
+      <div className={getClassName('content-width-restrictor__content')}>
+        {children}
+      </div>
     </div>
   );
 };

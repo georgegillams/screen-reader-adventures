@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import BpkText from 'bpk-component-text';
 import BpkImage from 'bpk-component-image';
+import { cssModules } from 'bpk-react-utils';
 
 import STYLES from './wessex-ccp-logo.scss';
-import { cssModules } from 'bpk-react-utils';
+
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 const LONG_PRESS_DURATION = 3000;

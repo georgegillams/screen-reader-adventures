@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import Card from 'bpk-component-card';
 import { cssModules } from 'bpk-react-utils';
+
+import Skeleton from './Skeleton';
+
 import { NotificationComp } from 'components/Notifications';
 import GGButton from 'components/GGButton';
 import { Section } from 'components/Typography';
@@ -21,7 +24,6 @@ import {
   AdminOnly,
   LoadingCover,
 } from 'components/Auth';
-import Skeleton from './Skeleton';
 import STYLES from 'containers/pages.scss';
 
 const getClassName = cssModules(STYLES);

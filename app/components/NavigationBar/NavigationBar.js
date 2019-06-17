@@ -1,21 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import BpkIconClose from 'bpk-component-icon/lg/close';
-import BpkIconMenu from 'bpk-component-icon/lg/menu';
-import { Logo } from 'components/Logo';
-import { ContentWidthRestrictor } from 'components/Typography';
-import GGButton from 'components/GGButton';
-import { SmallButtonSkeleton } from 'components/Skeletons';
-import NavigationItem from './NavigationItem';
+import { BurgerButton } from 'components/GGButton';
+import { cssModules } from 'bpk-react-utils';
 
 import STYLES from './navigation-bar.scss';
-import { cssModules } from 'bpk-react-utils';
-const getClassName = cssModules(STYLES); // REGEX_REPLACED
+
+import PAGE_STYLES from 'containers/pages.scss';
+
+const getClassName = cssModules({ ...STYLES, ...PAGE_STYLES });
 
 class NavigationBar extends Component {
   constructor(props) {
     super(props);
-    // Must show at start in case on desktop
+
     this.state = { isOpen: false, show: false };
   }
 
@@ -31,7 +28,7 @@ class NavigationBar extends Component {
     this.setState({ isOpen: false });
     setTimeout(() => {
       this.setState({ show: false });
-    }, 1000);
+    }, 500);
   };
 
   open = () => {
@@ -42,86 +39,42 @@ class NavigationBar extends Component {
   };
 
   render() {
-    const {
-      className,
-      menuItems1,
-      menuItems2,
-      logo,
-      accountMenuItem,
-      ...rest
-    } = this.props;
+    const { className, menuItems, logo, accountMenuItem, ...rest } = this.props;
     const outerClassNameFinal = [getClassName('navigation-bar__container')];
     if (className) {
       outerClassNameFinal.push(className);
     }
 
     const animatedContainerClassNameFinal = [
-      getClassName('navigation-bar__animated-container--closed'),
+      getClassName('navigation-bar__animated-container'),
     ];
+    const scrimClassNames = [getClassName('navigation-bar__scrim')];
+    const burgerClassNames = [getClassName('navigation-bar__burger-button')];
     if (this.state.isOpen) {
       animatedContainerClassNameFinal.push(
         getClassName('navigation-bar__animated-container--open'),
       );
+      scrimClassNames.push(getClassName('navigation-bar__scrim--open'));
     }
 
-    const menuItems1WithClickBehaviour =
-      menuItems1 &&
-      menuItems1.map(menuItem =>
+    const menuItemsWithClickBehaviour =
+      menuItems &&
+      menuItems.map(menuItem =>
         menuItem
           ? React.cloneElement(menuItem, {
               onClick: this.close,
-            })
-          : null,
-      );
-
-    const menuItems2WithClickBehaviour =
-      menuItems2 &&
-      menuItems2.map(menuItem =>
-        menuItem
-          ? React.cloneElement(menuItem, {
-              onClick: this.close,
+              className: getClassName('navigation-bar__sidebar-menu-item'),
             })
           : null,
       );
 
     return (
-      <div className={outerClassNameFinal.join(' ')} {...rest}>
-        <ContentWidthRestrictor>
-          <div className={getClassName('navigation-bar__bar')} {...rest}>
-            <div
-              className={getClassName('navigation-bar__mobile-container--left')}
-            >
-              <GGButton aria-label="Menu" bouncy onClick={this.toggle}>
-                {this.state.isOpen ? (
-                  <BpkIconClose style={{ height: '1rem' }} />
-                ) : (
-                  <BpkIconMenu style={{ height: '1rem' }} />
-                )}
-              </GGButton>
-            </div>
-            {menuItems1WithClickBehaviour && (
-              <div
-                className={getClassName('navigation-bar__desktop-container')}
-              >
-                {menuItems1WithClickBehaviour}
-              </div>
-            )}
-            <div className={getClassName('navigation-bar__logo-container')}>
-              {logo}
-            </div>
-            {menuItems2WithClickBehaviour && (
-              <div
-                className={getClassName('navigation-bar__desktop-container')}
-              >
-                {menuItems2WithClickBehaviour}
-              </div>
-            )}
-            <div
-              className={getClassName('navigation-bar__mobile-container--rgt')}
-            >
-              {accountMenuItem}
-            </div>
-          </div>
+      <div>
+        {this.state.show && (
+          <div aria-hidden="true" className={scrimClassNames.join(' ')} />
+        )}
+
+        {this.state.show && (
           <div
             aria-hidden={this.state.show ? null : 'true'}
             className={animatedContainerClassNameFinal.join(' ')}
@@ -129,24 +82,68 @@ class NavigationBar extends Component {
             <div
               className={getClassName('navigation-bar__mobile-menu-container')}
             >
-              {menuItems1WithClickBehaviour}
-              {menuItems2WithClickBehaviour}
+              {menuItemsWithClickBehaviour}
             </div>
           </div>
-        </ContentWidthRestrictor>
+        )}
+        <div className={getClassName('navigation-bar__bar-placeholder')} />
+        <div className={outerClassNameFinal.join(' ')} {...rest}>
+          <div
+            className={getClassName(
+              'pages__container',
+              'pages__container--centered',
+              'navigation-bar__bar',
+            )}
+            {...rest}
+          >
+            <div
+              className={getClassName(
+                'navigation-bar__mobile-container',
+                'navigation-bar__mobile-container--left',
+              )}
+            >
+              <BurgerButton
+                className={burgerClassNames.join(' ')}
+                lineClassName={getClassName(
+                  'navigation-bar__burger-button__line',
+                )}
+                isOpen={this.state.isOpen}
+                aria-label="Menu"
+                onClick={this.toggle}
+              />
+            </div>
+            <div className={getClassName('navigation-bar__logo-container')}>
+              {logo}
+            </div>
+            <div
+              className={getClassName(
+                'navigation-bar__mobile-container',
+                'navigation-bar__mobile-container--rgt',
+              )}
+            >
+              {accountMenuItem}
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
 }
 
 NavigationBar.propTypes = {
-  user: PropTypes.object,
+  accountMenuItem: PropTypes.node,
   className: PropTypes.string,
+  logo: PropTypes.node,
+  menuItems: PropTypes.arrayOf(PropTypes.node),
+  user: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 };
 
 NavigationBar.defaultProps = {
-  user: null,
+  accountMenuItem: null,
   className: null,
+  logo: null,
+  menuItems: null,
+  user: null,
 };
 
 export default NavigationBar;

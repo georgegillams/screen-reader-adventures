@@ -1,8 +1,10 @@
 import { datumLoad, datumLoadSingle, datumCreate } from '../datum';
+
+import userDetailsAllowedAttributes from './userDetailsAllowedAttributes';
+
 import authentication from 'utils/authentication';
 import reqSecure from 'utils/reqSecure';
 import { UNAUTHORISED_READ } from 'helpers/constants';
-import userDetailsAllowedAttributes from './userDetailsAllowedAttributes';
 import { find } from 'utils/find';
 
 export default function load(req) {

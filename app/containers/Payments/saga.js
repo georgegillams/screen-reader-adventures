@@ -1,9 +1,9 @@
-import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { CREATE_PAYMENT } from './constants';
 import { paymentCreated, createPaymentError } from './actions';
-import { API_ENDPOINT } from 'helpers/constants';
 import { makeSelectPayment } from './selectors';
 
+import { API_ENDPOINT } from 'helpers/constants';
+import { call, put, select, takeLatest } from 'redux-saga/effects';
 import request from 'utils/request';
 
 export function* doPaymentCreation() {

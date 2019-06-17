@@ -1,11 +1,12 @@
 import React from 'react';
 import BpkImage, { withLoadingBehavior } from 'bpk-component-image';
+import { cssModules } from 'bpk-react-utils';
+
 import { Section, SubSection, TextLink, Comments } from 'components/Typography';
 import { NotificationComp } from 'components/Notifications';
+import STYLES from 'containers/pages.scss';
 
-import STYLES from 'containers/pages.scss'; import {cssModules} from 'bpk-react-utils';  const getClassName = cssModules(STYLES); // REGEX_REPLACED
-
-
+const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 class BpkDemoPage extends React.Component {
   constructor(props) {

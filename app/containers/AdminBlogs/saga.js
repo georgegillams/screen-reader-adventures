@@ -1,4 +1,3 @@
-import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { LOAD_BLOGS, DELETE_BLOG, CREATE_BLOG } from './constants';
 import {
   loadBlogs,
@@ -8,9 +7,10 @@ import {
   loadBlogsError,
 } from './actions';
 import { makeSelectBlogToDelete } from './selectors';
+
+import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { pushMessage } from 'containers/RequestStatusWrapper/actions';
 import { API_ENDPOINT, COMMUNICATION_ERROR_MESSAGE } from 'helpers/constants';
-
 import request from 'utils/request';
 
 const loadBlogsSuccessMessage = { type: 'success', message: 'Blogs loaded!' };

@@ -1,28 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-import LoadingIndicator from 'components/LoadingIndicator';
-import GGButton from 'components/GGButton';
-import { SectionSkeleton } from 'components/Skeletons';
-import { Section, SubSection, TextLink } from 'components/Typography';
-import Ticket from 'components/Ticket';
-import CodeInline from 'components/Code';
-
-import Skeleton from './Skeleton';
-import { getTimeDifference } from 'helpers/time';
-import { getJsonFromScannedData } from 'helpers/qrCodes';
-import { beautifyTicketType } from 'helpers/ticketing';
-import { DebugObject, LoadingCover, LoggedInOnly } from 'components/Auth';
 import QrReader from 'react-qr-reader';
-import {
-  SignUpContinueFormAboutYou,
-  SignUpContinueFormYourDegree,
-  SignUpContinueFormYourRequirements,
-  SignUpContinueFormPhotoRelease,
-  SignUpContinueFormPayment,
-} from 'components/Forms';
-import { CookiesOnly } from 'components/Sessions';
-import { STRIPE_PUBLIC_API_KEY } from 'helpers/constants';
 import BpkImage, {
   withLazyLoading,
   withLoadingBehavior,
@@ -33,9 +12,31 @@ import BpkProgressBar, {
   themeAttributes as progressThemeAttributes,
 } from 'bpk-component-progress';
 import { Elements, StripeProvider } from 'react-stripe-elements';
-
-import STYLES from './ticket-scanner.scss';
 import { cssModules } from 'bpk-react-utils';
+
+import Skeleton from './Skeleton';
+import STYLES from './ticket-scanner.scss';
+
+import LoadingIndicator from 'components/LoadingIndicator';
+import GGButton from 'components/GGButton';
+import { SectionSkeleton } from 'components/Skeletons';
+import { Section, SubSection, TextLink } from 'components/Typography';
+import Ticket from 'components/Ticket';
+import CodeInline from 'components/Code';
+import { getTimeDifference } from 'helpers/time';
+import { getJsonFromScannedData } from 'helpers/qrCodes';
+import { beautifyTicketType } from 'helpers/ticketing';
+import { DebugObject, LoadingCover, LoggedInOnly } from 'components/Auth';
+import {
+  SignUpContinueFormAboutYou,
+  SignUpContinueFormYourDegree,
+  SignUpContinueFormYourRequirements,
+  SignUpContinueFormPhotoRelease,
+  SignUpContinueFormPayment,
+} from 'components/Forms';
+import { CookiesOnly } from 'components/Sessions';
+import { STRIPE_PUBLIC_API_KEY } from 'helpers/constants';
+
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 const MIN_PAGE_NUMBER = 1;

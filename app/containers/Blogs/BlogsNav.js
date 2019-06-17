@@ -4,13 +4,16 @@ import { Helmet } from 'react-helmet';
 import BpkHorizontalNav, {
   BpkHorizontalNavItem,
 } from 'bpk-component-horizontal-nav';
+import { cssModules } from 'bpk-react-utils';
+
+import BlogListSkeleton from './BlogListSkeleton';
+import STYLES from './blogs-page.scss';
+
 import { LoadingCover } from 'components/Auth';
 import GGButton from 'components/GGButton';
 import BlogsList from 'components/Blogs';
-import BlogListSkeleton from './BlogListSkeleton';
 import PAGE_STYLES from 'containers/pages.scss';
-import STYLES from './blogs-page.scss';
-import { cssModules } from 'bpk-react-utils';
+
 const getClassName = cssModules({ ...PAGE_STYLES, ...STYLES }); // REGEX_REPLACED
 
 export default class BlogsNav extends React.Component {

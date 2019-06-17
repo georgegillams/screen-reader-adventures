@@ -4,11 +4,15 @@ import BpkImage, {
   withLazyLoading,
   withLoadingBehavior,
 } from 'bpk-component-image';
+import { cssModules } from 'bpk-react-utils'; // REGEX_REPLACED
+
+import STYLES from '../pages.scss';
+
 import { Section, SubSection, TextLink } from 'components/Typography';
 import DegreeModule from 'components/Degree';
-
-import STYLES from '../pages.scss'; import {cssModules} from 'bpk-react-utils';  const getClassName = cssModules(STYLES); // REGEX_REPLACED
 import Comments from 'containers/Comments';
+
+const getClassName = cssModules(STYLES);
 
 const documentIfExists = typeof window !== 'undefined' ? document : null;
 const FadingLazyLoadedImage = withLoadingBehavior(
@@ -16,8 +20,6 @@ const FadingLazyLoadedImage = withLoadingBehavior(
 );
 
 const FINAL_DEGREE_PERCENTAGE = 68;
-
-
 
 const PAGE_ID = 'work-degree';
 

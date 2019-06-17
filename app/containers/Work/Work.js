@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
-import GGButton from 'components/GGButton';
-import { Section, SubSection, TextLink } from 'components/Typography';
 import BpkImage, {
   withLazyLoading,
   withLoadingBehavior,
 } from 'bpk-component-image';
-import STYLES from '../pages.scss';
 import { cssModules } from 'bpk-react-utils';
+
+import STYLES from '../pages.scss';
+
+import GGButton from 'components/GGButton';
+import { Section, SubSection, TextLink } from 'components/Typography';
+
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 const documentIfExists = typeof window !== 'undefined' ? document : null;

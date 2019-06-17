@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { cssModules } from 'bpk-react-utils';
+
 import Status from './Status';
+import STYLES from './status-card.scss';
+
 import ArticleCard, { CARD_LAYOUTS } from 'components/Cards';
 
-import STYLES from './status-card.scss'; import {cssModules} from 'bpk-react-utils';  const getClassName = cssModules(STYLES); // REGEX_REPLACED
+const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 const StatusCard = props => {
   const { data, overallStatus, className, ...rest } = props;
@@ -15,15 +19,15 @@ const StatusCard = props => {
     <div className={classNameFinal.join(' ')} {...rest}>
       <ArticleCard
         layout={CARD_LAYOUTS.narrowCompact}
-        className={getClassName("status-card__card")}
+        className={getClassName('status-card__card')}
       >
-        <div className={getClassName("status-card__content-items")}>
+        <div className={getClassName('status-card__content-items')}>
           {data &&
             data.map(dataItem => (
-              <div className={getClassName("status-card__content-item")}>
+              <div className={getClassName('status-card__content-item')}>
                 <Status
                   type={dataItem.status}
-                  className={getClassName("status-card__content-item-status")}
+                  className={getClassName('status-card__content-item-status')}
                 />
                 {dataItem.item}
                 <br />
@@ -36,7 +40,7 @@ const StatusCard = props => {
         shadow
         type={overallStatus}
         large
-        className={getClassName("status-card__status")}
+        className={getClassName('status-card__status')}
       />
     </div>
   );

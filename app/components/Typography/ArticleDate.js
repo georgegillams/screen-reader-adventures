@@ -1,8 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import BpkText from 'bpk-component-text';
+import { cssModules } from 'bpk-react-utils';
 
-import STYLES from './article-date.scss'; import {cssModules} from 'bpk-react-utils';  const getClassName = cssModules(STYLES); // REGEX_REPLACED
+import STYLES from './article-date.scss';
+
+const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 const ArticleDate = props => {
   const { date, noPadding, className, ...rest } = props;

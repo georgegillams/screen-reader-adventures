@@ -1,15 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import RequestStatus from './RequestStatus';
+import { cssModules } from 'bpk-react-utils';
 
-import STYLES from './request-status.scss'; import {cssModules} from 'bpk-react-utils';  const getClassName = cssModules(STYLES); // REGEX_REPLACED
+import RequestStatus from './RequestStatus';
+import STYLES from './request-status.scss';
+
+const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 const RequestStatusContainer = props => {
   const { statuses } = props;
 
   const classNameFinal = [getClassName('request-status__outer-container')];
   if (statuses && statuses.length > 0) {
-    classNameFinal.push(getClassName('request-status__outer-container--statuses-showing'));
+    classNameFinal.push(
+      getClassName('request-status__outer-container--statuses-showing'),
+    );
   }
 
   return (

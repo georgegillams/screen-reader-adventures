@@ -1,8 +1,10 @@
 import { datumLoad } from '../datum';
+
+import paymentsAllowedAttributes from './paymentsAllowedAttributes';
+
 import authentication from 'utils/authentication';
 import { UNAUTHORISED_READ } from 'helpers/constants';
 import reqSecure from 'utils/reqSecure';
-import paymentsAllowedAttributes from './paymentsAllowedAttributes';
 
 export default function load(req) {
   const reqSecured = reqSecure(req, paymentsAllowedAttributes);

@@ -1,13 +1,20 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
+import BpkImage, {
+  withLazyLoading,
+  withLoadingBehavior,
+} from 'bpk-component-image';
+import { cssModules } from 'bpk-react-utils';
+
+import Skeleton from './Skeleton';
+
 import LoadingIndicator from 'components/LoadingIndicator';
 import GGButton from 'components/GGButton';
 import { Section, SubSection, TextLink } from 'components/Typography';
 import CodeInline from 'components/Code';
 import { DebugObject, LoggedInOnly, LoadingCover } from 'components/Auth';
 import { LoginForm } from 'components/Forms';
-import Skeleton from './Skeleton';
 import { CookiesOnly } from 'components/Sessions';
 import {
   MONZOME_LINK_REGEX,
@@ -18,13 +25,8 @@ import {
   PROJECT_NAME,
   EMAIL_VERIFICATION_ENABLED,
 } from 'helpers/constants';
-import BpkImage, {
-  withLazyLoading,
-  withLoadingBehavior,
-} from 'bpk-component-image';
-
 import STYLES from 'containers/pages.scss';
-import { cssModules } from 'bpk-react-utils';
+
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 export default class Account extends React.Component {

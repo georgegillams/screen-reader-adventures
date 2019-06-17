@@ -1,9 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import TextLink from './TextLink';
 import BpkText from 'bpk-component-text';
+import { cssModules } from 'bpk-react-utils';
 
-import STYLES from './typography.scss'; import {cssModules} from 'bpk-react-utils';  const getClassName = cssModules(STYLES); // REGEX_REPLACED
+import TextLink from './TextLink';
+import STYLES from './typography.scss';
+
+const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 const SubSection = props => {
   const {
@@ -66,7 +69,10 @@ const SubSection = props => {
   return (
     <div className={classNameFinal.join(' ')} {...rest}>
       {!noAnchor && (
-        <TextLink href={`#${anchorLink}`} className={getClassName("typography__anchor-link")}>
+        <TextLink
+          href={`#${anchorLink}`}
+          className={getClassName('typography__anchor-link')}
+        >
           §
         </TextLink>
       )}

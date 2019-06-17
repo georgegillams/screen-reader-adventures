@@ -1,4 +1,3 @@
-import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { UPDATE_USER_DETAILS, LOAD_USER_DETAILS } from './constants';
 import {
   updateUserDetailsSuccessful,
@@ -7,15 +6,16 @@ import {
   loadUserDetailsError,
   makePaymentSuccess,
 } from './actions';
+import { makeSelectUserDetails, makeSelectPaymentToken } from './selectors';
+
+import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { setUser } from 'containers/App/actions';
 import {
   API_ENDPOINT,
   TICKET_COST,
   COMMUNICATION_ERROR_MESSAGE,
 } from 'helpers/constants';
-import { makeSelectUserDetails, makeSelectPaymentToken } from './selectors';
 import { pushMessage } from 'containers/RequestStatusWrapper/actions';
-
 import request from 'utils/request';
 
 const userDetailsLoadError = {

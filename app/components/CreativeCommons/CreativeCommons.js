@@ -1,7 +1,10 @@
 import React from 'react';
-import { TextLink, SubSection } from 'components/Typography';
 import { cssModules } from 'bpk-react-utils';
+
 import STYLES from './creative-commons.scss';
+
+import { TextLink, SubSection } from 'components/Typography';
+
 const getClassName = cssModules(STYLES);
 
 const CreativeCommons = props => {

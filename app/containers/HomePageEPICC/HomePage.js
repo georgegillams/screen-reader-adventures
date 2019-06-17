@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
+import { cssModules } from 'bpk-react-utils';
+
 import ArticleCard, { CARD_LAYOUTS } from 'components/Cards';
 import { REG_EMAIL } from 'helpers/constants';
 import STYLES from 'containers/pages.scss';
-import { cssModules } from 'bpk-react-utils';
+
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 export default class HomePage extends React.PureComponent {

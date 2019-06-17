@@ -1,12 +1,24 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
+import BpkImage, {
+  withLazyLoading,
+  withLoadingBehavior,
+} from 'bpk-component-image';
+import BpkThemeProvider from 'bpk-theming';
+import BpkProgressBar, {
+  themeAttributes as progressThemeAttributes,
+} from 'bpk-component-progress';
+import { Elements, StripeProvider } from 'react-stripe-elements';
+import { cssModules } from 'bpk-react-utils';
+
+import Skeleton from './Skeleton';
+import LowerPageSkeleton from './LowerPageSkeleton';
+
 import LoadingIndicator from 'components/LoadingIndicator';
 import GGButton from 'components/GGButton';
 import { Section, SubSection, TextLink } from 'components/Typography';
 import CodeInline from 'components/Code';
-import Skeleton from './Skeleton';
-import LowerPageSkeleton from './LowerPageSkeleton';
 import { getTimeDifference } from 'helpers/time';
 import { DebugObject, LoadingCover, LoggedInOnly } from 'components/Auth';
 import {
@@ -19,19 +31,9 @@ import {
 import TicketStatus from 'containers/TicketStatus';
 import { CookiesOnly } from 'components/Sessions';
 import { STRIPE_PUBLIC_API_KEY } from 'helpers/constants';
-import BpkImage, {
-  withLazyLoading,
-  withLoadingBehavior,
-} from 'bpk-component-image';
-import BpkThemeProvider from 'bpk-theming';
-import BpkProgressBar, {
-  themeAttributes as progressThemeAttributes,
-} from 'bpk-component-progress';
-import { Elements, StripeProvider } from 'react-stripe-elements';
+import STYLES from 'containers/pages.scss';
 
-import STYLES from 'containers/pages.scss'; import {cssModules} from 'bpk-react-utils';  const getClassName = cssModules(STYLES); // REGEX_REPLACED
-
-
+const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 export default class StripePayments extends React.Component {
   render() {
@@ -122,7 +124,7 @@ export default class StripePayments extends React.Component {
 
     return (
       <Fragment>
-        <Helmet title={'Pay'} />
+        <Helmet title="Pay" />
         <LoadingCover
           loadingSkeleton={Skeleton}
           loading={loadingUserDetails}

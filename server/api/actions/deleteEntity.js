@@ -1,6 +1,7 @@
+import { datumLoad, datumUpdate } from '../actions/datum';
+
 import { STRING_REGEX, ID_REGEX, RESOURCE_NOT_FOUND } from 'helpers/constants';
 import redis from 'utils/redis';
-import { datumLoad, datumUpdate } from '../actions/datum';
 import { find } from 'utils/find';
 import { UNAUTHORISED_WRITE } from 'helpers/constants';
 import authentication from 'utils/authentication';
@@ -28,9 +29,7 @@ export default function deleteEntity(req) {
               if (existingValue) {
                 if (existingValue.deleted) {
                   console.log(
-                    `Permanently removing ${
-                      existingValue.id
-                    } at index ${existingValueIndex}`,
+                    `Permanently removing ${existingValue.id} at index ${existingValueIndex}`,
                   );
                   resolve(
                     redis.lrem(

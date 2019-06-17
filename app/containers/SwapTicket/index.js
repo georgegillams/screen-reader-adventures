@@ -1,25 +1,27 @@
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
-import injectReducer from 'utils/injectReducer';
-import injectSaga from 'utils/injectSaga';
+
 import {
   makeSelectSelectedTicketType,
   makeSelectAvailableTickets,
   makeSelectLoadingAvailableTickets,
   makeSelectLoadAvailableTicketsError,
 } from './selectors';
+import { setSelectedTicketType, swapTickets } from './actions';
+import reducer from './reducer';
+import saga from './saga';
+import SwapTicket from './SwapTicket';
+
+import injectReducer from 'utils/injectReducer';
+import injectSaga from 'utils/injectSaga';
 import { setLoginRedirect } from 'containers/App/actions';
 import {
   makeSelectUser,
   makeSelectError as makeSelectUserLoadError,
   makeSelectUserLoading,
 } from 'containers/App/selectors';
-import { setSelectedTicketType, swapTickets } from './actions';
 import { setCookiesAllowed } from 'containers/App/actions';
-import reducer from './reducer';
-import saga from './saga';
-import SwapTicket from './SwapTicket';
 
 const mapDispatchToProps = dispatch => ({
   setLoginRedirect: lr => dispatch(setLoginRedirect(lr)),

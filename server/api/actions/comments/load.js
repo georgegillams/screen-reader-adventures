@@ -1,7 +1,9 @@
 import { datumLoad } from '../datum';
+
+import commentsAllowedAttributes from './commentsAllowedAttributes';
+
 import authentication from 'utils/authentication';
 import reqSecure from 'utils/reqSecure';
-import commentsAllowedAttributes from './commentsAllowedAttributes';
 
 export default function load(req) {
   const reqSecured = reqSecure(req, commentsAllowedAttributes);

@@ -1,12 +1,12 @@
-import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { MAKE_PAYMENT } from './constants';
 import { makePaymentError, makePaymentSuccess } from './actions';
+import { makeSelectPaymentToken } from './selectors';
+
+import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { API_ENDPOINT, COMMUNICATION_ERROR_MESSAGE } from 'helpers/constants';
 import { loadBalance, loadUserTicket } from 'containers/TicketStatus/actions';
 import { makeSelectBalance } from 'containers/TicketStatus/selectors';
-import { makeSelectPaymentToken } from './selectors';
 import { pushMessage } from 'containers/RequestStatusWrapper/actions';
-
 import request from 'utils/request';
 
 const paymentSuccessMessage = {

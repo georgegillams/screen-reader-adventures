@@ -1,9 +1,10 @@
-import defineActions from 'helpers/redux/actions';
 import {
   LOAD_GTS_LATEST,
   LOAD_GTS_LATEST_SUCCESS,
   LOAD_GTS_LATEST_ERROR,
 } from './constants';
+
+import defineActions from 'helpers/redux/actions';
 
 module.exports = defineActions([
   {

@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { cssModules } from 'bpk-react-utils';
 
-import STYLES from './scroller-button.scss'; import {cssModules} from 'bpk-react-utils';  const getClassName = cssModules(STYLES); // REGEX_REPLACED
+import STYLES from './scroller-button.scss';
+
+const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 class ScrollerButton extends Component {
   constructor(props) {

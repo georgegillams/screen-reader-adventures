@@ -1,8 +1,11 @@
 import React from 'react';
-import TicketStatusSkeleton from 'containers/TicketStatus/Skeleton';
-import LowerPageSkeleton from './LowerPageSkeleton';
-import STYLES from 'containers/pages.scss';
 import { cssModules } from 'bpk-react-utils';
+
+import LowerPageSkeleton from './LowerPageSkeleton';
+
+import TicketStatusSkeleton from 'containers/TicketStatus/Skeleton';
+import STYLES from 'containers/pages.scss';
+
 const getClassName = cssModules(STYLES);
 
 const LoginFormSkeleton = props => {

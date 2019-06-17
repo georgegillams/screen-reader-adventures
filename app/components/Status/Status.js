@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TextLink } from 'components/Typography';
-import STATUS_TYPES from './StatusTypes';
+import { cssModules } from 'bpk-react-utils';
 
-import STYLES from './status.scss'; import {cssModules} from 'bpk-react-utils';  const getClassName = cssModules(STYLES); // REGEX_REPLACED
+import STATUS_TYPES from './StatusTypes';
+import STYLES from './status.scss';
+
+import { TextLink } from 'components/Typography';
+
+const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 const Status = props => {
   const { shadow, type, large, className, ...rest } = props;
@@ -28,8 +32,8 @@ const Status = props => {
   return (
     <div className={classNameFinal.join(' ')} {...rest}>
       {large && shadow && (
-        <div className={getClassName("status__shadow-container")}>
-          <div className={getClassName("status__shadow")} />
+        <div className={getClassName('status__shadow-container')}>
+          <div className={getClassName('status__shadow')} />
         </div>
       )}
       <div className={statusClassName.join(' ')}>

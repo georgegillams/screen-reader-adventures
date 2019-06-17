@@ -1,6 +1,10 @@
 import React, { Fragment } from 'react';
+import { cssModules } from 'bpk-react-utils';
+
 import { CompactCardSkeleton, SectionSkeleton } from 'components/Skeletons';
-import STYLES from 'containers/pages.scss'; import {cssModules} from 'bpk-react-utils'; const getClassName = cssModules(STYLES);
+import STYLES from 'containers/pages.scss';
+
+const getClassName = cssModules(STYLES);
 
 const AccountSkeleton = props => {
   const { className, ...rest } = props; // eslint-disable-line no-shadow
@@ -14,7 +18,7 @@ const AccountSkeleton = props => {
   return (
     <div className={outerClassNameFinal.join(' ')} {...rest}>
       <SectionSkeleton />
-      <div className={getClassName("pages__compact-card-container")}>
+      <div className={getClassName('pages__compact-card-container')}>
         <CompactCardSkeleton />
         <CompactCardSkeleton />
         <CompactCardSkeleton />

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Section } from 'components/Typography';
+
 import ObjectAsList from './ObjectAsList';
+
+import { Section } from 'components/Typography';
 
 class DebugObject extends Component {
   constructor(props) {

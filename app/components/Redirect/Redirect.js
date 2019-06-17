@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
+
 import { Section, TextLink } from 'components/Typography';
 
 const GGRedirect = props => {

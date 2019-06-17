@@ -4,7 +4,7 @@ const getJsonFromScannedData = data => {
       data
         .split("'")
         .join('"')
-        .split("\'")
+        .split("'")
         .join('"'),
     );
   } catch (err) {

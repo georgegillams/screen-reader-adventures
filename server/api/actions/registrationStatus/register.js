@@ -1,4 +1,7 @@
 import { datumLoadSingle, datumCreate, datumUpdate } from '../datum';
+
+import registratiomStatusAllowedAttributes from './registratiomStatusAllowedAttributes';
+
 import authentication from 'utils/authentication';
 import reqSecure from 'utils/reqSecure';
 import getRegistrationStatus from 'utils/getRegistrationStatus';
@@ -10,7 +13,6 @@ import {
   CONFERENCE_DAY_1_START,
   CONFERENCE_DAY_2_START,
 } from 'helpers/constants';
-import registratiomStatusAllowedAttributes from './registratiomStatusAllowedAttributes';
 import { find } from 'utils/find';
 
 export default function register(req) {
@@ -94,9 +96,7 @@ export default function register(req) {
                         }
                         resolve({
                           ...{
-                            name: `${loadedUserDetails.name} ${
-                              loadedUserDetails.surname
-                            }`,
+                            name: `${loadedUserDetails.name} ${loadedUserDetails.surname}`,
                           },
                           ...result,
                           ...{

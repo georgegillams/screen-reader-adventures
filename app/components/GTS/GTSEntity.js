@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+
 import { getTimeDifference } from 'helpers/time';
 import { TextLink, Section } from 'components/Typography';
 

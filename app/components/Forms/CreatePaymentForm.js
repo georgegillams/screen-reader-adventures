@@ -1,5 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { cssModules } from 'bpk-react-utils';
+
+import FormBuilder from './FormBuilder';
+import STYLES from './forms.scss';
+
 import {
   STRING_REGEX,
   INT_REGEX,
@@ -7,9 +12,8 @@ import {
   SORT_CODE_REGEX,
   MONZOME_LINK_REGEX,
 } from 'helpers/constants';
-import FormBuilder from './FormBuilder';
 
-import STYLES from './forms.scss'; import {cssModules} from 'bpk-react-utils';  const getClassName = cssModules(STYLES); // REGEX_REPLACED
+const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 class CreatePayment extends React.Component {
   static propTypes = {

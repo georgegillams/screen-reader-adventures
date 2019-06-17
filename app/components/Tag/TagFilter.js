@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { cssModules } from 'bpk-react-utils';
+
 import Tag, { TAG_TYPES } from './Tag';
+import STYLES from './tag-filter.scss';
+
 import HelperFunctions from 'helpers/HelperFunctions';
 
-import STYLES from './tag-filter.scss'; import {cssModules} from 'bpk-react-utils';  const getClassName = cssModules(STYLES); // REGEX_REPLACED
+const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 class TagFilter extends Component {
   static propTypes = { location: PropTypes.object };
@@ -76,7 +80,7 @@ class TagFilter extends Component {
             disabled={
               filterEnabled && !HelperFunctions.includes(selectedTags, tagType)
             }
-            className={getClassName("tag-filter__tag")}
+            className={getClassName('tag-filter__tag')}
             type={tagType}
             onClick={() => {
               this.toggle(tagType);

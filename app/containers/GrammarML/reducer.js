@@ -1,4 +1,5 @@
 import { fromJS } from 'immutable';
+
 import {
   TEST,
   TEST_ERROR,

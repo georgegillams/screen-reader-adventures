@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { CompactCardSkeleton, SectionSkeleton } from 'components/Skeletons';
+
 const getClassName = c => c;
 
 const GrammarMLSkeleton = props => {

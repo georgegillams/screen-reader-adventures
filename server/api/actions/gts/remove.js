@@ -1,4 +1,5 @@
 import { datumRemove } from '../datum';
+
 import authentication from 'utils/authentication';
 import { UNAUTHORISED_WRITE } from 'helpers/constants';
 

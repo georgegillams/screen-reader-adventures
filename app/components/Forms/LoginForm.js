@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import BpkInput, { INPUT_TYPES } from 'bpk-component-input';
+import { cssModules } from 'bpk-react-utils';
+
+import FormBuilder from './FormBuilder';
+import STYLES from './forms.scss';
+
 import GGButton from 'components/GGButton';
 import { TextLink } from 'components/Typography';
-
 import {
   STRING_REGEX,
   INT_REGEX,
@@ -13,9 +17,8 @@ import {
   SORT_CODE_REGEX,
   MONZOME_LINK_REGEX,
 } from 'helpers/constants';
-import FormBuilder from './FormBuilder';
 
-import STYLES from './forms.scss'; import {cssModules} from 'bpk-react-utils';  const getClassName = cssModules(STYLES); // REGEX_REPLACED
+const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 class Login extends React.Component {
   static propTypes = {

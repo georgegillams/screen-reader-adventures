@@ -1,14 +1,17 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
+import { cssModules } from 'bpk-react-utils';
+
+import Skeleton from './Skeleton';
+
 import { LoadingCover } from 'components/Auth';
 import CreativeCommons from 'components/CreativeCommons';
 import { BlogRenderer } from 'components/Typography';
 import HelperFunctions from 'helpers/HelperFunctions';
-import Skeleton from './Skeleton';
 import Comments from 'containers/Comments';
 import STYLES from 'containers/pages.scss';
-import { cssModules } from 'bpk-react-utils';
+
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 export default class BlogViewer extends React.Component {

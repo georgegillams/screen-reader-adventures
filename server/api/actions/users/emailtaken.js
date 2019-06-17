@@ -1,7 +1,9 @@
 import { datumLoad } from '../datum';
+
+import usersAllowedAttributes from './usersAllowedAttributes';
+
 import { find, emailFingerprint } from 'utils/find';
 import reqSecure from 'utils/reqSecure';
-import usersAllowedAttributes from './usersAllowedAttributes';
 
 export default function emailtaken(req) {
   const reqSecured = reqSecure(req, usersAllowedAttributes);

@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react';
+import { cssModules } from 'bpk-react-utils';
+
 import { CompactCardSkeleton, SectionSkeleton } from 'components/Skeletons';
 import STYLES from 'containers/pages.scss';
-import { cssModules } from 'bpk-react-utils';
 
 const getClassName = cssModules(STYLES);
 

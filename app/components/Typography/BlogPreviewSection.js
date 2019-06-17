@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { cssModules } from 'bpk-react-utils';
+
 import Section from './Section';
 import BlogPreviewSubSection from './BlogPreviewSubSection';
 import BlogPreviewContent from './BlogPreviewContent';
+
 import STYLES from 'containers/pages.scss';
-import { cssModules } from 'bpk-react-utils';
 
 const getClassName = cssModules(STYLES);
 

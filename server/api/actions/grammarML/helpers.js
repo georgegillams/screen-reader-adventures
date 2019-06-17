@@ -1,10 +1,13 @@
-import { datumUpdate, datumLoad } from '../datum';
 import jsregression from 'js-regression';
 import winkPerceptron from 'wink-perceptron';
+
+import { datumUpdate, datumLoad } from '../datum';
+
+import grammarMLAllowedAttributes from './grammarMLAllowedAttributes';
+
 import authentication from 'utils/authentication';
 import { UNAUTHORISED_WRITE } from 'helpers/constants';
 import reqSecure from 'utils/reqSecure';
-import grammarMLAllowedAttributes from './grammarMLAllowedAttributes';
 
 const THEIR_VALUE = 'THEIR';
 const THERE_VALUE = 'THERE';
@@ -17,8 +20,8 @@ const getLastTwoCharValues = word => {
   return result;
 };
 
-const annotateSentences = data => {
-  return data.map(d => {
+const annotateSentences = data =>
+  data.map(d => {
     const res = JSON.parse(JSON.stringify(d));
     if (!d || !d.text || d.text.length < 5) {
       return null;
@@ -63,7 +66,6 @@ const annotateSentences = data => {
 
     return res;
   });
-};
 
 const extractDataMatrix = data => {
   const final = data.map(d => {

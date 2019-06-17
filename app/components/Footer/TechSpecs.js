@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Section } from 'components/Typography';
+import { cssModules } from 'bpk-react-utils';
 
 import STYLES from './tech-specs.scss';
-import { cssModules } from 'bpk-react-utils';
+
+import { Section } from 'components/Typography';
+
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 const TechSpecs = props => {

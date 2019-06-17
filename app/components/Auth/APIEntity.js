@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+import ObjectAsList from './ObjectAsList';
+
 import { getTimeDifference } from 'helpers/time';
 import { Section } from 'components/Typography';
-import ObjectAsList from './ObjectAsList';
 
 const APIEntity = props => {
   const { entityType, entity, name, children, ...rest } = props;

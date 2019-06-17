@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import RepoListItem from 'containers/RepoListItem';
 
 import List from 'components/List';
 import ListItem from 'components/ListItem';
 import LoadingIndicator from 'components/LoadingIndicator';
-import RepoListItem from 'containers/RepoListItem';
 
 const ReposList = ({ loading, error, repos }) => {
   if (loading) {
