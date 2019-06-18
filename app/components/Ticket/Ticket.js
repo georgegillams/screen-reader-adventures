@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { QRCode } from 'react-qr-svg';
+import { cssModules } from 'bpk-react-utils';
+
+import STYLES from './ticket.scss';
 
 import PAGE_STYLES from 'containers/pages.scss';
-import STYLES from './ticket.scss';
-import { cssModules } from 'bpk-react-utils';
+
 const getClassName = cssModules({ ...PAGE_STYLES, ...STYLES }); // REGEX_REPLACED
 
 class Ticket extends Component {
@@ -31,7 +33,7 @@ class Ticket extends Component {
         <br />
         <br />
         <QRCode
-          className={getClassName("ticket__qr")}
+          className={getClassName('ticket__qr')}
           bgColor="#FFFFFF"
           fgColor="#1e1e1e"
           level="Q"

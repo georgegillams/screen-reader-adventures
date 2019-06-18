@@ -1,15 +1,17 @@
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
-import injectReducer from 'utils/injectReducer';
-import injectSaga from 'utils/injectSaga';
-import { mapSelectors } from 'helpers/redux/selectors';
-import { mapActions } from 'helpers/redux/actions';
+
 import selectors from './selectors';
 import actions from './actions';
 import reducer from './reducer';
 import saga from './saga';
 import Comp from './GeorgeTrackingSystem';
+
+import { mapActions } from 'helpers/redux/actions';
+import { mapSelectors } from 'helpers/redux/selectors';
+import injectSaga from 'utils/injectSaga';
+import injectReducer from 'utils/injectReducer';
 
 const mapDispatchToProps = dispatch => mapActions(dispatch, actions);
 

@@ -1,4 +1,7 @@
 import { datumLoad, datumCreate } from '../actions/datum';
+
+import usersAllowedAttributes from './users/usersAllowedAttributes';
+
 import { find } from 'utils/find';
 import {
   INVALID_SESSION,
@@ -9,7 +12,6 @@ import {
 import { hash, compareHash } from 'utils/hash';
 import setContentLastUpdatedTimestamp from 'utils/setContentLastUpdatedTimestamp';
 import reqSecure from 'utils/reqSecure';
-import usersAllowedAttributes from './users/usersAllowedAttributes';
 import loginUser from 'utils/login';
 import { sendEmailVerificationEmail } from 'utils/emailHelpers';
 

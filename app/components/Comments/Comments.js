@@ -1,12 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { cssModules } from 'bpk-react-utils';
+
 import CommentInput from './CommentInput';
 import Comment from './Comment';
+import STYLES from './comments.scss';
+
 import { DebugObject, LoggedInOnly } from 'components/Auth';
 import { NotificationComp } from 'components/Notifications';
 import { Section, SubSection } from 'components/Typography';
 
-import STYLES from './comments.scss'; import {cssModules} from 'bpk-react-utils';  const getClassName = cssModules(STYLES); // REGEX_REPLACED
+const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 class Comments extends React.Component {
   static propTypes = {
@@ -77,7 +81,7 @@ class Comments extends React.Component {
         commentsFiltered.length === 0 ? (
           <SubSection
             noAnchor
-            className={getClassName("comments__component")}
+            className={getClassName('comments__component')}
             name="No comments yet. Be the first!"
           />
         ) : (

@@ -1,22 +1,19 @@
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
-import injectReducer from 'utils/injectReducer';
-import injectSaga from 'utils/injectSaga';
-import {
-  makeSelectUser,
-  makeSelectUserLoading,
-} from 'containers/App/selectors';
+
 import reducer from './reducer';
 import saga from './saga';
 import NavigationBarWrapper from './NavigationBarWrapper';
 
-const mapDispatchToProps = dispatch => ({});
+import injectReducer from 'utils/injectReducer';
+import injectSaga from 'utils/injectSaga';
+import appSelectors from 'containers/App/selectors';
+import { mapSelectors } from 'helpers/redux/selectors';
 
-const mapStateToProps = createStructuredSelector({
-  user: makeSelectUser(),
-  userLoading: makeSelectUserLoading(),
-});
+const mapDispatchToProps = () => ({});
+
+const mapStateToProps = createStructuredSelector(mapSelectors(appSelectors));
 
 const withConnect = connect(
   mapStateToProps,

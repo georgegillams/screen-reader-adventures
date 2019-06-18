@@ -20,20 +20,13 @@ const ticketNamesMapping = {
   R_TWO_DAY: 'Full weekend ticket',
 };
 
-const getPriceForTicketType = ticketType => {
-  return ticketCostMapping[ticketType] || 0;
-};
+const getPriceForTicketType = ticketType => ticketCostMapping[ticketType] || 0;
 
-const ticketCanBeReserved = t => {
-  return (
-    !t.reservedUntil ||
-    new Date(t.reservedUntil).getTime() < new Date().getTime()
-  );
-};
+const ticketCanBeReserved = t =>
+  !t.reservedUntil ||
+  new Date(t.reservedUntil).getTime() < new Date().getTime();
 
-const ticketReservationIsValid = t => {
-  return !!t && !ticketCanBeReserved(t);
-};
+const ticketReservationIsValid = t => !!t && !ticketCanBeReserved(t);
 
 const reserveTicket = (ticket, user, priorReservation) => {
   const ticketClone = JSON.parse(JSON.stringify(ticket));
@@ -68,13 +61,10 @@ const calculateOutstandingBalance = (reservedTicket, payments) => {
   return remainingBalance;
 };
 
-const validateType = ticketType => {
-  return !!ticketCostMapping[ticketType];
-};
+const validateType = ticketType => !!ticketCostMapping[ticketType];
 
-const beautifyTicketType = ticketType => {
-  return ticketNamesMapping[ticketType] || ticketType;
-};
+const beautifyTicketType = ticketType =>
+  ticketNamesMapping[ticketType] || ticketType;
 
 export {
   reserveTicket,

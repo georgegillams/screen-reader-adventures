@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { cssModules } from 'bpk-react-utils';
 
 import STYLES from './gg-button.scss';
-import { cssModules } from 'bpk-react-utils';
+
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 class GGButton extends Component {
@@ -23,6 +24,7 @@ class GGButton extends Component {
       bouncy,
       onClick,
       className,
+      buttonClassName,
       large,
       children,
       secondary,
@@ -78,6 +80,8 @@ class GGButton extends Component {
         );
       }
     }
+
+    if (buttonClassName) classNameFinal.push(buttonClassName);
 
     if (href && !hrefExternal && !disabled) {
       return (

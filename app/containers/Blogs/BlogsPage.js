@@ -4,13 +4,15 @@ import BpkThemeProvider from 'bpk-theming';
 import { themeAttributes as hnThemeAttributes } from 'bpk-component-horizontal-nav';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
+import { cssModules } from 'bpk-react-utils';
+
+import BlogListSkeleton from './BlogListSkeleton';
+import BlogsNav from './BlogsNav';
+
 import { DebugObject, LoadingCover } from 'components/Auth';
 import BlogsList from 'components/Blogs';
 import CreativeCommons from 'components/CreativeCommons';
-import BlogListSkeleton from './BlogListSkeleton';
-import BlogsNav from './BlogsNav';
 import STYLES from 'containers/pages.scss';
-import { cssModules } from 'bpk-react-utils';
 
 const getClassName = cssModules(STYLES);
 

@@ -1,14 +1,16 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
+import { cssModules } from 'bpk-react-utils';
+
+import Skeleton from './Skeleton';
+
 import ArticleCard, { CARD_LAYOUTS } from 'components/Cards';
 import { Section } from 'components/Typography';
 import { DebugObject, AdminOnly, LoadingCover } from 'components/Auth';
-import Skeleton from './Skeleton';
 import { CookiesOnly } from 'components/Sessions';
-
 import STYLES from 'containers/pages.scss';
-import { cssModules } from 'bpk-react-utils';
+
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 export default class Admin extends React.Component {

@@ -2,6 +2,10 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import BpkInput, { INPUT_TYPES } from 'bpk-component-input';
 import { Helmet } from 'react-helmet';
+import { cssModules } from 'bpk-react-utils';
+
+import Skeleton from './Skeleton';
+
 import LoadingIndicator from 'components/LoadingIndicator';
 import ArticleCard, { CARD_LAYOUTS } from 'components/Cards';
 import GGButton from 'components/GGButton';
@@ -15,11 +19,9 @@ import {
   LoadingCover,
 } from 'components/Auth';
 import { LoginForm } from 'components/Forms';
-import Skeleton from './Skeleton';
 import { CookiesOnly } from 'components/Sessions';
-
 import STYLES from 'containers/pages.scss';
-import { cssModules } from 'bpk-react-utils';
+
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 export default class AdminMonzo extends React.Component {

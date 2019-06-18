@@ -1,7 +1,8 @@
-import redis from 'utils/redis';
-import { RESOURCE_NOT_FOUND } from 'helpers/constants';
 import sortBy from 'lodash/sortBy';
 import reverse from 'lodash/reverse';
+
+import redis from 'utils/redis';
+import { RESOURCE_NOT_FOUND } from 'helpers/constants';
 
 function notFound(settings, resolve, reject) {
   if (settings.resolveIfNotFound) {

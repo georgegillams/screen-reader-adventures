@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { cssModules } from 'bpk-react-utils';
 
-import STYLES from './tag-complex.scss'; import {cssModules} from 'bpk-react-utils';  const getClassName = cssModules(STYLES); // REGEX_REPLACED
+import STYLES from './tag-complex.scss';
+
+const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 export const TAG_TYPES = {
   tech: 'tech',
@@ -76,10 +79,10 @@ class Tag extends Component {
     }
 
     const tagComponent = (
-      <span className={getClassName("tag__inner")}>
+      <span className={getClassName('tag__inner')}>
         <span className={angleClassName.join(' ')} />
         <span className={tagClassName.join(' ')}>{`${tagText[type]}`}</span>
-        <span className={getClassName("tag__inner-hole")} />
+        <span className={getClassName('tag__inner-hole')} />
       </span>
     );
 

@@ -2,10 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import BpkInput, { INPUT_TYPES } from 'bpk-component-input';
 import BpkCheckBox from 'bpk-component-checkbox';
+import { cssModules } from 'bpk-react-utils';
+
+import FormBuilder from './FormBuilder';
+import STYLES from './forms.scss';
 
 import { TextLink } from 'components/Typography';
 import GGButton from 'components/GGButton';
-
 import {
   STRING_REGEX,
   INT_REGEX,
@@ -16,9 +19,8 @@ import {
   DATE_REGEX,
 } from 'helpers/constants';
 import { formValueChanged } from 'helpers/objects';
-import FormBuilder from './FormBuilder';
 
-import STYLES from './forms.scss'; import {cssModules} from 'bpk-react-utils';  const getClassName = cssModules(STYLES); // REGEX_REPLACED
+const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 class SignUpContinueFormPhotoRelease extends React.Component {
   static propTypes = {
@@ -62,7 +64,7 @@ class SignUpContinueFormPhotoRelease extends React.Component {
         <br />
         <br />
         <BpkCheckBox
-          className={getClassName("forms__component")}
+          className={getClassName('forms__component')}
           name="photoReleaseConsented"
           label="I have read and understood, and agree to the above photo release terms."
           checked={userDetails.photoReleaseConsented}
@@ -77,7 +79,7 @@ class SignUpContinueFormPhotoRelease extends React.Component {
         />
         <br />
         <GGButton
-          className={getClassName("forms__component")}
+          className={getClassName('forms__component')}
           large
           onClick={onSubmit}
           disabled={!userDetails.photoReleaseConsented}
@@ -88,7 +90,7 @@ class SignUpContinueFormPhotoRelease extends React.Component {
         <div style={{ display: 'flex', justifyContent: 'end' }}>
           <GGButton
             secondary
-            className={getClassName("forms__component")}
+            className={getClassName('forms__component')}
             onClick={onSubmit}
             disabled={userDetails.photoReleaseConsented}
           >

@@ -20,13 +20,13 @@ const NavigationBarWrapper = props => {
       <NavigationItem name="Admin" linkUrl="/admin" />
     ) : null;
 
-  let menuItems1 = null;
-  let menuItems2 = [adminItem, accountItem];
+  const homeItem = <NavigationItem name="Home" linkUrl="/" />;
+
+  let menuItems = [homeItem, adminItem, accountItem];
 
   return (
     <NavigationBar
-      menuItems1={menuItems1}
-      menuItems2={menuItems2}
+      menuItems={menuItems}
       logo={<SRLogo noPadding small animated />}
       accountMenuItem={accountItem}
       {...rest}

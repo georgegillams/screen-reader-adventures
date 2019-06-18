@@ -2,10 +2,13 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import BpkInput, { INPUT_TYPES } from 'bpk-component-input';
 import BpkCheckBox from 'bpk-component-checkbox';
+import BpkTextarea from 'bpk-component-textarea';
+import { cssModules } from 'bpk-react-utils';
+
+import STYLES from './forms.scss';
+
 import GGButton from 'components/GGButton';
 import { TextLink } from 'components/Typography';
-import BpkTextarea from 'bpk-component-textarea';
-
 import { EMAIL_REGEX, PASSWORD_REGEX } from 'helpers/constants';
 import { formValueChanged } from 'helpers/objects';
 import HelperFunctions from 'helpers/HelperFunctions';
@@ -16,8 +19,6 @@ import {
   SORT_CODE_REGEX,
 } from 'helpers/constants';
 
-import STYLES from './forms.scss';
-import { cssModules } from 'bpk-react-utils';
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 class FormBuilder extends React.Component {

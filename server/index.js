@@ -1,18 +1,19 @@
 /* eslint consistent-return:0 */
 
+import http from 'http';
+import { resolve } from 'path';
+
 import express from 'express';
 import session from 'express-session';
 import bodyParser from 'body-parser';
 import SocketIo from 'socket.io';
-import http from 'http';
 import cookieParser from 'cookie-parser';
-import { resolve } from 'path';
 import sslRedirect from 'heroku-ssl-redirect';
+
 import logger from './util//logger';
 import seo from './seo';
 import api from './api/api';
 import greasemonkey from './greasemonkey';
-
 import argv from './util/argv';
 import port from './util//port';
 import setup from './middlewares/frontendMiddleware';

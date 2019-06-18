@@ -1,12 +1,12 @@
-import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { LOAD_USERS, REQUEST_MAGIC_LINK_FOR_USER } from './constants';
 import { loadUsersSuccess, loadUsersError } from './actions';
 import { makeSelectMagicLinkUser } from './selectors';
+
+import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { pushMessage } from 'containers/RequestStatusWrapper/actions';
 import { API_ENDPOINT, COMMUNICATION_ERROR_MESSAGE } from 'helpers/constants';
 import { calculateOutstandingBalance } from 'helpers/ticketing';
 import { associate } from 'helpers/objects';
-
 import request from 'utils/request';
 
 const usersLoadedMessage = { type: 'success', message: 'Users loaded!' };

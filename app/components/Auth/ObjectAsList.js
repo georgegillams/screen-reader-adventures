@@ -23,11 +23,9 @@ class ObjectAsList extends Component {
           >{`${this.state.expanded ? '🔽' : '▶️'} ${name ||
             'top-level'}:`}</div>
           {this.state.expanded &&
-            Object.keys(value).map(k => {
-              return (
-                <ObjectAsList name={k} value={value[k]} depth={depth + 1} />
-              );
-            })}
+            Object.keys(value).map(k => (
+              <ObjectAsList name={k} value={value[k]} depth={depth + 1} />
+            ))}
         </Fragment>
       );
     }

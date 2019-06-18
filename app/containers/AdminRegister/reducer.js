@@ -1,4 +1,5 @@
 import { fromJS } from 'immutable';
+
 import {
   LOAD_REGISTER,
   LOAD_REGISTER_ERROR,

@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import BpkInput, { INPUT_TYPES } from 'bpk-component-input';
+import { cssModules } from 'bpk-react-utils';
+
+import FormBuilder from './FormBuilder';
+import STYLES from './forms.scss';
+
 import { TextLink } from 'components/Typography';
 import GGButton from 'components/GGButton';
-
 import {
   STRING_REGEX,
   INT_REGEX,
@@ -12,9 +16,8 @@ import {
   PASSWORD_REGEX,
   DECIMAL_REGEX,
 } from 'helpers/constants';
-import FormBuilder from './FormBuilder';
 
-import STYLES from './forms.scss'; import {cssModules} from 'bpk-react-utils';  const getClassName = cssModules(STYLES); // REGEX_REPLACED
+const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 class SignUpContinueFormYourDegree extends React.Component {
   static propTypes = {

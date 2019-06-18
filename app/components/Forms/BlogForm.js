@@ -3,9 +3,13 @@ import PropTypes from 'prop-types';
 import BpkInput from 'bpk-component-input';
 import BpkCheckBox from 'bpk-component-checkbox';
 import BpkTextArea from 'bpk-component-textarea';
+import { cssModules } from 'bpk-react-utils';
+
+import STYLES from './forms.scss';
+
 import GGButton from 'components/GGButton';
 
-import STYLES from './forms.scss'; import {cssModules} from 'bpk-react-utils';  const getClassName = cssModules(STYLES); // REGEX_REPLACED
+const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 export default class BlogForm extends React.Component {
   static propTypes = {
@@ -60,7 +64,7 @@ export default class BlogForm extends React.Component {
           {blog.id ? 'Update blog' : 'Create new blog'}
         </GGButton>
         <br />
-        <label htmlFor="blogId" className={getClassName("forms__label")}>
+        <label htmlFor="blogId" className={getClassName('forms__label')}>
           Blog ID
         </label>
         <BpkInput
@@ -73,7 +77,7 @@ export default class BlogForm extends React.Component {
           }}
           placeholder="Blog ID"
         />
-        <label htmlFor="blogName" className={getClassName("forms__label")}>
+        <label htmlFor="blogName" className={getClassName('forms__label')}>
           Blog name
         </label>
         <BpkInput
@@ -86,7 +90,7 @@ export default class BlogForm extends React.Component {
           }}
           placeholder="Blog name"
         />
-        <label htmlFor="blogCardImage" className={getClassName("forms__label")}>
+        <label htmlFor="blogCardImage" className={getClassName('forms__label')}>
           Blog card image
         </label>
         <BpkInput
@@ -99,7 +103,10 @@ export default class BlogForm extends React.Component {
           }}
           placeholder="Blog card image"
         />
-        <label htmlFor="blogCardHeroImage" className={getClassName("forms__label")}>
+        <label
+          htmlFor="blogCardHeroImage"
+          className={getClassName('forms__label')}
+        >
           Blog card hero image
         </label>
         <BpkInput
@@ -112,7 +119,7 @@ export default class BlogForm extends React.Component {
           }}
           placeholder="Blog card hero image"
         />
-        <label htmlFor="blogCardDate" className={getClassName("forms__label")}>
+        <label htmlFor="blogCardDate" className={getClassName('forms__label')}>
           Blog card date
         </label>
         <BpkInput
@@ -135,7 +142,7 @@ export default class BlogForm extends React.Component {
           }}
         />
         <br />
-        <label htmlFor="blogCardLink" className={getClassName("forms__label")}>
+        <label htmlFor="blogCardLink" className={getClassName('forms__label')}>
           Blog card link
         </label>
         <BpkInput
@@ -148,7 +155,10 @@ export default class BlogForm extends React.Component {
           }}
           placeholder="Blog card link"
         />
-        <label htmlFor="blogBannerColor" className={getClassName("forms__label")}>
+        <label
+          htmlFor="blogBannerColor"
+          className={getClassName('forms__label')}
+        >
           Blog banner color
         </label>
         <BpkInput
@@ -161,7 +171,10 @@ export default class BlogForm extends React.Component {
           }}
           placeholder="Blog banner color"
         />
-        <label htmlFor="blogCardImageBorderColor" className={getClassName("forms__label")}>
+        <label
+          htmlFor="blogCardImageBorderColor"
+          className={getClassName('forms__label')}
+        >
           Blog card image border color
         </label>
         <BpkInput
@@ -184,7 +197,10 @@ export default class BlogForm extends React.Component {
           }}
         />
         <br />
-        <label htmlFor="blogPublishedTimestamp" className={getClassName("forms__label")}>
+        <label
+          htmlFor="blogPublishedTimestamp"
+          className={getClassName('forms__label')}
+        >
           Blog published timestamp
         </label>
         <BpkInput
@@ -217,7 +233,7 @@ export default class BlogForm extends React.Component {
             this.onBlogValueChanged('showInTravelBlogsList', event);
           }}
         />
-        <label htmlFor="blogTags" className={getClassName("forms__label")}>
+        <label htmlFor="blogTags" className={getClassName('forms__label')}>
           Blog tags
         </label>
         <BpkInput
@@ -236,7 +252,7 @@ export default class BlogForm extends React.Component {
           }}
           placeholder="Blog tags"
         />
-        <label htmlFor="blogContent" className={getClassName("forms__label")}>
+        <label htmlFor="blogContent" className={getClassName('forms__label')}>
           Blog content
         </label>
         <BpkTextArea
@@ -250,7 +266,7 @@ export default class BlogForm extends React.Component {
           }}
           placeholder="Blog content"
         />
-        <label htmlFor="blogBibtex" className={getClassName("forms__label")}>
+        <label htmlFor="blogBibtex" className={getClassName('forms__label')}>
           Blog bibtex
         </label>
         <BpkTextArea

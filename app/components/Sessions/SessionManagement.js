@@ -2,6 +2,10 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import cookie from 'react-cookies';
 import Modal from 'react-responsive-modal';
+import { cssModules } from 'bpk-react-utils';
+
+import STYLES from './cookie-banner.scss';
+
 import {
   COOKIE_NAMES,
   APP_VERSION,
@@ -9,9 +13,9 @@ import {
   CHECK_FOR_NEW_CONTENT_INTERVAL,
 } from 'helpers/constants';
 import GGButton from 'components/GGButton';
-import {Section, TextLink} from 'components/Typography';
+import { Section, TextLink } from 'components/Typography';
 
-import STYLES from './cookie-banner.scss'; import {cssModules} from 'bpk-react-utils';  const getClassName = cssModules(STYLES); // REGEX_REPLACED
+const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 // TODO Pass to me please!!
 // contentLastUpdatedTimestamp: state.sessions.contentLastUpdatedTimestamp,
@@ -166,12 +170,12 @@ export default class SessionManagement extends Component {
     return (
       <div {...rest}>
         {this.state.sessionDebugViews && newDataAvailable && (
-          <div className={getClassName("cookie-banner__new-data-available")}>
+          <div className={getClassName('cookie-banner__new-data-available')}>
             New data has become available on the server. Reloading...
           </div>
         )}
         {this.state.sessionDebugViews && (
-          <div className={getClassName("cookie-banner__clut-values")}>
+          <div className={getClassName('cookie-banner__clut-values')}>
             serverContentUpdateTimestamp: {serverContentUpdateTimestamp}
           </div>
         )}

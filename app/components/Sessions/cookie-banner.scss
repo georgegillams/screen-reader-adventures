@@ -14,7 +14,7 @@
     position: fixed;
     background-color: #e02626;
     color: white;
-    z-index: 10000;
+    z-index: cookie-banner-z-index;
     top: 0;
     right: 0;
     padding: 0 1rem;
@@ -29,7 +29,7 @@
     position: fixed;
     left: 0;
     top: 0;
-    z-index: 10000;
+    z-index: cookie-banner-z-index;
     color: white;
   }
 

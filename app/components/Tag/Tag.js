@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { cssModules } from 'bpk-react-utils';
 
-import STYLES from './tag.scss'; import {cssModules} from 'bpk-react-utils';  const getClassName = cssModules(STYLES); // REGEX_REPLACED
+import STYLES from './tag.scss';
+
+const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 export const TAG_TYPES = {
   tech: 'tech',

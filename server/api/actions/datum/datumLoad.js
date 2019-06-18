@@ -1,7 +1,8 @@
-import redis from 'utils/redis';
-import { find } from 'utils/find';
 import sortBy from 'lodash/sortBy';
 import reverse from 'lodash/reverse';
+
+import redis from 'utils/redis';
+import { find } from 'utils/find';
 
 export default function datumLoad(settings) {
   // load(req) {

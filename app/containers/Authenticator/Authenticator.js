@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
+import cookie from 'react-cookies';
+import { cssModules } from 'bpk-react-utils';
+
 import { Section, SubSection, TextLink } from 'components/Typography';
 import { DebugObject } from 'components/Auth';
-import cookie from 'react-cookies';
-
 import STYLES from 'containers/pages.scss';
-import { cssModules } from 'bpk-react-utils';
+
 const getClassName = cssModules(STYLES);
 
 export default class Authenticator extends React.Component {

@@ -19,21 +19,26 @@
 
 /* eslint-disable react/jsx-filename-extension */
 
+import querystring from 'querystring';
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import querystring from 'querystring';
 import { wrapDisplayName } from 'bpk-react-utils';
 import { BpkCodeBlock } from 'bpk-component-code';
 import EditIconSm from 'bpk-component-icon/sm/edit';
 import CloseIconSm from 'bpk-component-icon/sm/close';
+
 // import reactDocs from 'react-docgen';
 // import { browserHistory, PropTypes as RouterPropTypes } from 'react-router';
+import { cssModules } from 'bpk-react-utils';
+
 import requiredDefaultProps from './requiredDefaultProps.json';
 import DemoControl from './DemoControl';
+import STYLES from './bpk-demo.scss';
 
 import HelperFunctions from 'helpers/HelperFunctions';
 
-import STYLES from './bpk-demo.scss'; import {cssModules} from 'bpk-react-utils';  const getClassName = cssModules(STYLES); // REGEX_REPLACED
+const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 export default function bpkDemo(
   Component,
@@ -186,10 +191,10 @@ export default function bpkDemo(
       return (
         <div style={style} className={classNameFinal.join(' ')}>
           {showPlayground && (
-            <div className={getClassName("bpk-demo__props")}>
+            <div className={getClassName('bpk-demo__props')}>
               {Object.keys(this.state.props).map(p => (
                 <DemoControl
-                  className={getClassName("bpk-demo__prop-control")}
+                  className={getClassName('bpk-demo__prop-control')}
                   onChange={this.onPropChanged}
                   value={this.state.props[p]}
                   propName={p}
@@ -197,23 +202,23 @@ export default function bpkDemo(
               ))}
             </div>
           )}
-          <div className={getClassName("bpk-demo__inner-container")}>
-            <div className={getClassName("bpk-demo__components-container-1")}>
-              <div className={getClassName("bpk-demo__components-container-2")}>
-                <div className={getClassName("bpk-demo__component")}>
+          <div className={getClassName('bpk-demo__inner-container')}>
+            <div className={getClassName('bpk-demo__components-container-1')}>
+              <div className={getClassName('bpk-demo__components-container-2')}>
+                <div className={getClassName('bpk-demo__component')}>
                   <Component {...this.state.props} {...rest} />
                 </div>
                 <button
                   onClick={() => {
                     this.setState({ compact: !this.state.compact });
                   }}
-                  className={getClassName("bpk-demo__controls")}
+                  className={getClassName('bpk-demo__controls')}
                 >
                   {this.state.compact ? <EditIconSm /> : <CloseIconSm />}
                 </button>
               </div>
               {showPlayground && (
-                <div className={getClassName("bpk-demo__code")}>
+                <div className={getClassName('bpk-demo__code')}>
                   <BpkCodeBlock>{this.state.code}</BpkCodeBlock>
                 </div>
               )}

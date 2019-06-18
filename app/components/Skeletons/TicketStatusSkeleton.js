@@ -1,8 +1,9 @@
 import React from 'react';
-import Skeleton from './Skeleton';
-
-import STYLES from './skeleton.scss';
 import { cssModules } from 'bpk-react-utils';
+
+import Skeleton from './Skeleton';
+import STYLES from './skeleton.scss';
+
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 const TicketStatusSkeleton = props => {

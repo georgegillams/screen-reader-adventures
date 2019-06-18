@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { WessexCCPLogo } from 'components/Logo';
+import { cssModules } from 'bpk-react-utils';
+
 import TechSpecs from './TechSpecs';
+import STYLES from './footer.scss';
 
-import STYLES from './footer.scss'; import {cssModules} from 'bpk-react-utils';  const getClassName = cssModules(STYLES); // REGEX_REPLACED
+import { WessexCCPLogo } from 'components/Logo';
 
-
+const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 const EpiccFooter = props => {
   const { className, ...rest } = props;

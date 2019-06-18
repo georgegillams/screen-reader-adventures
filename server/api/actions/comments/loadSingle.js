@@ -1,7 +1,9 @@
 import { datumLoadSingle } from '../datum';
+
+import commentsAllowedAttributes from './commentsAllowedAttributes';
+
 import authentication from 'utils/authentication';
 import reqSecure from 'utils/reqSecure';
-import commentsAllowedAttributes from './commentsAllowedAttributes';
 
 export default function loadSingle(req) {
   const reqSecured = reqSecure(req, commentsAllowedAttributes);

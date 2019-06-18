@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
+import { cssModules } from 'bpk-react-utils';
+
+import STYLES from '../pages.scss';
+
 import ArticleCard, { CARD_LAYOUTS } from 'components/Cards';
 import { Section, SubSection } from 'components/Typography';
 import GGButton from 'components/GGButton';
 import { GG_EMAIL } from 'helpers/constants';
-import STYLES from '../pages.scss';
-import { cssModules } from 'bpk-react-utils';
 
 const getClassName = cssModules(STYLES);
 

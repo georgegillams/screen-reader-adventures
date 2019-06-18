@@ -1,8 +1,10 @@
 import { datumLoad } from '../datum';
+
+import stripePaymentsAllowedAttributes from './stripePaymentsAllowedAttributes';
+
 import authentication from 'utils/authentication';
 import reqSecure from 'utils/reqSecure';
 import { UNAUTHORISED_READ } from 'helpers/constants';
-import stripePaymentsAllowedAttributes from './stripePaymentsAllowedAttributes';
 
 export default function loadAll(req) {
   const reqSecured = reqSecure(req, stripePaymentsAllowedAttributes);

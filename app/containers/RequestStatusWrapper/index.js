@@ -1,13 +1,15 @@
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
-import injectReducer from 'utils/injectReducer';
-import injectSaga from 'utils/injectSaga';
+
 import { purgeMessages } from './actions';
 import { makeSelectMessages } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import RequestStatusWrapper from './RequestStatusWrapper';
+
+import injectSaga from 'utils/injectSaga';
+import injectReducer from 'utils/injectReducer';
 
 const mapDispatchToProps = dispatch => ({
   purgeMessages: () => dispatch(purgeMessages()),

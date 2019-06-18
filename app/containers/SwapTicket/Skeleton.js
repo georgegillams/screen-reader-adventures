@@ -1,7 +1,9 @@
 import React, { Fragment } from 'react';
+
+import LowerPageSkeleton from './LowerPageSkeleton';
+
 import { CompactCardSkeleton, SectionSkeleton } from 'components/Skeletons';
 import TicketStatusSkeleton from 'containers/TicketStatus/Skeleton';
-import LowerPageSkeleton from './LowerPageSkeleton';
 
 const Skeleton = props => {
   const { className, ...rest } = props; // eslint-disable-line no-shadow

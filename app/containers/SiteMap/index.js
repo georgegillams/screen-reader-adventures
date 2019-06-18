@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
-import injectReducer from 'utils/injectReducer';
-import injectSaga from 'utils/injectSaga';
+
 import {
   makeSelectBlogs,
   makeSelectLoading,
@@ -12,6 +11,9 @@ import { loadBlogs } from './actions';
 import reducer from './reducer';
 import saga from './saga';
 import SiteMap from './SiteMap';
+
+import injectSaga from 'utils/injectSaga';
+import injectReducer from 'utils/injectReducer';
 
 const mapDispatchToProps = dispatch => ({
   loadBlogs: () => dispatch(loadBlogs()),

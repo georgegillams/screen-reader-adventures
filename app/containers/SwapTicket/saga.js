@@ -2,14 +2,14 @@
  * Gets the repositories of the user from Github
  */
 
-import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { SWAP_TICKETS } from './constants';
 import { swapTicketsSuccess, swapTicketsError } from './actions';
+import { makeSelectSelectedTicketType } from './selectors';
+
+import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { pushMessage } from 'containers/RequestStatusWrapper/actions';
 import { loadBalance, loadUserTicket } from 'containers/TicketStatus/actions';
 import { API_ENDPOINT, COMMUNICATION_ERROR_MESSAGE } from 'helpers/constants';
-import { makeSelectSelectedTicketType } from './selectors';
-
 import request from 'utils/request';
 
 /**

@@ -1,9 +1,11 @@
 import { datumLoad, datumUpdate } from '../actions/datum';
+
+import usersAllowedAttributes from './users/usersAllowedAttributes';
+
 import { find } from 'utils/find';
 import authentication from 'utils/authentication';
 import setContentLastUpdatedTimestamp from 'utils/setContentLastUpdatedTimestamp';
 import reqSecure from 'utils/reqSecure';
-import usersAllowedAttributes from './users/usersAllowedAttributes';
 import { sendEmailVerificationEmail } from 'utils/emailHelpers';
 import { UNAUTHORISED_WRITE } from 'helpers/constants';
 

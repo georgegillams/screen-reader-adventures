@@ -1,4 +1,7 @@
 import { datumLoad, datumUpdate } from '../datum';
+
+import usersAllowedAttributes from './usersAllowedAttributes';
+
 import authentication from 'utils/authentication';
 import { hash } from 'utils/hash';
 import { find, emailFingerprint } from 'utils/find';
@@ -6,7 +9,6 @@ import { userOwnsResource } from 'utils/userOwnsResource';
 import { sendEmailVerificationEmail } from 'utils/emailHelpers';
 import { UNAUTHORISED_WRITE } from 'helpers/constants';
 import reqSecure from 'utils/reqSecure';
-import usersAllowedAttributes from './usersAllowedAttributes';
 
 export default function update(req) {
   const reqSecured = reqSecure(req, usersAllowedAttributes);

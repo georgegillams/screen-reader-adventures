@@ -1,10 +1,12 @@
 import { datumLoad, datumUpdate } from '../actions/datum';
+
+import usersAllowedAttributes from './users/usersAllowedAttributes';
+
 import { find } from 'utils/find';
 import { INVALID_SESSION, INVALID_CREDENTIALS } from 'helpers/constants';
 import { hash, compareHash } from 'utils/hash';
 import setContentLastUpdatedTimestamp from 'utils/setContentLastUpdatedTimestamp';
 import reqSecure from 'utils/reqSecure';
-import usersAllowedAttributes from './users/usersAllowedAttributes';
 import loginUser from 'utils/login';
 
 export default function login(req) {

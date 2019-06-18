@@ -2,6 +2,10 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import cookie from 'react-cookies';
 import Modal from 'react-responsive-modal';
+import { cssModules } from 'bpk-react-utils';
+
+import STYLES from './cookie-banner.scss';
+
 import {
   COOKIE_NAMES,
   APP_VERSION,
@@ -11,7 +15,7 @@ import {
 import GGButton from 'components/GGButton';
 import { Section, TextLink } from 'components/Typography';
 
-import STYLES from './cookie-banner.scss'; import {cssModules} from 'bpk-react-utils';  const getClassName = cssModules(STYLES); // REGEX_REPLACED
+const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 export default class CookiesOnly extends Component {
   static propTypes = {
@@ -57,11 +61,11 @@ export default class CookiesOnly extends Component {
             closeOnOverlayClick={false}
             showCloseIcon={false}
           >
-            <div className={getClassName("cookie-banner__inner-container")}>
+            <div className={getClassName('cookie-banner__inner-container')}>
               <Section
                 name="Privacy and cookies"
                 noPadding
-                className={getClassName("cookie-banner__blurrb")}
+                className={getClassName('cookie-banner__blurrb')}
               >
                 We use cookies to make your experience on this website as easy
                 as possible.
@@ -69,13 +73,13 @@ export default class CookiesOnly extends Component {
               <br />
               <div>
                 <GGButton
-                  className={getClassName("cookie-banner__component")}
+                  className={getClassName('cookie-banner__component')}
                   onClick={onAccept}
                 >
                   ACCEPT
                 </GGButton>
                 <GGButton
-                  className={getClassName("cookie-banner__component")}
+                  className={getClassName('cookie-banner__component')}
                   small
                   destructive
                   onClick={this.rejectCookies}

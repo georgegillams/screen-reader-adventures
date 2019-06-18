@@ -1,8 +1,8 @@
-import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { LOAD_GTS_LATEST } from './constants';
 import { loadGtsLatestSuccess, loadGtsLatestError } from './actions';
-import { API_ENDPOINT } from 'helpers/constants';
 
+import { call, put, select, takeLatest } from 'redux-saga/effects';
+import { API_ENDPOINT } from 'helpers/constants';
 import request from 'utils/request';
 
 export function* getGtsLatest() {

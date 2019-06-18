@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { cssModules } from 'bpk-react-utils';
 
-import STYLES from './animated-content.scss'; import {cssModules} from 'bpk-react-utils';  const getClassName = cssModules(STYLES); // REGEX_REPLACED
+import STYLES from './animated-content.scss';
+
+const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 class AnimatedContent extends Component {
   constructor(props) {
@@ -14,7 +17,9 @@ class AnimatedContent extends Component {
     const { inView, className, children, ...rest } = this.props;
     const classNameFinal = [getClassName('animated-content__outer-container')];
     if (inView) {
-      classNameFinal.push(getClassName('animated-content__outer-container--in-view'));
+      classNameFinal.push(
+        getClassName('animated-content__outer-container--in-view'),
+      );
     }
     if (className) {
       classNameFinal.push(className);

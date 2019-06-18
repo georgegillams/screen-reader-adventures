@@ -1,9 +1,11 @@
 import { datumLoad, datumCreate, datumUpdate } from '../actions/datum';
+
+import usersAllowedAttributes from './users/usersAllowedAttributes';
+
 import { find } from 'utils/find';
 import { EMAIL_TAKEN, TICKET_SALE_END } from 'helpers/constants';
 import { ticketCanBeReserved, reserveTicket } from 'helpers/ticketing';
 import reqSecure from 'utils/reqSecure';
-import usersAllowedAttributes from './users/usersAllowedAttributes';
 import loginUser from 'utils/login';
 import { sendEmailVerificationEmail } from 'utils/emailHelpers';
 

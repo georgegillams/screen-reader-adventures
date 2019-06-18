@@ -1,23 +1,72 @@
-import { datumLoad, datumLoadSingle, datumCreate } from '../../actions/datum';
 import fetch from 'node-fetch';
 import moment from 'moment';
 
-const POTS_REVEAL = [
-  'Bills (monthly)',
-  'Clothing (monthly)',
-  'Emergencies',
-  'Exercise extras (monthly)',
-  'Extras (monthly)',
-  'Gifts',
-  'Groceries and transport (monthly)',
-  'Season ticket',
-  'Software + Subscriptions',
-  'Travel',
+import { datumLoad, datumLoadSingle, datumCreate } from '../../actions/datum';
+
+const thisYear = moment().format('YYYY');
+const lastYear = thisYear - 1;
+
+const POT_CONFIGS = [
+  {
+    name: 'Season ticket',
+    startDate: `${lastYear}-12-01`,
+  },
+  {
+    name: 'Holiday',
+    startDate: `${thisYear}-05-01`,
+  },
+  {
+    name: 'Emergencies',
+    startDate: `${thisYear}-05-01`,
+  },
+  {
+    name: 'Gifts',
+    startDate: `${thisYear}-05-01`,
+  },
+  {
+    name: 'Charlie',
+    startDate: `${thisYear}-05-01`,
+  },
+  {
+    name: 'Extras',
+    startDate: `${thisYear}-05-01`,
+  },
+  {
+    name: 'Subscriptions (yearly) - Dropbox, Todoist and Domains',
+    startDate: `${thisYear}-05-01`,
+  },
+  {
+    name: 'Dentist and prescriptions',
+    startDate: `${thisYear}-05-01`,
+  },
+  {
+    name: 'Buffer',
+    startDate: `${thisYear}-05-01`,
+  },
+  {
+    name: 'Aerial (monthly)',
+  },
+  {
+    name: 'Weekly',
+  },
+  {
+    name: 'Leftover',
+  },
 ];
 
-function getMonthsElapsedPercentage() {
-  const result = moment().diff(`${moment().format('YYYY')}-01-01`, 'months');
-  return Math.min(100, ((result + 1) * 100) / 12);
+function getMonthsElapsedPercentage(potName) {
+  if (
+    potName.includes('(monthly)') ||
+    potName === 'Weekly' ||
+    potName === 'Leftover'
+  ) {
+    return 0;
+  }
+
+  const config = POT_CONFIGS.filter(p => p.name === potName)[0];
+
+  const result = moment().diff(config.startDate, 'months');
+  return Math.min(100, (result * 100) / 12);
 }
 
 function loadPots(req) {
@@ -55,13 +104,19 @@ function loadPots(req) {
             return;
           }
 
-          let reducedData = data.pots.filter(
-            pot => !pot.deleted && POTS_REVEAL.includes(pot.name),
-          );
-          reducedData = reducedData.map(pot => {
+          const processedData = POT_CONFIGS.map(potConfig => {
+            const pot = data.pots.filter(
+              p => p.name === potConfig.name && !p.deleted,
+            )[0];
+            if (!pot) {
+              return null;
+            }
+
             const goalAmount = parseFloat(pot.goal_amount) / 100;
             const balance = parseFloat(pot.balance) / 100;
-            const monthsElapsedPercentage = getMonthsElapsedPercentage();
+            const monthsElapsedPercentage = getMonthsElapsedPercentage(
+              pot.name,
+            );
             const expectedSavingsSoFar =
               (goalAmount * monthsElapsedPercentage) / 100;
             const shortfall = expectedSavingsSoFar - balance;
@@ -76,7 +131,7 @@ function loadPots(req) {
                 : 100,
             };
           });
-          resolve(reducedData);
+          resolve(processedData);
         });
     });
   });

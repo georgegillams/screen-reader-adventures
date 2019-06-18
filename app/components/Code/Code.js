@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TextLink } from 'components/Typography';
 import { cssModules } from 'bpk-react-utils';
+
 import STYLES from './code.scss';
+
+import { TextLink } from 'components/Typography';
 
 const getClassName = cssModules(STYLES);
 

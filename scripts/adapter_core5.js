@@ -7,8 +7,6 @@
  */
 /* eslint-env node */
 
-'use strict';
-
 import { adapterFactory } from './adapter_factory.js';
 
 const adapter = adapterFactory({ window });

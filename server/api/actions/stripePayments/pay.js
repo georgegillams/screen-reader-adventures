@@ -1,12 +1,15 @@
+import stripe from 'stripe';
+
 import { datumLoad, datumCreate, datumUpdate } from '../datum';
+
+import stripePaymentsAllowedAttributes from './stripePaymentsAllowedAttributes';
+
 import authentication from 'utils/authentication';
 import reqSecure from 'utils/reqSecure';
 import { UNAUTHORISED_READ } from 'helpers/constants';
 import { sendPaymentReceiptEmail } from 'utils/emailHelpers';
 import { calculateOutstandingBalance } from 'helpers/ticketing';
 import { find } from 'utils/find';
-import stripePaymentsAllowedAttributes from './stripePaymentsAllowedAttributes';
-import stripe from 'stripe';
 
 const stripeInstance = stripe(process.env.STRIPE_SECRET_API_KEY);
 
@@ -51,7 +54,7 @@ export default function pay(req) {
 
             console.log(`usersPayments`, payments);
 
-            let outstandingBalance = calculateOutstandingBalance(
+            const outstandingBalance = calculateOutstandingBalance(
               ticket,
               payments,
             );

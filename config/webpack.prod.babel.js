@@ -1,5 +1,6 @@
 // Important modules this config uses
 const path = require('path');
+
 // const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 

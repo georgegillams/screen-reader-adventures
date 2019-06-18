@@ -6,10 +6,11 @@ import BpkImage, {
 } from 'bpk-component-image';
 import { Link } from 'react-router-dom';
 import { cssModules } from 'bpk-react-utils';
-import { Section, SubSection } from 'components/Typography';
-import HelperFunctions from 'helpers/HelperFunctions';
 
 import STYLES from './article-card.scss';
+
+import { Section, SubSection } from 'components/Typography';
+import HelperFunctions from 'helpers/HelperFunctions';
 
 const getClassName = cssModules(STYLES);
 

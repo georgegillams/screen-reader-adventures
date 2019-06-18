@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react';
-import { CompactCardSkeleton, ButtonSkeleton } from 'components/Skeletons';
 
 import TicketOptionsSkeleton from '../TicketOptions/Skeleton';
+
+import { CompactCardSkeleton, ButtonSkeleton } from 'components/Skeletons';
 
 const Skeleton = props => {
   const { className, ...rest } = props; // eslint-disable-line no-shadow

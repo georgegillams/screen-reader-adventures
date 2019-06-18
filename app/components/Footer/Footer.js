@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Logo } from 'components/Logo';
-import TechSpecs from './TechSpecs';
-
-import STYLES from './footer.scss';
 import { cssModules } from 'bpk-react-utils';
+
+import TechSpecs from './TechSpecs';
+import STYLES from './footer.scss';
+
+import { Logo } from 'components/Logo';
+
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 const Footer = props => {
@@ -22,7 +24,7 @@ const Footer = props => {
         className={getClassName('footer__logo')}
         noPadding
       />
-      <TechSpecs className={getClassName("footer__tech")} light />
+      <TechSpecs className={getClassName('footer__tech')} light />
     </footer>
   );
 };

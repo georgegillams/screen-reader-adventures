@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+
 import { CompactCardSkeleton, SectionSkeleton } from 'components/Skeletons';
 
 const LowerPageSkeleton = props => {
@@ -7,7 +8,7 @@ const LowerPageSkeleton = props => {
   return (
     <Fragment>
       <SectionSkeleton />
-      <div className={getClassName("pages__compact-card-container")}>
+      <div className={getClassName('pages__compact-card-container')}>
         <CompactCardSkeleton />
         <CompactCardSkeleton />
         <CompactCardSkeleton />

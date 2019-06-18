@@ -20,9 +20,4 @@ const makeSelectError = () =>
     siteMapState => siteMapState.get('error'),
   );
 
-export {
-  selectSiteMap,
-  makeSelectBlogs,
-  makeSelectLoading,
-  makeSelectError,
-};
+export { selectSiteMap, makeSelectBlogs, makeSelectLoading, makeSelectError };

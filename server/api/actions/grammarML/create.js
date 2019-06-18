@@ -1,7 +1,9 @@
 import { datumCreate } from '../datum';
+
+import grammarMLAllowedAttributes from './grammarMLAllowedAttributes';
+
 import authentication from 'utils/authentication';
 import reqSecure from 'utils/reqSecure';
-import grammarMLAllowedAttributes from './grammarMLAllowedAttributes';
 
 export default function create(req) {
   const reqSecured = reqSecure(req, grammarMLAllowedAttributes);

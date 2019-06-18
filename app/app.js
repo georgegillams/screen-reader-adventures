@@ -26,9 +26,13 @@ import '!file-loader?name=[name].[ext]!./images/favicon.ico';
 /* eslint-enable import/no-webpack-loader-syntax */
 
 // Import CSS reset and Global Styles
-import STYLES from 'styles/theme.scss'; import {cssModules} from 'bpk-react-utils';  const getClassName = cssModules(STYLES); // REGEX_REPLACED
+import STYLES from 'styles/theme.scss';
+
+import { cssModules } from 'bpk-react-utils'; // REGEX_REPLACED
 
 import configureStore from './configureStore';
+
+const getClassName = cssModules(STYLES);
 
 // Observe loading of Open Sans (to remove open sans, remove the <link> tag in
 // the index.html file and this observer)

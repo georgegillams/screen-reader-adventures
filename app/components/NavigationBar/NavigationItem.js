@@ -1,22 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import GGButton from 'components/GGButton';
-import STYLES from 'containers/pages.scss'; import {cssModules} from 'bpk-react-utils'; const getClassName = cssModules(STYLES);
 
 const NavigationItem = props => {
   const { name, linkUrl, className, ...rest } = props;
 
-  const outerClassNameFinal = [getClassName('navigation-bar__nav-item')];
-  if (className) {
-    outerClassNameFinal.push(className);
-  }
-
   return (
-    <div className={outerClassNameFinal.join(' ')}>
-      <GGButton href={linkUrl} bouncy {...rest}>
-        {name}
-      </GGButton>
-    </div>
+    <GGButton href={linkUrl} bouncy buttonClassName={className} {...rest}>
+      {name}
+    </GGButton>
   );
 };
 

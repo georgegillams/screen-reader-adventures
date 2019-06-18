@@ -90,19 +90,20 @@
 
     &--smaller {
       font-size: 3.5rem;
-      width: 5rem;
       padding: 1rem 0;
+      width: 3.5rem;
 
       @include bpk-breakpoint-tablet {
-        width: 12rem;
+        width: 3.5rem;
       }
       @include bpk-breakpoint-mobile {
-        width: 9rem;
+        width: 2.5rem;
       }
     }
 
     &--no-padding {
       line-height: normal;
+      padding: 0;
     }
   }
 }

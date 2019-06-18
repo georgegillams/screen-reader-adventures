@@ -1,7 +1,9 @@
 import { datumLoad } from '../datum';
+
+import grammarMLAllowedAttributes from './grammarMLAllowedAttributes';
+
 import authentication from 'utils/authentication';
 import reqSecure from 'utils/reqSecure';
-import grammarMLAllowedAttributes from './grammarMLAllowedAttributes';
 
 export default function load(req) {
   const reqSecured = reqSecure(req, grammarMLAllowedAttributes);

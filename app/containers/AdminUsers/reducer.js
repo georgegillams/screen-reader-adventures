@@ -1,4 +1,5 @@
 import { fromJS } from 'immutable';
+
 import {
   REQUEST_MAGIC_LINK_FOR_USER,
   RESEND_PAYMENT_RECEIPT,

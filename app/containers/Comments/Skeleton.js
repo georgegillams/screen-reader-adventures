@@ -1,6 +1,11 @@
 import React, { Fragment } from 'react';
+import { cssModules } from 'bpk-react-utils';
+
 import CommentsListSkeleton from './CommentsListSkeleton';
-import STYLES from 'containers/pages.scss'; import {cssModules} from 'bpk-react-utils'; const getClassName = cssModules(STYLES);
+
+import STYLES from 'containers/pages.scss';
+
+const getClassName = cssModules(STYLES);
 
 const Skeleton = props => {
   const { className, ...rest } = props; // eslint-disable-line no-shadow

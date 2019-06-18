@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import BpkText from 'bpk-component-text';
-import STYLES from './typography.scss';
 import { cssModules } from 'bpk-react-utils';
+
+import STYLES from './typography.scss';
 
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 

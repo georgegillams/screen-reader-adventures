@@ -1,9 +1,11 @@
 import { datumLoad, datumLoadSingle, datumCreate } from '../datum';
+
+import registratiomStatusAllowedAttributes from './registratiomStatusAllowedAttributes';
+
 import authentication from 'utils/authentication';
 import reqSecure from 'utils/reqSecure';
 import getRegistrationStatus from 'utils/getRegistrationStatus';
 import { REG_EMAIL, UNAUTHORISED_READ } from 'helpers/constants';
-import registratiomStatusAllowedAttributes from './registratiomStatusAllowedAttributes';
 import { find } from 'utils/find';
 
 export default function load(req) {
