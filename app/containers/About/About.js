@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
+import { cssModules } from 'bpk-react-utils';
+
+import STYLES from '../pages.scss';
+
 import { TextLink, Section } from 'components/Typography';
 import PhotoGallery from 'components/PhotoGallery';
 // import contactFile from "./contact.vcf";
-import STYLES from '../pages.scss';
-import { cssModules } from 'bpk-react-utils';
+
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 export default class Contact extends Component {

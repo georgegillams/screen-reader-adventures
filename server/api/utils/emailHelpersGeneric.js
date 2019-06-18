@@ -1,6 +1,9 @@
-import { datumCreate } from '../actions/datum';
 import crypto from 'crypto';
+
+import { datumCreate } from '../actions/datum';
+
 import transporter from './nodemailer';
+
 import { SITE_URL, EMAIL_VERIFICATION_ENABLED } from 'helpers/constants';
 
 export function sendMagicLinkEmail(
@@ -137,9 +140,7 @@ export function sendEmailVerificationEmail(
     { redisKey: 'emailVerificationCodes' },
     { body: verificationLink },
   );
-  const emailVerificationLink = `${SITE_URL}/email-verification?token=${
-    verificationLink.key
-  }`;
+  const emailVerificationLink = `${SITE_URL}/email-verification?token=${verificationLink.key}`;
   // Send the magic link URL to the email address of the user
   transporter.sendMail(
     {

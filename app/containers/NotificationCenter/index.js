@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
-import injectReducer from 'utils/injectReducer';
-import injectSaga from 'utils/injectSaga';
+
 import {
   makeSelectNotifications,
   makeSelectNotificationsLoading,
@@ -12,6 +11,9 @@ import { loadNotifications } from './actions';
 import reducer from './reducer';
 import saga from './saga';
 import NotificationCenter from './NotificationCenter';
+
+import injectSaga from 'utils/injectSaga';
+import injectReducer from 'utils/injectReducer';
 
 const mapDispatchToProps = dispatch => ({
   loadNotifications: () => dispatch(loadNotifications()),

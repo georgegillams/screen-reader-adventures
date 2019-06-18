@@ -1,12 +1,14 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { cssModules } from 'bpk-react-utils';
+
+import STYLES from './comments.scss';
+
 import FormBuilder from 'components/Forms';
 import CodeInline from 'components/Code';
 import { SubSection } from 'components/Typography';
 import { MD_PARTIAL_REGEX, UNAME_REGEX } from 'helpers/constants';
 
-import STYLES from './comments.scss';
-import { cssModules } from 'bpk-react-utils';
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 class CommentInput extends React.Component {

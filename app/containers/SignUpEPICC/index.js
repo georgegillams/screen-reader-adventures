@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
-import injectReducer from 'utils/injectReducer';
-import injectSaga from 'utils/injectSaga';
+
 import {
   makeSelectCredentials,
   makeSelectTicketSelectionConfirmed,
@@ -12,20 +11,23 @@ import {
   makeSelectSelectedTicketType,
 } from './selectors';
 import {
-  makeSelectUser,
-  makeSelectUserLoading,
-  makeSelectCookiesAllowed,
-} from 'containers/App/selectors';
-import {
   signUp,
   credentialsChanged,
   setSelectedTicketType,
   setTicketSelectionConfirmed,
 } from './actions';
-import { setCookiesAllowed } from 'containers/App/actions';
 import reducer from './reducer';
 import saga from './saga';
 import SignUp from './SignUp';
+
+import { setCookiesAllowed } from 'containers/App/actions';
+import {
+  makeSelectUser,
+  makeSelectUserLoading,
+  makeSelectCookiesAllowed,
+} from 'containers/App/selectors';
+import injectSaga from 'utils/injectSaga';
+import injectReducer from 'utils/injectReducer';
 
 const mapDispatchToProps = dispatch => ({
   credentialsChanged: newValue => dispatch(credentialsChanged(newValue)),

@@ -1,7 +1,10 @@
 import React from 'react';
-import Skeleton from './Skeleton';
+import { cssModules } from 'bpk-react-utils';
 
-import STYLES from './skeleton.scss'; import {cssModules} from 'bpk-react-utils';  const getClassName = cssModules(STYLES); // REGEX_REPLACED
+import Skeleton from './Skeleton';
+import STYLES from './skeleton.scss';
+
+const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 const SectionSkeleton = props => {
   const { className, ...rest } = props;

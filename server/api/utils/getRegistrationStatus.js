@@ -1,4 +1,5 @@
 import { datumLoad, datumLoadSingle, datumCreate } from '../actions/datum';
+
 import { find } from 'utils/find';
 import { INVALID_SESSION, INVALID_CREDENTIALS } from 'helpers/constants';
 import {
@@ -34,7 +35,7 @@ export default function getRegistrationStatus(user) {
                 resolveIfNotFound: true,
                 filter: u => u.userId === user.id,
               }).then(loadedRegistration => {
-                let ticket = undefined;
+                let ticket;
                 let overall = 'INCOMPLETE';
                 let userDetails = 'NOT STARTED';
                 let photoRelease = 'NOT STARTED';

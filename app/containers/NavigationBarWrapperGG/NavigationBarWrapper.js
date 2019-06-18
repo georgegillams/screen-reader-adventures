@@ -1,16 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import NavigationBar, { NavigationItem } from 'components/NavigationBar';
 import { Logo } from 'components/Logo';
 import { SmallButtonSkeleton } from 'components/Skeletons';
 
 const NavigationBarWrapper = props => {
   const { user, userLoading, ...rest } = props;
-
-  const menuItems1 = [
-    <NavigationItem name="Blog" linkUrl="/blog" />,
-    <NavigationItem name="Photography" linkUrl="/photography" />,
-    <NavigationItem name="Work" linkUrl="/work" />,
-  ];
 
   const accountItem = userLoading ? (
     <SmallButtonSkeleton />
@@ -26,7 +22,11 @@ const NavigationBarWrapper = props => {
       <NavigationItem name="Admin" linkUrl="/admin" />
     ) : null;
 
-  const menuItems2 = [
+  const menuItems = [
+    <NavigationItem name="Home" linkUrl="/" />,
+    <NavigationItem name="Blog" linkUrl="/blog" />,
+    <NavigationItem name="Photography" linkUrl="/photography" />,
+    <NavigationItem name="Work" linkUrl="/work" />,
     <NavigationItem name="Contact" linkUrl="/contact" />,
     <NavigationItem
       name="Github"
@@ -35,17 +35,22 @@ const NavigationBarWrapper = props => {
     />,
     adminItem,
     accountItem,
+    <NavigationItem name="Site map" linkUrl="/sitemap" />,
   ];
 
   return (
     <NavigationBar
-      menuItems1={menuItems1}
-      menuItems2={menuItems2}
+      menuItems={menuItems}
       logo={<Logo noPadding small animated />}
       accountMenuItem={accountItem}
       {...rest}
     />
   );
+};
+
+NavigationBarWrapper.propTypes = {
+  user: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  userLoading: PropTypes.boolean.isRequired,
 };
 
 export default NavigationBarWrapper;

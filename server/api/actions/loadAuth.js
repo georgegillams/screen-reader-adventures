@@ -1,6 +1,7 @@
+import usersAllowedAttributes from './users/usersAllowedAttributes';
+
 import authentication from 'utils/authentication';
 import reqSecure from 'utils/reqSecure';
-import usersAllowedAttributes from './users/usersAllowedAttributes';
 
 export default function loadAuth(req) {
   const reqSecured = reqSecure(req, usersAllowedAttributes);

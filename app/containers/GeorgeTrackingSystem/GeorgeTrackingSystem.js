@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
+import { cssModules } from 'bpk-react-utils';
+
 import { Section, SubSection } from 'components/Typography';
 import GTSEntity from 'components/GTS';
 import LoadingIndicator from 'components/LoadingIndicator';
 import DeprecationNotice from 'containers/DeprecationNotice';
 import STYLES from 'containers/pages.scss';
-import { cssModules } from 'bpk-react-utils';
+
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 export default class GeorgeTrackingSystem extends React.Component {
@@ -43,7 +45,7 @@ export default class GeorgeTrackingSystem extends React.Component {
             </Section>
           )}
           {gtsLatest && <GTSEntity gts={gtsLatest} />}
-        </LoadingIndicator>*/}
+        </LoadingIndicator> */}
       </div>
     );
   }

@@ -1,9 +1,11 @@
 import { datumRemove } from '../datum';
+
+import paymentsAllowedAttributes from './paymentsAllowedAttributes';
+
 import authentication from 'utils/authentication';
 import { userOwnsResource } from 'utils/userOwnsResource';
 import { UNAUTHORISED_WRITE } from 'helpers/constants';
 import reqSecure from 'utils/reqSecure';
-import paymentsAllowedAttributes from './paymentsAllowedAttributes';
 
 export default function remove(req) {
   const reqSecured = reqSecure(req, paymentsAllowedAttributes);

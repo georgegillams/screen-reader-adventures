@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { cssModules } from 'bpk-react-utils';
 
-import STYLES from './quote.scss'; import {cssModules} from 'bpk-react-utils';  const getClassName = cssModules(STYLES); // REGEX_REPLACED
+import STYLES from './quote.scss';
+
+const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 const Quote = props => {
   const { children, className, ...rest } = props;

@@ -1,6 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
+import BpkImage, {
+  withLazyLoading,
+  withLoadingBehavior,
+} from 'bpk-component-image';
+import { cssModules } from 'bpk-react-utils';
+
 import LoadingIndicator from 'components/LoadingIndicator';
 import GGButton from 'components/GGButton';
 import { Section, SubSection, TextLink } from 'components/Typography';
@@ -14,14 +20,9 @@ import {
   DECIMAL_REGEX,
   GG_EMAIL,
 } from 'helpers/constants';
-import BpkImage, {
-  withLazyLoading,
-  withLoadingBehavior,
-} from 'bpk-component-image';
+import STYLES from 'containers/pages.scss';
 
-import STYLES from 'containers/pages.scss'; import {cssModules} from 'bpk-react-utils';  const getClassName = cssModules(STYLES); // REGEX_REPLACED
-
-
+const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 export default class PaymentsPage extends React.Component {
   render() {

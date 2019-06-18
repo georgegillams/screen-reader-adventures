@@ -5,18 +5,14 @@ import {
   SET_COOKIES_ALLOWED,
 } from './constants';
 
-const setUserLoading = () => {
-  return {
-    type: SET_USER_LOADING,
-  };
-};
+const setUserLoading = () => ({
+  type: SET_USER_LOADING,
+});
 
-const setUser = user => {
-  return {
-    type: SET_USER,
-    user,
-  };
-};
+const setUser = user => ({
+  type: SET_USER,
+  user,
+});
 
 const setLoginRedirect = loginRedirect => {
   console.log(`setting the login redirect`);
@@ -26,12 +22,10 @@ const setLoginRedirect = loginRedirect => {
   };
 };
 
-const setCookiesAllowed = cookiesAllowed => {
-  return {
-    type: SET_COOKIES_ALLOWED,
-    cookiesAllowed,
-  };
-};
+const setCookiesAllowed = cookiesAllowed => ({
+  type: SET_COOKIES_ALLOWED,
+  cookiesAllowed,
+});
 
 module.exports = {
   setUserLoading,

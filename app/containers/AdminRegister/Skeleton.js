@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+
 import { CompactCardSkeleton, SectionSkeleton } from 'components/Skeletons';
 
 const AdminUsersSkeleton = props => {
@@ -13,7 +14,7 @@ const AdminUsersSkeleton = props => {
   return (
     <div className={outerClassNameFinal.join(' ')} {...rest}>
       <SectionSkeleton />
-      <div className={getClassName("pages__compact-card-container")}>
+      <div className={getClassName('pages__compact-card-container')}>
         <CompactCardSkeleton />
       </div>
     </div>

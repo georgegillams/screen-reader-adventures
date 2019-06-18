@@ -8,12 +8,11 @@ const makeSelectComments = () =>
     commentsState => commentsState.get('data'),
   );
 
-const makeSelectPageId = () => {
-  return createSelector(
+const makeSelectPageId = () =>
+  createSelector(
     selectComments,
     commentsState => commentsState.get('pageId'),
   );
-};
 
 const makeSelectCommentsReloading = () =>
   createSelector(

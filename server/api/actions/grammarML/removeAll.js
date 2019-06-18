@@ -1,9 +1,11 @@
-import redis from 'utils/redis';
 import { datumRemove, datumLoad } from '../datum';
+
+import grammarMLAllowedAttributes from './grammarMLAllowedAttributes';
+
+import redis from 'utils/redis';
 import authentication from 'utils/authentication';
 import { UNAUTHORISED_WRITE } from 'helpers/constants';
 import reqSecure from 'utils/reqSecure';
-import grammarMLAllowedAttributes from './grammarMLAllowedAttributes';
 
 export default function removeAll(req) {
   const reqSecured = reqSecure(req, grammarMLAllowedAttributes);
@@ -13,7 +15,7 @@ export default function removeAll(req) {
         datumLoad({ redisKey: 'grammarML', includeDeleted: true }).then(
           collectionData => {
             for (let i = 0; i < collectionData.length; i += 1) {
-              let existingValue = collectionData[i];
+              const existingValue = collectionData[i];
               console.log(
                 `Permanently removing ${existingValue.id} at index ${i}`,
               );

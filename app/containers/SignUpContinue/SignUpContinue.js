@@ -1,11 +1,22 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
+import BpkImage, {
+  withLazyLoading,
+  withLoadingBehavior,
+} from 'bpk-component-image';
+import BpkThemeProvider from 'bpk-theming';
+import BpkProgressBar, {
+  themeAttributes as progressThemeAttributes,
+} from 'bpk-component-progress';
+import { cssModules } from 'bpk-react-utils';
+
+import Skeleton from './Skeleton';
+
 import LoadingIndicator from 'components/LoadingIndicator';
 import GGButton from 'components/GGButton';
 import { Section, SubSection, TextLink } from 'components/Typography';
 import CodeInline from 'components/Code';
-import Skeleton from './Skeleton';
 import { getTimeDifference } from 'helpers/time';
 import { DebugObject, LoadingCover, LoggedInOnly } from 'components/Auth';
 import {
@@ -18,22 +29,13 @@ import {
 import TicketStatus from 'containers/TicketStatus';
 import { CookiesOnly } from 'components/Sessions';
 import { STRIPE_PUBLIC_API_KEY } from 'helpers/constants';
-import BpkImage, {
-  withLazyLoading,
-  withLoadingBehavior,
-} from 'bpk-component-image';
-import BpkThemeProvider from 'bpk-theming';
-import BpkProgressBar, {
-  themeAttributes as progressThemeAttributes,
-} from 'bpk-component-progress';
+import STYLES from 'containers/pages.scss';
 
-import STYLES from 'containers/pages.scss'; import {cssModules} from 'bpk-react-utils';  const getClassName = cssModules(STYLES); // REGEX_REPLACED
+const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 const MIN_PAGE_NUMBER = 1;
 const MAX_PAGE_NUMBER = 5;
 const PAYMENT_PAGE_NUMBER = MAX_PAGE_NUMBER;
-
-
 
 export default class SignUpContinue extends React.Component {
   constructor(props) {
@@ -142,7 +144,7 @@ export default class SignUpContinue extends React.Component {
               themeAttributes={[...progressThemeAttributes]}
             >
               <BpkProgressBar
-                className={getClassName("pages__component")}
+                className={getClassName('pages__component')}
                 small
                 min={MIN_PAGE_NUMBER}
                 max={MAX_PAGE_NUMBER + 1}

@@ -1,16 +1,14 @@
 import camelCase from 'lodash/camelCase';
 
-const defineAction = (name, attributes) => {
-  return (...args) => {
-    const result = {
-      type: name,
-    };
-    for (let i = 0; i < attributes.length; i += 1) {
-      const attributeName = attributes[i];
-      result[attributeName] = args[i];
-    }
-    return result;
+const defineAction = (name, attributes) => (...args) => {
+  const result = {
+    type: name,
   };
+  for (let i = 0; i < attributes.length; i += 1) {
+    const attributeName = attributes[i];
+    result[attributeName] = args[i];
+  }
+  return result;
 };
 
 const defineActions = actionDefinitions => {

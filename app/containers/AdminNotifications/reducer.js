@@ -1,4 +1,5 @@
 import { fromJS } from 'immutable';
+
 import {
   LOAD_NOTIFICATIONS,
   LOAD_NOTIFICATIONS_ERROR,

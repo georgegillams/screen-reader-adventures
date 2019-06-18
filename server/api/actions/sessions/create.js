@@ -1,5 +1,7 @@
-import { datumCreate } from '../datum';
 import crypto from 'crypto';
+
+import { datumCreate } from '../datum';
+
 import authentication from 'utils/authentication';
 import reqSecure from 'utils/reqSecure';
 import { generateKey } from 'utils/hash';

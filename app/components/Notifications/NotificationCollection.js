@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import NotificationComp from './NotificationComp';
+import { cssModules } from 'bpk-react-utils';
 
-import STYLES from './notification-collection.scss'; import {cssModules} from 'bpk-react-utils';  const getClassName = cssModules(STYLES); // REGEX_REPLACED
+import NotificationComp from './NotificationComp';
+import STYLES from './notification-collection.scss';
+
+const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 export default class NotificationCollection extends Component {
   static propTypes = {
@@ -45,7 +48,9 @@ export default class NotificationCollection extends Component {
       return null;
     }
 
-    const outerClassNameFinal = [getClassName('notification-collection__container')];
+    const outerClassNameFinal = [
+      getClassName('notification-collection__container'),
+    ];
 
     if (className) {
       outerClassNameFinal.push(className);
@@ -54,7 +59,7 @@ export default class NotificationCollection extends Component {
       <div className={outerClassNameFinal.join(' ')} {...rest}>
         {notificationsFiltered.map(notif => (
           <NotificationComp
-            className={getClassName("notification-collection__notification")}
+            className={getClassName('notification-collection__notification')}
             type={notif.type}
             deleted={notif.deleted}
           >

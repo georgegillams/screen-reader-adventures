@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Section, SubSection, TextLink } from 'components/Typography';
+import { cssModules } from 'bpk-react-utils';
 
 import STYLES from './deprecation-notice.scss';
-import { cssModules } from 'bpk-react-utils';
+
+import { Section, SubSection, TextLink } from 'components/Typography';
+
 const getClassName = cssModules(STYLES);
 
 class DeprecationNotice extends Component {

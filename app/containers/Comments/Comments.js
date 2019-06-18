@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { cssModules } from 'bpk-react-utils';
+
+import CommentsListSkeleton from './CommentsListSkeleton';
+
 import { DebugObject, LoadingCover } from 'components/Auth';
 import Comments, { CommentInput } from 'components/Comments';
-import CommentsListSkeleton from './CommentsListSkeleton';
-import STYLES from 'containers/pages.scss'; import {cssModules} from 'bpk-react-utils';  const getClassName = cssModules(STYLES); // REGEX_REPLACED
+import STYLES from 'containers/pages.scss';
 
-
+const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 export default class CommentsContainer extends React.Component {
   componentWillMount = () => {

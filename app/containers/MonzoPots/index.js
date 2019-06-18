@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
-import injectReducer from 'utils/injectReducer';
-import injectSaga from 'utils/injectSaga';
+
 import {
   makeSelectMonzoError,
   makeSelectMonzoLoading,
@@ -14,6 +13,9 @@ import { loadMonzo } from './actions';
 import reducer from './reducer';
 import saga from './saga';
 import MonzoPots from './MonzoPots';
+
+import injectSaga from 'utils/injectSaga';
+import injectReducer from 'utils/injectReducer';
 
 const mapDispatchToProps = dispatch => ({
   loadMonzo: password => dispatch(loadMonzo(password)),

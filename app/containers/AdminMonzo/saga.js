@@ -1,7 +1,8 @@
-import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { SET_KEY } from './constants';
 import { setKeySuccess, setKeyError } from './actions';
 import { makeSelectKeyValue } from './selectors';
+
+import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { pushMessage } from 'containers/RequestStatusWrapper/actions';
 import { API_ENDPOINT, COMMUNICATION_ERROR_MESSAGE } from 'helpers/constants';
 import request from 'utils/request';

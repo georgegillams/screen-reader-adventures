@@ -1,23 +1,25 @@
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
-import injectReducer from 'utils/injectReducer';
-import injectSaga from 'utils/injectSaga';
+
 import {
   makeSelectPC,
   makeSelectLoadingPC,
   makeSelectLoadPCError,
   makeSelectLoadPCSuccess,
 } from './selectors';
-import { setLoginRedirect } from 'containers/App/actions';
-import {
-  makeSelectUser,
-  makeSelectUserLoading,
-} from 'containers/App/selectors';
 import { loadPC } from './actions';
 import reducer from './reducer';
 import saga from './saga';
 import Ticket from './Ticket';
+
+import {
+  makeSelectUser,
+  makeSelectUserLoading,
+} from 'containers/App/selectors';
+import { setLoginRedirect } from 'containers/App/actions';
+import injectSaga from 'utils/injectSaga';
+import injectReducer from 'utils/injectReducer';
 
 const mapDispatchToProps = dispatch => ({
   setLoginRedirect: lr => dispatch(setLoginRedirect(lr)),

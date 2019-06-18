@@ -2,15 +2,15 @@
  * Gets the repositories of the user from Github
  */
 
-import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { LOAD_AVAILABLE_TICKETS } from './constants';
 import {
   loadAvailableTicketsError,
   loadAvailableTicketsSuccess,
 } from './actions';
+
+import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { pushMessage } from 'containers/RequestStatusWrapper/actions';
 import { API_ENDPOINT, COMMUNICATION_ERROR_MESSAGE } from 'helpers/constants';
-
 import request from 'utils/request';
 
 /**

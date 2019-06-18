@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
-import injectReducer from 'utils/injectReducer';
-import injectSaga from 'utils/injectSaga';
+
 import {
   makeSelectComment,
   makeSelectComments,
@@ -18,7 +17,6 @@ import {
   makeSelectDeleteCommentError,
   makeSelectDeleteCommentSuccess,
 } from './selectors';
-import { makeSelectUser } from 'containers/App/selectors';
 import {
   updateComment,
   deleteComment,
@@ -28,6 +26,10 @@ import {
 import reducer from './reducer';
 import saga from './saga';
 import Comments from './Comments';
+
+import { makeSelectUser } from 'containers/App/selectors';
+import injectSaga from 'utils/injectSaga';
+import injectReducer from 'utils/injectReducer';
 
 const mapDispatchToProps = dispatch => ({
   loadComments: pageId => dispatch(loadComments(pageId)),

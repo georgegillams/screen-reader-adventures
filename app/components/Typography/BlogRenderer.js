@@ -1,16 +1,16 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-
 import bibtexParse from 'bibtex-parse-js';
+import { cssModules } from 'bpk-react-utils';
 
 import BlogPreviewSection from './BlogPreviewSection';
 import Section from './Section';
 import SubSection from './SubSection';
+import STYLES from './blog-viewer.scss';
+
 import Tag from 'components/Tag';
 import { ArticleDate } from 'components/Typography';
 
-import STYLES from './blog-viewer.scss';
-import { cssModules } from 'bpk-react-utils';
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 const BlogRenderer = props => {

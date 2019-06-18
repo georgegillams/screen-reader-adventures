@@ -1,9 +1,9 @@
-import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { REAUTHENTICATE } from './constants';
 import { reauthenticateSuccess, reauthenticateError } from './actions';
+
+import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { setUser, setUserLoading } from 'containers/App/actions';
 import { API_ENDPOINT } from 'helpers/constants';
-
 import request from 'utils/request';
 
 export function* doReauthentication() {

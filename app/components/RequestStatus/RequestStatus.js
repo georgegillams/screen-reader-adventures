@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { cssModules } from 'bpk-react-utils';
 
-import STYLES from './request-status.scss'; import {cssModules} from 'bpk-react-utils';  const getClassName = cssModules(STYLES); // REGEX_REPLACED
+import STYLES from './request-status.scss';
+
+const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 const RequestStatus = props => {
   const { status, className, ...rest } = props;

@@ -1,10 +1,10 @@
-import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { LOAD_REGISTER } from './constants';
 import { loadRegisterSuccess, loadRegisterError } from './actions';
+
+import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { pushMessage } from 'containers/RequestStatusWrapper/actions';
 import { API_ENDPOINT, COMMUNICATION_ERROR_MESSAGE } from 'helpers/constants';
 import { associate } from 'helpers/objects';
-
 import request from 'utils/request';
 
 const registerLoadedMessage = { type: 'success', message: 'Register loaded!' };

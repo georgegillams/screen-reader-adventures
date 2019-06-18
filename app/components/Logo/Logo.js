@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import BpkText from 'bpk-component-text';
+import { cssModules } from 'bpk-react-utils';
 
 import STYLES from './logo.scss';
-import { cssModules } from 'bpk-react-utils';
+
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 const Logo = props => {

@@ -1,11 +1,11 @@
-import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { VERIFY } from './constants';
 import { verifySuccessful, verifyError } from './actions';
+import { makeSelectToken } from './selectors';
+
+import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { setUser } from 'containers/App/actions';
 import { API_ENDPOINT, COMMUNICATION_ERROR_MESSAGE } from 'helpers/constants';
-import { makeSelectToken } from './selectors';
 import { pushMessage } from 'containers/RequestStatusWrapper/actions';
-
 import request from 'utils/request';
 
 const emailVerifiedMessage = { type: 'success', message: 'Email verified!' };

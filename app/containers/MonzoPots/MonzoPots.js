@@ -6,14 +6,16 @@ import BpkImage, {
   withLoadingBehavior,
 } from 'bpk-component-image';
 import BpkInput, { INPUT_TYPES, CLEAR_BUTTON_MODES } from 'bpk-component-input';
-import HelperFunctions from 'helpers/HelperFunctions';
+import { cssModules } from 'bpk-react-utils';
+
 import Skeleton from './Skeleton';
+
+import HelperFunctions from 'helpers/HelperFunctions';
 import MoneyPot from 'components/MoneyPot';
 import { Section } from 'components/Typography';
 import { LoadingCover } from 'components/Auth';
-
 import STYLES from 'containers/pages.scss';
-import { cssModules } from 'bpk-react-utils';
+
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 const documentIfExists = typeof window !== 'undefined' ? document : null;
@@ -59,7 +61,7 @@ export default class MonzoPots extends React.Component {
             />
             <BpkInput
               id="password"
-              className={getClassName("pages__component")}
+              className={getClassName('pages__component')}
               type={INPUT_TYPES.password}
               name="password"
               value={password}
@@ -83,7 +85,7 @@ export default class MonzoPots extends React.Component {
                   balance={pot.balance}
                   goalAmount={pot.goalAmount}
                   percentage={pot.percentageComplete}
-                  filled={true}
+                  filled
                 />
               ))}
           </Section>

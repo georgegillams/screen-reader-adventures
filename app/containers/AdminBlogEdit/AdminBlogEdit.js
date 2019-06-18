@@ -1,6 +1,10 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
+import { cssModules } from 'bpk-react-utils';
+
+import Skeleton from './Skeleton';
+
 import LoadingIndicator from 'components/LoadingIndicator';
 import BlogsList from 'components/Blogs';
 import ArticleCard, { CARD_LAYOUTS } from 'components/Cards';
@@ -14,10 +18,8 @@ import {
   AdminOnly,
   LoadingCover,
 } from 'components/Auth';
-import Skeleton from './Skeleton';
 import { CreateBlogForm } from 'components/Forms';
 import STYLES from 'containers/pages.scss';
-import { cssModules } from 'bpk-react-utils';
 
 const getClassName = cssModules(STYLES);
 

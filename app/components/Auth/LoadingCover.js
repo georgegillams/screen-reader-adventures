@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { cssModules } from 'bpk-react-utils';
+
+import STYLES from './loading-cover.scss';
+
 import { SubSection } from 'components/Typography';
 import DefaultSkeleton from 'components/Skeletons';
-import STYLES from './loading-cover.scss';
-import { cssModules } from 'bpk-react-utils';
 
 const getClassName = cssModules(STYLES);
 

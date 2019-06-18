@@ -1,13 +1,26 @@
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
-import injectReducer from 'utils/injectReducer';
-import injectSaga from 'utils/injectSaga';
+
 import {
   makeSelectMakingPayment,
   makeSelectPaymentError,
   makeSelectPaymentSuccess,
 } from './selectors';
+import {
+  loadUserDetails,
+  userDetailsChanged,
+  updateUserDetails,
+  makePayment,
+  loadUserTicket,
+  paymentTokenChanged,
+} from './actions';
+import reducer from './reducer';
+import saga from './saga';
+import StripePayments from './StripePayments';
+
+import injectReducer from 'utils/injectReducer';
+import injectSaga from 'utils/injectSaga';
 import {
   makeSelectUser,
   makeSelectCookiesAllowed,
@@ -21,18 +34,7 @@ import {
   makeSelectTicket,
   makeSelectTicketLoading,
 } from 'containers/TicketStatus/selectors';
-import {
-  loadUserDetails,
-  userDetailsChanged,
-  updateUserDetails,
-  makePayment,
-  loadUserTicket,
-  paymentTokenChanged,
-} from './actions';
 import { setCookiesAllowed } from 'containers/App/actions';
-import reducer from './reducer';
-import saga from './saga';
-import StripePayments from './StripePayments';
 
 const mapDispatchToProps = dispatch => ({
   setLoginRedirect: lr => dispatch(setLoginRedirect(lr)),

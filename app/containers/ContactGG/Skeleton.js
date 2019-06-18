@@ -1,10 +1,14 @@
 import React, { Fragment } from 'react';
+import { cssModules } from 'bpk-react-utils';
+
 import {
   CompactCardSkeleton,
   ButtonSkeleton,
   SectionSkeleton,
 } from 'components/Skeletons';
-import STYLES from 'containers/pages.scss'; import {cssModules} from 'bpk-react-utils'; const getClassName = cssModules(STYLES);
+import STYLES from 'containers/pages.scss';
+
+const getClassName = cssModules(STYLES);
 
 const ContactSkeleton = props => {
   const { className, ...rest } = props;

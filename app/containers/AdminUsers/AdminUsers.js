@@ -1,13 +1,18 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
+import { cssModules } from 'bpk-react-utils';
+
+import AdminUsersAPIEntity from './AdminUsersAPIEntity';
+import Skeleton from './Skeleton';
+import generateCsv from './generateCsv';
+
 import LoadingIndicator from 'components/LoadingIndicator';
 import ArticleCard, { CARD_LAYOUTS } from 'components/Cards';
 import GGButton from 'components/GGButton';
 import { Section, SubSection, TextLink } from 'components/Typography';
 import CodeInline from 'components/Code';
 import Ticket from 'components/Ticket';
-import AdminUsersAPIEntity from './AdminUsersAPIEntity';
 import {
   DebugObject,
   APIEntity,
@@ -15,13 +20,10 @@ import {
   LoadingCover,
 } from 'components/Auth';
 import { LoginForm } from 'components/Forms';
-import Skeleton from './Skeleton';
 import { CookiesOnly } from 'components/Sessions';
-import generateCsv from './generateCsv';
 import { downloadStringAsCsv } from 'helpers/clientOperations';
-
 import STYLES from 'containers/pages.scss';
-import { cssModules } from 'bpk-react-utils';
+
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 const downloadData = data => {
@@ -41,9 +43,9 @@ export default class AdminUsers extends React.Component {
   };
 
   expandAll = () => {
-    let allElements = document.getElementsByTagName('DIV');
+    const allElements = document.getElementsByTagName('DIV');
     for (let i = 0; i < allElements.length; i += 1) {
-      let element = allElements[i];
+      const element = allElements[i];
       if (element.textContent.includes('▶️ ')) {
         element.click();
       }

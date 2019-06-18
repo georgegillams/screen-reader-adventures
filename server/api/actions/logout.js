@@ -1,8 +1,10 @@
 import { datumLoad, datumUpdate } from '../actions/datum';
+
+import usersAllowedAttributes from './users/usersAllowedAttributes';
+
 import { find } from 'utils/find';
 import setContentLastUpdatedTimestamp from 'utils/setContentLastUpdatedTimestamp';
 import reqSecure from 'utils/reqSecure';
-import usersAllowedAttributes from './users/usersAllowedAttributes';
 
 export default function logout(req) {
   const reqSecured = reqSecure(req, usersAllowedAttributes);

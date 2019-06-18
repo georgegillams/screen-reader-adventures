@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
-import injectReducer from 'utils/injectReducer';
-import injectSaga from 'utils/injectSaga';
+
 import {
   makeSelectUserDetails,
   makeSelectUpdateingUserDetails,
@@ -13,19 +12,22 @@ import {
   makeSelectLoadUserDetailsError,
 } from './selectors';
 import {
-  makeSelectUser,
-  makeSelectCookiesAllowed,
-} from 'containers/App/selectors';
-import { setLoginRedirect } from 'containers/App/actions';
-import {
   loadUserDetails,
   userDetailsChanged,
   updateUserDetails,
 } from './actions';
-import { setCookiesAllowed } from 'containers/App/actions';
 import reducer from './reducer';
 import saga from './saga';
 import SignUpContinue from './SignUpContinue';
+
+import injectReducer from 'utils/injectReducer';
+import injectSaga from 'utils/injectSaga';
+import {
+  makeSelectUser,
+  makeSelectCookiesAllowed,
+} from 'containers/App/selectors';
+import { setLoginRedirect } from 'containers/App/actions';
+import { setCookiesAllowed } from 'containers/App/actions';
 
 const mapDispatchToProps = dispatch => ({
   setLoginRedirect: lr => dispatch(setLoginRedirect(lr)),

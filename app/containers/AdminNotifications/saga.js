@@ -1,4 +1,3 @@
-import { call, put, select, takeLatest } from 'redux-saga/effects';
 import {
   LOAD_NOTIFICATIONS,
   CREATE_NOTIFICATION,
@@ -17,9 +16,10 @@ import {
   makeSelectNotificationToDelete,
   makeSelectNewNotification,
 } from './selectors';
+
+import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { pushMessage } from 'containers/RequestStatusWrapper/actions';
 import { API_ENDPOINT, COMMUNICATION_ERROR_MESSAGE } from 'helpers/constants';
-
 import request from 'utils/request';
 
 const loadNotificationsSuccessMessage = {

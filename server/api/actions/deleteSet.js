@@ -1,6 +1,7 @@
+import { datumLoad, datumUpdate } from '../actions/datum';
+
 import { STRING_REGEX, ID_REGEX, RESOURCE_NOT_FOUND } from 'helpers/constants';
 import redis from 'utils/redis';
-import { datumLoad, datumUpdate } from '../actions/datum';
 import { find } from 'utils/find';
 import { UNAUTHORISED_WRITE } from 'helpers/constants';
 import authentication from 'utils/authentication';
@@ -24,7 +25,7 @@ export default function deleteSet(req) {
             datumLoad({ redisKey: collectionName, includeDeleted: true }).then(
               collectionData => {
                 for (let i = 0; i < collectionData.length; i += 1) {
-                  let existingValue = collectionData[i];
+                  const existingValue = collectionData[i];
                   console.log(
                     `Permanently removing ${existingValue.id} at index ${i}`,
                   );

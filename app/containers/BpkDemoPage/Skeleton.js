@@ -1,4 +1,6 @@
 import React, { Fragment } from 'react';
+import { cssModules } from 'bpk-react-utils';
+
 import {
   SmallButtonSkeleton,
   SubSectionSkeleton,
@@ -6,7 +8,9 @@ import {
   SectionSkeleton,
 } from 'components/Skeletons';
 import TicketStatusSkeleton from 'containers/TicketStatus/Skeleton';
-import STYLES from 'containers/pages.scss'; import {cssModules} from 'bpk-react-utils'; const getClassName = cssModules(STYLES);
+import STYLES from 'containers/pages.scss';
+
+const getClassName = cssModules(STYLES);
 
 const LoginFormSkeleton = props => {
   const { className, ...rest } = props; // eslint-disable-line no-shadow
