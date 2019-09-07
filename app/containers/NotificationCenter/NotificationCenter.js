@@ -5,8 +5,8 @@ import { cssModules } from 'bpk-react-utils';
 
 import Skeleton from './Skeleton';
 
-import { Section, SubSection } from 'components/Typography';
-import NotificationCollection from 'components/Notifications';
+import { Section, SubSection } from 'gg-components/dist/Typography';
+import NotificationCollection from 'gg-components/dist/Notifications';
 import { DebugObject, LoadingCover } from 'components/Auth';
 import STYLES from 'containers/pages.scss';
 

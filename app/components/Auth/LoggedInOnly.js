@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { TextLink, Section } from 'components/Typography';
+import { TextLink, Section } from 'gg-components/dist/Typography';
 
 const LoggedInOnly = props => {
   const { user, activityName, children, setLoginRedirect } = props;

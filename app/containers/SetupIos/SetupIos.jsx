@@ -4,8 +4,8 @@ import BpkImage, {
   withLazyLoading,
   withLoadingBehavior,
 } from 'bpk-component-image';
-import { Section, SubSection, TextLink } from 'components/Typography';
-import GGButton from 'components/GGButton';
+import { Section, SubSection, TextLink } from 'gg-components/dist/Typography';
+import GGButton from 'gg-components/dist/GGButton';
 
 import STYLES from '../pages.scss';
 import { cssModules } from 'bpk-react-utils';

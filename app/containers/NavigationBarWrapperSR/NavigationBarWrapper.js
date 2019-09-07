@@ -1,5 +1,5 @@
 import React from 'react';
-import NavigationBar, { NavigationItem } from 'components/NavigationBar';
+import NavigationBar, { NavigationItem } from 'gg-components/dist/NavigationBar';
 import { SRLogo } from 'components/Logo';
 import { SmallButtonSkeleton } from 'components/Skeletons';
 

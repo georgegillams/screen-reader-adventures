@@ -4,7 +4,7 @@ import { cssModules } from 'bpk-react-utils';
 
 import STYLES from './tech-specs.scss';
 
-import { Section } from 'components/Typography';
+import { Section } from 'gg-components/dist/Typography';
 
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 

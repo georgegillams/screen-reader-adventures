@@ -1,8 +1,8 @@
 import React, { Fragment, Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import { Helmet } from 'react-helmet';
-import { Section } from 'components/Typography';
-import GGButton from 'components/GGButton';
+import { Section } from 'gg-components/dist/Typography';
+import GGButton from 'gg-components/dist/GGButton';
 import UntappableScrim from 'components/Scrim';
 import GameOver from './GameOver.js';
 import {

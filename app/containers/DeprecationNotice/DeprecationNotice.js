@@ -4,7 +4,7 @@ import { cssModules } from 'bpk-react-utils';
 
 import STYLES from './deprecation-notice.scss';
 
-import { Section, SubSection, TextLink } from 'components/Typography';
+import { Section, SubSection, TextLink } from 'gg-components/dist/Typography';
 
 const getClassName = cssModules(STYLES);
 
@@ -22,7 +22,7 @@ class DeprecationNotice extends Component {
           className={getClassName('not-found__container')}
           name="This feature has been deprecated"
         >
-          <SubSection noAnchor>
+          <SubSection anchor={false}>
             The page you&apos;re looking for has been deprecated, but you can
             find more awesome stuff in the{' '}
             <TextLink href="/site-map">sitemap</TextLink>.

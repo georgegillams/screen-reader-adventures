@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { cssModules } from 'bpk-react-utils';
 
-import { SubSection, TextLink } from 'components/Typography';
+import { SubSection, TextLink } from 'gg-components/dist/Typography';
 import LoadingIndicator from 'components/LoadingIndicator';
 import { NON_EMOJI_REGEX } from 'helpers/constants';
 import redirects from 'helpers/redirects';
@@ -33,7 +33,7 @@ export default class SiteMap extends React.Component {
         <LoadingIndicator loading={loading} error={error}>
           <div>
             <SubSection
-              noAnchor
+              anchor={false}
               className={getClassName('pages__site-map-item')}
               name="Blog 📝"
             >
@@ -55,7 +55,7 @@ export default class SiteMap extends React.Component {
                 })}
             </SubSection>
             <SubSection
-              noAnchor
+              anchor={false}
               className={getClassName('pages__site-map-item')}
               name="Travel ✈️"
             >
@@ -77,7 +77,7 @@ export default class SiteMap extends React.Component {
                 })}
             </SubSection>
             <SubSection
-              noAnchor
+              anchor={false}
               className={getClassName('pages__site-map-item')}
               name="Other blogs"
             >
@@ -99,7 +99,7 @@ export default class SiteMap extends React.Component {
                 })}
             </SubSection>
             <SubSection
-              noAnchor
+              anchor={false}
               className={getClassName('pages__site-map-item')}
               name="Photography 🎨"
             >
@@ -108,7 +108,7 @@ export default class SiteMap extends React.Component {
               </TextLink>
             </SubSection>
             <SubSection
-              noAnchor
+              anchor={false}
               className={getClassName('pages__site-map-item')}
               name="Work 📱"
             >
@@ -125,7 +125,7 @@ export default class SiteMap extends React.Component {
               </TextLink>
             </SubSection>
             <SubSection
-              noAnchor
+              anchor={false}
               className={getClassName('pages__site-map-item')}
               name="Machine learning 🤖"
             >
@@ -133,14 +133,14 @@ export default class SiteMap extends React.Component {
                 Using ML to predict grammatical correctness.
               </TextLink>
             </SubSection>
-            {/* <SubSection noAnchor className={getClassName('pages__site-map-item')} name="Documents 🥇">
+            {/* <SubSection anchor={false} className={getClassName('pages__site-map-item')} name="Documents 🥇">
         <TextLink  href="/documents/degree">
-         <SubSection noAnchor nclassName={getClassName('pages__site-map-item')}oPadding link name="Degree Certificate - 2018
+         <SubSection anchor={false} nclassName={getClassName('pages__site-map-item')}oPadding link name="Degree Certificate - 2018
       </TextLink>
         <br />
     </SubSection> */}
             <SubSection
-              noAnchor
+              anchor={false}
               className={getClassName('pages__site-map-item')}
               name="Design 🎨"
             >
@@ -155,7 +155,7 @@ export default class SiteMap extends React.Component {
               <TextLink href="/design/lab">Lab</TextLink>
             </SubSection>
             <SubSection
-              noAnchor
+              anchor={false}
               className={getClassName('pages__site-map-item')}
               name="Other stuff 🤷‍♂️"
             >
@@ -170,7 +170,7 @@ export default class SiteMap extends React.Component {
               <TextLink href="/monzoPots">Monzo savings</TextLink>
             </SubSection>
             <SubSection
-              noAnchor
+              anchor={false}
               className={getClassName('pages__site-map-item')}
               name="Random 🐉"
             >
@@ -187,7 +187,7 @@ export default class SiteMap extends React.Component {
               <TextLink href="/page-not-found"> 404 Page</TextLink>
             </SubSection>
             <SubSection
-              noAnchor
+              anchor={false}
               className={getClassName('pages__site-map-item')}
               name="API"
             >
@@ -236,7 +236,7 @@ export default class SiteMap extends React.Component {
               </TextLink>
             </SubSection>
             <SubSection
-              noAnchor
+              anchor={false}
               className={getClassName('pages__site-map-item')}
               name="Accounts 🔑"
             >
@@ -245,7 +245,7 @@ export default class SiteMap extends React.Component {
               <TextLink href="/account">Account</TextLink>
             </SubSection>
             <SubSection
-              noAnchor
+              anchor={false}
               className={getClassName('pages__site-map-item')}
               name="Admin 👮‍♂️"
             >
@@ -264,7 +264,7 @@ export default class SiteMap extends React.Component {
               </TextLink>
             </SubSection>
             <SubSection
-              noAnchor
+              anchor={false}
               className={getClassName('pages__site-map-item')}
               name="Redirects 👉"
             >

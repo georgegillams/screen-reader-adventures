@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Section, SubSection, TextLink } from 'components/Typography';
+import { Section, SubSection, TextLink } from 'gg-components/dist/Typography';
 
 import STYLES from './not-found.scss';
 import { cssModules } from 'bpk-react-utils';
@@ -20,7 +20,7 @@ class EndOfGame extends Component {
           className={getClassName('not-found__container')}
           name="End of game."
         >
-          <SubSection noAnchor>
+          <SubSection anchor={false}>
             I haven&apos;t yet made any more levels. Check back soon for more
             Screen Reader awesomeness!{' '}
           </SubSection>

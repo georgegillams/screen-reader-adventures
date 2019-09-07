@@ -12,8 +12,8 @@ import {
   COMPONENT_RELOAD_INTERVAL,
   CHECK_FOR_NEW_CONTENT_INTERVAL,
 } from 'helpers/constants';
-import GGButton from 'components/GGButton';
-import { Section, TextLink } from 'components/Typography';
+import GGButton from 'gg-components/dist/GGButton';
+import { Section, TextLink } from 'gg-components/dist/Typography';
 
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 

@@ -7,7 +7,7 @@ import { cssModules } from 'bpk-react-utils';
 
 import STYLES from './forms.scss';
 
-import GGButton from 'components/GGButton';
+import GGButton from 'gg-components/dist/GGButton';
 
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 

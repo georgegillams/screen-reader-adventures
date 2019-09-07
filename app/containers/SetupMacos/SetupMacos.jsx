@@ -1,8 +1,8 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Section, SubSection, TextLink } from 'components/Typography';
+import { Section, SubSection, TextLink } from 'gg-components/dist/Typography';
 import Image from 'components/Image';
-import GGButton from 'components/GGButton';
+import GGButton from 'gg-components/dist/GGButton';
 import VoiceOverWelcome from './VoiceOverWelcome.png';
 import VoiceOverWelcome_light from './VoiceOverWelcome_light.png';
 import VoiceOverSafari from './VoiceOverSafari.png';

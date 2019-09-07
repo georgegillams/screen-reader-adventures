@@ -8,13 +8,13 @@ import BpkImage, {
 import { cssModules } from 'bpk-react-utils';
 
 import LoadingIndicator from 'components/LoadingIndicator';
-import GGButton from 'components/GGButton';
-import { Section, SubSection, TextLink } from 'components/Typography';
-import CodeInline from 'components/Code';
+import GGButton from 'gg-components/dist/GGButton';
+import { Section, SubSection, TextLink } from 'gg-components/dist/Typography';
+import CodeInline from 'gg-components/dist/Code';
 import { LoginForm } from 'components/Forms';
 import { DebugObject } from 'components/Auth';
 import { CookiesOnly } from 'components/Sessions';
-import Redirect from 'components/Redirect';
+import Redirect from 'gg-components/dist/Redirect';
 import {
   MONZOME_LINK_REGEX,
   SORT_CODE_REGEX,

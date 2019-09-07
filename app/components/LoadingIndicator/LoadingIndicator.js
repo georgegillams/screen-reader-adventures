@@ -4,7 +4,7 @@ import { cssModules } from 'bpk-react-utils';
 
 import STYLES from './style.scss';
 
-import { SubSection } from 'components/Typography';
+import { SubSection } from 'gg-components/dist/Typography';
 
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
@@ -29,7 +29,7 @@ const LoadingIndicator = props => {
       </div>
       {error && (
         <SubSection
-          noAnchor
+          anchor={false}
           name="This is taking a while. Maybe something isn't quite right..."
         />
       )}

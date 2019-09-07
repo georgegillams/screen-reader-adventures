@@ -9,7 +9,7 @@ import { cssModules } from 'bpk-react-utils';
 
 import STYLES from './article-card.scss';
 
-import { Section, SubSection } from 'components/Typography';
+import { Section, SubSection } from 'gg-components/dist/Typography';
 import HelperFunctions from 'helpers/HelperFunctions';
 
 const getClassName = cssModules(STYLES);
@@ -149,7 +149,7 @@ class ArticleCard extends Component {
           <div className={dateContainerClassNames.join(' ')}>
             <SubSection
               hover={this.state.hovering && !disabled}
-              noAnchor
+              anchor={false}
               noPadding
               link
               light={light}
@@ -164,7 +164,7 @@ class ArticleCard extends Component {
             />
             <SubSection
               hover={this.state.hovering && !disabled}
-              noAnchor
+              anchor={false}
               noPadding
               link
               light={light}

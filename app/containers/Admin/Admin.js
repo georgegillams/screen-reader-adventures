@@ -6,7 +6,7 @@ import { cssModules } from 'bpk-react-utils';
 import Skeleton from './Skeleton';
 
 import ArticleCard, { CARD_LAYOUTS } from 'components/Cards';
-import { Section } from 'components/Typography';
+import { Section } from 'gg-components/dist/Typography';
 import { DebugObject, AdminOnly, LoadingCover } from 'components/Auth';
 import { CookiesOnly } from 'components/Sessions';
 import STYLES from 'containers/pages.scss';

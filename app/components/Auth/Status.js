@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Section } from 'components/Typography';
+import { Section } from 'gg-components/dist/Typography';
 
 const Status = props => {
   const { success, error } = props;
