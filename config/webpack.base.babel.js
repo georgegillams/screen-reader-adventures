@@ -38,8 +38,9 @@ module.exports = options => ({
           {
             loader: 'css-loader',
             options: {
-              modules: true,
-              localIdentName: '[name]__[local]___[hash:base64:5]',
+              modules: {
+                localIdentName: '[name]__[local]___[hash:base64:5]',
+              },
             },
           },
           'sass-loader',
@@ -49,7 +50,17 @@ module.exports = options => ({
         // Preprocess 3rd party .css files located in node_modules
         test: /\.css$/,
         include: /node_modules/,
-        use: ['style-loader', 'css-loader'],
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[name]__[local]___[hash:base64:5]',
+              },
+            },
+          },
+        ],
       },
       {
         test: /\.(eot|svg|otf|ttf|woff|woff2)$/,
