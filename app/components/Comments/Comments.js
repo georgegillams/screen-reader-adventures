@@ -7,8 +7,8 @@ import Comment from './Comment';
 import STYLES from './comments.scss';
 
 import { DebugObject, LoggedInOnly } from 'components/Auth';
-import { NotificationComp } from 'components/Notifications';
-import { Section, SubSection } from 'components/Typography';
+import { NotificationComp } from 'gg-components/dist/Notifications';
+import { Section, SubSection } from 'gg-components/dist/Typography';
 
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
@@ -80,7 +80,7 @@ class Comments extends React.Component {
       commentsComponent =
         commentsFiltered.length === 0 ? (
           <SubSection
-            noAnchor
+            anchor={false}
             className={getClassName('comments__component')}
             name="No comments yet. Be the first!"
           />

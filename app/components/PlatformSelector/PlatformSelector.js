@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { CodeInline } from 'components/Code';
-import { SubSection } from 'components/Typography';
+import { CodeInline } from 'gg-components/dist/Code';
+import { SubSection } from 'gg-components/dist/Typography';
 import ArticleCard, { CARD_LAYOUTS } from 'components/Cards';
 import { getPriceForTicketType, beautifyTicketType } from 'helpers/ticketing';
 import { setPlatform } from 'helpers/storageHelpers';

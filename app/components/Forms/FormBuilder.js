@@ -7,8 +7,8 @@ import { cssModules } from 'bpk-react-utils';
 
 import STYLES from './forms.scss';
 
-import GGButton from 'components/GGButton';
-import { TextLink } from 'components/Typography';
+import GGButton from 'gg-components/dist/GGButton';
+import { TextLink } from 'gg-components/dist/Typography';
 import { EMAIL_REGEX, PASSWORD_REGEX } from 'helpers/constants';
 import { formValueChanged } from 'helpers/objects';
 import HelperFunctions from 'helpers/HelperFunctions';

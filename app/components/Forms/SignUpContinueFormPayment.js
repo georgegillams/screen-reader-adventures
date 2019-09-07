@@ -17,8 +17,8 @@ import { cssModules } from 'bpk-react-utils';
 import FormBuilder from './FormBuilder';
 import STYLES from './forms.scss';
 
-import GGButton from 'components/GGButton';
-import { Section } from 'components/Typography';
+import GGButton from 'gg-components/dist/GGButton';
+import { Section } from 'gg-components/dist/Typography';
 import {
   STRING_REGEX,
   INT_REGEX,

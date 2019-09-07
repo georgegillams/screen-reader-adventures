@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import ObjectAsList from './ObjectAsList';
 
-import { Section } from 'components/Typography';
+import { Section } from 'gg-components/dist/Typography';
 
 class DebugObject extends Component {
   constructor(props) {

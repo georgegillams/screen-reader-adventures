@@ -5,8 +5,8 @@ import { cssModules } from 'bpk-react-utils';
 import STYLES from './comments.scss';
 
 import FormBuilder from 'components/Forms';
-import CodeInline from 'components/Code';
-import { SubSection } from 'components/Typography';
+import CodeInline from 'gg-components/dist/Code';
+import { SubSection } from 'gg-components/dist/Typography';
 import { MD_PARTIAL_REGEX, UNAME_REGEX } from 'helpers/constants';
 
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
@@ -57,7 +57,7 @@ class CommentInput extends React.Component {
     return (
       <div className={classNameFinal.join(' ')} {...rest}>
         {createCommentSuccess ? (
-          <SubSection noAnchor name="Thanks for your comment 👍" />
+          <SubSection anchor={false} name="Thanks for your comment 👍" />
         ) : (
           <FormBuilder
             entity={

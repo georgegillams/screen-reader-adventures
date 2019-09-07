@@ -5,8 +5,9 @@ import { cssModules } from 'bpk-react-utils';
 import CommentInput from './CommentInput';
 import STYLES from './comments.scss';
 
-import GGButton from 'components/GGButton';
-import { BlogPreviewContent, SubSection } from 'components/Typography';
+import GGButton from 'gg-components/dist/GGButton';
+import { BlogPreviewContent } from 'components/Typography';
+import { SubSection } from 'gg-components/dist/Typography';
 
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
@@ -108,7 +109,7 @@ class Comment extends React.Component {
 
     return (
       <SubSection
-        noAnchor
+        anchor={false}
         className={getClassName('comments__component')}
         name={`${displayName}`}
         {...rest}

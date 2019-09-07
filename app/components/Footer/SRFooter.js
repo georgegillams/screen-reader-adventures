@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TextLink } from 'components/Typography';
+import { TextLink } from 'gg-components/dist/Typography';
 import MadeWithLove from './MadeWithLove';
 
 import STYLES from './footer.scss';

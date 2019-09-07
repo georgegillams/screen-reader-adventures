@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import ObjectAsList from './ObjectAsList';
 
 import { getTimeDifference } from 'helpers/time';
-import { Section } from 'components/Typography';
+import { Section } from 'gg-components/dist/Typography';
 
 const APIEntity = props => {
   const { entityType, entity, name, children, ...rest } = props;

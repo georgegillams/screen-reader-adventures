@@ -6,8 +6,8 @@ import { cssModules } from 'bpk-react-utils';
 import FormBuilder from './FormBuilder';
 import STYLES from './forms.scss';
 
-import { TextLink } from 'components/Typography';
-import GGButton from 'components/GGButton';
+import { TextLink } from 'gg-components/dist/Typography';
+import GGButton from 'gg-components/dist/GGButton';
 import {
   STRING_REGEX,
   INT_REGEX,

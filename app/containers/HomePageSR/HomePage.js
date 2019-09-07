@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-import ArticleCard, { CARD_LAYOUTS } from 'components/Cards';
 import PlatformSelector from 'components/PlatformSelector';
-import AboutPage from 'containers/About/About';
 import STYLES from 'containers/pages.scss';
 import { cssModules } from 'bpk-react-utils';
 const getClassName = cssModules(STYLES); // REGEX_REPLACED

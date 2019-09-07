@@ -4,7 +4,7 @@ import { cssModules } from 'bpk-react-utils';
 
 import STYLES from './loading-cover.scss';
 
-import { SubSection } from 'components/Typography';
+import { SubSection } from 'gg-components/dist/Typography';
 import DefaultSkeleton from 'components/Skeletons';
 
 const getClassName = cssModules(STYLES);
@@ -26,7 +26,7 @@ const LoadingCover = props => {
           <SubSection
             name="This is taking a while. Maybe something isn't quite right..."
             noPadding
-            noAnchor
+            anchor={false}
             className={getClassName('loading-cover__overlay--content')}
           />
         )}
