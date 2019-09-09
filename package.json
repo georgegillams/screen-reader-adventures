@@ -75,7 +75,7 @@
     "express-session": "^1.16.2",
     "fontfaceobserver": "2.1.0",
     "funnies": "^2.0.0",
-    "gg-components": "0.0.27",
+    "gg-components": "0.0.28",
     "heroku-ssl-redirect": "0.0.4",
     "history": "4.9.0",
     "hoist-non-react-statics": "2.5.5",
