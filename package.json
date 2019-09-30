@@ -52,7 +52,7 @@
     "babel-preset-es2015": "^6.24.1",
     "bcrypt": "^3.0.6",
     "bibtex-parse-js": "0.0.24",
-    "bpk-component-card": "^1.1.95",
+    "bpk-component-card": "^2.0.0",
     "bpk-component-checkbox": "^1.4.115",
     "bpk-component-code": "^1.1.85",
     "bpk-component-horizontal-nav": "^2.4.40",
