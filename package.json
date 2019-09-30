@@ -64,7 +64,7 @@
     "bpk-component-text": "^1.1.12",
     "bpk-component-textarea": "^1.1.27",
     "bpk-mixins": "^18.0.1",
-    "bpk-theming": "^1.2.13",
+    "bpk-theming": "^2.0.0",
     "bpk-tokens": "^27.7.0",
     "chalk": "^2.4.2",
     "compression": "1.7.4",
