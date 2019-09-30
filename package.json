@@ -62,7 +62,7 @@
     "bpk-component-label": "^3.2.150",
     "bpk-component-progress": "^1.0.152",
     "bpk-component-text": "^1.1.12",
-    "bpk-component-textarea": "^1.1.27",
+    "bpk-component-textarea": "^2.0.0",
     "bpk-mixins": "^18.0.1",
     "bpk-theming": "^1.2.13",
     "bpk-tokens": "^27.7.0",
