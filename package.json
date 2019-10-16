@@ -170,7 +170,7 @@
     "node-sass": "^4.12.0",
     "nodemon": "^1.19.1",
     "null-loader": "3.0.0",
-    "plop": "2.4.0",
+    "plop": "2.5.0",
     "react-test-renderer": "^16.9.0",
     "redis-mock": "^0.46.0",
     "rimraf": "3.0.0",
