@@ -1,0 +1,4 @@
+{
+  "scenarioIds": ["", "setup/iOS", "setup/Android", "level/1"],
+  "globallyHiddenSelectors": ["img", "[class*=\"BpkImage\"]"]
+}

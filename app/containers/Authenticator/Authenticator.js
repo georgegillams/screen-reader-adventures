@@ -5,7 +5,7 @@ import cookie from 'react-cookies';
 import { cssModules } from 'bpk-react-utils';
 
 import { Section, SubSection, TextLink } from 'gg-components/dist/Typography';
-import { DebugObject } from 'components/Auth';
+import { DebugObject } from 'gg-components/dist/Auth';
 import STYLES from 'containers/pages.scss';
 
 const getClassName = cssModules(STYLES);
@@ -28,13 +28,13 @@ export default class Authenticator extends React.Component {
       userLoading,
       reauthenticate,
       reauthenticating,
-      success,
-      error,
+      reauthenticationSuccess,
+      reauthenticationError,
       sessionKeyChanged,
       className,
       ...rest
     } = this.props;
-    const outerClassNameFinal = [getClassName('pages__container')];
+    const outerClassNameFinal = [];
 
     if (className) {
       outerClassNameFinal.push(className);
@@ -51,8 +51,8 @@ export default class Authenticator extends React.Component {
             userLoading,
             reauthenticate,
             reauthenticating,
-            success,
-            error,
+            reauthenticationSuccess,
+            reauthenticationError,
             sessionKeyChanged,
             className,
           }}
@@ -65,7 +65,10 @@ export default class Authenticator extends React.Component {
 Authenticator.propTypes = {
   cookiesAllowed: PropTypes.bool,
   reauthenticating: PropTypes.bool,
-  error: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
+  reauthenticationError: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.bool,
+  ]),
   createdPayment: PropTypes.object,
   login: PropTypes.func.isRequired,
   className: PropTypes.string,

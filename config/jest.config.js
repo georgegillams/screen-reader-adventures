@@ -6,6 +6,7 @@ module.exports = {
     '!app/*/RbGenerated*/*.{js,jsx}',
     '!app/app.js',
     '!app/*/*/Loadable.{js,jsx}',
+    '!build/**/*',
   ],
   coverageThreshold: {
     global: {
@@ -16,6 +17,7 @@ module.exports = {
     },
   },
   coverageReporters: ['json', 'lcov', 'text-summary'],
+  testPathIgnorePatterns: ['<rootDir>/build/', '<rootDir>/node_modules/'],
   moduleDirectories: ['node_modules', 'app'],
   moduleNameMapper: {
     '.*\\.(css|less|styl|scss|sass)$':

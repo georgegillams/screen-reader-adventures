@@ -1,5 +1,5 @@
 let redis = null;
-if (process.env.NODE_ENV === 'test') {
+if (process.env.REDIS_MOCK === 'true' || process.env.NODE_ENV === 'test') {
   redis = require('redis-mock').createClient();
 } else if (process.env.REDIS_URL) {
   redis = require('redis').createClient(process.env.REDIS_URL);

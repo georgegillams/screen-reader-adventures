@@ -2,7 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { Section, SubSection, TextLink } from 'gg-components/dist/Typography';
 import Image from 'components/Image';
-import GGButton from 'gg-components/dist/GGButton';
+import { Button } from 'gg-components/dist/Button';
 import VoiceOverWelcome from './VoiceOverWelcome.png';
 import VoiceOverWelcome_light from './VoiceOverWelcome_light.png';
 import VoiceOverSafari from './VoiceOverSafari.png';
@@ -76,13 +76,13 @@ class SetupIos extends React.Component {
           VoiceOver tends to help you out as you go!
           <br />
           <br />
-          <GGButton
+          <Button
             className={getClassName('pages__component')}
             large
             href="/level/1"
           >
             I&apos;m ready to play...
-          </GGButton>
+          </Button>
         </Section>
       </div>
     );

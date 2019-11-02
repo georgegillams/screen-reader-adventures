@@ -1,38 +1,16 @@
-import { connect } from 'react-redux';
-import { compose } from 'redux';
-import { createStructuredSelector } from 'reselect';
-
-import selectors from './selectors';
-import actions from './actions';
-import reducer from './reducer';
-import saga from './saga';
-import Comp from './AdminNotifications';
-
-import injectReducer from 'utils/injectReducer';
-import injectSaga from 'utils/injectSaga';
 import appSelectors from 'containers/App/selectors';
-import appActions from 'containers/App/actions';
-import { mapSelectors } from 'helpers/redux/selectors';
-import { mapActions } from 'helpers/redux/actions';
 
-const mapDispatchToProps = dispatch =>
-  mapActions(dispatch, { ...appActions, ...actions });
+import { composeContainer } from 'helpers/redux';
+import actionMeta from './actionMeta';
+import { selectors, actions, reducer } from './redux-definitions';
+import saga from './saga';
+import AdminNotifications from './AdminNotifications';
 
-const mapStateToProps = createStructuredSelector(
-  mapSelectors({ ...appSelectors, ...selectors }),
+module.exports = composeContainer(
+  AdminNotifications,
+  actionMeta.key,
+  { ...selectors, ...appSelectors },
+  { ...actions },
+  reducer,
+  saga,
 );
-
-const withConnect = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-);
-
-const withReducer = injectReducer({ key: 'adminnotifications', reducer });
-const withSaga = injectSaga({ key: 'adminnotifications', saga });
-
-export default compose(
-  withReducer,
-  withSaga,
-  withConnect,
-)(Comp);
-export { mapDispatchToProps };

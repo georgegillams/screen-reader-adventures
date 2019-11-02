@@ -9,6 +9,7 @@ install:
 
 script:
   - npm test
+  - npm run backstopjs:test
 
 notifications:
   email:

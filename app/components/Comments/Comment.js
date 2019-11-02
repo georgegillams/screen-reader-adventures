@@ -5,9 +5,9 @@ import { cssModules } from 'bpk-react-utils';
 import CommentInput from './CommentInput';
 import STYLES from './comments.scss';
 
-import GGButton from 'gg-components/dist/GGButton';
-import { BlogPreviewContent } from 'components/Typography';
+import {Button} from 'gg-components/dist/Button';
 import { SubSection } from 'gg-components/dist/Typography';
+import { BlogPreviewContent } from 'components/Typography';
 
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
@@ -134,11 +134,11 @@ class Comment extends React.Component {
         )}
         {canEdit && !this.state.editing && (
           <div>
-            <GGButton onClick={() => this.setState({ editing: true })}>
+            <Button onClick={() => this.setState({ editing: true })}>
               Edit
-            </GGButton>
+            </Button>
             {!comment.deleted && (
-              <GGButton
+              <Button
                 disabled={deletingComment}
                 onClick={() => {
                   deleteComment(comment);
@@ -146,7 +146,7 @@ class Comment extends React.Component {
                 destructive
               >
                 Delete
-              </GGButton>
+              </Button>
             )}
           </div>
         )}

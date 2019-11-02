@@ -12,7 +12,7 @@ import {
   COMPONENT_RELOAD_INTERVAL,
   CHECK_FOR_NEW_CONTENT_INTERVAL,
 } from 'helpers/constants';
-import GGButton from 'gg-components/dist/GGButton';
+import {Button} from 'gg-components/dist/Button';
 import { Section, TextLink } from 'gg-components/dist/Typography';
 
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
@@ -72,20 +72,20 @@ export default class CookiesOnly extends Component {
               </Section>
               <br />
               <div>
-                <GGButton
+                <Button
                   className={getClassName('cookie-banner__component')}
                   onClick={onAccept}
                 >
                   ACCEPT
-                </GGButton>
-                <GGButton
+                </Button>
+                <Button
                   className={getClassName('cookie-banner__component')}
                   small
                   destructive
                   onClick={this.rejectCookies}
                 >
                   Nope nope nope
-                </GGButton>
+                </Button>
               </div>
             </div>
           </Modal>

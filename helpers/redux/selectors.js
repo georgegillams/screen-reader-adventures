@@ -33,5 +33,5 @@ const mapSelectors = selectors => {
   return result;
 };
 
-export { mapSelectors };
+export { mapSelectors, createSelectors };
 export default createSelectors;

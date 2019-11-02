@@ -8,7 +8,7 @@ import {
   CardExpiryElement,
   CardCVCElement,
   PostalCodeElement,
-  PaymentRequestGGButtonElement,
+  PaymentRequestButtonElement,
   IbanElement,
   IdealBankElement,
 } from 'react-stripe-elements';
@@ -17,7 +17,7 @@ import { cssModules } from 'bpk-react-utils';
 import FormBuilder from './FormBuilder';
 import STYLES from './forms.scss';
 
-import GGButton from 'gg-components/dist/GGButton';
+import {Button} from 'gg-components/dist/Button';
 import { Section } from 'gg-components/dist/Typography';
 import {
   STRING_REGEX,
@@ -81,14 +81,14 @@ class SignUpContinueFormPayment extends React.Component {
           <div className={getClassName('forms__component')}>
             {'You can view and edit your details via your EPICC account.'}
           </div>
-          <GGButton
+          <Button
             disabled={disabled}
             className={getClassName('forms__component')}
             large
             href="/account"
           >
             {'View/edit details'}
-          </GGButton>
+          </Button>
         </Fragment>
       );
     }
@@ -126,14 +126,14 @@ class SignUpContinueFormPayment extends React.Component {
             </div>
           </Fragment>
         )}
-        <GGButton
+        <Button
           disabled={disabled}
           className={getClassName('forms__component')}
           large
           onClick={this.submit}
         >
           {`Make payment for £${balance / 100}`}
-        </GGButton>
+        </Button>
       </div>
     );
   }

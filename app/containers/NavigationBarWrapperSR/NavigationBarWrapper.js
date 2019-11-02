@@ -1,7 +1,10 @@
 import React from 'react';
-import NavigationBar, { NavigationItem } from 'gg-components/dist/NavigationBar';
+import {
+  NavigationBar,
+  NavigationItem,
+} from 'gg-components/dist/NavigationBar';
 import { SRLogo } from 'components/Logo';
-import { SmallButtonSkeleton } from 'components/Skeletons';
+import { SmallButtonSkeleton } from 'gg-components/dist/Skeletons';
 
 const NavigationBarWrapper = props => {
   const { user, userLoading, ...rest } = props;

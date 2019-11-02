@@ -7,14 +7,14 @@ import BpkImage, {
 } from 'bpk-component-image';
 import { cssModules } from 'bpk-react-utils';
 
-import LoadingIndicator from 'components/LoadingIndicator';
-import GGButton from 'gg-components/dist/GGButton';
+import { LoadingIndicator } from 'gg-components/dist/LoadingIndicator';
+import { Button } from 'gg-components/dist/Button';
 import { Section, SubSection, TextLink } from 'gg-components/dist/Typography';
-import CodeInline from 'gg-components/dist/Code';
+import { CodeInline } from 'gg-components/dist/Code';
 import { LoginForm } from 'components/Forms';
-import { DebugObject } from 'components/Auth';
+import { DebugObject } from 'gg-components/dist/Auth';
 import { CookiesOnly } from 'components/Sessions';
-import Redirect from 'gg-components/dist/Redirect';
+import { GGRedirect } from 'gg-components/dist/Redirect';
 import {
   MONZOME_LINK_REGEX,
   SORT_CODE_REGEX,
@@ -51,7 +51,7 @@ export default class EmailVerification extends React.Component {
       className,
       ...rest
     } = this.props;
-    const outerClassNameFinal = [getClassName('pages__container')];
+    const outerClassNameFinal = [];
 
     if (className) {
       outerClassNameFinal.push(className);
@@ -59,7 +59,7 @@ export default class EmailVerification extends React.Component {
 
     if (verifySuccess) {
       return (
-        <Redirect
+        <GGRedirect
           className={outerClassNameFinal.join(' ')}
           to="/account"
           name="Thanks for verifying your email"

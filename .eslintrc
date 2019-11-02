@@ -14,8 +14,10 @@
   "settings": {
     "import/resolver": {
       "node": {
+        "paths": ["./server/api","./app"],
         "extensions": [
           ".js",
+          ".jsx",
           ".json",
           ".android.js",
           ".ios.js"
@@ -24,8 +26,9 @@
     }
   },
   "rules": {
+    "import/extensions": ["off", "never"],
     "prettier/prettier": "error",
-    "react/jsx-filename-extension": "off",
+    "react/jsx-filename-extension": "on",
     "import/no-extraneous-dependencies": "off",
     // This is superceded by jsx-a11y/label-has-associated-control
     "jsx-a11y/label-has-for": "off",

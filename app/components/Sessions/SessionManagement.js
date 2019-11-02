@@ -12,7 +12,7 @@ import {
   COMPONENT_RELOAD_INTERVAL,
   CHECK_FOR_NEW_CONTENT_INTERVAL,
 } from 'helpers/constants';
-import GGButton from 'gg-components/dist/GGButton';
+import {Button} from 'gg-components/dist/Button';
 import { Section, TextLink } from 'gg-components/dist/Typography';
 
 const getClassName = cssModules(STYLES); // REGEX_REPLACED

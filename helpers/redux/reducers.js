@@ -49,7 +49,60 @@ const inferPropertiesFromInitialState = s => {
   return inferPropertiesFromInitialStateRecursive(s._root);
 };
 
-const initialState = reducer => reducer(undefined, {});
+const getInitialState = reducer => reducer(undefined, {});
 
-export { inferPropertiesFromInitialState, initialState };
+// TODO Write tests for this:
+const createInitialState = actionDefinitions => {
+  const initialStateObj = {};
+  actionDefinitions.forEach(aD => {
+    if (!aD.stateMutations) {
+      return;
+    }
+    Object.keys(aD.stateMutations).forEach(k => {
+      initialStateObj[k] = null;
+    });
+  });
+  return initialStateObj;
+};
+
+// TODO Write tests for this:
+const createAppReducer = (actionDefinitions, constants, initialState) => {
+  function appReducerFunc(state = initialState, action) {
+    // Work out which actionDefinition the `action.type` refers to.
+    let actionDefinition = null;
+    Object.keys(constants).forEach(constantKey => {
+      const constantValue = constants[constantKey];
+      if (constantValue === action.type) {
+        actionDefinitions.forEach(aD => {
+          if (Object.keys(aD)[0] === constantKey) {
+            actionDefinition = aD;
+          }
+        });
+      }
+    });
+
+    // For each stateMutator on the actionDefinition, call `state.set(...)`
+    if (actionDefinition && actionDefinition.stateMutations) {
+      const stateMutations = actionDefinition.stateMutations;
+      Object.keys(stateMutations).forEach(smKey => {
+        let newValue = stateMutations[smKey];
+        if (typeof newValue === 'function') {
+          newValue = newValue(action);
+        }
+        state = state.set(smKey, newValue);
+      });
+    }
+
+    // Return state
+    return state;
+  }
+  return appReducerFunc;
+};
+
+export {
+  inferPropertiesFromInitialState,
+  getInitialState,
+  createInitialState,
+  createAppReducer,
+};
 export default inferPropertiesFromInitialState;

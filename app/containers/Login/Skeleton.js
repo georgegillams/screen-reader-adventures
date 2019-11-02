@@ -6,7 +6,7 @@ import {
   InputSkeleton,
   CheckboxSkeleton,
   ButtonSkeleton,
-} from 'components/Skeletons';
+} from 'gg-components/dist/Skeletons';
 import STYLES from 'containers/pages.scss';
 
 const getClassName = cssModules(STYLES);
@@ -14,7 +14,7 @@ const getClassName = cssModules(STYLES);
 const LoginFormSkeleton = props => {
   const { className, ...rest } = props;
 
-  const outerClassNameFinal = [getClassName('pages__container')];
+  const outerClassNameFinal = [];
 
   if (className) {
     outerClassNameFinal.push(className);

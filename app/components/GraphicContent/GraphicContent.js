@@ -5,7 +5,7 @@ import { cssModules } from 'bpk-react-utils';
 
 import STYLES from './graphic-content.scss';
 
-import GGButton from 'gg-components/dist/GGButton';
+import {Button} from 'gg-components/dist/Button';
 
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
@@ -48,12 +48,12 @@ const GraphicContent = props => {
               This image contains graphic content
             </div>
             <br />
-            <GGButton
+            <Button
               onClick={onClick}
               className={getClassName('graphic-content__text')}
             >
               Show graphic content
-            </GGButton>
+            </Button>
             <br />
             <BpkCheckbox
               className={getClassName('graphic-content__text')}

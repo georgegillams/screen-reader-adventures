@@ -24,12 +24,18 @@
     }
 
     &--prose {
-      max-width: 45rem;
+      margin-right: auto;
+      margin-left: auto;
+      max-width: 41.25rem;
     }
   }
 
   &__component {
     margin-bottom: 1rem !important;
+    &--upper-margin {
+      margin-bottom: 0;
+      margin-top: 1rem !important;
+    }
   }
 
   &__bpk-demo {
@@ -73,7 +79,6 @@
   }
 
   &__full-width-container {
-    display: flex;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
     justify-content: center;
@@ -123,6 +128,12 @@
 
     @include bpk-breakpoint-tablet {
       width: 90%;
+    }
+
+    &--dark-invert {
+      @media (prefers-color-scheme: dark) {
+        filter: contrast(0) brightness(20);
+      }
     }
   }
 

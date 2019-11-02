@@ -8,7 +8,7 @@ import FormBuilder from './FormBuilder';
 import STYLES from './forms.scss';
 
 import { TextLink } from 'gg-components/dist/Typography';
-import GGButton from 'gg-components/dist/GGButton';
+import {Button} from 'gg-components/dist/Button';
 import {
   STRING_REGEX,
   INT_REGEX,
@@ -78,24 +78,24 @@ class SignUpContinueFormPhotoRelease extends React.Component {
           }
         />
         <br />
-        <GGButton
+        <Button
           className={getClassName('forms__component')}
           large
           onClick={onSubmit}
           disabled={!userDetails.photoReleaseConsented}
         >
           Continue
-        </GGButton>
+        </Button>
         <br />
         <div style={{ display: 'flex', justifyContent: 'end' }}>
-          <GGButton
+          <Button
             secondary
             className={getClassName('forms__component')}
             onClick={onSubmit}
             disabled={userDetails.photoReleaseConsented}
           >
             Proceed without agreeing to photo release terms
-          </GGButton>
+          </Button>
         </div>
       </div>
     );

@@ -16,6 +16,7 @@ export requestVerificationEmail from './requestVerificationEmail';
 
 // Expose non-default exports
 export * as monzo from './monzo';
+export * as support from './support';
 export * as magiclinks from './magiclinks/index';
 export * as stripePayments from './stripePayments/index';
 export * as registrationStatus from './registrationStatus/index';

@@ -23,7 +23,7 @@ import EndOfGame from 'containers/EndOfGame/Loadable';
 import NotificationCenter from 'containers/NotificationCenter';
 import RequestStatusWrapper from 'containers/RequestStatusWrapper';
 import SiteMap from 'containers/SiteMap/Loadable';
-import Redirect from 'gg-components/dist/Redirect';
+import { Redirect } from 'gg-components/dist/Redirect';
 import { SITE_URL } from 'helpers/constants';
 import redirects from 'helpers/redirects';
 import STYLES from './style.scss';

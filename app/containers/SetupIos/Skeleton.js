@@ -4,7 +4,7 @@ import {
   SubSectionSkeleton,
   CardSkeleton,
   SectionSkeleton,
-} from 'components/Skeletons';
+} from 'gg-components/dist/Skeletons';
 import STYLES from 'containers/pages.scss';
 import { cssModules } from 'bpk-react-utils';
 const getClassName = cssModules(STYLES);

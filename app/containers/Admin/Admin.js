@@ -5,9 +5,9 @@ import { cssModules } from 'bpk-react-utils';
 
 import Skeleton from './Skeleton';
 
-import ArticleCard, { CARD_LAYOUTS } from 'components/Cards';
+import { ArticleCard, ARTICLE_CARD_LAYOUTS } from 'gg-components/dist/Cards';
 import { Section } from 'gg-components/dist/Typography';
-import { DebugObject, AdminOnly, LoadingCover } from 'components/Auth';
+import { DebugObject, AdminOnly, LoadingCover } from 'gg-components/dist/Auth';
 import { CookiesOnly } from 'components/Sessions';
 import STYLES from 'containers/pages.scss';
 
@@ -25,7 +25,7 @@ export default class Admin extends React.Component {
       className,
       ...rest
     } = this.props;
-    const outerClassNameFinal = [getClassName('pages__container')];
+    const outerClassNameFinal = [];
 
     if (className) {
       outerClassNameFinal.push(className);
@@ -40,7 +40,7 @@ export default class Admin extends React.Component {
           <Section name="Admin">
             <div className={getClassName('pages__compact-card-container')}>
               <ArticleCard
-                layout={CARD_LAYOUTS.narrowCompact}
+                layout={ARTICLE_CARD_LAYOUTS.narrowCompact}
                 day={null}
                 month={null}
                 className={getClassName('pages__card')}
@@ -48,7 +48,7 @@ export default class Admin extends React.Component {
                 title="Users"
               />
               <ArticleCard
-                layout={CARD_LAYOUTS.narrowCompact}
+                layout={ARTICLE_CARD_LAYOUTS.narrowCompact}
                 day={null}
                 month={null}
                 className={getClassName('pages__card')}
@@ -56,7 +56,7 @@ export default class Admin extends React.Component {
                 title="Monzo"
               />
               <ArticleCard
-                layout={CARD_LAYOUTS.narrowCompact}
+                layout={ARTICLE_CARD_LAYOUTS.narrowCompact}
                 day={null}
                 month={null}
                 className={getClassName('pages__card')}
@@ -64,7 +64,7 @@ export default class Admin extends React.Component {
                 title="Notifications"
               />
               <ArticleCard
-                layout={CARD_LAYOUTS.narrowCompact}
+                layout={ARTICLE_CARD_LAYOUTS.narrowCompact}
                 day={null}
                 month={null}
                 className={getClassName('pages__card')}

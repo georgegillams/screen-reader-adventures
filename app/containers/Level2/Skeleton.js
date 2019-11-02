@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { CompactCardSkeleton, SectionSkeleton } from 'components/Skeletons';
+import { CompactCardSkeleton, SectionSkeleton } from 'gg-components/dist/Skeletons';
 import STYLES from 'containers/pages.scss'; import {cssModules} from 'bpk-react-utils'; const getClassName = cssModules(STYLES);
 
 const AccountSkeleton = props => {

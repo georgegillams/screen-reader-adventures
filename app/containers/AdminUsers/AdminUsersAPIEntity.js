@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { APIEntity } from 'components/Auth';
+import { APIEntity } from 'gg-components/dist/Auth';
 
 const AdminUsersAPIEntity = props => {
   const { entity, ...rest } = props;

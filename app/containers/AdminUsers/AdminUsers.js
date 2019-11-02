@@ -6,19 +6,20 @@ import { cssModules } from 'bpk-react-utils';
 import AdminUsersAPIEntity from './AdminUsersAPIEntity';
 import Skeleton from './Skeleton';
 import generateCsv from './generateCsv';
+import HelperFunctions from 'helpers/HelperFunctions';
 
-import LoadingIndicator from 'components/LoadingIndicator';
-import ArticleCard, { CARD_LAYOUTS } from 'components/Cards';
-import GGButton from 'gg-components/dist/GGButton';
+import { LoadingIndicator } from 'gg-components/dist/LoadingIndicator';
+import { ArticleCard, ARTICLE_CARD_LAYOUTS } from 'gg-components/dist/Cards';
+import { Button } from 'gg-components/dist/Button';
 import { Section, SubSection, TextLink } from 'gg-components/dist/Typography';
-import CodeInline from 'gg-components/dist/Code';
+import { CodeInline } from 'gg-components/dist/Code';
 import Ticket from 'components/Ticket';
 import {
   DebugObject,
   APIEntity,
   AdminOnly,
   LoadingCover,
-} from 'components/Auth';
+} from 'gg-components/dist/Auth';
 import { LoginForm } from 'components/Forms';
 import { CookiesOnly } from 'components/Sessions';
 import { downloadStringAsCsv } from 'helpers/clientOperations';
@@ -46,7 +47,7 @@ export default class AdminUsers extends React.Component {
     const allElements = document.getElementsByTagName('DIV');
     for (let i = 0; i < allElements.length; i += 1) {
       const element = allElements[i];
-      if (element.textContent.includes('▶️ ')) {
+      if (HelperFunctions.includes(element.textContent, '▶️ ')) {
         element.click();
       }
     }
@@ -68,7 +69,7 @@ export default class AdminUsers extends React.Component {
       requestMagicLinkForUser,
       ...rest
     } = this.props;
-    const outerClassNameFinal = [getClassName('pages__container')];
+    const outerClassNameFinal = [];
 
     if (className) {
       outerClassNameFinal.push(className);
@@ -85,26 +86,26 @@ export default class AdminUsers extends React.Component {
             {users && users.length && <span>{users.length}</span>}
             <br />
             <br />
-            <GGButton
+            <Button
               onClick={() =>
                 this.setState({ showTickets: !this.state.showTickets })
               }
               large
             >
               {`${this.state.showTickets ? 'Hide' : 'Show'} tickets`}
-            </GGButton>
+            </Button>
             <br />
             <br />
             {users && users.length && (
               <Fragment>
-                <GGButton onClick={() => downloadData(users)} large>
+                <Button onClick={() => downloadData(users)} large>
                   Download user data
-                </GGButton>
+                </Button>
                 <br />
                 <br />
-                <GGButton onClick={this.expandAll} large>
+                <Button onClick={this.expandAll} large>
                   Expand all entities
-                </GGButton>
+                </Button>
               </Fragment>
             )}
             <br />
@@ -128,13 +129,13 @@ export default class AdminUsers extends React.Component {
                       <br />
                     </Fragment>
                   )}
-                  <GGButton
+                  <Button
                     destructive
                     large
                     onClick={() => requestMagicLinkForUser(u)}
                   >
                     Login as user
-                  </GGButton>
+                  </Button>
                 </AdminUsersAPIEntity>
               ))}
           </Section>

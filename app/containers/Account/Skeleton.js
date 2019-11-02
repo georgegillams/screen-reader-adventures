@@ -1,7 +1,7 @@
 import React from 'react';
 import { cssModules } from 'bpk-react-utils';
 
-import { SectionSkeleton, ButtonSkeleton } from 'components/Skeletons';
+import { SectionSkeleton, ButtonSkeleton } from 'gg-components/dist/Skeletons';
 import STYLES from 'containers/pages.scss';
 
 const getClassName = cssModules(STYLES);
@@ -9,7 +9,7 @@ const getClassName = cssModules(STYLES);
 const AccountSkeleton = props => {
   const { className, ...rest } = props;
 
-  const outerClassNameFinal = [getClassName('pages__container')];
+  const outerClassNameFinal = [];
 
   if (className) {
     outerClassNameFinal.push(className);

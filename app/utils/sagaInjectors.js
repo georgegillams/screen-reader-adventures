@@ -3,6 +3,7 @@ import isFunction from 'lodash/isFunction';
 import isString from 'lodash/isString';
 import invariant from 'invariant';
 import conformsTo from 'lodash/conformsTo';
+import HelperFunctions from 'helpers/HelperFunctions';
 
 import checkStore from './checkStore';
 import { DAEMON, ONCE_TILL_UNMOUNT, RESTART_ON_REMOUNT } from './constants';
@@ -18,7 +19,8 @@ const checkKey = key =>
 const checkDescriptor = descriptor => {
   const shape = {
     saga: isFunction,
-    mode: mode => isString(mode) && allowedModes.includes(mode),
+    mode: mode =>
+      isString(mode) && HelperFunctions.includes(allowedModes, mode),
   };
   invariant(
     conformsTo(descriptor, shape),

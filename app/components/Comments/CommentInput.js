@@ -5,7 +5,7 @@ import { cssModules } from 'bpk-react-utils';
 import STYLES from './comments.scss';
 
 import FormBuilder from 'components/Forms';
-import CodeInline from 'gg-components/dist/Code';
+import {CodeInline} from 'gg-components/dist/Code';
 import { SubSection } from 'gg-components/dist/Typography';
 import { MD_PARTIAL_REGEX, UNAME_REGEX } from 'helpers/constants';
 

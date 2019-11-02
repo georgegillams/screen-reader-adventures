@@ -5,7 +5,7 @@ import BpkImage, {
   withLoadingBehavior,
 } from 'bpk-component-image';
 import { Section, SubSection, TextLink } from 'gg-components/dist/Typography';
-import GGButton from 'gg-components/dist/GGButton';
+import { Button } from 'gg-components/dist/Button';
 
 import STYLES from '../pages.scss';
 import { cssModules } from 'bpk-react-utils';
@@ -38,9 +38,9 @@ class SetupIos extends React.Component {
         <Section name="Setup VoiceOver on iOS">
           Instructions coming soon
         </Section>
-        <GGButton large href="/level/1">
+        <Button large href="/level/1">
           I&apos;m ready to play...
-        </GGButton>
+        </Button>
       </div>
     );
   }

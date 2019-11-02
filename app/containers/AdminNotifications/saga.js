@@ -1,21 +1,20 @@
-import {
+import { actions, constants, selectors } from './redux-definitions';
+
+const {
   LOAD_NOTIFICATIONS,
   CREATE_NOTIFICATION,
   DELETE_NOTIFICATION,
-} from './constants';
-import {
+} = constants;
+const {
   loadNotifications,
-  deleteNotificationSuccess,
-  deleteNotificationError,
-  createNotificationSuccess,
-  createNotificationError,
-  loadNotificationsSuccess,
-  loadNotificationsError,
-} from './actions';
-import {
-  makeSelectNotificationToDelete,
-  makeSelectNewNotification,
-} from './selectors';
+  deleteNotificationRegisterSuccess,
+  deleteNotificationRegisterError,
+  createNotificationRegisterSuccess,
+  createNotificationRegisterError,
+  loadNotificationsRegisterSuccess,
+  loadNotificationsRegisterError,
+} = actions;
+const { makeSelectNotificationToDelete, makeSelectNewNotification } = selectors;
 
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { pushMessage } from 'containers/RequestStatusWrapper/actions';
@@ -57,14 +56,14 @@ export function* doLoadNotifications() {
       method: 'GET',
     });
     if (notificationsResult.error) {
-      yield put(loadNotificationsError(notificationsResult));
+      yield put(loadNotificationsRegisterError(notificationsResult));
       yield put(pushMessage(notificationsLoadErrorMessage));
     } else {
-      yield put(loadNotificationsSuccess(notificationsResult));
+      yield put(loadNotificationsRegisterSuccess(notificationsResult));
       yield put(pushMessage(loadNotificationsSuccessMessage));
     }
   } catch (err) {
-    yield put(loadNotificationsError(err));
+    yield put(loadNotificationsRegisterError(err));
     yield put(pushMessage(COMMUNICATION_ERROR_MESSAGE));
   }
 }
@@ -86,15 +85,15 @@ export function* doDeleteNotification() {
       },
     );
     if (notificationDeleteResult.error) {
-      yield put(deleteNotificationError(notificationDeleteResult));
+      yield put(deleteNotificationRegisterError(notificationDeleteResult));
       yield put(pushMessage(notificationDeleteErrorMessage));
     } else {
-      yield put(deleteNotificationSuccess(notificationDeleteResult));
+      yield put(deleteNotificationRegisterSuccess(notificationDeleteResult));
       yield put(pushMessage(notificationDeletedMessage));
       yield put(loadNotifications());
     }
   } catch (err) {
-    yield put(deleteNotificationError(err));
+    yield put(deleteNotificationRegisterError(err));
     yield put(pushMessage(COMMUNICATION_ERROR_MESSAGE));
   }
 }
@@ -116,20 +115,20 @@ export function* doCreateNotification() {
       },
     );
     if (notificationCreateResult.error) {
-      yield put(createNotificationError(notificationCreateResult));
+      yield put(createNotificationRegisterError(notificationCreateResult));
       yield put(pushMessage(notificationCreateErrorMessage));
     } else {
-      yield put(createNotificationSuccess());
+      yield put(createNotificationRegisterSuccess());
       yield put(pushMessage(notificationCreatedMessage));
       yield put(loadNotifications());
     }
   } catch (err) {
-    yield put(createNotificationError(err));
+    yield put(createNotificationRegisterError(err));
     yield put(pushMessage(COMMUNICATION_ERROR_MESSAGE));
   }
 }
 
-export default function* adminUsers() {
+export default function* adminNotifications() {
   yield takeLatest(LOAD_NOTIFICATIONS, () => doLoadNotifications());
   yield takeLatest(DELETE_NOTIFICATION, () => doDeleteNotification());
   yield takeLatest(CREATE_NOTIFICATION, () => doCreateNotification());
