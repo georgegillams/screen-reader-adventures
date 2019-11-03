@@ -2,7 +2,7 @@ import React, { Fragment, Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import { Helmet } from 'react-helmet';
 import { Section } from 'gg-components/dist/Typography';
-import GGButton from 'gg-components/dist/GGButton';
+import { Button } from 'gg-components/dist/Button';
 import UntappableScrim from 'components/Scrim';
 import GameOver from './GameOver.js';
 import {
@@ -391,13 +391,13 @@ export default class LevelWrapper extends Component {
             </div>
           ))}
         </div>
-        <GGButton
+        <Button
           large
           disabled={!this.state.levelComplete}
           href={`/level/${levelNumber + 1}`}
         >
           Continue to level {levelNumber + 1}
-        </GGButton>
+        </Button>
       </Section>
     );
   }

@@ -8,15 +8,31 @@ This repo was originally a fork of [Dinesh Pandiyan's React Redux Boilerplate ap
 
 This is the code for Screen Reader Adventures, an online game that makes it fun to learn how to use a screen reader!. The project uses React, Redux, and has a Node API which talks to a Redis database.
 
-## Running
-Ensure that redis is installed
+## Developing
+
+### Prerequisites
+
+Ensure redis is installed (`brew install redis`).
+
+### Running locally
 
 ```
 npm i
 npm run dev
 ```
 
-`npm run dev` will start a `redis-server` instance and set all necessary environment variables needed to run the application.
+`npm run dev` will set all necessary environment variables needed to run the application.
+
+The front-end app is server-side rendered with React and interacts with the API via Redux middleware.
+
+### Testing
+
+If components have changed, snapshot tests may need to be updated. Backstop js visual regression tests may also need to be updated.
+
+To update jest snapshots: `npx jest -u`.
+To update backstopJS snapshots: `npm run build && npm run backstopjs:test`.
+
+Any changes resulting from these commands should be verified and checked in.
 
 ## API
 

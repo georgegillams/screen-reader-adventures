@@ -6,8 +6,8 @@ import { cssModules } from 'bpk-react-utils';
 import Skeleton from './Skeleton';
 
 import { Section, SubSection } from 'gg-components/dist/Typography';
-import NotificationCollection from 'gg-components/dist/Notifications';
-import { DebugObject, LoadingCover } from 'components/Auth';
+import { NotificationCollection } from 'gg-components/dist/Notifications';
+import { DebugObject, LoadingCover } from 'gg-components/dist/Auth';
 import STYLES from 'containers/pages.scss';
 
 const getClassName = cssModules(STYLES); // REGEX_REPLACED

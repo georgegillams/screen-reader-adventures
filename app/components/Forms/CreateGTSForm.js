@@ -6,7 +6,7 @@ import { cssModules } from 'bpk-react-utils';
 import STYLES from './forms.scss';
 
 import { TextLink } from 'gg-components/dist/Typography';
-import GGButton from 'gg-components/dist/GGButton';
+import { Button } from 'gg-components/dist/Button';
 import { EMAIL_REGEX, PASSWORD_REGEX } from 'helpers/constants';
 
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
@@ -84,12 +84,12 @@ class GTSForm extends React.Component {
           placeholder="emoji"
         />
         <br />
-        <GGButton
+        <Button
           className={getClassName('forms__component')}
           onClick={onSubmit}
         >
           Create GTS
-        </GGButton>
+        </Button>
       </div>
     );
   }

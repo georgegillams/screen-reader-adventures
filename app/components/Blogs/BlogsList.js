@@ -4,8 +4,8 @@ import { cssModules } from 'bpk-react-utils';
 
 import BlogCard from './BlogCard';
 
-import ArticleCard from 'components/Cards';
-import Tag from 'components/Tag';
+import { ArticleCard } from 'gg-components/dist/Cards';
+import {Tag} from 'gg-components/dist/Tag';
 import { NON_EMOJI_REGEX } from 'helpers/constants';
 import STYLES from 'containers/pages.scss';
 

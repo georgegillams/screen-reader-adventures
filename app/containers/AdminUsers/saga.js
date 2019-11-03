@@ -97,7 +97,6 @@ export function* doLoadUsers() {
       yield put(loadUsersError(registrationStatusResult));
       yield put(pushMessage(registrationStatusResult.error));
     } else {
-      console.log(`no errors - proceeding`);
       let associatedData = associate(
         usersResult,
         userDetailsResult,
@@ -105,7 +104,6 @@ export function* doLoadUsers() {
         'authorId',
         'userDetails',
       );
-      console.log(`user profiles associated`);
       associatedData = associate(
         associatedData,
         ticketsResult,
@@ -113,7 +111,6 @@ export function* doLoadUsers() {
         'reservedTo',
         'ticketReservation',
       );
-      console.log(`ticket reservations associated`);
       associatedData = associate(
         associatedData,
         paymentsResult,
@@ -122,7 +119,6 @@ export function* doLoadUsers() {
         'payments',
         true,
       );
-      console.log(`payments associated`);
       associatedData = associate(
         associatedData,
         registrationStatusResult,
@@ -130,7 +126,6 @@ export function* doLoadUsers() {
         'userId',
         'registrationStatus',
       );
-      console.log(`registration statuses associated`);
       associatedData = associatedData.map(u => {
         const newU = JSON.parse(JSON.stringify(u));
         if (newU && newU.ticketReservation) {
@@ -147,7 +142,6 @@ export function* doLoadUsers() {
         }
         return newU;
       });
-      console.log(`outstandingBalances calculated`);
       yield put(loadUsersSuccess(associatedData));
       yield put(pushMessage(usersLoadedMessage));
     }

@@ -9,11 +9,11 @@ import { cssModules } from 'bpk-react-utils';
 
 import Skeleton from './Skeleton';
 
-import LoadingIndicator from 'components/LoadingIndicator';
-import GGButton from 'gg-components/dist/GGButton';
+import {LoadingIndicator} from 'gg-components/dist/LoadingIndicator';
+import {Button} from 'gg-components/dist/Button';
 import { Section, SubSection, TextLink } from 'gg-components/dist/Typography';
-import CodeInline from 'gg-components/dist/Code';
-import { DebugObject, LoggedOutOnly, LoadingCover } from 'components/Auth';
+import {CodeInline} from 'gg-components/dist/Code';
+import { DebugObject, LoggedOutOnly, LoadingCover } from 'gg-components/dist/Auth';
 import { LoginForm } from 'components/Forms';
 import { CookiesOnly } from 'components/Sessions';
 import {
@@ -44,7 +44,7 @@ export default class Login extends React.Component {
       className,
       ...rest
     } = this.props;
-    const outerClassNameFinal = [getClassName('pages__container')];
+    const outerClassNameFinal = [];
 
     if (className) {
       outerClassNameFinal.push(className);

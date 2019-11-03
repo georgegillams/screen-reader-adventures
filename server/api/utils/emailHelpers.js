@@ -16,7 +16,7 @@ import {
 let imageHtml =
   '<img src="https://i.imgur.com/Fvg8HXM.png" style="width: 7rem;">';
 let buttonStyle =
-  'background-color: #44aeff;padding: .9rem 1.2rem;color: white;border-radius: 2rem;text-decoration: none;';
+  'background-color: #025ca2;padding: 0.6rem 1.2rem;color: white;border-radius: 0.25rem;text-decoration: none;';
 const senderEmail = EMAIL_ADDRESS;
 
 if (PROJECT_NAME === 'EPICC') {

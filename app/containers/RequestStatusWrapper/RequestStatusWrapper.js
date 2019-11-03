@@ -5,7 +5,7 @@ import cookie from 'react-cookies';
 import { cssModules } from 'bpk-react-utils';
 
 import { Section, SubSection, TextLink } from 'gg-components/dist/Typography';
-import RequestStatusContainer from 'gg-components/dist/RequestStatus';
+import { RequestStatusContainer } from 'gg-components/dist/RequestStatus';
 import STYLES from 'containers/pages.scss';
 
 const getClassName = cssModules(STYLES); // REGEX_REPLACED

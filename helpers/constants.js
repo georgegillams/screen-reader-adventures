@@ -67,7 +67,7 @@ const RESOURCE_NOT_FOUND = {
 const CHECK_FOR_NEW_CONTENT_INTERVAL = 1000;
 const COMPONENT_RELOAD_INTERVAL = CHECK_FOR_NEW_CONTENT_INTERVAL / 2;
 const EMAIL_VERIFICATION_ENABLED = true;
-const GG_EMAIL = 'g@georgegillams.co.uk';
+const GG_EMAIL = 'hello@georgegillams.co.uk';
 const EMAIL_IMAGE_HTML =
   '<img src="https://i.imgur.com/h5zmNwn.png" style="width: 20rem;">';
 const EMAIL_HTML_BUTTON_STYLE =

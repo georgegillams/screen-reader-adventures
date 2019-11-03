@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 
-import { NotificationSkeleton } from 'components/Skeletons';
+import { NotificationSkeleton } from 'gg-components/dist/Skeletons';
 
 const NotificationsSkeleton = props => <NotificationSkeleton />;
 

@@ -20,5 +20,9 @@ const inferConstantsFromActionDefinitions = defs => {
   return result;
 };
 
-export { generateConstantValue, inferConstantsFromActionDefinitions };
+export {
+  defineConstants,
+  generateConstantValue,
+  inferConstantsFromActionDefinitions,
+};
 export default defineConstants;

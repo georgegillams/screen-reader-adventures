@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { cssModules } from 'bpk-react-utils';
 
-import { CompactCardSkeleton, SectionSkeleton } from 'components/Skeletons';
+import { CompactCardSkeleton, SectionSkeleton } from 'gg-components/dist/Skeletons';
 import STYLES from 'containers/pages.scss';
 
 const getClassName = cssModules(STYLES);
@@ -9,7 +9,7 @@ const getClassName = cssModules(STYLES);
 const AccountSkeleton = props => {
   const { className, ...rest } = props;
 
-  const outerClassNameFinal = [getClassName('pages__container')];
+  const outerClassNameFinal = [];
 
   if (className) {
     outerClassNameFinal.push(className);

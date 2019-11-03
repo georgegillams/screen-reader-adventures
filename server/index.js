@@ -24,7 +24,9 @@ const server = new http.Server(app);
 const io = new SocketIo(server);
 io.path('/ws');
 
-app.use(sslRedirect());
+if (process.env.NODE_ENV === 'production' && !process.env.ALLOW_NON_SSL) {
+  app.use(sslRedirect());
+}
 app.use(greasemonkey);
 app.use(
   session({

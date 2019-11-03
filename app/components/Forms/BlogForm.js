@@ -7,7 +7,7 @@ import { cssModules } from 'bpk-react-utils';
 
 import STYLES from './forms.scss';
 
-import GGButton from 'gg-components/dist/GGButton';
+import { Button } from 'gg-components/dist/Button';
 
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
@@ -57,12 +57,12 @@ export default class BlogForm extends React.Component {
 
     return (
       <div className={classNameFinal.join(' ')} {...rest}>
-        <GGButton
+        <Button
           className={elementClassNameFinal.join(' ')}
           onClick={blog.id ? onUpdateBlog : onCreateBlog}
         >
           {blog.id ? 'Update blog' : 'Create new blog'}
-        </GGButton>
+        </Button>
         <br />
         <label htmlFor="blogId" className={getClassName('forms__label')}>
           Blog ID

@@ -6,8 +6,7 @@ import CommentInput from './CommentInput';
 import Comment from './Comment';
 import STYLES from './comments.scss';
 
-import { DebugObject, LoggedInOnly } from 'components/Auth';
-import { NotificationComp } from 'gg-components/dist/Notifications';
+import { DebugObject, LoggedInOnly } from 'gg-components/dist/Auth';
 import { Section, SubSection } from 'gg-components/dist/Typography';
 
 const getClassName = cssModules(STYLES); // REGEX_REPLACED

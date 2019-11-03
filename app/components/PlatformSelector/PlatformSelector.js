@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { CodeInline } from 'gg-components/dist/Code';
-import { SubSection } from 'gg-components/dist/Typography';
-import ArticleCard, { CARD_LAYOUTS } from 'components/Cards';
+import { ArticleCard, ARTICLE_CARD_LAYOUTS } from 'gg-components/dist/Cards';
 import { getPriceForTicketType, beautifyTicketType } from 'helpers/ticketing';
 import { setPlatform } from 'helpers/storageHelpers';
 import STYLES from 'containers/pages.scss';
@@ -21,7 +19,7 @@ const PlatformSelector = props => {
     <div className={getClassName('pages__container')} {...rest}>
       <div className={getClassName('pages__compact-card-container')}>
         <ArticleCard
-          layout={CARD_LAYOUTS.narrowCompact}
+          layout={ARTICLE_CARD_LAYOUTS.narrowCompact}
           day={null}
           month={null}
           className={getClassName('pages__card')}
@@ -34,7 +32,7 @@ const PlatformSelector = props => {
           Select to learn with VoiceOver for iOS
         </ArticleCard>
         <ArticleCard
-          layout={CARD_LAYOUTS.narrowCompact}
+          layout={ARTICLE_CARD_LAYOUTS.narrowCompact}
           day={null}
           month={null}
           className={getClassName('pages__card')}
@@ -47,7 +45,7 @@ const PlatformSelector = props => {
           Select to learn with VoiceOver for macOS
         </ArticleCard>
         <ArticleCard
-          layout={CARD_LAYOUTS.narrowCompact}
+          layout={ARTICLE_CARD_LAYOUTS.narrowCompact}
           day={null}
           month={null}
           className={getClassName('pages__card')}

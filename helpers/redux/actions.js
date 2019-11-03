@@ -49,5 +49,5 @@ const populateConstants = (defs, constants) => {
   return result;
 };
 
-export { populateConstants, mapActions, defineAction };
+export { populateConstants, mapActions, defineAction, defineActions };
 export default defineActions;

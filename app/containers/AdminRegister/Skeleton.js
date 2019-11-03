@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react';
 
-import { CompactCardSkeleton, SectionSkeleton } from 'components/Skeletons';
+import { CompactCardSkeleton, SectionSkeleton } from 'gg-components/dist/Skeletons';
 
 const AdminUsersSkeleton = props => {
   const { className, ...rest } = props;
 
-  const outerClassNameFinal = [getClassName('pages__container')];
+  const outerClassNameFinal = [];
 
   if (className) {
     outerClassNameFinal.push(className);
