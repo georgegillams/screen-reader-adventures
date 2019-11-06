@@ -97,7 +97,7 @@
     "react-loading": "^2.0.3",
     "react-qr-reader": "^2.2.1",
     "react-qr-svg": "^2.2.1",
-    "react-redux": "5.1.1",
+    "react-redux": "7.1.2",
     "react-responsive-modal": "^3.6.0",
     "react-router-dom": "^5.1.0",
     "react-router-redux": "5.0.0-alpha.6",
