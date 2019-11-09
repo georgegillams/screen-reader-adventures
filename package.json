@@ -67,7 +67,7 @@
     "bpk-component-textarea": "^2.0.16",
     "bpk-mixins": "^19.0.16",
     "bpk-theming": "^2.0.13",
-    "chalk": "^2.4.2",
+    "chalk": "^3.0.0",
     "compression": "1.7.4",
     "cookie-parser": "^1.4.4",
     "cross-env": "^6.0.3",
