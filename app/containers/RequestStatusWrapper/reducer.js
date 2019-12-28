@@ -8,11 +8,22 @@ const initialState = fromJS({
 
 function appReducer(state = initialState, action) {
   switch (action.type) {
-    case PUSH_MESSAGE:
+    case PUSH_MESSAGE: {
+      const currentMessages = state.get('messages');
+      let duplicateMessage = null;
+      currentMessages.forEach(m => {
+        if (m.message === action.message.message) {
+          duplicateMessage = m;
+        }
+      });
+      const newMessage = action.message;
       return state.set('messages', [
-        ...(state.get('messages') || []),
-        action.message,
+        ...(currentMessages
+          ? currentMessages.filter(m => m !== duplicateMessage)
+          : []),
+        newMessage,
       ]);
+    }
     case PURGE_MESSAGES:
       return state.set(
         'messages',

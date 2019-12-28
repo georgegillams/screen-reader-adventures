@@ -1,12 +1,16 @@
 import { fromJS } from 'immutable';
+import { createInitialState, createAppReducer } from 'helpers/redux/reducers';
 
-const initialState = fromJS({});
+import actionMeta from './actionMeta';
 
-function appReducer(state = initialState, action) {
-  switch (action.type) {
-    default:
-      return state;
-  }
-}
+const constants = {};
+const initialStateObj = createInitialState(actionMeta.actionDefinitions);
+const initialState = fromJS(initialStateObj);
 
-export default appReducer;
+const reducer = createAppReducer(
+  actionMeta.actionDefinitions,
+  constants,
+  initialState,
+);
+
+export default reducer;

@@ -1,0 +1,21 @@
+@import '~bpk-mixins';
+@import 'helpers/tokens';
+
+.contact {
+  &__icon-image-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon-image {
+    width: 6rem;
+    height: 6rem;
+
+    &--dark-invert {
+      @media (prefers-color-scheme: dark) {
+        filter: invert(100%);
+      }
+    }
+  }
+}

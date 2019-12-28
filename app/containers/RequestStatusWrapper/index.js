@@ -6,7 +6,7 @@ import { purgeMessages } from './actions';
 import { makeSelectMessages } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
-import RequestStatusWrapper from './RequestStatusWrapper';
+import Container from './Container';
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
@@ -31,5 +31,5 @@ export default compose(
   withReducer,
   withSaga,
   withConnect,
-)(RequestStatusWrapper);
+)(Container);
 export { mapDispatchToProps };

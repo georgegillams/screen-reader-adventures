@@ -1,6 +1,8 @@
-import { VERIFY } from './constants';
-import { verifySuccessful, verifyError } from './actions';
-import { makeSelectToken } from './selectors';
+import { constants, selectors, actions } from './redux-definitions';
+
+const { VERIFY_EMAIL } = constants;
+const { verifyEmailRegisterSuccess, verifyEmailRegisterError } = actions;
+const { makeSelectToken } = selectors;
 
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { setUser } from 'containers/App/actions';
@@ -23,20 +25,20 @@ export function* doVerification() {
       },
     }); // Can add third arg for options
     if (verificationResult.error) {
-      yield put(verifyError(verificationResult));
+      yield put(verifyEmailRegisterError(verificationResult));
       yield put(
         pushMessage({ type: 'error', message: verificationResult.error }),
       );
     } else {
-      yield put(verifySuccessful());
+      yield put(verifyEmailRegisterSuccess());
       yield put(pushMessage(emailVerifiedMessage));
     }
   } catch (err) {
-    yield put(verifyError(err));
+    yield put(verifyEmailRegisterError(err));
     yield put(pushMessage(COMMUNICATION_ERROR_MESSAGE));
   }
 }
 
 export default function* verify() {
-  yield takeLatest(VERIFY, () => doVerification());
+  yield takeLatest(VERIFY_EMAIL, () => doVerification());
 }

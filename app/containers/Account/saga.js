@@ -1,9 +1,9 @@
 import { LOGOUT, REQUEST_VERIFICATION_EMAIL } from './constants';
 import {
-  logoutSuccess,
-  logoutError,
-  requestVerificationEmailError,
-  requestVerificationEmailSuccess,
+  logoutRegisterSuccess,
+  logoutRegisterError,
+  requestVerificationEmailRegisterError,
+  requestVerificationEmailRegisterSuccess,
 } from './actions';
 import { makeSelectCredentials } from './selectors';
 
@@ -36,14 +36,16 @@ export function* doRequestVerificationEmail() {
       },
     });
     if (requestEmailVerificationResult.error) {
-      yield put(requestVerificationEmailError(requestEmailVerificationResult));
+      yield put(
+        requestVerificationEmailRegisterError(requestEmailVerificationResult),
+      );
       yield put(pushMessage(verificationEmailErrorMessage));
     } else {
-      yield put(requestVerificationEmailSuccess());
+      yield put(requestVerificationEmailRegisterSuccess());
       yield put(pushMessage(verificationEmailMessage));
     }
   } catch (err) {
-    yield put(requestVerificationEmailError(err));
+    yield put(requestVerificationEmailRegisterError(err));
     yield put(pushMessage(COMMUNICATION_ERROR_MESSAGE));
   }
 }
@@ -60,15 +62,15 @@ export function* doLogout() {
       },
     });
     if (logoutResult.error) {
-      yield put(logoutError(logoutResult));
+      yield put(logoutRegisterError(logoutResult));
       yield put(pushMessage(logoutErrorMessage));
     } else {
-      yield put(logoutSuccess());
+      yield put(logoutRegisterSuccess());
       yield put(setUser(null));
       yield put(pushMessage(logoutMessage));
     }
   } catch (err) {
-    yield put(logoutError(err));
+    yield put(logoutRegisterError(err));
     yield put(pushMessage(logoutErrorMessage));
   }
 }

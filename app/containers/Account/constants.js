@@ -1,4 +1,6 @@
-import actionDefinitions from './actionDefinitions';
+import actionMeta from './actionMeta';
+
+const { actionDefinitions } = actionMeta;
 
 import defineConstants, {
   inferConstantsFromActionDefinitions,

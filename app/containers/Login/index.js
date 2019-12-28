@@ -1,56 +1,17 @@
-import { connect } from 'react-redux';
-import { compose } from 'redux';
-import { createStructuredSelector } from 'reselect';
+import appSelectors from 'containers/App/selectors';
+import appActions from 'containers/App/actions';
 
-import {
-  makeSelectCredentials,
-  makeSelectLoggingIn,
-  makeSelectLoginSuccess,
-  makeSelectLoginError,
-} from './selectors';
-import { login, credentialsChanged } from './actions';
-import reducer from './reducer';
+import { composeContainer } from 'helpers/redux';
+import actionMeta from './actionMeta';
+import { selectors, actions, reducer } from './redux-definitions';
 import saga from './saga';
-import Login from './Login';
+import Container from './Container';
 
-import { setCookiesAllowed } from 'containers/App/actions';
-import {
-  makeSelectUser,
-  makeSelectError as makeSelectLoadUserError,
-  makeSelectUserLoading,
-  makeSelectCookiesAllowed,
-} from 'containers/App/selectors';
-import injectSaga from 'utils/injectSaga';
-import injectReducer from 'utils/injectReducer';
-
-const mapDispatchToProps = dispatch => ({
-  credentialsChanged: newValue => dispatch(credentialsChanged(newValue)),
-  login: () => dispatch(login()),
-  onCookiesAccepted: () => dispatch(setCookiesAllowed(true)),
-});
-
-const mapStateToProps = createStructuredSelector({
-  credentials: makeSelectCredentials(),
-  cookiesAllowed: makeSelectCookiesAllowed(),
-  user: makeSelectUser(),
-  userLoading: makeSelectUserLoading(),
-  userLoadError: makeSelectLoadUserError(),
-  loggingIn: makeSelectLoggingIn(),
-  loginSuccess: makeSelectLoginSuccess(),
-  loginError: makeSelectLoginError(),
-});
-
-const withConnect = connect(
-  mapStateToProps,
-  mapDispatchToProps,
+module.exports = composeContainer(
+  Container,
+  actionMeta.key,
+  { ...selectors, ...appSelectors },
+  { ...actions, appActions },
+  reducer,
+  saga,
 );
-
-const withReducer = injectReducer({ key: 'login', reducer });
-const withSaga = injectSaga({ key: 'login', saga });
-
-export default compose(
-  withReducer,
-  withSaga,
-  withConnect,
-)(Login);
-export { mapDispatchToProps };

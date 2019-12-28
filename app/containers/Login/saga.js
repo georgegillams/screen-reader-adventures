@@ -1,6 +1,8 @@
-import { LOGIN } from './constants';
-import { loginSuccessful, loginError } from './actions';
-import { makeSelectCredentials } from './selectors';
+import { selectors, actions, constants } from './redux-definitions';
+
+const { LOGIN } = constants;
+const { loginRegisterSuccess, loginRegisterError } = actions;
+const { makeSelectCredentials } = selectors;
 
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { setUser } from 'containers/App/actions';
@@ -32,10 +34,10 @@ export function* doLogin() {
       },
     });
     if (loginResult.error) {
-      yield put(loginError(loginResult));
+      yield put(loginRegisterError(loginResult));
       yield put(pushMessage(logInErrorMessage));
     } else {
-      yield put(loginSuccessful());
+      yield put(loginRegisterSuccess());
       yield put(
         pushMessage(
           credentials.useMagicLink ? magicLinkSentMessage : loggedInMessage,
@@ -46,7 +48,7 @@ export function* doLogin() {
       }
     }
   } catch (err) {
-    yield put(loginError(err));
+    yield put(loginRegisterError(err));
     yield put(pushMessage(COMMUNICATION_ERROR_MESSAGE));
   }
 }

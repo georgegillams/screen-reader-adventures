@@ -1,41 +1,16 @@
-import { connect } from 'react-redux';
-import { compose } from 'redux';
-import { createStructuredSelector } from 'reselect';
+import appSelectors from 'containers/App/selectors';
 
-import {
-  makeSelectBlogs,
-  makeSelectLoading,
-  makeSelectError,
-} from './selectors';
-import { loadBlogs } from './actions';
-import reducer from './reducer';
+import { composeContainer } from 'helpers/redux';
+import actionMeta from './actionMeta';
+import { selectors, actions, reducer } from './redux-definitions';
 import saga from './saga';
-import SiteMap from './SiteMap';
+import Container from './Container';
 
-import injectSaga from 'utils/injectSaga';
-import injectReducer from 'utils/injectReducer';
-
-const mapDispatchToProps = dispatch => ({
-  loadBlogs: () => dispatch(loadBlogs()),
-});
-
-const mapStateToProps = createStructuredSelector({
-  blogs: makeSelectBlogs(),
-  loading: makeSelectLoading(),
-  error: makeSelectError(),
-});
-
-const withConnect = connect(
-  mapStateToProps,
-  mapDispatchToProps,
+module.exports = composeContainer(
+  Container,
+  actionMeta.key,
+  { ...selectors, ...appSelectors },
+  { ...actions },
+  reducer,
+  saga,
 );
-
-const withReducer = injectReducer({ key: 'site-map', reducer });
-const withSaga = injectSaga({ key: 'site-map', saga });
-
-export default compose(
-  withReducer,
-  withSaga,
-  withConnect,
-)(SiteMap);
-export { mapDispatchToProps };
