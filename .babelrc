@@ -1,19 +1,22 @@
 {
   "presets": [
-    "env",
-    "react",
-    "es2015",
-    "stage-0"
+    "@babel/preset-env",
+    "@babel/preset-react",
+    "@babel/preset-flow",
   ],
   "plugins": [
+    "@babel/plugin-proposal-function-bind",
+    "@babel/plugin-transform-modules-commonjs",
     "transform-react-remove-prop-types",
-    "transform-react-constant-elements",
-    "transform-react-inline-elements",
-    "transform-runtime",
+    "@babel/plugin-transform-react-constant-elements",
+    "@babel/plugin-transform-react-inline-elements",
+    "@babel/plugin-transform-runtime",
     "add-module-exports",
-    "transform-decorators-legacy",
-    "transform-react-display-name",
-    "transform-object-rest-spread",
-    "transform-class-properties"
+    "@babel/plugin-proposal-export-default-from",
+    "@babel/plugin-proposal-export-namespace-from",
+    ["@babel/plugin-proposal-decorators", {"legacy":true}],
+    "babel-plugin-transform-react-display-name",
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-proposal-class-properties"
   ]
 }
