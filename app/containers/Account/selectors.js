@@ -1,3 +1,4 @@
+import actionMeta from './actionMeta';
 import reducer from './reducer';
 
 import createSelectors from 'helpers/redux/selectors';
@@ -7,6 +8,6 @@ import {
 } from 'helpers/redux/reducers';
 
 module.exports = createSelectors(
-  'account',
+  actionMeta.key,
   inferPropertiesFromInitialState(getInitialState(reducer)),
 );

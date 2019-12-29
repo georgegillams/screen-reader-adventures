@@ -1,46 +1,16 @@
 import { fromJS } from 'immutable';
+import { createInitialState, createAppReducer } from 'helpers/redux/reducers';
 
-import {
-  LOGOUT,
-  LOGOUT_SUCCESS,
-  LOGOUT_ERROR,
-  REQUEST_VERIFICATION_EMAIL,
-  REQUEST_VERIFICATION_EMAIL_ERROR,
-  REQUEST_VERIFICATION_EMAIL_SUCCESS,
-} from './constants';
+import actionMeta from './actionMeta';
+import constants from './constants';
 
-const initialState = fromJS({
-  loggingOut: false,
-  success: false,
-  error: false,
-  requestingVerificationEmail: false,
-  requestingSuccess: false,
-  requestingError: false,
-});
+const initialStateObj = createInitialState(actionMeta.actionDefinitions);
+const initialState = fromJS(initialStateObj);
 
-function appReducer(state = initialState, action) {
-  switch (action.type) {
-    case LOGOUT:
-      return state.set('loggingOut', true).set('error', false);
-    case LOGOUT_SUCCESS:
-      return state.set('loggingOut', false).set('success', true);
-    case LOGOUT_ERROR:
-      return state.set('error', action.error).set('loggingOut', false);
-    case REQUEST_VERIFICATION_EMAIL:
-      return state
-        .set('requestingVerificationEmail', true)
-        .set('requestingError', false);
-    case REQUEST_VERIFICATION_EMAIL_SUCCESS:
-      return state
-        .set('requestingVerificationEmail', false)
-        .set('requestingSuccess', true);
-    case REQUEST_VERIFICATION_EMAIL_ERROR:
-      return state
-        .set('requestingError', action.error)
-        .set('requestingVerificationEmail', false);
-    default:
-      return state;
-  }
-}
+const reducer = createAppReducer(
+  actionMeta.actionDefinitions,
+  constants,
+  initialState,
+);
 
-export default appReducer;
+export default reducer;

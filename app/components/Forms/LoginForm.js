@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import BpkInput, { INPUT_TYPES } from 'bpk-component-input';
+import { Input } from 'gg-components/dist/Input';
 import { cssModules } from 'bpk-react-utils';
 
 import FormBuilder from './FormBuilder';
 import STYLES from './forms.scss';
 
-import {Button} from 'gg-components/dist/Button';
+import { Button } from 'gg-components/dist/Button';
 import { TextLink } from 'gg-components/dist/Typography';
 import {
   STRING_REGEX,
@@ -42,7 +42,7 @@ class Login extends React.Component {
     return (
       <FormBuilder
         entity={credentials}
-        submitLabel={credentials.useMagicLink ? 'Request login link' : 'Login'}
+        submitLabel={credentials.useMagicLink ? 'Request magic link' : 'Login'}
         presubmitText="An email containing a login link will be sent to you. To access your account, follow the link in the email."
         formFields={[
           {

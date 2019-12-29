@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import BpkInput, { INPUT_TYPES } from 'bpk-component-input';
+import { Input } from 'gg-components/dist/Input';
 import { cssModules } from 'bpk-react-utils';
 
 import STYLES from './forms.scss';
@@ -53,7 +53,7 @@ class LoginForm extends React.Component {
         <label htmlFor="type" className={getClassName('forms__label')}>
           Type
         </label>
-        <BpkInput
+        <Input
           className={getClassName('forms__component')}
           id="type"
           name="type"
@@ -64,7 +64,7 @@ class LoginForm extends React.Component {
         <label htmlFor="message" className={getClassName('forms__label')}>
           Message
         </label>
-        <BpkInput
+        <Input
           className={getClassName('forms__component')}
           id="message"
           name="message"

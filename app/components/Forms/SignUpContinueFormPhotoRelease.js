@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import BpkInput, { INPUT_TYPES } from 'bpk-component-input';
+import { Input } from 'gg-components/dist/Input';
 import BpkCheckBox from 'bpk-component-checkbox';
 import { cssModules } from 'bpk-react-utils';
 

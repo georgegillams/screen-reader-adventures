@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import BpkInput, { INPUT_TYPES } from 'bpk-component-input';
+import { Input } from 'gg-components/dist/Input';
 import {
   injectStripe,
   CardElement,
@@ -8,7 +8,7 @@ import {
   CardExpiryElement,
   CardCVCElement,
   PostalCodeElement,
-  PaymentRequestButtonElement,
+  PaymentRequestGGButtonElement,
   IbanElement,
   IdealBankElement,
 } from 'react-stripe-elements';

@@ -1,6 +1,8 @@
-import { LOAD_USERS, REQUEST_MAGIC_LINK_FOR_USER } from './constants';
-import { loadUsersSuccess, loadUsersError } from './actions';
-import { makeSelectMagicLinkUser } from './selectors';
+import { selectors, actions, constants } from './redux-definitions';
+
+const { LOAD_USERS, REQUEST_MAGIC_LINK_FOR_USER } = constants;
+const { loadUsersRegisterSuccess, loadUsersRegisterError } = actions;
+const { makeSelectMagicLinkUser } = selectors;
 
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { pushMessage } from 'containers/RequestStatusWrapper/actions';
@@ -57,9 +59,6 @@ export function* doRequestMagicLink() {
 export function* doLoadUsers() {
   const usersRequestURL = `${API_ENDPOINT}/users/load`;
   const userDetailsRequestURL = `${API_ENDPOINT}/userDetails/loadAll`;
-  const ticketsRequestURL = `${API_ENDPOINT}/tickets/loadAll`;
-  const paymentsRequestURL = `${API_ENDPOINT}/stripePayments/loadAll`;
-  const registrationStatusRequestURL = `${API_ENDPOINT}/registrationStatus/loadAll`;
 
   try {
     const usersResult = yield call(request, usersRequestURL, {
@@ -68,34 +67,12 @@ export function* doLoadUsers() {
     const userDetailsResult = yield call(request, userDetailsRequestURL, {
       method: 'GET',
     });
-    const ticketsResult = yield call(request, ticketsRequestURL, {
-      method: 'GET',
-    });
-    const paymentsResult = yield call(request, paymentsRequestURL, {
-      method: 'GET',
-    });
-    const registrationStatusResult = yield call(
-      request,
-      registrationStatusRequestURL,
-      {
-        method: 'GET',
-      },
-    );
     if (usersResult.error) {
-      yield put(loadUsersError(usersResult));
+      yield put(loadUsersRegisterError(usersResult));
       yield put(pushMessage(usersLoadedErrorMessage));
     } else if (userDetailsResult.error) {
-      yield put(loadUsersError(userDetailsResult));
+      yield put(loadUsersRegisterError(userDetailsResult));
       yield put(pushMessage(usersLoadedErrorMessage));
-    } else if (ticketsResult.error) {
-      yield put(loadUsersError(ticketsResult));
-      yield put(pushMessage(ticketsResult.error));
-    } else if (paymentsResult.error) {
-      yield put(loadUsersError(paymentsResult));
-      yield put(pushMessage(paymentsResult.error));
-    } else if (registrationStatusResult.error) {
-      yield put(loadUsersError(registrationStatusResult));
-      yield put(pushMessage(registrationStatusResult.error));
     } else {
       let associatedData = associate(
         usersResult,
@@ -104,49 +81,12 @@ export function* doLoadUsers() {
         'authorId',
         'userDetails',
       );
-      associatedData = associate(
-        associatedData,
-        ticketsResult,
-        'id',
-        'reservedTo',
-        'ticketReservation',
-      );
-      associatedData = associate(
-        associatedData,
-        paymentsResult,
-        'id',
-        'userId',
-        'payments',
-        true,
-      );
-      associatedData = associate(
-        associatedData,
-        registrationStatusResult,
-        'id',
-        'userId',
-        'registrationStatus',
-      );
-      associatedData = associatedData.map(u => {
-        const newU = JSON.parse(JSON.stringify(u));
-        if (newU && newU.ticketReservation) {
-          newU.ticketReservation.outstandingBalance = calculateOutstandingBalance(
-            newU.ticketReservation,
-            newU.payments,
-          );
-        }
-        if (newU && newU.registrationStatus) {
-          newU.overallRegistrationStatus = newU.registrationStatus.overall;
-        }
-        if (newU && newU.moneysReceived) {
-          delete newU.moneysReceived;
-        }
-        return newU;
-      });
-      yield put(loadUsersSuccess(associatedData));
+      yield put(loadUsersRegisterSuccess(associatedData));
       yield put(pushMessage(usersLoadedMessage));
     }
   } catch (err) {
-    yield put(loadUsersError(err));
+    debugger;
+    yield put(loadUsersRegisterError(err));
     yield put(pushMessage(COMMUNICATION_ERROR_MESSAGE));
   }
 }

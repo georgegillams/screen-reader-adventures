@@ -26,7 +26,8 @@ module.exports = options => ({
         exclude: /node_modules\/(?!(bpk-|react-component-academic-reference)).*/,
         use: {
           loader: 'babel-loader',
-          options: options.babelQuery,
+          // specifying the configFile makes sure this works with components inside `node_modules`
+          options: { configFile: './.babelrc' },
         },
       },
       {

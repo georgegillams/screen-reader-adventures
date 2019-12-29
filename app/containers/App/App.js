@@ -38,7 +38,11 @@ const cleanWindowLocation = location => {
 };
 
 const getFullRedirect = destination => {
-  if (window && window.location && window.location.toString().includes('?')) {
+  if (
+    window &&
+    window.location &&
+    HelperFunctions.includes(window.location.toString(), '?')
+  ) {
     const fullPath = cleanWindowLocation(window.location.toString());
     for (let i = 0; i < redirects.length; i += 1) {
       if (redirects[i].from === fullPath) {

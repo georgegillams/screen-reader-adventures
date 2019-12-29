@@ -1,41 +1,16 @@
-import { connect } from 'react-redux';
-import { compose } from 'redux';
-import { createStructuredSelector } from 'reselect';
+import appSelectors from 'containers/App/selectors';
 
-import {
-  makeSelectNotifications,
-  makeSelectNotificationsLoading,
-  makeSelectNotificationsError,
-} from './selectors';
-import { loadNotifications } from './actions';
-import reducer from './reducer';
+import { composeContainer } from 'helpers/redux';
+import actionMeta from './actionMeta';
+import { selectors, actions, reducer } from './redux-definitions';
 import saga from './saga';
-import NotificationCenter from './NotificationCenter';
+import Container from './Container';
 
-import injectSaga from 'utils/injectSaga';
-import injectReducer from 'utils/injectReducer';
-
-const mapDispatchToProps = dispatch => ({
-  loadNotifications: () => dispatch(loadNotifications()),
-});
-
-const mapStateToProps = createStructuredSelector({
-  notifications: makeSelectNotifications(),
-  loading: makeSelectNotificationsLoading(),
-  error: makeSelectNotificationsError(),
-});
-
-const withConnect = connect(
-  mapStateToProps,
-  mapDispatchToProps,
+module.exports = composeContainer(
+  Container,
+  actionMeta.key,
+  { ...selectors, ...appSelectors },
+  { ...actions },
+  reducer,
+  saga,
 );
-
-const withReducer = injectReducer({ key: 'notifications', reducer });
-const withSaga = injectSaga({ key: 'notifications', saga });
-
-export default compose(
-  withReducer,
-  withSaga,
-  withConnect,
-)(NotificationCenter);
-export { mapDispatchToProps };

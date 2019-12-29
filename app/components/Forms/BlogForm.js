@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import BpkInput from 'bpk-component-input';
+import { Input } from 'gg-components/dist/Input';
 import BpkCheckBox from 'bpk-component-checkbox';
 import BpkTextArea from 'bpk-component-textarea';
 import { cssModules } from 'bpk-react-utils';
@@ -67,7 +67,7 @@ export default class BlogForm extends React.Component {
         <label htmlFor="blogId" className={getClassName('forms__label')}>
           Blog ID
         </label>
-        <BpkInput
+        <Input
           className={elementClassNameFinal.join(' ')}
           id="blogId"
           name="blogId"
@@ -80,7 +80,7 @@ export default class BlogForm extends React.Component {
         <label htmlFor="blogName" className={getClassName('forms__label')}>
           Blog name
         </label>
-        <BpkInput
+        <Input
           className={elementClassNameFinal.join(' ')}
           id="blogName"
           name="Blog name"
@@ -93,7 +93,7 @@ export default class BlogForm extends React.Component {
         <label htmlFor="blogCardImage" className={getClassName('forms__label')}>
           Blog card image
         </label>
-        <BpkInput
+        <Input
           className={elementClassNameFinal.join(' ')}
           id="blogCardImage"
           name="Blog card image"
@@ -109,7 +109,7 @@ export default class BlogForm extends React.Component {
         >
           Blog card hero image
         </label>
-        <BpkInput
+        <Input
           className={elementClassNameFinal.join(' ')}
           id="blogCardHeroImage"
           name="Blog card hero image"
@@ -122,7 +122,7 @@ export default class BlogForm extends React.Component {
         <label htmlFor="blogCardDate" className={getClassName('forms__label')}>
           Blog card date
         </label>
-        <BpkInput
+        <Input
           className={elementClassNameFinal.join(' ')}
           id="blogCardDate"
           name="Blog card date"
@@ -145,7 +145,7 @@ export default class BlogForm extends React.Component {
         <label htmlFor="blogCardLink" className={getClassName('forms__label')}>
           Blog card link
         </label>
-        <BpkInput
+        <Input
           className={elementClassNameFinal.join(' ')}
           id="blogCardLink"
           name="Blog card link"
@@ -161,7 +161,7 @@ export default class BlogForm extends React.Component {
         >
           Blog banner color
         </label>
-        <BpkInput
+        <Input
           className={elementClassNameFinal.join(' ')}
           id="blogBanneColor"
           name="Blog banner color"
@@ -177,7 +177,7 @@ export default class BlogForm extends React.Component {
         >
           Blog card image border color
         </label>
-        <BpkInput
+        <Input
           className={elementClassNameFinal.join(' ')}
           id="blogCardImageBorderColor"
           name="Blog card image border color"
@@ -203,7 +203,7 @@ export default class BlogForm extends React.Component {
         >
           Blog published timestamp
         </label>
-        <BpkInput
+        <Input
           className={elementClassNameFinal.join(' ')}
           id="blogPublishedTimestamp"
           name="Blog published timestamp"
@@ -236,7 +236,7 @@ export default class BlogForm extends React.Component {
         <label htmlFor="blogTags" className={getClassName('forms__label')}>
           Blog tags
         </label>
-        <BpkInput
+        <Input
           className={elementClassNameFinal.join(' ')}
           id="blogTags"
           name="Blog tags"

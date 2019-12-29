@@ -1,6 +1,8 @@
-import { LOGIN } from './constants';
-import { loginSuccessful, loginError } from './actions';
-import { makeSelectToken } from './selectors';
+import { constants, actions, selectors } from './redux-definitions';
+
+const { LOGIN } = constants;
+const { loginRegisterSuccess, loginRegisterError } = actions;
+const { makeSelectToken } = selectors;
 
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { setUser } from 'containers/App/actions';
@@ -23,15 +25,15 @@ export function* doLogin() {
       },
     });
     if (loginResult.error) {
-      yield put(loginError(loginResult));
+      yield put(loginRegisterError(loginResult));
       yield put(pushMessage({ type: 'error', message: loginResult.error }));
     } else {
-      yield put(loginSuccessful());
+      yield put(loginRegisterSuccess());
       yield put(setUser(loginResult));
       yield put(pushMessage(loggedInMessage));
     }
   } catch (err) {
-    yield put(loginError(err));
+    yield put(loginRegisterError(err));
     yield put(pushMessage(COMMUNICATION_ERROR_MESSAGE));
   }
 }
