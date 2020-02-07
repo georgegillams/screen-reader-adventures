@@ -1,0 +1,11 @@
+version: 2.1
+jobs:
+  build:
+    machine: true
+    steps:
+      - checkout
+      # build the test image
+      - run: docker build -t georgegillams-test -f Dockerfile.backstopjstest .
+      # run the tests
+      - run: docker run --rm georgegillams-test
+
