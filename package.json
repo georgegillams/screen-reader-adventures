@@ -64,7 +64,7 @@
     "bpk-component-input": "^5.0.16",
     "bpk-component-label": "^4.0.16",
     "bpk-component-progress": "^2.0.16",
-    "bpk-component-text": "^2.0.16",
+    "bpk-component-text": "^3.0.1",
     "bpk-component-textarea": "^2.0.16",
     "bpk-mixins": "^19.0.16",
     "bpk-theming": "^2.0.13",
