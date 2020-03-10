@@ -1,6 +1,6 @@
 # [https://www.screen-reader-adventures.com/](https://www.screen-reader-adventures.com/)
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/georgegillams/screen-reader-adventures.svg)](https://greenkeeper.io/)
+
 
 ![Travis status](https://api.travis-ci.org/georgegillams/screen-reader-adventures.com?branch=master)
 
