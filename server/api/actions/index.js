@@ -21,6 +21,7 @@ export * as magiclinks from './magiclinks/index';
 export * as stripePayments from './stripePayments/index';
 export * as registrationStatus from './registrationStatus/index';
 export * as payments from './payments/index';
+export * as dataManagement from './data-management/index';
 export * as comments from './comments/index';
 export * as tickets from './tickets/index';
 export * as userDetails from './userDetails/index';
