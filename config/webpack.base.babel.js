@@ -8,6 +8,15 @@ const webpack = require('webpack');
 
 process.noDeprecation = true;
 
+const {
+  NODE_ENV,
+  BUILT_AT,
+  STRIPE_PUBLIC_API_KEY,
+  PROJECT_UNDER_TEST,
+  PORT,
+  AWS,
+} = process.env;
+
 module.exports = options => ({
   mode: options.mode,
   entry: options.entry,
@@ -119,7 +128,12 @@ module.exports = options => ({
     // drop any unreachable code.
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+        NODE_ENV: JSON.stringify(NODE_ENV),
+        BUILT_AT: JSON.stringify(BUILT_AT),
+        STRIPE_PUBLIC_API_KEY: JSON.stringify(STRIPE_PUBLIC_API_KEY),
+        PROJECT_UNDER_TEST: JSON.stringify(PROJECT_UNDER_TEST),
+        PORT: JSON.stringify(PORT),
+        AWS: JSON.stringify(AWS),
       },
     }),
   ]),

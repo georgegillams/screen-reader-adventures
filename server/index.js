@@ -5,15 +5,19 @@ import { resolve } from 'path';
 
 import express from 'express';
 import session from 'express-session';
+import cors from 'cors';
 import bodyParser from 'body-parser';
+import fileupload from 'express-fileupload';
 import SocketIo from 'socket.io';
 import cookieParser from 'cookie-parser';
 import sslRedirect from 'heroku-ssl-redirect';
+import { SITE_URL, PROJECT_UNDER_TEST } from 'helpers/constants';
 
 import logger from './util//logger';
 import seo from './seo';
 import api from './api/api';
 import greasemonkey from './greasemonkey';
+import redirectNonWWW from './redirectNonWWW';
 import argv from './util/argv';
 import port from './util//port';
 import setup from './middlewares/frontendMiddleware';
@@ -24,9 +28,17 @@ const server = new http.Server(app);
 const io = new SocketIo(server);
 io.path('/ws');
 
-if (process.env.NODE_ENV === 'production' && !process.env.ALLOW_NON_SSL) {
-  app.use(sslRedirect());
+if (process.env.NODE_ENV === 'production' && !PROJECT_UNDER_TEST) {
+  app.use(
+    cors({
+      origin: SITE_URL,
+    }),
+  );
 }
+
+app.use(fileupload());
+
+app.use(redirectNonWWW);
 app.use(greasemonkey);
 app.use(
   session({

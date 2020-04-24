@@ -1,23 +1,31 @@
 const backstop = require('backstopjs');
 const scenarioData = require('./scenarios.json');
 
-const PORT = 9001;
+const PORT = process.env.PORT || 9001;
 const BASE_URL = `http://127.0.0.1:${PORT}/`;
+
+const allowFailure = process.argv.includes('--allowFailure');
 
 let scenarios = [];
 
 scenarioData.scenarioIds.forEach(sI => {
+  let delay = 1500;
+  let urlExt = sI;
+  if (typeof sI === 'object') {
+    urlExt = sI.url;
+    delay = sI.delay;
+  }
   scenarios.push({
-    label: sI,
-    url: `${BASE_URL}${sI}`,
+    label: urlExt,
+    url: `${BASE_URL}${urlExt}`,
     hideSelectors: scenarioData.globallyHiddenSelectors,
-    delay: 2500,
+    delay: delay,
   });
 });
 
 const config = {
   id: 'georgegillams-co-uk-default',
-  misMatchThreshold: process.env.CI ? 12 : 3,
+  misMatchThreshold: 3,
   viewports: [
     {
       label: 'phone',
@@ -59,5 +67,7 @@ backstop('test', { config: config })
   })
   .catch(() => {
     //       // test failed
-    backstop('approve', { config: config }).then(() => process.exit(1));
+    backstop('approve', { config: config }).then(() =>
+      process.exit(allowFailure ? 0 : 1),
+    );
   });
