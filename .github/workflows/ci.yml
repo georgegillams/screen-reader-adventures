@@ -46,7 +46,7 @@ jobs:
     - name: build AWS
       run: |
         if [ "${{ github.ref }}" == "refs/heads/master" ] && [ "${{ github.event_name }}" != "pull_request" ]; then
-          npm run build:aws
+          STRIPE_PUBLIC_API_KEY=${{ secrets.STRIPE_PUBLIC_API_KEY }} npm run build:aws
           zip -r build build
         fi;
 
@@ -55,5 +55,5 @@ jobs:
         if [ "${{ github.ref }}" == "refs/heads/master" ] && [ "${{ github.event_name }}" != "pull_request" ]; then
           echo "${{ secrets.EC2_RSA }}" > ./identityFile.txt
           chmod 400 ./identityFile.txt
-          scp -o "StrictHostKeyChecking=no" -i ./identityFile.txt -r ./build.zip ubuntu@ec2-18-130-83-154.eu-west-2.compute.amazonaws.com:/home/ubuntu/
+          scp -o "StrictHostKeyChecking=no" -i ./identityFile.txt -r ./build.zip ubuntu@ec2-3-10-224-23.eu-west-2.compute.amazonaws.com:/home/ubuntu/screen-reader-adventures/
         fi;
