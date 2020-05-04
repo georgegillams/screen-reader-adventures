@@ -1,3 +1,3 @@
 # #!/bin/bash
 
-redis-server /etc/redis/redis.conf && npm run start:aws
+PORT=3001 npm run start:aws
