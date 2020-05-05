@@ -1,27 +1,27 @@
 {
   "level1Description": {
-    "macOS": "Remember that you'll get the best experience by using Safari. Use cmd+option+shift and the arrow keys to navigate through the spaces below. Once you reach the goal at the end, you'll be able to progress to the next level 👍",
-    "iOS": "Remember that you'll get the best experience by using Safari. Swipe left and right gently anywhere on your screen to navigate through the spaces below. Once you reach the goal at the end, you'll be able to progress to the next level 👍",
-    "Android": "Swipe left and right gently anywhere on your screen to navigate through the spaces below. Once you reach the goal at the end, you'll be able to progress to the next level 👍"
+    "macOS": "Remember that you'll get the best experience in Safari. Use cmd+option+shift and the left/right arrow keys to navigate to the goal space below. Once you reach the goal at the end, you'll be able to progress to the next level 👍",
+    "iOS": "Remember that you'll get the best experience in Safari. Use cmd+option+shift and the left/right arrow keys to navigate to the goal space below. Once you reach the goal at the end, you'll be able to progress to the next level 👍",
+    "Android": "Remember that you'll get the best experience in Chrome. Use cmd+option+shift and the left/right arrow keys to navigate to the goal space below. Once you reach the goal at the end, you'll be able to progress to the next level 👍"
   },
   "level2Description": {
-    "macOS": "In this level you'll need to be a bit speedier clicking the buttons. You need to click the goal space just in time if you want to avoid that monster.",
-    "iOS": "In this level you'll need to be a bit speedier clicking the buttons. You need to click the goal space just in time if you want to avoid that monster.",
-    "Android": "In this level you'll need to be a bit speedier clicking the buttons. You need to click the goal space just in time if you want to avoid that monster."
+    "macOS": "Voice Over can be used to aide sighted navigation, but often we want to test out a product without seeing it at all. Try navigating through the oil spill.",
+    "iOS": "Voice Over can be used to aide sighted navigation, but often we want to test out a product without seeing it at all. Try navigating through the oil spill.",
+    "Android": "TalkBack can be used to aide sighted navigation, but often we want to test out a product without seeing it at all. Try navigating through the oil spill."
   },
   "level3Description": {
-    "macOS": "Some monsters move around. Can you navigate the space below (moving in only straight lines) without getting eaten?",
-    "iOS": "Some monsters move around. Can you navigate the space below (moving in only straight lines) without getting eaten?",
-    "Android": "Some monsters move around. Can you navigate the space below (moving in only straight lines) without getting eaten?"
+    "macOS": "Let's see how well you can do without seeing any of the level. You'll still be shown outlines which will give you some idea where you're navigating has gone.",
+    "iOS": "Let's see how well you can do without seeing any of the level. You'll still be shown outlines which will give you some idea where you're navigating has gone.",
+    "Android": "Let's see how well you can do without seeing any of the level. You'll still be shown outlines which will give you some idea where you're navigating has gone."
   },
   "level4Description": {
-    "macOS": "Paragraphs contain clues, but cannot always be seen. Inputs need text, are not always what they seem!",
-    "iOS": "Paragraphs contain clues, but cannot always be seen. Inputs need text, are not always what they seem!",
-    "Android": "Paragraphs contain clues, but cannot always be seen. Inputs need text, are not always what they seem!"
+    "macOS": "Navigating through every element can be slow. Sometimes we want to jump between sections of a page. INSERT INSTRUCTIONS HERE. Now you can jump straight to the next heading, which should speed up navigation.",
+    "iOS": "Navigating through every element can be slow. Sometimes we want to jump between sections of a page. Use two fingers to perform a twist motion on your screen until you hear \"Headings\". Now you can swipe up and down to jump between headings, which should speed up navigation.",
+    "Android": "Navigating through every element can be slow. Sometimes we want to jump between sections of a page. Use two fingers to perform a twist motion on your screen until you hear \"Headings\". Now you can swipe up and down to jump between headings, which should speed up navigation."
   },
   "level5Description": {
-    "macOS": "Paragraphs contain clues, but cannot always be seen. Inputs need text, are not always what they seem!",
-    "iOS": "Paragraphs contain clues, but cannot always be seen. Inputs need text, are not always what they seem!",
-    "Android": "Paragraphs contain clues, but cannot always be seen. Inputs need text, are not always what they seem!"
+    "macOS": "While you navigate this level, pay close attention to any paragraphs you find. When you land on a text-input, you'll need to do some text entry.",
+    "iOS": "While you navigate this level, pay close attention to any paragraphs you find. When you land on a text-input, you'll need to do some text entry.",
+    "Android": "While you navigate this level, pay close attention to any paragraphs you find. When you land on a text-input, you'll need to do some text entry."
   }
 }
