@@ -43,7 +43,9 @@
     "backstopjs:test": "npm run start:test & (sleep 5 && node ./scripts/backstopjs/backstop.js)",
     "test": "cross-env NODE_ENV=test SECRET_API_KEY=asdfghjkl NODE_PATH=./server/api:./app jest --coverage",
     "test:clean": "rimraf ./coverage",
-    "test:watch": "cross-env NODE_ENV=test SECRET_API_KEY=asdfghjkl NODE_PATH=./server/api:./app jest --watchAll"
+    "test:watch": "cross-env NODE_ENV=test SECRET_API_KEY=asdfghjkl NODE_PATH=./server/api:./app jest --watchAll",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "lint-staged": {
     "*.js": [
@@ -123,7 +125,8 @@
     "wget-improved": "^3.0.2",
     "whatwg-fetch": "3.0.0",
     "wink-perceptron": "^2.0.0",
-    "youtube-embed-video": "^1.2.1"
+    "youtube-embed-video": "^1.2.1",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.7",
@@ -189,5 +192,6 @@
     "webpack-dev-middleware": "^3.7.2",
     "webpack-hot-middleware": "^2.25.0"
   },
-  "heroku-run-build-script": true
+  "heroku-run-build-script": true,
+  "snyk": true
 }
