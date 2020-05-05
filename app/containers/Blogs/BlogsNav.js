@@ -9,8 +9,8 @@ import { cssModules } from 'bpk-react-utils';
 import BlogListSkeleton from './BlogListSkeleton';
 import STYLES from './blogs-page.scss';
 
-import { LoadingCover } from 'gg-components/dist/Auth';
-import {Button} from 'gg-components/dist/Button';
+import { LoadingCover } from 'gg-components/Auth';
+import {Button} from 'gg-components/Button';
 import BlogsList from 'components/Blogs';
 import PAGE_STYLES from 'containers/pages.scss';
 

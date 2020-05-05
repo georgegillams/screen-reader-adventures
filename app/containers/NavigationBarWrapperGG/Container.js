@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import {
   NavigationBar,
   NavigationItem,
-} from 'gg-components/dist/NavigationBar';
-import { Logo } from 'gg-components/dist/Logo';
-import { SmallButtonSkeleton } from 'gg-components/dist/Skeletons';
+} from 'gg-components/NavigationBar';
+import { Logo } from 'gg-components/Logo';
+import { SmallButtonSkeleton } from 'gg-components/Skeletons';
 
 const NavigationBarWrapper = props => {
   const { user, userLoading, ...rest } = props;

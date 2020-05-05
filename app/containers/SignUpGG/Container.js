@@ -9,14 +9,14 @@ import { cssModules } from 'bpk-react-utils';
 
 import Skeleton from './Skeleton';
 
-import { LoadingIndicator } from 'gg-components/dist/LoadingIndicator';
-import { Button } from 'gg-components/dist/Button';
-import { Section, SubSection, TextLink } from 'gg-components/dist/Typography';
-import { CodeInline } from 'gg-components/dist/Code';
+import { LoadingIndicator } from 'gg-components/LoadingIndicator';
+import { Button } from 'gg-components/Button';
+import { Section, SubSection, TextLink } from 'gg-components/Typography';
+import { CodeInline } from 'gg-components/Code';
 import { SignUpForm } from 'components/Forms';
 import { CookiesOnly } from 'components/Sessions';
-import { GGRedirect } from 'gg-components/dist/Redirect';
-import { LoggedOutOnly, LoadingCover } from 'gg-components/dist/Auth';
+import { GGRedirect } from 'gg-components/Redirect';
+import { LoggedOutOnly, LoadingCover } from 'gg-components/Auth';
 import { STRING_REGEX } from 'helpers/constants';
 import STYLES from 'containers/pages.scss';
 

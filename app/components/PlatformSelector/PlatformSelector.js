@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ArticleCard, ARTICLE_CARD_LAYOUTS } from 'gg-components/dist/Cards';
+import { ArticleCard, ARTICLE_CARD_LAYOUTS } from 'gg-components/Cards';
 import { getPriceForTicketType, beautifyTicketType } from 'helpers/ticketing';
 import { setPlatform } from 'helpers/storageHelpers';
 import STYLES from 'containers/pages.scss';

@@ -4,8 +4,8 @@ import { Helmet } from 'react-helmet';
 import cookie from 'react-cookies';
 import { cssModules } from 'bpk-react-utils';
 
-import { Section, SubSection, TextLink } from 'gg-components/dist/Typography';
-import { DebugObject } from 'gg-components/dist/Auth';
+import { Section, SubSection, TextLink } from 'gg-components/Typography';
+import { DebugObject } from 'gg-components/Auth';
 import STYLES from 'containers/pages.scss';
 
 const getClassName = cssModules(STYLES);

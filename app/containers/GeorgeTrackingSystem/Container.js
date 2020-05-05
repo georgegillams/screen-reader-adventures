@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { cssModules } from 'bpk-react-utils';
 
-import { Section, SubSection } from 'gg-components/dist/Typography';
-import { LoadingIndicator } from 'gg-components/dist/LoadingIndicator';
+import { Section, SubSection } from 'gg-components/Typography';
+import { LoadingIndicator } from 'gg-components/LoadingIndicator';
 import DeprecationNotice from 'containers/DeprecationNotice';
 import STYLES from 'containers/pages.scss';
 

@@ -1,14 +1,14 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { Input } from 'gg-components/dist/Input';
+import { Input } from 'gg-components/Input';
 import BpkCheckBox from 'bpk-component-checkbox';
 import BpkTextarea from 'bpk-component-textarea';
 import { cssModules } from 'bpk-react-utils';
 
 import STYLES from './forms.scss';
 
-import { Button } from 'gg-components/dist/Button';
-import { TextLink } from 'gg-components/dist/Typography';
+import { Button } from 'gg-components/Button';
+import { TextLink } from 'gg-components/Typography';
 import { EMAIL_REGEX, PASSWORD_REGEX } from 'helpers/constants';
 import { formValueChanged } from 'helpers/objects';
 import HelperFunctions from 'helpers/HelperFunctions';

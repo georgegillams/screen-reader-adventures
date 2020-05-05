@@ -2,9 +2,9 @@ import React from 'react';
 import BpkImage, { withLoadingBehavior } from 'bpk-component-image';
 import { cssModules } from 'bpk-react-utils';
 
-import { Section, SubSection, TextLink } from 'gg-components/dist/Typography';
-import { Comments } from 'gg-components/dist/Typography';
-import { NotificationComp } from 'gg-components/dist/Notifications';
+import { Section, SubSection, TextLink } from 'gg-components/Typography';
+import { Comments } from 'gg-components/Typography';
+import { NotificationComp } from 'gg-components/Notifications';
 import STYLES from 'containers/pages.scss';
 
 const getClassName = cssModules(STYLES); // REGEX_REPLACED

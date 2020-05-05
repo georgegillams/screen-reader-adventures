@@ -3,7 +3,7 @@ import React from 'react';
 import {
   CompactCardSkeleton,
   SectionSkeleton,
-} from 'gg-components/dist/Skeletons';
+} from 'gg-components/Skeletons';
 
 const getClassName = c => c;
 

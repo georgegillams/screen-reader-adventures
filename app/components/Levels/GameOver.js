@@ -1,5 +1,5 @@
 import React from 'react';
-import { Section } from 'gg-components/dist/Typography';
+import { Section } from 'gg-components/Typography';
 import { cssModules } from 'bpk-react-utils';
 
 import STYLES from './game-over.scss';

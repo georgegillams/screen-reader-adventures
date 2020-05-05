@@ -12,10 +12,10 @@ import { associate } from 'helpers/objects';
 import Skeleton from './Skeleton';
 
 import HelperFunctions from 'helpers/HelperFunctions';
-import { MoneyPot } from 'gg-components/dist/MoneyPot';
-import { Button } from 'gg-components/dist/Button';
-import { Section, SubSection } from 'gg-components/dist/Typography';
-import { LoadingCover } from 'gg-components/dist/Auth';
+import { MoneyPot } from 'gg-components/MoneyPot';
+import { Button } from 'gg-components/Button';
+import { Section, SubSection } from 'gg-components/Typography';
+import { LoadingCover } from 'gg-components/Auth';
 import FormBuilder from 'components/Forms';
 import STYLES from 'containers/pages.scss';
 

@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { cssModules } from 'bpk-react-utils';
 
-import { SubSection, TextLink } from 'gg-components/dist/Typography';
-import { LoadingIndicator } from 'gg-components/dist/LoadingIndicator';
+import { SubSection, TextLink } from 'gg-components/Typography';
+import { LoadingIndicator } from 'gg-components/LoadingIndicator';
 import { NON_EMOJI_REGEX } from 'helpers/constants';
 import redirects from 'helpers/redirects';
 import STYLES from 'containers/pages.scss';

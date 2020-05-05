@@ -4,7 +4,7 @@ import { cssModules } from 'bpk-react-utils';
 
 import CommentsListSkeleton from './CommentsListSkeleton';
 
-import { DebugObject, LoadingCover } from 'gg-components/dist/Auth';
+import { DebugObject, LoadingCover } from 'gg-components/Auth';
 import Comments, { CommentInput } from 'components/Comments';
 import STYLES from 'containers/pages.scss';
 

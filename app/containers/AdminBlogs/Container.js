@@ -7,8 +7,8 @@ import { cssModules } from 'bpk-react-utils';
 import Skeleton from './Skeleton';
 
 import { BlogCard } from 'components/Blogs';
-import { Button } from 'gg-components/dist/Button';
-import { Section } from 'gg-components/dist/Typography';
+import { Button } from 'gg-components/Button';
+import { Section } from 'gg-components/Typography';
 import FormBuilder from 'components/Forms';
 import { ID_REGEX } from 'helpers/constants';
 import {
@@ -16,7 +16,7 @@ import {
   APIEntity,
   AdminOnly,
   LoadingCover,
-} from 'gg-components/dist/Auth';
+} from 'gg-components/Auth';
 import STYLES from 'containers/pages.scss';
 
 const getClassName = cssModules(STYLES);

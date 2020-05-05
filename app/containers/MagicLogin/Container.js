@@ -7,14 +7,14 @@ import BpkImage, {
 } from 'bpk-component-image';
 import { cssModules } from 'bpk-react-utils';
 
-import { LoadingIndicator } from 'gg-components/dist/LoadingIndicator';
-import { Button } from 'gg-components/dist/Button';
-import { Section, SubSection, TextLink } from 'gg-components/dist/Typography';
-import { CodeInline } from 'gg-components/dist/Code';
-import { DebugObject } from 'gg-components/dist/Auth';
+import { LoadingIndicator } from 'gg-components/LoadingIndicator';
+import { Button } from 'gg-components/Button';
+import { Section, SubSection, TextLink } from 'gg-components/Typography';
+import { CodeInline } from 'gg-components/Code';
+import { DebugObject } from 'gg-components/Auth';
 import { LoginForm } from 'components/Forms';
 import { CookiesOnly } from 'components/Sessions';
-import { GGRedirect } from 'gg-components/dist/Redirect';
+import { GGRedirect } from 'gg-components/Redirect';
 import {
   REDIRECT_REGEX,
   SORT_CODE_REGEX,
