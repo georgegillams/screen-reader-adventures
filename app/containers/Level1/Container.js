@@ -15,7 +15,6 @@ const Container = props => {
       description={getCopy('level1Description')}
       level={generateLevelDefinition([['s', 's', 's', 's', 'g']])}
       startSpace={{ x: 0, y: 0 }}
-      monsterPositions={[]}
       {...props}
     />
   );

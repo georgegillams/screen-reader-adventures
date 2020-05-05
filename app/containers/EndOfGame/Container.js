@@ -6,7 +6,7 @@ import { cssModules } from 'bpk-react-utils';
 import STYLES from '../pages.scss';
 const getClassName = cssModules(STYLES);
 
-class EndOfGame extends Component {
+class Container extends Component {
   render() {
     const { className, ...rest } = this.props;
     const classNameFinal = [getClassName('pages__container--centered')];
@@ -30,12 +30,12 @@ class EndOfGame extends Component {
   }
 }
 
-EndOfGame.propTypes = {
+Container.propTypes = {
   className: PropTypes.string,
 };
 
-EndOfGame.defaultProps = {
+Container.defaultProps = {
   className: null,
 };
 
-export default EndOfGame;
+export default Container;

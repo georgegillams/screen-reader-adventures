@@ -1,4 +1,5 @@
 import React, { Fragment, Component } from 'react';
+import PropTypes from 'prop-types';
 import { findDOMNode } from 'react-dom';
 import { Helmet } from 'react-helmet';
 import { Section } from 'gg-components/Typography';
@@ -24,6 +25,20 @@ import PAGE_STYLES from 'containers/pages.scss';
 const getClassName = cssModules({ ...STYLES, ...PAGE_STYLES });
 
 export default class LevelWrapper extends Component {
+  static propTypes = {
+    level: PropTypes.object.isRequired,
+    levelNumber: PropTypes.number.isRequired,
+    startSpace: PropTypes.shape({ x: PropTypes.number, y: PropTypes.number })
+      .isRequired,
+    description: PropTypes.string,
+    monsterPositions: PropTypes.array,
+  };
+
+  static defaultProps = {
+    description: null,
+    monsterPositions: [],
+  };
+
   constructor(props) {
     super(props);
 
@@ -49,7 +64,7 @@ export default class LevelWrapper extends Component {
 
     this.setState({
       characterGamePos: startSpace || { x: 0, y: 0 },
-      monsterGamePos: monsterPositions || [],
+      monsterGamePos: [],
       gameState: level || [],
     });
 
@@ -310,9 +325,11 @@ export default class LevelWrapper extends Component {
       >
         <Helmet title={`Level ${levelNumber}`} />
         <UntappableScrim />
-        <span className={getClassName('level-wrapper__description')}>
-          {description}
-        </span>
+        {description && (
+          <span className={getClassName('level-wrapper__description')}>
+            {description}
+          </span>
+        )}
         <div className={getClassName('level-wrapper__level')}>
           <Character
             ref={this.character}
