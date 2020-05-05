@@ -1,6 +1,6 @@
 import { datumRemove } from '../datum';
 
-import commentsAllowedAttributes from './commentsAllowedAttributes';
+import commentsAllowedAttributes from './private/commentsAllowedAttributes';
 
 import authentication from 'utils/authentication';
 import { userOwnsResource } from 'utils/userOwnsResource';

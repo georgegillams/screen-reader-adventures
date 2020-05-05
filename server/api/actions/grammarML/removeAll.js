@@ -4,7 +4,7 @@ import grammarMLAllowedAttributes from './grammarMLAllowedAttributes';
 
 import redis from 'utils/redis';
 import authentication from 'utils/authentication';
-import { UNAUTHORISED_WRITE } from 'helpers/constants';
+import { PROJECT_NAME, UNAUTHORISED_WRITE } from 'helpers/constants';
 import reqSecure from 'utils/reqSecure';
 
 export default function removeAll(req) {
@@ -20,7 +20,11 @@ export default function removeAll(req) {
                 `Permanently removing ${existingValue.id} at index ${i}`,
               );
               resolve(
-                redis.lrem('grammarML', 1, JSON.stringify(existingValue)),
+                redis.lrem(
+                  `${PROJECT_NAME}_grammarML`,
+                  1,
+                  JSON.stringify(existingValue),
+                ),
               );
             }
           },

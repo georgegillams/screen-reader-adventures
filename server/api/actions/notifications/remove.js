@@ -1,6 +1,6 @@
 import { datumRemove } from '../datum';
 
-import notificationsAllowedAttributes from './notificationsAllowedAttributes';
+import notificationsAllowedAttributes from './private/notificationsAllowedAttributes';
 
 import authentication from 'utils/authentication';
 import { UNAUTHORISED_WRITE } from 'helpers/constants';

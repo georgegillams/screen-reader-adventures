@@ -1,6 +1,6 @@
 import { datumLoadSingle } from '../datum';
 
-import commentsAllowedAttributes from './commentsAllowedAttributes';
+import commentsAllowedAttributes from './private/commentsAllowedAttributes';
 
 import authentication from 'utils/authentication';
 import reqSecure from 'utils/reqSecure';
@@ -10,22 +10,13 @@ export default function loadSingle(req) {
   return new Promise((resolve, reject) => {
     authentication(reqSecured).then(
       user => {
-        if (user && user.admin) {
-          resolve(
-            datumLoadSingle({
-              redisKey: 'comments',
-              includeDeleted: true,
-              filter: ar => ar.id === reqSecured.query.id,
-            }),
-          );
-        } else {
-          resolve(
-            datumLoadSingle({
-              redisKey: 'comments',
-              filter: ar => ar.id === reqSecured.query.id,
-            }),
-          );
-        }
+        resolve(
+          datumLoadSingle({
+            redisKey: 'comments',
+            includeDeleted: user && user.admin,
+            filter: ar => ar.id === reqSecured.query.id,
+          }),
+        );
       },
       err => reject(err),
     );

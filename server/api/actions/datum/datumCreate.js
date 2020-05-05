@@ -2,6 +2,7 @@ import datumLoad from './datumLoad';
 
 import redis from 'utils/redis';
 import { find } from 'utils/find';
+import { PROJECT_NAME } from 'helpers/constants';
 import setContentLastUpdatedTimestamp from 'utils/setContentLastUpdatedTimestamp';
 
 export default function datumCreate(settings, req) {
@@ -27,7 +28,10 @@ export default function datumCreate(settings, req) {
       newValue.lastUpdatedTimestamp = newValue.timestamp;
       newValue.authorId = settings.user ? settings.user.id : undefined;
       // Write to redis:
-      redis.rpush([settings.redisKey, JSON.stringify(newValue)]);
+      redis.rpush([
+        `${PROJECT_NAME}_${settings.redisKey}`,
+        JSON.stringify(newValue),
+      ]);
       if (
         settings.redisKey !== 'sessions' &&
         settings.redisKey !== 'contentUpdates'

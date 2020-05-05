@@ -3,6 +3,7 @@ import datumLoad from './datumLoad';
 import redis from 'utils/redis';
 import { find } from 'utils/find';
 import setContentLastUpdatedTimestamp from 'utils/setContentLastUpdatedTimestamp';
+import { PROJECT_NAME } from 'helpers/constants';
 
 export default function datumUpdate(settings, req) {
   return new Promise((resolve, reject) => {
@@ -25,7 +26,7 @@ export default function datumUpdate(settings, req) {
 
           values[existingValueIndex] = value;
           redis.lset(
-            settings.redisKey,
+            `${PROJECT_NAME}_${settings.redisKey}`,
             existingValueIndex,
             JSON.stringify(value),
           );

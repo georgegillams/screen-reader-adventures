@@ -1,24 +1,35 @@
 import { datumLoad } from '../datum';
-
-import paymentsAllowedAttributes from './paymentsAllowedAttributes';
-
 import authentication from 'utils/authentication';
-import { UNAUTHORISED_READ } from 'helpers/constants';
 import reqSecure from 'utils/reqSecure';
+import { UNAUTHORISED_READ } from 'helpers/constants';
+import { associate } from 'helpers/objects';
+import paymentsAllowedAttributes from './private/paymentsAllowedAttributes';
 
-export default function load(req) {
+export default function loadAll(req) {
   const reqSecured = reqSecure(req, paymentsAllowedAttributes);
   return new Promise((resolve, reject) => {
     authentication(reqSecured).then(
       user => {
         if (user && user.admin) {
-          resolve(
+          datumLoad({
+            redisKey: 'payments',
+            includeDeleted: true,
+          }).then(paymentData => {
             datumLoad({
-              redisKey: 'payments',
-              includeOwnerUname: true,
-              includeDeleted: user && user.admin,
-            }),
-          );
+              redisKey: 'stripepayments',
+              includeDeleted: true,
+            }).then(charges => {
+              const result = associate(
+                paymentData,
+                charges,
+                'id',
+                'paymentId',
+                'charge',
+                false,
+              );
+              resolve(result);
+            });
+          });
         } else {
           reject(UNAUTHORISED_READ);
         }

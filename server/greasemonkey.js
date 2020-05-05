@@ -62,7 +62,7 @@ function sendGreasemonkeyFile(scriptId, req, res) {
       }
     });
   } catch (e) {
-    console.err(`An error occured fetching resources from GitHub`, err);
+    console.error(`An error occured fetching resources from GitHub`, err);
   }
 }
 
