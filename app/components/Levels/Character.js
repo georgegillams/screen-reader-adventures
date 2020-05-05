@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { cssModules } from 'bpk-react-utils';
 import Space from './Space';
-import robot from './robot.png';
 
 import STYLES from './character.scss';
 

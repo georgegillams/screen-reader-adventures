@@ -2,7 +2,7 @@ import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import { findDOMNode } from 'react-dom';
 import { Helmet } from 'react-helmet';
-import { PageTitle } from 'gg-components/Typography';
+import { PageTitle, Paragraph } from 'gg-components/Typography';
 import { Button } from 'gg-components/Button';
 import UntappableScrim from 'components/Scrim';
 import GameOver from './GameOver.js';
@@ -259,8 +259,33 @@ export default class LevelWrapper extends Component {
     return result;
   };
 
-  spaceIsDisabled = (x, y) =>
-    this.state.characterGamePos.x !== x && this.state.characterGamePos.y !== y;
+  tabIndexForSpace = (x, y) => {
+    if (this.spaceIsAriaHidden(x, y)) {
+      return -1;
+    }
+    return 0;
+  };
+
+  spaceIsAriaHidden = (x, y) => {
+    if (this.state.gameOver) {
+      return true;
+    }
+    if (this.state.levelComplete) {
+      return true;
+    }
+
+    return false;
+  };
+
+  spaceIsDisabled = (x, y) => {
+    if (this.spaceIsAriaHidden(x, y)) {
+      return true;
+    }
+
+    return (
+      this.state.characterGamePos.x !== x && this.state.characterGamePos.y !== y
+    );
+  };
 
   // TODO Avoid creating refs on everysingle render - it is innefficient!
   // Refs should be created for spaces and monsters in the constructor
@@ -326,9 +351,9 @@ export default class LevelWrapper extends Component {
         <Helmet title={`Level ${levelNumber}`} />
         <UntappableScrim />
         {description && (
-          <span className={getClassName('level-wrapper__description')}>
+          <Paragraph className={getClassName('level-wrapper__description')}>
             {description}
-          </span>
+          </Paragraph>
         )}
         <div className={getClassName('level-wrapper__level')}>
           <Character
@@ -353,6 +378,11 @@ export default class LevelWrapper extends Component {
                   spaceNumber += 1;
                   return (
                     <Space
+                      tabindex={this.tabIndexForSpace(spaceDef.x, spaceDef.y)}
+                      aria-hidden={this.spaceIsAriaHidden(
+                        spaceDef.x,
+                        spaceDef.y,
+                      )}
                       disabled={this.spaceIsDisabled(spaceDef.x, spaceDef.y)}
                       spaceNumber={spaceNumber}
                       ref={spaceRef}
@@ -366,6 +396,11 @@ export default class LevelWrapper extends Component {
                   inputNumber += 1;
                   return (
                     <InputSpace
+                      tabindex={this.tabIndexForSpace(spaceDef.x, spaceDef.y)}
+                      aria-hidden={this.spaceIsAriaHidden(
+                        spaceDef.x,
+                        spaceDef.y,
+                      )}
                       disabled={this.spaceIsDisabled(spaceDef.x, spaceDef.y)}
                       inputNumber={inputNumber}
                       vaulue={this.getInputValue(spaceDef.x, spaceDef.y)}
@@ -386,7 +421,15 @@ export default class LevelWrapper extends Component {
                   return <BlankSpace spaceNumber={spaceNumber} />;
                 }
                 if (spaceDef.type === 'p') {
-                  return <ParagraphSpace text={spaceDef.text} />;
+                  return (
+                    <ParagraphSpace
+                      aria-hidden={this.spaceIsAriaHidden(
+                        spaceDef.x,
+                        spaceDef.y,
+                      )}
+                      text={spaceDef.text}
+                    />
+                  );
                 }
                 if (spaceDef.type === 'g') {
                   spaceNumber += 1;
@@ -397,6 +440,11 @@ export default class LevelWrapper extends Component {
                   }
                   return (
                     <GoalSpace
+                      tabindex={this.tabIndexForSpace(spaceDef.x, spaceDef.y)}
+                      aria-hidden={this.spaceIsAriaHidden(
+                        spaceDef.x,
+                        spaceDef.y,
+                      )}
                       disabled={disabled}
                       spaceNumber={spaceNumber}
                       onVisit={() => this.onLevelComplete()}
