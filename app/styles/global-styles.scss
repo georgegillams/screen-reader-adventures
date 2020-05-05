@@ -1,5 +1,15 @@
 @import '~bpk-mixins';
-@import '~gg-components/Tokens/common';
+@import 'helpers/tokens';
+
+:root {
+  --segmented-control-selected-color: $primary-color;
+  --checkbox-tick-color: $primary-color;
+  --primary-color: $primary-color;
+  --primary-color-invert: $primary-color-dark;
+  --link-color: $link-color;
+  --link-color-invert: $link-color-invert;
+  --link-hover-color: $primary-color;
+}
 
 html,
 body {

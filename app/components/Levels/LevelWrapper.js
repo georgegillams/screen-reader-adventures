@@ -2,7 +2,7 @@ import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import { findDOMNode } from 'react-dom';
 import { Helmet } from 'react-helmet';
-import { Section } from 'gg-components/Typography';
+import { PageTitle } from 'gg-components/Typography';
 import { Button } from 'gg-components/Button';
 import UntappableScrim from 'components/Scrim';
 import GameOver from './GameOver.js';
@@ -315,7 +315,7 @@ export default class LevelWrapper extends Component {
     const gameOverComp = <GameOver />;
 
     return (
-      <Section
+      <PageTitle
         name={`Level ${levelNumber}`}
         className={[
           getClassName('pages__container--centered'),
@@ -419,7 +419,7 @@ export default class LevelWrapper extends Component {
         >
           Continue to level {levelNumber + 1}
         </Button>
-      </Section>
+      </PageTitle>
     );
   }
 }
