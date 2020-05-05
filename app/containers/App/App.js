@@ -8,6 +8,7 @@ import AccountPage from 'containers/Account/Loadable';
 import AdminPage from 'containers/Admin';
 import AdminNotifications from 'containers/AdminNotifications/Loadable';
 import Authenticator from 'containers/Authenticator';
+import Analytics from 'containers/Analytics';
 import EmailVerificationPage from 'containers/EmailVerification/Loadable';
 import { SRFooter } from 'components/Footer';
 import HomePageSR from 'containers/HomePageSR/Loadable';
@@ -16,6 +17,11 @@ import Level2 from 'containers/Level2/Loadable';
 import Level3 from 'containers/Level3/Loadable';
 import Level4 from 'containers/Level4/Loadable';
 import LoginPage from 'containers/Login/Loadable';
+import Konami from 'containers/Konami';
+import StatusPage from 'containers/Status/Loadable';
+import DebugPage from 'containers/Debug/Loadable';
+import ScrollToTop from 'components/ScrollToTop';
+import PageContainer from 'containers/PageContainer';
 import MagicLoginPage from 'containers/MagicLogin/Loadable';
 import NavigationBarWrapper from 'containers/NavigationBarWrapperSR';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
@@ -65,32 +71,39 @@ const App = () => (
           content="Screen Reader Adventures - learn to use a screen reader the fun way"
         />
       </Helmet>
+      <ScrollToTop />
       <RequestStatusWrapper />
       <NavigationBarWrapper />
-      <Authenticator />
-      <NotificationCenter />
-      <Switch>
-        {redirects.map(red => (
-          <Route
-            exact
-            key={red.from}
-            path={red.from}
-            render={() => <Redirect to={getFullRedirect(red.to)} />}
-            status={301}
-          />
-        ))}
+      <PageContainer id="mainScrollView">
+        <Analytics />
+        <Authenticator />
+        <NotificationCenter />
+        <Konami />
+        <Switch>
+          {redirects.map(red => (
+            <Route
+              exact
+              key={red.from}
+              path={red.from}
+              render={() => <Redirect to={getFullRedirect(red.to)} />}
+              status={301}
+            />
+          ))}
 
-        <Route exact path="/" component={HomePageSR} />
-        <Route exact path="/Level/1" component={Level1} />
-        <Route exact path="/Level/2" component={Level2} />
-        <Route exact path="/Level/3" component={Level3} />
-        <Route exact path="/Level/4" component={Level4} />
-        <Route exact path="/Level/5" component={EndOfGame} />
-        <Route exact path="/setup/iOS" component={SetupIos} />
-        <Route exact path="/setup/macOS" component={SetupMacos} />
-        <Route exact path="/setup/Android" component={SetupAndroid} />
-        <Route path="" component={NotFoundPage} />
-      </Switch>
+          <Route exact path="/" component={HomePageSR} />
+          <Route exact path="/Level/1" component={Level1} />
+          <Route exact path="/Level/2" component={Level2} />
+          <Route exact path="/Level/3" component={Level3} />
+          <Route exact path="/Level/4" component={Level4} />
+          <Route exact path="/Level/5" component={EndOfGame} />
+          <Route exact path="/setup/iOS" component={SetupIos} />
+          <Route exact path="/setup/macOS" component={SetupMacos} />
+          <Route exact path="/setup/Android" component={SetupAndroid} />
+          <Route path="/status" component={StatusPage} />
+          <Route path="/debug" component={DebugPage} />
+          <Route path="" component={NotFoundPage} />
+        </Switch>
+      </PageContainer>
     </div>
     <SRFooter />
   </div>
