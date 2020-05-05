@@ -19,8 +19,9 @@ import { cssModules } from 'bpk-react-utils';
 import Character from './Character';
 import Monster from './Monster';
 import STYLES from './level-wrapper.scss';
+import PAGE_STYLES from 'containers/pages.scss';
 
-const getClassName = cssModules(STYLES);
+const getClassName = cssModules({ ...STYLES, ...PAGE_STYLES });
 
 export default class LevelWrapper extends Component {
   constructor(props) {
@@ -301,7 +302,10 @@ export default class LevelWrapper extends Component {
     return (
       <Section
         name={`Level ${levelNumber}`}
-        className={getClassName('level-wrapper__outer')}
+        className={[
+          getClassName('pages__container--centered'),
+          getClassName('level-wrapper__outer'),
+        ].join(' ')}
         {...rest}
       >
         <Helmet title={`Level ${levelNumber}`} />

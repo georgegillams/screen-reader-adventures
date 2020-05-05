@@ -9,14 +9,6 @@ import STYLES from '../pages.scss';
 const getClassName = cssModules(STYLES);
 
 const Container = props => {
-  const { className, ...rest } = props;
-
-  const outerClassNameFinal = [getClassName('pages__container')];
-
-  if (className) {
-    outerClassNameFinal.push(className);
-  }
-
   const levelDefinition = generateLevelDefinition([
     ['b', 'b', 'b', 'b', 'a', 's', 'i', 's', 'g'],
     ['b', 'b', 'b', 'b', 's', 'b', 'b', 'b', 'b'],
@@ -35,20 +27,14 @@ const Container = props => {
     'Some words must be entered, some text you must write. Try typing something, for that should suffice.';
 
   return (
-    <div
-      className={`${getClassName('pages__container')} ${getClassName(
-        'pages__container--centered',
-      )}`}
-      {...rest}
-    >
-      <LevelWrapper
-        levelNumber={4}
-        description={getCopy('level4Description')}
-        level={levelDefinition}
-        startSpace={{ x: 4, y: 0 }}
-        monsterPositions={[]}
-      />
-    </div>
+    <LevelWrapper
+      levelNumber={4}
+      description={getCopy('level4Description')}
+      level={levelDefinition}
+      startSpace={{ x: 4, y: 0 }}
+      monsterPositions={[]}
+      {...props}
+    />
   );
 };
 
