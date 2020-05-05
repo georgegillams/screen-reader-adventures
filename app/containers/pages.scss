@@ -2,25 +2,36 @@
 // TODO REMOVE UNUSED CLASSES FROM HERE
 
 @import '~bpk-mixins';
-@import 'helpers/tokens';
+@import '~gg-components/Tokens/common';
 
 .pages {
   &__container {
-    margin-top: 1.5rem;
     margin-right: auto;
     margin-left: auto;
     max-width: 60rem;
     padding-left: 30px;
     padding-right: 30px;
     width: 100%;
+    display: flow-root;
 
     @include bpk-breakpoint-tablet {
       padding-left: 15px;
       padding-right: 15px;
     }
 
+    &--debug {
+      background-color: orange;
+
+      @media (prefers-color-scheme: dark) {
+        background-color: darkorange;
+      }
+    }
+
     &--centered {
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     &--prose {
@@ -83,6 +94,10 @@
     margin-left: calc(-50vw + 50%);
     justify-content: center;
     box-sizing: border-box;
+
+    &--centered {
+      margin-left: 0 !important;
+    }
   }
 
   &__card {
@@ -124,6 +139,7 @@
   &__image {
     display: inline-block;
     width: 70%;
+    margin-top: 2rem;
     margin-bottom: 2rem;
 
     @include bpk-breakpoint-tablet {

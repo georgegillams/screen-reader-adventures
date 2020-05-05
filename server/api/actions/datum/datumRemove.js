@@ -2,9 +2,7 @@ import datumLoad from './datumLoad';
 import datumUpdate from './datumUpdate';
 
 import { RESOURCE_NOT_FOUND } from 'helpers/constants';
-import redis from 'utils/redis';
 import { find } from 'utils/find';
-import setContentLastUpdatedTimestamp from 'utils/setContentLastUpdatedTimestamp';
 
 export default function datumRemove(settings, req) {
   return new Promise((resolve, reject) => {

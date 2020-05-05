@@ -1,7 +1,7 @@
 import React from 'react';
 import { cssModules } from 'bpk-react-utils';
 
-import { SectionSkeleton, ButtonSkeleton } from 'gg-components/dist/Skeletons';
+import { SectionSkeleton, ButtonSkeleton } from 'gg-components/Skeletons';
 import STYLES from 'containers/pages.scss';
 
 const getClassName = cssModules(STYLES);

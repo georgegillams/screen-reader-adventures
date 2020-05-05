@@ -1,10 +1,11 @@
 @import '~bpk-mixins';
-@import 'helpers/tokens';
+@import '~gg-components/Tokens/common';
 
 html,
 body {
   height: 100%;
   width: 100%;
+  line-height: 1;
 }
 
 body {
@@ -28,10 +29,4 @@ body.fontLoaded {
 #app {
   min-height: 100%;
   min-width: 100%;
-}
-
-p,
-label {
-  font-family: Georgia, Times, 'Times New Roman', serif;
-  line-height: 1.5em;
 }

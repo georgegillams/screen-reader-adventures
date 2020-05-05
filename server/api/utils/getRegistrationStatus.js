@@ -1,4 +1,4 @@
-import { datumLoad, datumLoadSingle, datumCreate } from '../actions/datum';
+import { datumLoad, datumLoadSingle } from '../actions/datum';
 
 import { find } from 'utils/find';
 import { INVALID_SESSION, INVALID_CREDENTIALS } from 'helpers/constants';
@@ -106,7 +106,10 @@ export default function getRegistrationStatus(user) {
         });
       },
       err => {
-        resolve({ error: `No user found with id ${user.id}` });
+        reject({
+          error: 'not-found',
+          errorMessage: `No user found with id ${user.id}`,
+        });
       },
     );
   });

@@ -87,7 +87,7 @@ const createAppReducer = (actionDefinitions, constants, initialState) => {
       Object.keys(stateMutations).forEach(smKey => {
         let newValue = stateMutations[smKey];
         if (typeof newValue === 'function') {
-          newValue = newValue(action);
+          newValue = newValue(action, state.get(smKey));
         }
         state = state.set(smKey, newValue);
       });

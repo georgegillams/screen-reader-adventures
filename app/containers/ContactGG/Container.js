@@ -5,10 +5,10 @@ import { cssModules } from 'bpk-react-utils';
 import PAGES_STYLES from '../pages.scss';
 import STYLES from './contact.scss';
 
-import { InfoCell, INFO_CELL_STYLES } from 'gg-components/dist/InfoCell';
-import withScroll from 'gg-components/dist/ScrollContainer/withScroll.js';
-import { Section, SubSection, TextLink } from 'gg-components/dist/Typography';
-import { Button } from 'gg-components/dist/Button';
+import { InfoCell, INFO_CELL_STYLES } from 'gg-components/InfoCell';
+import withScroll from 'gg-components/ScrollContainer/withScroll.js';
+import { Section, SubSection, TextLink } from 'gg-components/Typography';
+import { Button } from 'gg-components/Button';
 import { GG_EMAIL } from 'helpers/constants';
 import facebookLogo from './facebook.svg';
 import twitterLogo from './twitter.svg';

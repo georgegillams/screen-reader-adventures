@@ -6,7 +6,7 @@ import {
   InputSkeleton,
   CheckboxSkeleton,
   ButtonSkeleton,
-} from 'gg-components/dist/Skeletons';
+} from 'gg-components/Skeletons';
 import STYLES from 'containers/pages.scss';
 
 const getClassName = cssModules(STYLES);

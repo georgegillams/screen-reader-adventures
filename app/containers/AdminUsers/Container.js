@@ -8,18 +8,18 @@ import Skeleton from './Skeleton';
 import generateCsv from './generateCsv';
 import HelperFunctions from 'helpers/HelperFunctions';
 
-import { LoadingIndicator } from 'gg-components/dist/LoadingIndicator';
-import { ArticleCard, ARTICLE_CARD_LAYOUTS } from 'gg-components/dist/Cards';
-import { Button } from 'gg-components/dist/Button';
-import { Section, SubSection, TextLink } from 'gg-components/dist/Typography';
-import { CodeInline } from 'gg-components/dist/Code';
+import { LoadingIndicator } from 'gg-components/LoadingIndicator';
+import { ArticleCard, ARTICLE_CARD_LAYOUTS } from 'gg-components/Cards';
+import { Button } from 'gg-components/Button';
+import { Section, SubSection, TextLink } from 'gg-components/Typography';
+import { CodeInline } from 'gg-components/Code';
 import Ticket from 'components/Ticket';
 import {
   DebugObject,
   APIEntity,
   AdminOnly,
   LoadingCover,
-} from 'gg-components/dist/Auth';
+} from 'gg-components/Auth';
 import { LoginForm } from 'components/Forms';
 import { CookiesOnly } from 'components/Sessions';
 import { downloadStringAsCsv } from 'helpers/clientOperations';

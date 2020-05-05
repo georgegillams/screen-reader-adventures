@@ -4,7 +4,7 @@ import { cssModules } from 'bpk-react-utils';
 
 import STYLES from './deprecation-notice.scss';
 
-import { Section, SubSection, TextLink } from 'gg-components/dist/Typography';
+import { Section, SubSection, TextLink } from 'gg-components/Typography';
 
 const getClassName = cssModules(STYLES);
 

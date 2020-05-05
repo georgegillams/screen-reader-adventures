@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
-import { Section, SubSection, TextLink } from 'gg-components/dist/Typography';
-import { CodeInline } from 'gg-components/dist/Code';
+import { Section, SubSection, TextLink } from 'gg-components/Typography';
+import { CodeInline } from 'gg-components/Code';
 import { GG_EMAIL } from 'helpers/constants';
 
 export default class PaymentsPage extends React.Component {

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Section, TextLink } from 'gg-components/dist/Typography';
+import { Section, TextLink } from 'gg-components/Typography';
 
 import STYLES from './tech-specs.scss';
 import { cssModules } from 'bpk-react-utils';

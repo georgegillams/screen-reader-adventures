@@ -14,7 +14,7 @@
     background-size: cover;
 
     @media (prefers-color-scheme: dark) {
-      background-color: black;
+      background-color: $background-color-elevated-colored-invert;
       border-top: solid white 0.15rem;
     }
   }

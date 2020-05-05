@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 
-import { CompactCardSkeleton, SectionSkeleton } from 'gg-components/dist/Skeletons';
+import { CompactCardSkeleton, SectionSkeleton } from 'gg-components/Skeletons';
 
 const getClassName = c => c;
 

@@ -4,7 +4,10 @@ const redirectNonWWW = (req, res, next) => {
   if (NODE_ENV !== 'production' || PROJECT_UNDER_TEST) {
     next();
   } else {
-    if (req.headers.host.match(/^www/) == null) {
+    if (
+      req.headers.host.match(/^www/) == null &&
+      !req.headers.host.includes('ec2-')
+    ) {
       var newURL = 'https://www.' + req.headers.host + req.url;
       res.redirect(newURL);
     } else {

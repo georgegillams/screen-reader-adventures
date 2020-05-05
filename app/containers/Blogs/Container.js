@@ -9,9 +9,9 @@ import { cssModules } from 'bpk-react-utils';
 import BlogListSkeleton from './BlogListSkeleton';
 import BlogsNav from './BlogsNav';
 
-import { DebugObject, LoadingCover } from 'gg-components/dist/Auth';
+import { DebugObject, LoadingCover } from 'gg-components/Auth';
 import BlogsList from 'components/Blogs';
-import { CreativeCommons } from 'gg-components/dist/CreativeCommons';
+import { CreativeCommons } from 'gg-components/CreativeCommons';
 import STYLES from 'containers/pages.scss';
 
 const getClassName = cssModules(STYLES);

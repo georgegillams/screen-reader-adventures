@@ -5,19 +5,19 @@ import { cssModules } from 'bpk-react-utils';
 
 import Skeleton from './Skeleton';
 
-import { LoadingIndicator } from 'gg-components/dist/LoadingIndicator';
+import { LoadingIndicator } from 'gg-components/LoadingIndicator';
 import BlogsList from 'components/Blogs';
-import { ArticleCard, ARTICLE_CARD_LAYOUTS } from 'gg-components/dist/Cards';
-import { Button } from 'gg-components/dist/Button';
-import { Section, SubSection, TextLink } from 'gg-components/dist/Typography';
-import { CodeInline } from 'gg-components/dist/Code';
+import { ArticleCard, ARTICLE_CARD_LAYOUTS } from 'gg-components/Cards';
+import { Button } from 'gg-components/Button';
+import { Section, SubSection, TextLink } from 'gg-components/Typography';
+import { CodeInline } from 'gg-components/Code';
 import Ticket from 'components/Ticket';
 import {
   DebugObject,
   APIEntity,
   AdminOnly,
   LoadingCover,
-} from 'gg-components/dist/Auth';
+} from 'gg-components/Auth';
 import { CreateBlogForm } from 'components/Forms';
 import STYLES from 'containers/pages.scss';
 
