@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { cssModules } from 'bpk-react-utils';
 import Space from './Space';
-import finishLineFlag from './finish_flag.png';
+import finishLineFlag from './finish-line-flag.svg';
 
 import STYLES from './goal-space.scss';
 
