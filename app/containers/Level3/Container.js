@@ -8,7 +8,7 @@ import STYLES from '../pages.scss';
 
 const getClassName = cssModules(STYLES);
 
-const Level3Page = props => {
+const Container = props => {
   const { className, ...rest } = props;
 
   const outerClassNameFinal = [getClassName('pages__container')];
@@ -40,4 +40,4 @@ const Level3Page = props => {
   );
 };
 
-export default Level3Page;
+export default Container;

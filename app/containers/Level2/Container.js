@@ -8,7 +8,7 @@ import STYLES from '../pages.scss';
 
 const getClassName = cssModules(STYLES);
 
-const Level1Page = props => {
+const Container = props => {
   const { className, ...rest } = props;
 
   const outerClassNameFinal = [getClassName('pages__container')];
@@ -25,20 +25,19 @@ const Level1Page = props => {
       {...rest}
     >
       <LevelWrapper
-        levelNumber={1}
-        description={getCopy('level1Description')}
+        levelNumber={2}
+        description={getCopy('level2Description')}
         level={generateLevelDefinition([
-          ['a', 's', 's', 's', 'a'],
-          ['b', 'b', 'b', 'b', 's'],
-          ['b', 'b', 'b', 'b', 's'],
-          ['b', 'b', 'b', 'b', 's'],
-          ['b', 'b', 'b', 'b', 'g'],
+          ['a', 's', 's', 's', 's', 's', 'a'],
+          ['b', 'b', 'b', 's', 'b', 'b', 'b'],
+          ['b', 'b', 'b', 's', 'b', 'b', 'b'],
+          ['b', 'b', 'b', 'g', 'b', 'b', 'b'],
         ])}
         startSpace={{ x: 0, y: 0 }}
-        monsterPositions={[]}
+        monsterPositions={[{ x: 0, y: 4, moves: 'none' }]}
       />
     </div>
   );
 };
 
-export default Level1Page;
+export default Container;
