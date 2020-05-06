@@ -45,7 +45,8 @@ class SetupIos extends React.Component {
             darkSrc={VoiceOverWelcome}
           />
           To enable VoiceOver, hold command and press F5. (if you have a
-          TouchBar device, you&apos;ll need to also hold Fn to show the F-keys.)
+          TouchBar device, you can press the power button 3 times to bring up
+          accessibility options.)
           <br />
           <br />
           You&apos;ll see that the webpage has been highlighted with a black and
@@ -61,12 +62,14 @@ class SetupIos extends React.Component {
             lightSrc={VoiceOverSafari_light}
             darkSrc={VoiceOverSafari}
           />
-          To move down, into the page, hold shift+ctrl+option and press down. To
-          move between elements within the page hold shift+ctrl+option and tap
-          the left and right keys.
+          VoiceOver navigation is 3D, meaning you can move out to large elements
+          (eg an entire app) or in to more specifics (eg an individual character
+          of a word). To move into the structure of the page, hold
+          shift+ctrl+option and press down. To move between elements within the
+          page hold shift+ctrl+option and tap the left and right keys.
           <br />
           <br />
-          Generally, up and down is used to move our of the current container,
+          Generally, up and down is used to move out of the current container,
           or move deeper into the content. Left and right are used to switch
           between elements and controls at the same level.
           <br />
