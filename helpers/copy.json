@@ -15,7 +15,7 @@
     "Android": "Let's see how well you can do without seeing any of the level. You'll still be shown outlines which will give you some idea where you're navigating has gone."
   },
   "level4Description": {
-    "macOS": "Navigating through every element can be slow. Sometimes we want to jump between sections of a page. INSERT INSTRUCTIONS HERE. Now you can jump straight to the next heading, which should speed up navigation.",
+    "macOS": "Navigating through every element can be slow. Sometimes we want to jump between sections of a page. By pressing ctrl+option+cmd and H, we can jump straight to the next heading, which should speed up navigation.",
     "iOS": "Navigating through every element can be slow. Sometimes we want to jump between sections of a page. Use two fingers to perform a twist motion on your screen until you hear \"Headings\". Now you can swipe up and down to jump between headings, which should speed up navigation.",
     "Android": "Navigating through every element can be slow. Sometimes we want to jump between sections of a page. Use two fingers to perform a twist motion on your screen until you hear \"Headings\". Now you can swipe up and down to jump between headings, which should speed up navigation."
   },
