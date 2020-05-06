@@ -10,7 +10,11 @@ const OilSpill = props => {
   const { className, ...rest } = props;
 
   return (
-    <div className={getClassName('oil-spill__outer', className)} {...rest}>
+    <div
+      aria-hidden={true}
+      className={getClassName('oil-spill__outer', className)}
+      {...rest}
+    >
       <svg
         viewBox="0 0 1583 2008"
         xmlns="http://www.w3.org/2000/svg"
