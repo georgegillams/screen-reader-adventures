@@ -3,6 +3,7 @@ import Helmet from 'react-helmet';
 import { Section, SubSection, TextLink } from 'gg-components/Typography';
 import Image from 'components/Image';
 import { Button } from 'gg-components/Button';
+import { setPlatform } from 'helpers/storageHelpers';
 import VoiceOverWelcome from './VoiceOverWelcome.png';
 import VoiceOverWelcome_light from './VoiceOverWelcome_light.png';
 import VoiceOverSafari from './VoiceOverSafari.png';
@@ -17,6 +18,10 @@ class SetupIos extends React.Component {
     super(props);
 
     this.state = {};
+  }
+
+  componentDidMount() {
+    setPlatform('macOS');
   }
 
   render() {

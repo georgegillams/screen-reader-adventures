@@ -4,6 +4,7 @@ import BpkImage, {
   withLazyLoading,
   withLoadingBehavior,
 } from 'bpk-component-image';
+import { setPlatform } from 'helpers/storageHelpers';
 import { Section, SubSection, TextLink } from 'gg-components/Typography';
 import { Button } from 'gg-components/Button';
 
@@ -21,6 +22,10 @@ class SetupIos extends React.Component {
     super(props);
 
     this.state = {};
+  }
+
+  componentDidMount() {
+    setPlatform('iOS');
   }
 
   render() {

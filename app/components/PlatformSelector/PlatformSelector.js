@@ -1,18 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Paragraph } from 'gg-components/Typography';
 import { ArticleCard, ARTICLE_CARD_LAYOUTS } from 'gg-components/Cards';
-import { setPlatform } from 'helpers/storageHelpers';
 import STYLES from 'containers/pages.scss';
 import { cssModules } from 'bpk-react-utils';
 const getClassName = cssModules(STYLES);
 
 const PlatformSelector = props => {
   const { ...rest } = props;
-
-  const onSelect = selected => {
-    setPlatform(selected);
-    window.location = `/setup/${selected}`;
-  };
 
   return (
     <div className={getClassName('pages__container')} {...rest}>
@@ -23,12 +18,10 @@ const PlatformSelector = props => {
           month={null}
           className={getClassName('pages__card')}
           // fillImageSrc="https://i.imgur.com/3n68rkf.jpg"
-          onClick={() => {
-            onSelect('iOS');
-          }}
+          linkUrl="/setup/iOS"
           title="iOS"
         >
-          Select to learn with VoiceOver for iOS
+          <Paragraph>Select to learn with VoiceOver for iOS</Paragraph>
         </ArticleCard>
         <ArticleCard
           layout={ARTICLE_CARD_LAYOUTS.narrowCompact}
@@ -36,12 +29,10 @@ const PlatformSelector = props => {
           month={null}
           className={getClassName('pages__card')}
           // fillImageSrc="https://i.imgur.com/3n68rkf.jpg"
-          onClick={() => {
-            onSelect('macOS');
-          }}
+          linkUrl="/setup/macOS"
           title="macOS"
         >
-          Select to learn with VoiceOver for macOS
+          <Paragraph>Select to learn with VoiceOver for macOS</Paragraph>
         </ArticleCard>
         <ArticleCard
           layout={ARTICLE_CARD_LAYOUTS.narrowCompact}
@@ -49,12 +40,10 @@ const PlatformSelector = props => {
           month={null}
           className={getClassName('pages__card')}
           // fillImageSrc="https://i.imgur.com/3n68rkf.jpg"
-          onClick={() => {
-            onSelect('Android');
-          }}
+          linkUrl="/setup/Android"
           title="Android"
         >
-          Select to learn with TalkBack for Android
+          <Paragraph>Select to learn with TalkBack for Android</Paragraph>
         </ArticleCard>
       </div>
     </div>
