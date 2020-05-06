@@ -5,7 +5,8 @@ import { Helmet } from 'react-helmet';
 import { PageTitle, Paragraph } from 'gg-components/Typography';
 import { Button } from 'gg-components/Button';
 import UntappableScrim from 'components/Scrim';
-import GameOver from './GameOver.js';
+import GameOver from './GameOver';
+import OilSpill from './OilSpill';
 import {
   OpenSpace,
   Space,
@@ -32,11 +33,13 @@ export default class LevelWrapper extends Component {
       .isRequired,
     description: PropTypes.string,
     monsterPositions: PropTypes.array,
+    oilSpills: PropTypes.array,
   };
 
   static defaultProps = {
     description: null,
     monsterPositions: [],
+    oilSpills: [],
   };
 
   constructor(props) {
@@ -118,14 +121,6 @@ export default class LevelWrapper extends Component {
     this.checkCharacterDeath(this.state.characterGamePos, newMonsterPos);
   };
 
-  getSquareOnScreen = (x, y) => {
-    return this.get3DEntityOnScreen(x, y, this.spaceRefs);
-  };
-
-  getMonsterOnScreen = (x, y) => {
-    return this.get3DEntityOnScreen(x, y, this.monsterRefs);
-  };
-
   get3DEntityOnScreen = (x, y, references) => {
     if (
       references &&
@@ -139,6 +134,14 @@ export default class LevelWrapper extends Component {
     }
 
     return null;
+  };
+
+  getSquareOnScreen = (x, y) => {
+    return this.get3DEntityOnScreen(x, y, this.spaceRefs);
+  };
+
+  getMonsterOnScreen = (x, y) => {
+    return this.get3DEntityOnScreen(x, y, this.monsterRefs);
   };
 
   moveCharacter = (xOverride, yOverride) => {
@@ -221,23 +224,36 @@ export default class LevelWrapper extends Component {
     }
   };
 
+  getSquareScreenPosition = (x, y) => {
+    const squareRef = this.getSquareOnScreen(x, y);
+    if (!squareRef) {
+      return null;
+    }
+    const result = {};
+    const square = findDOMNode(squareRef.current);
+    result.left = square.offsetLeft;
+    result.top = square.offsetTop;
+    return result;
+  };
+
+  getOilSpillStyle = os => {
+    const style = {};
+    style.left = `${os.x * 2}rem`;
+    style.top = `${os.y * 2}rem`;
+    style.width = `${os.width * 2}rem`;
+    style.height = `${os.height * 2}rem`;
+    return style;
+  };
+
   getCharacterScreenPosition = () => {
     const characterPosition = this.state.characterGamePos;
     if (!characterPosition) {
       return;
     }
-    const result = {};
-    const squareRef = this.getSquareOnScreen(
+    return this.getSquareScreenPosition(
       characterPosition.x,
       characterPosition.y,
     );
-    if (!squareRef) {
-      return;
-    }
-    const square = findDOMNode(squareRef.current);
-    result.left = square.offsetLeft;
-    result.top = square.offsetTop;
-    return result;
   };
 
   getMonsterScreenPosition = monsterNumber => {
@@ -245,18 +261,7 @@ export default class LevelWrapper extends Component {
     if (!monsterPosition) {
       return;
     }
-    const result = {};
-    const squareRef = this.getSquareOnScreen(
-      monsterPosition.x,
-      monsterPosition.y,
-    );
-    if (!squareRef) {
-      return;
-    }
-    const square = findDOMNode(squareRef.current);
-    result.left = square.offsetLeft;
-    result.top = square.offsetTop;
-    return result;
+    return this.getSquareScreenPosition(monsterPosition.x, monsterPosition.y);
   };
 
   tabIndexForSpace = (x, y) => {
@@ -330,6 +335,7 @@ export default class LevelWrapper extends Component {
       levelNumber,
       description,
       monsterPositions,
+      oilSpills,
       level,
       ...rest
     } = this.props;
@@ -360,6 +366,9 @@ export default class LevelWrapper extends Component {
             ref={this.character}
             style={this.getCharacterScreenPosition()}
           />
+          {oilSpills.map((oS, i) => {
+            return <OilSpill style={this.getOilSpillStyle(oS)} />;
+          })}
           {monsterPositions.map((mP, i) => {
             const monsterRef = this.createMonsterRef(mP.x, mP.y);
             return (
@@ -378,7 +387,7 @@ export default class LevelWrapper extends Component {
                   spaceNumber += 1;
                   return (
                     <Space
-                      tabindex={this.tabIndexForSpace(spaceDef.x, spaceDef.y)}
+                      tabIndex={this.tabIndexForSpace(spaceDef.x, spaceDef.y)}
                       aria-hidden={this.spaceIsAriaHidden(
                         spaceDef.x,
                         spaceDef.y,
@@ -396,7 +405,7 @@ export default class LevelWrapper extends Component {
                   inputNumber += 1;
                   return (
                     <InputSpace
-                      tabindex={this.tabIndexForSpace(spaceDef.x, spaceDef.y)}
+                      tabIndex={this.tabIndexForSpace(spaceDef.x, spaceDef.y)}
                       aria-hidden={this.spaceIsAriaHidden(
                         spaceDef.x,
                         spaceDef.y,
@@ -440,7 +449,7 @@ export default class LevelWrapper extends Component {
                   }
                   return (
                     <GoalSpace
-                      tabindex={this.tabIndexForSpace(spaceDef.x, spaceDef.y)}
+                      tabIndex={this.tabIndexForSpace(spaceDef.x, spaceDef.y)}
                       aria-hidden={this.spaceIsAriaHidden(
                         spaceDef.x,
                         spaceDef.y,

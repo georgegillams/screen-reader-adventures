@@ -6,3 +6,4 @@ export BlankSpace from './BlankSpace';
 export ParagraphSpace from './ParagraphSpace';
 export InputSpace from './InputSpace';
 export GameOver from './GameOver';
+export OilSpill from './OilSpill';
