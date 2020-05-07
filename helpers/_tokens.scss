@@ -1,15 +1,31 @@
 @import '~gg-components/Tokens/common';
 
-// Override or define new tokens here:
-$primary-color-light: lightblue;
-$primary-color-transparent: rgba(30, 50, 200, 0.15);
-$primary-color: #5a489b;
-$primary-color-dark: #8e7bd3;
-$primary-color-invert: white;
-$primary-color-dark-invert: white;
-$destructive-color: #e02626;
-$destructive-color-dark: #a01b1b;
-$character-move-speed: 0.4s;
+// SRA brand colors:
+$really-really-dark-purple: #2f2552;
+$really-dark-purple: #423574;
+$dark-purple: #5a489b;
+$light-purple: #8e7bd3;
+
+// Override tokens:
+$primary-color-dark-invert: $light-purple;
+$primary-color-dark: $dark-purple;
+$primary-color-invert: $light-purple;
+$primary-color-light: $light-purple;
+$primary-color-transparent: rgba(90, 72, 155, 0.15);
+$primary-color: $light-purple;
+
+$cta-color-dark-invert: $really-really-dark-purple;
+$cta-color-dark: $really-really-dark-purple;
+$cta-color-invert: $really-dark-purple;
+$cta-color: $really-dark-purple;
+
+$link-color: $dark-purple;
+$link-color-invert: $light-purple;
+$link-color-hover: $primary-color;
+
+$checkbox-tick-color: $primary-color;
+$segmented-control-selected-color: $link-color;
+
+// Define other app-specific tokens:
 $space-dimension: 2rem;
-$link-color: #5a489b;
-$link-color-invert: #8e7bd3;
+$character-move-speed: 0.4s;
