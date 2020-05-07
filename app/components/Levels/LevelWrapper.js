@@ -436,6 +436,7 @@ export default class LevelWrapper extends Component {
                 if (spaceDef.type === 'p') {
                   return (
                     <ParagraphSpace
+                      ref={spaceRef}
                       aria-hidden={this.spaceIsAriaHidden(
                         spaceDef.x,
                         spaceDef.y,
