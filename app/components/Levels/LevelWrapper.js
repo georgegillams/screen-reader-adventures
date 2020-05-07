@@ -424,7 +424,11 @@ export default class LevelWrapper extends Component {
                   );
                 }
                 if (spaceDef.type === 's') {
-                  return <OpenSpace spaceNumber={spaceNumber} ref={spaceRef} />;
+                  return (
+                    <OpenSpace spaceNumber={spaceNumber} ref={spaceRef}>
+                      {spaceDef.subElements}
+                    </OpenSpace>
+                  );
                 }
                 if (spaceDef.type === 'b') {
                   return <BlankSpace spaceNumber={spaceNumber} />;

@@ -17,12 +17,20 @@ const Container = props => {
     ['b', 'b', 'b', 'a', 's', 'i', 's', 'g'],
   ]);
 
+  // TODO Move to helpers
+  const squareFromGameState = (gameState, x, y) => {
+    if (gameState && gameState[x] && gameState[x][y]) {
+      return gameState[x][y];
+    }
+    return null;
+  };
+
   // Goal square is 4 down, 7 across
   // Input square is 4 down, 5 across
-  // TODO Write a helper for getting a gameState or levelPostition which returns null if any of these aren't satisfied
   levelDefinition[4][7].condition = gameState => {
-    if (gameState && gameState[4] && gameState[4][5] && gameState[4][5].value) {
-      return gameState[4][5].value === 'something';
+    const gameStateSquare = squareFromGameState(gameState, 4, 5);
+    if (gameStateSquare && gameStateSquare.value) {
+      return gameStateSquare.value === 'something';
     }
     return false;
   };

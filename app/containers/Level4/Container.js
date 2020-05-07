@@ -1,5 +1,5 @@
 import React from 'react';
-import LevelWrapper from 'components/Levels';
+import LevelWrapper, { SubParagraph, SubHeading } from 'components/Levels';
 import { getCopy } from 'helpers/copyHelpers';
 import { generateLevelDefinition } from 'helpers/gameLogic';
 import { cssModules } from 'bpk-react-utils';
@@ -19,20 +19,50 @@ const Container = props => {
     ['g'],
   ]);
 
-  // Goal square is 4 down, 7 across
-  // Input square is 4 down, 5 across
-  // TODO Write a helper for getting a gameState or levelPostition which returns null if any of these aren't satisfied
-  //  levelDefinition[4][7].condition = gameState => {
-  //    if (gameState && gameState[4] && gameState[4][5] && gameState[4][5].value) {
-  //      return gameState[4][5].value === 'something';
-  //    }
-  //    return false;
-  //  };
-  //
-  //  // Paragraph square is 2 down, 3 across
-  //  levelDefinition[2][3].text =
-  //    'Some words must be entered, some text you must write. Try typing something, for that should suffice.';
-  //
+  // First content square is 1 down, 0 across
+  levelDefinition[1][0].subElements = [
+    <SubParagraph>These</SubParagraph>,
+    <SubParagraph>aren&apos;t</SubParagraph>,
+    <SubParagraph>the</SubParagraph>,
+    <SubParagraph>droids</SubParagraph>,
+    <SubParagraph>you&apos;re</SubParagraph>,
+    <SubParagraph>looking</SubParagraph>,
+    <SubParagraph>for</SubParagraph>,
+  ];
+
+  // First content square is 2 down, 0 across
+  levelDefinition[2][0].subElements = [
+    <SubParagraph>He</SubParagraph>,
+    <SubParagraph>can</SubParagraph>,
+    <SubParagraph>go</SubParagraph>,
+    <SubParagraph>about</SubParagraph>,
+    <SubParagraph>his</SubParagraph>,
+    <SubParagraph>business.</SubParagraph>,
+    <SubHeading>Move along!</SubHeading>,
+  ];
+
+  // First content square is 4 down, 0 across
+  levelDefinition[4][0].subElements = [
+    <SubParagraph>These</SubParagraph>,
+    <SubParagraph>aren&apos;t</SubParagraph>,
+    <SubParagraph>the</SubParagraph>,
+    <SubParagraph>droids</SubParagraph>,
+    <SubParagraph>you&apos;re</SubParagraph>,
+    <SubParagraph>looking</SubParagraph>,
+    <SubParagraph>for</SubParagraph>,
+  ];
+
+  // First content square is 5 down, 0 across
+  levelDefinition[5][0].subElements = [
+    <SubParagraph>He</SubParagraph>,
+    <SubParagraph>can</SubParagraph>,
+    <SubParagraph>go</SubParagraph>,
+    <SubParagraph>about</SubParagraph>,
+    <SubParagraph>his</SubParagraph>,
+    <SubParagraph>business.</SubParagraph>,
+    <SubHeading>Move along!</SubHeading>,
+  ];
+
   return (
     <LevelWrapper
       levelNumber={4}
