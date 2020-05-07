@@ -11,6 +11,7 @@ import fileupload from 'express-fileupload';
 import SocketIo from 'socket.io';
 import cookieParser from 'cookie-parser';
 import helmet from 'helmet';
+import slowDown from 'express-slow-down';
 import {
   DOMAIN,
   SESSION_SECRET,
@@ -32,6 +33,28 @@ const server = new http.Server(app);
 
 const io = new SocketIo(server);
 io.path('/ws');
+
+// trust the first proxy, as this will be nginx forwarding requests to us.
+app.set('trust proxy', 1);
+
+// Rate limiting:
+app.use(
+  slowDown({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    delayAfter: 100, // allow 100 requests per 15 minutes, then...
+    delayMs: 500, // begin adding 500ms of delay per request above 100:
+    maxDelayMs: 20000, // begin adding 500ms of delay per request above 100:
+    // request # 1 no delay
+    // ...
+    // request # 100 no delay
+    // request # 101 is delayed by  500ms
+    // request # 102 is delayed by 1000ms
+    // request # 103 is delayed by 1500ms
+    // ...
+    // request # 140 is delayed by 20s
+    // request # 141 is delayed by 20s <-- won't exceed 20s delay
+  }),
+);
 
 if (process.env.NODE_ENV === 'production' && !PROJECT_UNDER_TEST) {
   app.use(helmet());
