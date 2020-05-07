@@ -1,10 +1,12 @@
 import React, { Fragment, Component } from 'react';
+import PropTypes from 'prop-types';
 import { findDOMNode } from 'react-dom';
 import { Helmet } from 'react-helmet';
-import { Section } from 'gg-components/Typography';
+import { PageTitle, Paragraph } from 'gg-components/Typography';
 import { Button } from 'gg-components/Button';
 import UntappableScrim from 'components/Scrim';
-import GameOver from './GameOver.js';
+import GameOver from './GameOver';
+import OilSpill from './OilSpill';
 import {
   OpenSpace,
   Space,
@@ -19,10 +21,27 @@ import { cssModules } from 'bpk-react-utils';
 import Character from './Character';
 import Monster from './Monster';
 import STYLES from './level-wrapper.scss';
+import PAGE_STYLES from 'containers/pages.scss';
 
-const getClassName = cssModules(STYLES);
+const getClassName = cssModules({ ...STYLES, ...PAGE_STYLES });
 
 export default class LevelWrapper extends Component {
+  static propTypes = {
+    level: PropTypes.object.isRequired,
+    levelNumber: PropTypes.number.isRequired,
+    startSpace: PropTypes.shape({ x: PropTypes.number, y: PropTypes.number })
+      .isRequired,
+    description: PropTypes.string,
+    monsterPositions: PropTypes.array,
+    oilSpills: PropTypes.array,
+  };
+
+  static defaultProps = {
+    description: null,
+    monsterPositions: [],
+    oilSpills: [],
+  };
+
   constructor(props) {
     super(props);
 
@@ -48,7 +67,7 @@ export default class LevelWrapper extends Component {
 
     this.setState({
       characterGamePos: startSpace || { x: 0, y: 0 },
-      monsterGamePos: monsterPositions || [],
+      monsterGamePos: [],
       gameState: level || [],
     });
 
@@ -102,14 +121,6 @@ export default class LevelWrapper extends Component {
     this.checkCharacterDeath(this.state.characterGamePos, newMonsterPos);
   };
 
-  getSquareOnScreen = (x, y) => {
-    return this.get3DEntityOnScreen(x, y, this.spaceRefs);
-  };
-
-  getMonsterOnScreen = (x, y) => {
-    return this.get3DEntityOnScreen(x, y, this.monsterRefs);
-  };
-
   get3DEntityOnScreen = (x, y, references) => {
     if (
       references &&
@@ -123,6 +134,14 @@ export default class LevelWrapper extends Component {
     }
 
     return null;
+  };
+
+  getSquareOnScreen = (x, y) => {
+    return this.get3DEntityOnScreen(x, y, this.spaceRefs);
+  };
+
+  getMonsterOnScreen = (x, y) => {
+    return this.get3DEntityOnScreen(x, y, this.monsterRefs);
   };
 
   moveCharacter = (xOverride, yOverride) => {
@@ -205,23 +224,36 @@ export default class LevelWrapper extends Component {
     }
   };
 
+  getSquareScreenPosition = (x, y) => {
+    const squareRef = this.getSquareOnScreen(x, y);
+    if (!squareRef) {
+      return null;
+    }
+    const result = {};
+    const square = findDOMNode(squareRef.current);
+    result.left = square.offsetLeft;
+    result.top = square.offsetTop;
+    return result;
+  };
+
+  getOilSpillStyle = os => {
+    const style = {};
+    style.left = `${os.x * 2}rem`;
+    style.top = `${os.y * 2}rem`;
+    style.width = `${os.width * 2}rem`;
+    style.height = `${os.height * 2}rem`;
+    return style;
+  };
+
   getCharacterScreenPosition = () => {
     const characterPosition = this.state.characterGamePos;
     if (!characterPosition) {
       return;
     }
-    const result = {};
-    const squareRef = this.getSquareOnScreen(
+    return this.getSquareScreenPosition(
       characterPosition.x,
       characterPosition.y,
     );
-    if (!squareRef) {
-      return;
-    }
-    const square = findDOMNode(squareRef.current);
-    result.left = square.offsetLeft;
-    result.top = square.offsetTop;
-    return result;
   };
 
   getMonsterScreenPosition = monsterNumber => {
@@ -229,22 +261,36 @@ export default class LevelWrapper extends Component {
     if (!monsterPosition) {
       return;
     }
-    const result = {};
-    const squareRef = this.getSquareOnScreen(
-      monsterPosition.x,
-      monsterPosition.y,
-    );
-    if (!squareRef) {
-      return;
-    }
-    const square = findDOMNode(squareRef.current);
-    result.left = square.offsetLeft;
-    result.top = square.offsetTop;
-    return result;
+    return this.getSquareScreenPosition(monsterPosition.x, monsterPosition.y);
   };
 
-  spaceIsDisabled = (x, y) =>
-    this.state.characterGamePos.x !== x && this.state.characterGamePos.y !== y;
+  tabIndexForSpace = (x, y) => {
+    if (this.spaceIsAriaHidden(x, y)) {
+      return -1;
+    }
+    return 0;
+  };
+
+  spaceIsAriaHidden = (x, y) => {
+    if (this.state.gameOver) {
+      return true;
+    }
+    if (this.state.levelComplete) {
+      return true;
+    }
+
+    return false;
+  };
+
+  spaceIsDisabled = (x, y) => {
+    if (this.spaceIsAriaHidden(x, y)) {
+      return true;
+    }
+
+    return (
+      this.state.characterGamePos.x !== x && this.state.characterGamePos.y !== y
+    );
+  };
 
   // TODO Avoid creating refs on everysingle render - it is innefficient!
   // Refs should be created for spaces and monsters in the constructor
@@ -289,6 +335,7 @@ export default class LevelWrapper extends Component {
       levelNumber,
       description,
       monsterPositions,
+      oilSpills,
       level,
       ...rest
     } = this.props;
@@ -299,21 +346,29 @@ export default class LevelWrapper extends Component {
     const gameOverComp = <GameOver />;
 
     return (
-      <Section
+      <PageTitle
         name={`Level ${levelNumber}`}
-        className={getClassName('level-wrapper__outer')}
+        className={[
+          getClassName('pages__container--centered'),
+          getClassName('level-wrapper__outer'),
+        ].join(' ')}
         {...rest}
       >
         <Helmet title={`Level ${levelNumber}`} />
         <UntappableScrim />
-        <span className={getClassName('level-wrapper__description')}>
-          {description}
-        </span>
+        {description && (
+          <Paragraph className={getClassName('level-wrapper__description')}>
+            {description}
+          </Paragraph>
+        )}
         <div className={getClassName('level-wrapper__level')}>
           <Character
             ref={this.character}
             style={this.getCharacterScreenPosition()}
           />
+          {oilSpills.map((oS, i) => {
+            return <OilSpill style={this.getOilSpillStyle(oS)} />;
+          })}
           {monsterPositions.map((mP, i) => {
             const monsterRef = this.createMonsterRef(mP.x, mP.y);
             return (
@@ -332,6 +387,11 @@ export default class LevelWrapper extends Component {
                   spaceNumber += 1;
                   return (
                     <Space
+                      tabIndex={this.tabIndexForSpace(spaceDef.x, spaceDef.y)}
+                      aria-hidden={this.spaceIsAriaHidden(
+                        spaceDef.x,
+                        spaceDef.y,
+                      )}
                       disabled={this.spaceIsDisabled(spaceDef.x, spaceDef.y)}
                       spaceNumber={spaceNumber}
                       ref={spaceRef}
@@ -345,6 +405,11 @@ export default class LevelWrapper extends Component {
                   inputNumber += 1;
                   return (
                     <InputSpace
+                      tabIndex={this.tabIndexForSpace(spaceDef.x, spaceDef.y)}
+                      aria-hidden={this.spaceIsAriaHidden(
+                        spaceDef.x,
+                        spaceDef.y,
+                      )}
                       disabled={this.spaceIsDisabled(spaceDef.x, spaceDef.y)}
                       inputNumber={inputNumber}
                       vaulue={this.getInputValue(spaceDef.x, spaceDef.y)}
@@ -359,13 +424,26 @@ export default class LevelWrapper extends Component {
                   );
                 }
                 if (spaceDef.type === 's') {
-                  return <OpenSpace spaceNumber={spaceNumber} ref={spaceRef} />;
+                  return (
+                    <OpenSpace spaceNumber={spaceNumber} ref={spaceRef}>
+                      {spaceDef.subElements}
+                    </OpenSpace>
+                  );
                 }
                 if (spaceDef.type === 'b') {
                   return <BlankSpace spaceNumber={spaceNumber} />;
                 }
                 if (spaceDef.type === 'p') {
-                  return <ParagraphSpace text={spaceDef.text} />;
+                  return (
+                    <ParagraphSpace
+                      ref={spaceRef}
+                      aria-hidden={this.spaceIsAriaHidden(
+                        spaceDef.x,
+                        spaceDef.y,
+                      )}
+                      text={spaceDef.text}
+                    />
+                  );
                 }
                 if (spaceDef.type === 'g') {
                   spaceNumber += 1;
@@ -376,6 +454,11 @@ export default class LevelWrapper extends Component {
                   }
                   return (
                     <GoalSpace
+                      tabIndex={this.tabIndexForSpace(spaceDef.x, spaceDef.y)}
+                      aria-hidden={this.spaceIsAriaHidden(
+                        spaceDef.x,
+                        spaceDef.y,
+                      )}
                       disabled={disabled}
                       spaceNumber={spaceNumber}
                       onVisit={() => this.onLevelComplete()}
@@ -398,7 +481,7 @@ export default class LevelWrapper extends Component {
         >
           Continue to level {levelNumber + 1}
         </Button>
-      </Section>
+      </PageTitle>
     );
   }
 }

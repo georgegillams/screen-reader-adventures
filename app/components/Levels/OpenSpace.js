@@ -18,6 +18,7 @@ export default class OpenSpace extends Component {
       >
         <div className={getClassName('space__drop')} />
         <div className={getClassName('space__drop', 'space__drop--slide')} />
+        {children}
       </div>
     );
   }

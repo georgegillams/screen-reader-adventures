@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Section, SubSection, TextLink } from 'gg-components/Typography';
-
-import STYLES from './not-found.scss';
 import { cssModules } from 'bpk-react-utils';
-const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
-class EndOfGame extends Component {
+import STYLES from '../pages.scss';
+const getClassName = cssModules(STYLES);
+
+class Container extends Component {
   render() {
     const { className, ...rest } = this.props;
-    const classNameFinal = [getClassName('not-found__container')];
+    const classNameFinal = [getClassName('pages__container--centered')];
     if (className) {
       classNameFinal.push(className);
     }
@@ -30,12 +30,12 @@ class EndOfGame extends Component {
   }
 }
 
-EndOfGame.propTypes = {
+Container.propTypes = {
   className: PropTypes.string,
 };
 
-EndOfGame.defaultProps = {
+Container.defaultProps = {
   className: null,
 };
 
-export default EndOfGame;
+export default Container;

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import PlatformSelector from 'components/PlatformSelector';
+import { PageTitle, Paragraph } from 'gg-components/Typography';
 import STYLES from 'containers/pages.scss';
 import { cssModules } from 'bpk-react-utils';
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
@@ -13,14 +14,16 @@ export default class HomePage extends React.PureComponent {
     const { user } = this.props;
 
     return (
-      <div
-        className={`${getClassName('pages__container')} ${getClassName(
-          'pages__container--centered',
-        )}`}
+      <PageTitle
+        name="Welcome 👋"
+        className={getClassName('pages__container--centered')}
       >
         <Helmet title="Home" />
+        <Paragraph style={{ marginBottom: '4rem' }}>
+          To get started, select the platform you wish to learn on.
+        </Paragraph>
         <PlatformSelector />
-      </div>
+      </PageTitle>
     );
   }
 }
