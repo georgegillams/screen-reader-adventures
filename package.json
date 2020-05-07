@@ -86,6 +86,7 @@
     "express-session": "^1.17.0",
     "fontfaceobserver": "2.1.0",
     "gg-components": "^1.8.0",
+    "helmet": "^3.22.0",
     "heroku-ssl-redirect": "0.0.4",
     "history": "4.10.1",
     "hoist-non-react-statics": "3.3.1",

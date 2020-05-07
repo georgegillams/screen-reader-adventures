@@ -10,8 +10,13 @@ import bodyParser from 'body-parser';
 import fileupload from 'express-fileupload';
 import SocketIo from 'socket.io';
 import cookieParser from 'cookie-parser';
-import sslRedirect from 'heroku-ssl-redirect';
-import { SITE_URL, PROJECT_UNDER_TEST } from 'helpers/constants';
+import helmet from 'helmet';
+import {
+  DOMAIN,
+  SESSION_SECRET,
+  SITE_URL,
+  PROJECT_UNDER_TEST,
+} from 'helpers/constants';
 
 import logger from './util//logger';
 import seo from './seo';
@@ -29,6 +34,7 @@ const io = new SocketIo(server);
 io.path('/ws');
 
 if (process.env.NODE_ENV === 'production' && !PROJECT_UNDER_TEST) {
+  app.use(helmet());
   app.use(
     cors({
       origin: SITE_URL,
@@ -42,10 +48,10 @@ app.use(redirectNonWWW);
 app.use(greasemonkey);
 app.use(
   session({
-    secret: 'react and redux rule!!!!',
+    secret: SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-    cookie: { maxAge: 60000 },
+    cookie: { secure: true, httpOnly: true, domain: DOMAIN, maxAge: 60000 },
   }),
 );
 app.use(bodyParser.json());

@@ -55,6 +55,7 @@ To host this on Heroku, you will need to add the [Heroku-redis Add-on](https://d
 | NODE_ENV            | Makes the magic happen                 | `production`                                         |
 | REDIS_URL           | To access the redis database           | \<Created by the Add-on\>                            |
 | SECRET_API_KEY      | Used to make admin API requests        | Anything secret and impossible to guess              |
+| SESSION_SECRET      | Used to sign cookies                   | Anything secret and impossible to guess              |
 
 ## Contributing
 Contributions are welcome. Please fork and submit a PR if you want to add or change a feature.
