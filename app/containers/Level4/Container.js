@@ -13,7 +13,6 @@ const Container = props => {
     ['s'],
     ['s'],
     ['s'],
-    ['a'],
     ['s'],
     ['s'],
     ['g'],
@@ -41,8 +40,8 @@ const Container = props => {
     <SubHeading>Move along!</SubHeading>,
   ];
 
-  // First content square is 4 down, 0 across
-  levelDefinition[4][0].subElements = [
+  // First content square is 3 down, 0 across
+  levelDefinition[3][0].subElements = [
     <SubParagraph>These</SubParagraph>,
     <SubParagraph>aren&apos;t</SubParagraph>,
     <SubParagraph>the</SubParagraph>,
@@ -52,8 +51,8 @@ const Container = props => {
     <SubParagraph>for</SubParagraph>,
   ];
 
-  // First content square is 5 down, 0 across
-  levelDefinition[5][0].subElements = [
+  // First content square is 4 down, 0 across
+  levelDefinition[4][0].subElements = [
     <SubParagraph>He</SubParagraph>,
     <SubParagraph>can</SubParagraph>,
     <SubParagraph>go</SubParagraph>,
