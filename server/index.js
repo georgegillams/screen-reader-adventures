@@ -53,6 +53,12 @@ app.use(
     // ...
     // request # 140 is delayed by 20s
     // request # 141 is delayed by 20s <-- won't exceed 20s delay
+    skip: req => {
+      if (req.originalUrl.includes('api')) {
+        return false;
+      }
+      return true;
+    },
   }),
 );
 
