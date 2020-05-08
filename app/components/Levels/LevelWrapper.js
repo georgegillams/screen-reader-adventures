@@ -265,13 +265,18 @@ export default class LevelWrapper extends Component {
   };
 
   tabIndexForSpace = (x, y) => {
-    if (this.spaceIsAriaHidden(x, y)) {
+    if (this.spaceIsAriaHidden(null, x, y)) {
       return -1;
     }
     return 0;
   };
 
-  spaceIsAriaHidden = (x, y) => {
+  spaceIsAriaHidden = (type, x, y) => {
+    // goal is never hidden
+    if (type === 'g') {
+      return false;
+    }
+
     if (this.state.gameOver) {
       return true;
     }
@@ -282,8 +287,8 @@ export default class LevelWrapper extends Component {
     return false;
   };
 
-  spaceIsDisabled = (x, y) => {
-    if (this.spaceIsAriaHidden(x, y)) {
+  spaceIsDisabled = (type, x, y) => {
+    if (this.spaceIsAriaHidden(type, x, y)) {
       return true;
     }
 
@@ -389,10 +394,15 @@ export default class LevelWrapper extends Component {
                     <Space
                       tabIndex={this.tabIndexForSpace(spaceDef.x, spaceDef.y)}
                       aria-hidden={this.spaceIsAriaHidden(
+                        spaceDef.type,
                         spaceDef.x,
                         spaceDef.y,
                       )}
-                      disabled={this.spaceIsDisabled(spaceDef.x, spaceDef.y)}
+                      disabled={this.spaceIsDisabled(
+                        spaceDef.type,
+                        spaceDef.x,
+                        spaceDef.y,
+                      )}
                       spaceNumber={spaceNumber}
                       ref={spaceRef}
                       onClick={() =>
@@ -407,10 +417,15 @@ export default class LevelWrapper extends Component {
                     <InputSpace
                       tabIndex={this.tabIndexForSpace(spaceDef.x, spaceDef.y)}
                       aria-hidden={this.spaceIsAriaHidden(
+                        spaceDef.type,
                         spaceDef.x,
                         spaceDef.y,
                       )}
-                      disabled={this.spaceIsDisabled(spaceDef.x, spaceDef.y)}
+                      disabled={this.spaceIsDisabled(
+                        spaceDef.type,
+                        spaceDef.x,
+                        spaceDef.y,
+                      )}
                       inputNumber={inputNumber}
                       vaulue={this.getInputValue(spaceDef.x, spaceDef.y)}
                       onChange={e =>
@@ -438,6 +453,7 @@ export default class LevelWrapper extends Component {
                     <ParagraphSpace
                       ref={spaceRef}
                       aria-hidden={this.spaceIsAriaHidden(
+                        spaceDef.type,
                         spaceDef.x,
                         spaceDef.y,
                       )}
@@ -447,7 +463,11 @@ export default class LevelWrapper extends Component {
                 }
                 if (spaceDef.type === 'g') {
                   spaceNumber += 1;
-                  let disabled = this.spaceIsDisabled(spaceDef.x, spaceDef.y);
+                  let disabled = this.spaceIsDisabled(
+                    spaceDef.type,
+                    spaceDef.x,
+                    spaceDef.y,
+                  );
                   if (spaceDef.condition) {
                     disabled =
                       disabled || !spaceDef.condition(this.state.gameState);
@@ -456,6 +476,7 @@ export default class LevelWrapper extends Component {
                     <GoalSpace
                       tabIndex={this.tabIndexForSpace(spaceDef.x, spaceDef.y)}
                       aria-hidden={this.spaceIsAriaHidden(
+                        spaceDef.type,
                         spaceDef.x,
                         spaceDef.y,
                       )}
