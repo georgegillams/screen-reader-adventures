@@ -3,6 +3,15 @@ const getCopyWithOptions = options => {
   VOKey = VOKey || 'ctrl+opt';
 
   return {
+    setup1: {
+      macOS: `To start, open Safari. VoiceOver works best when you use Apple&apos;s own browser.`,
+    },
+    setup2: {
+      macOS: `To enable VoiceOver, hold cmd and press F5. (if you have a TouchBar device, you can press the power button 3 times to bring up accessibility options.)`,
+    },
+    setup3: {
+      macOS: `To enable VoiceOver, hold cmd and press F5. (if you have a TouchBar device, you can press the power button 3 times to bring up accessibility options.)`,
+    },
     level1Description: {
       macOS: `Remember that you'll get the best experience in Safari. Use ${VOKey} and the left/right arrow keys to navigate to the goal space below. Once you reach the goal at the end, you'll be able to progress to the next stage. Press ${VOKey}+right to select the button and then press ${VOKey}+space to continue.`,
     },
