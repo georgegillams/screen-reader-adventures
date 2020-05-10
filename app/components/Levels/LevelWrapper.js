@@ -2,7 +2,8 @@ import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import { findDOMNode } from 'react-dom';
 import { Helmet } from 'react-helmet';
-import { PageTitle, Paragraph } from 'gg-components/Typography';
+import PageTitle from 'components/PageTitleWrapper';
+import { Paragraph } from 'gg-components/Typography';
 import { Button } from 'gg-components/Button';
 import UntappableScrim from 'components/Scrim';
 import GameOver from './GameOver';
@@ -352,6 +353,7 @@ export default class LevelWrapper extends Component {
 
     return (
       <PageTitle
+        autoFocus
         name={`Level ${levelNumber}`}
         className={[
           getClassName('pages__container--centered'),

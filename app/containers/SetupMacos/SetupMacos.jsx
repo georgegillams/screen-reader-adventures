@@ -1,7 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import {
-  Section,
+  PageTitle,
   SubSection,
   TextLink,
   Paragraph,
@@ -41,7 +41,7 @@ class SetupIos extends React.Component {
     return (
       <div className={outerClassNameFinal.join(' ')} {...rest}>
         <Helmet title="Setup VoiceOver on macOS" />
-        <Section name="Setup VoiceOver on macOS">
+        <PageTitle name="Setup VoiceOver on macOS">
           <Paragraph>
             To start open Safari. VoiceOver works best when you use Apple&apos;s
             own browser.
@@ -109,7 +109,7 @@ class SetupIos extends React.Component {
           >
             I&apos;m ready to play...
           </Button>
-        </Section>
+        </PageTitle>
       </div>
     );
   }
