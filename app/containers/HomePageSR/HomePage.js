@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import PlatformSelector from 'components/PlatformSelector';
-import { PageTitle, Paragraph } from 'gg-components/Typography';
+import PageTitle from 'components/PageTitle';
+import { Paragraph } from 'gg-components/Typography';
 import STYLES from 'containers/pages.scss';
 import { cssModules } from 'bpk-react-utils';
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
