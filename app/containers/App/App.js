@@ -1,9 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Switch, Route } from 'react-router-dom';
-import SetupIos from 'containers/SetupIos/Loadable';
 import SetupMacos from 'containers/SetupMacos/Loadable';
-import SetupAndroid from 'containers/SetupAndroid/Loadable';
 import AccountPage from 'containers/Account/Loadable';
 import AdminPage from 'containers/Admin';
 import AdminNotifications from 'containers/AdminNotifications/Loadable';
@@ -98,9 +96,7 @@ const App = () => (
           <Route exact path="/Level/4" component={Level4} />
           <Route exact path="/Level/5" component={Level5} />
           <Route exact path="/Level/6" component={EndOfGame} />
-          <Route exact path="/setup/iOS" component={SetupIos} />
           <Route exact path="/setup/macOS" component={SetupMacos} />
-          <Route exact path="/setup/Android" component={SetupAndroid} />
           <Route path="/status" component={StatusPage} />
           <Route path="/debug" component={DebugPage} />
           <Route path="" component={NotFoundPage} />

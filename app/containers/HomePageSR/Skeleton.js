@@ -20,6 +20,7 @@ const AccountSkeleton = props => {
         <CompactCardSkeleton />
         <CompactCardSkeleton />
         <CompactCardSkeleton />
+        <CompactCardSkeleton />
       </div>
     </div>
   );
