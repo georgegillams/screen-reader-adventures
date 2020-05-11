@@ -93,8 +93,8 @@ const App = () => (
           <Route exact path="/Level/1" component={Level1} />
           <Route exact path="/Level/2" component={Level2} />
           <Route exact path="/Level/3" component={Level3} />
-          <Route exact path="/Level/4" component={Level4} />
-          <Route exact path="/Level/5" component={Level5} />
+          <Route exact path="/Level/4" component={EndOfGame} />
+          <Route exact path="/Level/5" component={EndOfGame} />
           <Route exact path="/Level/6" component={EndOfGame} />
           <Route exact path="/setup/macOS" component={SetupMacos} />
           <Route path="/status" component={StatusPage} />

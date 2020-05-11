@@ -8,6 +8,8 @@ import UntappableScrim from 'components/Scrim';
 import GameOver from './GameOver';
 import OilSpill from './OilSpill';
 import {
+  HeadingSpace,
+  LavaSpace,
   OpenSpace,
   Space,
   GoalSpace,
@@ -50,7 +52,7 @@ export default class LevelWrapper extends Component {
       monsterGamePos: [],
       gameState: [],
       characterGamePos: { x: 0, y: 0 },
-      targetCharacterGamePos: { x: 0, y: 0 },
+      targetCharacterGamePositions: [],
       characterIsMoving: false,
     };
     this.character = React.createRef();
@@ -118,7 +120,11 @@ export default class LevelWrapper extends Component {
     });
 
     this.setState({ monsterGamePos: newMonsterPos });
-    this.checkCharacterDeath(this.state.characterGamePos, newMonsterPos);
+    this.checkCharacterDeath(
+      this.state.characterGamePos,
+      newMonsterPos,
+      this.state.gameState,
+    );
   };
 
   get3DEntityOnScreen = (x, y, references) => {
@@ -145,8 +151,15 @@ export default class LevelWrapper extends Component {
   };
 
   moveCharacter = (xOverride, yOverride) => {
-    const { characterGamePos, targetCharacterGamePos } = this.state;
-    let { x, y } = targetCharacterGamePos;
+    let { characterGamePos, targetCharacterGamePositions } = this.state;
+    let nextTargetCharacterGamePosition = characterGamePos;
+    if (targetCharacterGamePositions.length > 0) {
+      nextTargetCharacterGamePosition = targetCharacterGamePositions.shift();
+    }
+    this.setState({
+      targetCharacterGamePositions: targetCharacterGamePositions,
+    });
+    let { x, y } = nextTargetCharacterGamePosition;
     if (xOverride !== undefined && yOverride !== undefined) {
       x = xOverride;
       y = yOverride;
@@ -178,27 +191,32 @@ export default class LevelWrapper extends Component {
       return;
     }
 
-    // Move the character one space
-    currentX += movingXForwards ? 1 : 0;
-    currentX -= movingXBackwards ? 1 : 0;
-    currentY += movingYForwards ? 1 : 0;
-    currentY -= movingYBackwards ? 1 : 0;
+    const jumpingXWards = movingXWards && Math.abs(x - currentX) > 1;
+    const jumpingYWards = movingYWards && Math.abs(y - currentY) > 1;
+    const jumping = jumpingXWards || jumpingYWards;
+    console.log(`jumping`, jumping);
+    if (jumping) {
+      // TODO set transition to null
+    } else {
+      // TODO set transition to 0.2s
+    }
 
-    const square = this.getSquareOnScreen(currentX, currentY);
+    const square = this.getSquareOnScreen(x, y);
 
     if (square) {
       if (square.current.props.onVisit) {
         square.current.props.onVisit();
       }
       this.checkCharacterDeath(
-        { x: currentX, y: currentY },
+        { x, y },
         this.state.monsterGamePos,
+        this.state.gameState,
       );
     }
 
     this.setState({
       characterIsMoving: true,
-      characterGamePos: { x: currentX, y: currentY },
+      characterGamePos: { x, y },
     });
 
     // Recursively call the moving function to continue character movement
@@ -207,18 +225,40 @@ export default class LevelWrapper extends Component {
     }, MONSTER_MOVING_SPEED * 1000);
   };
 
-  checkCharacterDeath = (characterPos, monsterGamePos) => {
+  checkCharacterDeath = (characterPos, monsterGamePos, gameState) => {
+    let dead = false;
+    let { x: charX, y: charY } = characterPos;
+
+    if (
+      gameState &&
+      gameState[charX] &&
+      gameState[charX][charY] &&
+      gameState[charX][charY].type &&
+      gameState[charX][charY].type === 'l'
+    ) {
+      dead = true;
+    }
+
     monsterGamePos.forEach(mP => {
       if (mP.x === characterPos.x && mP.y === characterPos.y) {
-        setTimeout(() => {
-          this.setState({ gameOver: true });
-        }, 400);
+        dead = true;
       }
     });
+
+    if (dead) {
+      setTimeout(() => {
+        this.setState({ gameOver: true });
+      }, 200);
+    }
   };
 
+  // Instad of having a single destination for the character, we should keep a list of moves to do.
   summonCharacter = (x, y) => {
-    this.setState({ targetCharacterGamePos: { x, y } });
+    const { targetCharacterGamePositions } = this.state;
+    console.log(`targetCharacterGamePositions`, targetCharacterGamePositions);
+    targetCharacterGamePositions.push({ x, y });
+    this.setState({ targetCharacterGamePositions });
+
     if (!this.state.characterIsMoving && !this.state.gameOver) {
       this.moveCharacter(x, y);
     }
@@ -292,9 +332,10 @@ export default class LevelWrapper extends Component {
       return true;
     }
 
-    return (
-      this.state.characterGamePos.x !== x && this.state.characterGamePos.y !== y
-    );
+    return false;
+    // return (
+    //   this.state.characterGamePos.x !== x && this.state.characterGamePos.y !== y
+    // );
   };
 
   // TODO Avoid creating refs on everysingle render - it is innefficient!
@@ -353,14 +394,14 @@ export default class LevelWrapper extends Component {
     return (
       <PageTitle
         autoFocus
-        name={`Level ${levelNumber}`}
+        name={`Stage ${levelNumber}`}
         className={[
           getClassName('pages__container--centered'),
           getClassName('level-wrapper__outer'),
         ].join(' ')}
         {...rest}
       >
-        <Helmet title={`Level ${levelNumber}`} />
+        <Helmet title={`Stage ${levelNumber}`} />
         <UntappableScrim />
         {description && (
           <Paragraph className={getClassName('level-wrapper__description')}>
@@ -441,9 +482,41 @@ export default class LevelWrapper extends Component {
                 }
                 if (spaceDef.type === 's') {
                   return (
-                    <OpenSpace spaceNumber={spaceNumber} ref={spaceRef}>
+                    <OpenSpace
+                      spaceNumber={spaceNumber}
+                      ref={spaceRef}
+                      onFocus={() =>
+                        this.summonCharacter(spaceDef.x, spaceDef.y)
+                      }
+                    >
                       {spaceDef.subElements}
                     </OpenSpace>
+                  );
+                }
+                if (spaceDef.type === 'h') {
+                  return (
+                    <HeadingSpace
+                      spaceNumber={spaceNumber}
+                      ref={spaceRef}
+                      onFocus={() =>
+                        this.summonCharacter(spaceDef.x, spaceDef.y)
+                      }
+                    >
+                      {spaceDef.subElements}
+                    </HeadingSpace>
+                  );
+                }
+                if (spaceDef.type === 'l') {
+                  return (
+                    <LavaSpace
+                      spaceNumber={spaceNumber}
+                      ref={spaceRef}
+                      onFocus={() =>
+                        this.summonCharacter(spaceDef.x, spaceDef.y)
+                      }
+                    >
+                      {spaceDef.subElements}
+                    </LavaSpace>
                   );
                 }
                 if (spaceDef.type === 'b') {
@@ -485,7 +558,7 @@ export default class LevelWrapper extends Component {
                       spaceNumber={spaceNumber}
                       onVisit={() => this.onLevelComplete()}
                       ref={spaceRef}
-                      onClick={() =>
+                      onFocus={() =>
                         this.summonCharacter(spaceDef.x, spaceDef.y)
                       }
                     />
