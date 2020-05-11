@@ -1,11 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import {
-  PageTitle,
-  SubSection,
-  TextLink,
-  Paragraph,
-} from 'gg-components/Typography';
+import PageTitle from 'components/PageTitle';
+import { SubSection, TextLink, Paragraph } from 'gg-components/Typography';
 import Image from 'components/Image';
 import { Button } from 'gg-components/Button';
 import { setPlatform } from 'helpers/storageHelpers';
