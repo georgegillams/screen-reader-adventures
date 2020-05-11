@@ -18,17 +18,6 @@ const PlatformSelector = props => {
           month={null}
           className={getClassName('pages__card')}
           // fillImageSrc="https://i.imgur.com/3n68rkf.jpg"
-          linkUrl="/setup/iOS"
-          title="iOS"
-        >
-          <Paragraph>Select to learn with VoiceOver for iOS</Paragraph>
-        </ArticleCard>
-        <ArticleCard
-          layout={ARTICLE_CARD_LAYOUTS.narrowCompact}
-          day={null}
-          month={null}
-          className={getClassName('pages__card')}
-          // fillImageSrc="https://i.imgur.com/3n68rkf.jpg"
           linkUrl="/setup/macOS"
           title="macOS"
         >
@@ -40,10 +29,32 @@ const PlatformSelector = props => {
           month={null}
           className={getClassName('pages__card')}
           // fillImageSrc="https://i.imgur.com/3n68rkf.jpg"
-          linkUrl="/setup/Android"
+          disabled
+          title="iOS"
+        >
+          <Paragraph>Coming later…</Paragraph>
+        </ArticleCard>
+        <ArticleCard
+          layout={ARTICLE_CARD_LAYOUTS.narrowCompact}
+          day={null}
+          month={null}
+          className={getClassName('pages__card')}
+          // fillImageSrc="https://i.imgur.com/3n68rkf.jpg"
+          disabled
           title="Android"
         >
-          <Paragraph>Select to learn with TalkBack for Android</Paragraph>
+          <Paragraph>Coming later…</Paragraph>
+        </ArticleCard>
+        <ArticleCard
+          layout={ARTICLE_CARD_LAYOUTS.narrowCompact}
+          day={null}
+          month={null}
+          className={getClassName('pages__card')}
+          // fillImageSrc="https://i.imgur.com/3n68rkf.jpg"
+          disabled
+          title="Windows"
+        >
+          <Paragraph>Coming later…</Paragraph>
         </ArticleCard>
       </div>
     </div>
