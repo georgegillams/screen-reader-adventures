@@ -22,16 +22,22 @@
   }
 
   &__box {
-    height: 1.5rem;
-    width: 1.5rem;
-    background-color: #b740cf;
-    background-image: linear-gradient(180deg, #b740cf 0%, #9e00bd 100%);
-    border-radius: 0.4rem;
-    box-shadow: 0.1rem 0.1rem 0.3rem rgba(0, 0, 0, 0.4);
+    height: $space-dimension;
+    width: $space-dimension;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 0.2rem;
 
     &--danger {
+      height: 1.5rem;
+      width: 1.5rem;
       background-color: $destructive-color;
-      background-image: linear-gradient(180deg, $destructive-color, 0%, $destructive-color-dark 100%);
+      background-image: linear-gradient(
+        180deg,
+        $destructive-color,
+        0%,
+        $destructive-color-dark 100%
+      );
+      box-shadow: 0.1rem 0.1rem 0.3rem rgba(0, 0, 0, 0.4);
     }
   }
 }

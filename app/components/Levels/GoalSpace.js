@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { cssModules } from 'bpk-react-utils';
-import Space from './Space';
+import GrassSpace from './GrassSpace';
 import finishLineFlag from './finish-line-flag.svg';
 
 import STYLES from './goal-space.scss';
@@ -12,8 +12,8 @@ export default class GoalSpace extends Component {
     const { spaceNumber, children, disabled, ...rest } = this.props;
 
     return (
-      <Space
-        aria-label={`Move to space ${spaceNumber}. Goal`}
+      <GrassSpace
+        aria-label={`Space ${spaceNumber}. Goal`}
         disabled={disabled}
         {...rest}
       >
@@ -25,7 +25,7 @@ export default class GoalSpace extends Component {
           src={finishLineFlag}
         />
         {children}
-      </Space>
+      </GrassSpace>
     );
   }
 }

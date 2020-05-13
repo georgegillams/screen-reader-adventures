@@ -9,6 +9,7 @@ const getClassName = cssModules(STYLES);
 const GameOver = props => (
   <Section
     className={getClassName('game-over__game-over')}
+    aria-live="polite"
     anchor={false}
     name="GAME OVER"
     {...props}

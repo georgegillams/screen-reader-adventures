@@ -8,14 +8,14 @@ import UntappableScrim from 'components/Scrim';
 import GameOver from './GameOver';
 import OilSpill from './OilSpill';
 import {
-  HeadingSpace,
-  LavaSpace,
-  OpenSpace,
-  Space,
-  GoalSpace,
   BlankSpace,
-  ParagraphSpace,
+  GoalSpace,
+  GrassSpace,
+  HeadingSpace,
   InputSpace,
+  LavaSpace,
+  ParagraphSpace,
+  Space,
 } from 'components/Levels';
 import { MONSTER_MOVING_SPEED } from 'helpers/constants';
 import { cssModules } from 'bpk-react-utils';
@@ -159,6 +159,10 @@ export default class LevelWrapper extends Component {
     this.setState({
       targetCharacterGamePositions: targetCharacterGamePositions,
     });
+    console.log(
+      `movingChar nextTargetCharacterGamePosition`,
+      nextTargetCharacterGamePosition,
+    );
     let { x, y } = nextTargetCharacterGamePosition;
     if (xOverride !== undefined && yOverride !== undefined) {
       x = xOverride;
@@ -257,6 +261,7 @@ export default class LevelWrapper extends Component {
     const { targetCharacterGamePositions } = this.state;
     console.log(`targetCharacterGamePositions`, targetCharacterGamePositions);
     targetCharacterGamePositions.push({ x, y });
+    console.log(`targetCharacterGamePositions`, targetCharacterGamePositions);
     this.setState({ targetCharacterGamePositions });
 
     if (!this.state.characterIsMoving && !this.state.gameOver) {
@@ -481,23 +486,35 @@ export default class LevelWrapper extends Component {
                   );
                 }
                 if (spaceDef.type === 's') {
+                  spaceNumber += 1;
                   return (
-                    <OpenSpace
+                    <GrassSpace
                       spaceNumber={spaceNumber}
                       ref={spaceRef}
+                      aria-hidden={this.spaceIsAriaHidden(
+                        spaceDef.type,
+                        spaceDef.x,
+                        spaceDef.y,
+                      )}
                       onFocus={() =>
                         this.summonCharacter(spaceDef.x, spaceDef.y)
                       }
                     >
                       {spaceDef.subElements}
-                    </OpenSpace>
+                    </GrassSpace>
                   );
                 }
                 if (spaceDef.type === 'h') {
+                  spaceNumber += 1;
                   return (
                     <HeadingSpace
                       spaceNumber={spaceNumber}
                       ref={spaceRef}
+                      aria-hidden={this.spaceIsAriaHidden(
+                        spaceDef.type,
+                        spaceDef.x,
+                        spaceDef.y,
+                      )}
                       onFocus={() =>
                         this.summonCharacter(spaceDef.x, spaceDef.y)
                       }
@@ -511,6 +528,11 @@ export default class LevelWrapper extends Component {
                     <LavaSpace
                       spaceNumber={spaceNumber}
                       ref={spaceRef}
+                      aria-hidden={this.spaceIsAriaHidden(
+                        spaceDef.type,
+                        spaceDef.x,
+                        spaceDef.y,
+                      )}
                       onFocus={() =>
                         this.summonCharacter(spaceDef.x, spaceDef.y)
                       }
