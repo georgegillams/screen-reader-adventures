@@ -4,7 +4,7 @@ import { createStructuredSelector } from 'reselect';
 
 import reducer from './reducer';
 import saga from './saga';
-import NavigationBarWrapper from './NavigationBarWrapper';
+import Container from './Container';
 
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
@@ -15,17 +15,10 @@ const mapDispatchToProps = () => ({});
 
 const mapStateToProps = createStructuredSelector(mapSelectors(appSelectors));
 
-const withConnect = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-);
+const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
 const withReducer = injectReducer({ key: 'navigation', reducer });
 const withSaga = injectSaga({ key: 'navigation', saga });
 
-export default compose(
-  withReducer,
-  withSaga,
-  withConnect,
-)(NavigationBarWrapper);
+export default compose(withReducer, withSaga, withConnect)(Container);
 export { mapDispatchToProps };
