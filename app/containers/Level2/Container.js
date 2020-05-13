@@ -14,13 +14,12 @@ const Container = props => {
       levelNumber={2}
       description={getCopy('level2Description')}
       level={generateLevelDefinition([
-        ['s', 's', 's', 's', 's', 'a', 'b', 'b', 'b', 'b', 'b'],
-        ['b', 'b', 'b', 'b', 'b', 's', 'b', 'b', 'b', 'b', 'b'],
-        ['b', 'b', 'b', 'b', 'b', 's', 'b', 'b', 'b', 'b', 'b'],
-        ['b', 'b', 'b', 'b', 'b', 'a', 's', 's', 's', 's', 'g'],
+        ['s', 's', 's', 's'],
+        ['b', 'b', 'b', 's'],
+        ['b', 'b', 'b', 's'],
+        ['b', 'b', 'b', 'g'],
       ])}
       startSpace={{ x: 0, y: 0 }}
-      oilSpills={[{ x: 3, y: 0, width: 5, height: 4 }]}
       {...props}
     />
   );

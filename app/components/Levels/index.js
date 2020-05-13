@@ -9,3 +9,5 @@ export GameOver from './GameOver';
 export OilSpill from './OilSpill';
 export SubParagraph from './SubParagraph';
 export SubHeading from './SubHeading';
+export LavaSpace from './LavaSpace';
+export HeadingSpace from './HeadingSpace';

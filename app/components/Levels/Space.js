@@ -20,10 +20,11 @@ export default class Space extends Component {
       onVisit,
       children,
       disabled,
+      className,
       ...rest
     } = this.props;
 
-    const classNames = [getClassName('space__space')];
+    const classNames = [getClassName('space__space', className)];
     if (this.state.visited) {
       classNames.push(getClassName('space__space--visited'));
     }

@@ -12,15 +12,9 @@ export default class ParagraphSpace extends Component {
     const { children, text, ...rest } = this.props;
 
     return (
-      <p
-        aria-label={text}
-        className={getClassName('space__space', 'paragraph-space__space')}
-        {...rest}
-      >
-        <div className={getClassName('space__drop')} />
-        <div className={getClassName('space__drop', 'space__drop--slide')} />
+      <Space aria-label={text} className={getClassName('paragraph')} {...rest}>
         <span aria-hidden="true">p</span>
-      </p>
+      </Space>
     );
   }
 }

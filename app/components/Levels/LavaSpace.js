@@ -2,20 +2,18 @@ import React, { Component } from 'react';
 import { cssModules } from 'bpk-react-utils';
 import Space from './Space';
 
-import OPEN_STYLES from './space.scss';
-import STYLES from './open-space.scss';
+import STYLES from './lava-space.scss';
 
-const getClassName = cssModules({ ...OPEN_STYLES, ...STYLES });
+const getClassName = cssModules(STYLES);
 
-export default class OpenSpace extends Component {
+export default class LavaSpace extends Component {
   render() {
     const { children, spaceNumber, ...rest } = this.props;
 
     return (
       <Space
-        role="paragraph"
         aria-label={`Move to space ${spaceNumber}. Goal`}
-        className={getClassName('open-space__space')}
+        className={getClassName('lava-space__space')}
         tabIndex={0}
         {...rest}
       >
