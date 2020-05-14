@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Switch, Route } from 'react-router-dom';
+import SettingsMacos from 'containers/SettingsMacos/Loadable';
 import SetupMacos from 'containers/SetupMacos/Loadable';
 import AccountPage from 'containers/Account/Loadable';
 import AdminPage from 'containers/Admin';
@@ -96,6 +97,7 @@ const App = () => (
           <Route exact path="/Level/4" component={EndOfGame} />
           <Route exact path="/Level/5" component={EndOfGame} />
           <Route exact path="/Level/6" component={EndOfGame} />
+          <Route exact path="/settings/macOS" component={SettingsMacos} />
           <Route exact path="/setup/macOS" component={SetupMacos} />
           <Route path="/status" component={StatusPage} />
           <Route path="/debug" component={DebugPage} />

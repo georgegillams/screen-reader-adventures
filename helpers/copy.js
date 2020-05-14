@@ -2,6 +2,12 @@ const getCopyWithOptions = options => {
   let { VOKey } = options;
   VOKey = VOKey || 'ctrl+option';
   return {
+    configure1: {
+      macOS: `VoiceOver works slightly differently depending whether you have a TouchBar or not. So that we can tailor the instructions, please select one of the following options.`,
+    },
+    configure2: {
+      macOS: `VoiceOver can be configured to use either Control+Option or Caps lock as the activation key(s). The default is Control+Option. Choose which setting you have enabled below. You can always come back to this page if you change it in the future.`,
+    },
     setup1: {
       macOS: `To start, open Safari. VoiceOver works best when you use Apple's own browser.`,
     },
@@ -33,6 +39,7 @@ const getCopyWithOptions = options => {
       macOS: ` The experience is similar for other standard UI elements too.  `,
     },
     setupExampleElementLabel: { macOS: `Example` },
+    settingsCTA: { macOS: `Continue…` },
     setupCTA: { macOS: `I'm ready to play…` },
     level1Description: {
       macOS: `To enable the button below and move to the next stage, navigate to the goal space.`,

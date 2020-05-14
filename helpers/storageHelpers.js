@@ -3,7 +3,8 @@ import moment from 'moment';
 const POST_LOGIN_REDIRECT_LOCATION = 'post-login-redirect-location';
 const USER_SELECTED_PLATFORM = 'user-selected-platform';
 const SESSION_DEBUG_VIEWS = 'showSessionDebugViews';
-const VO_KEY = 'user-selected-vo-key';
+const VO_KEY = 'user-selected-vo-key-key';
+const TOUCH_BAR_KEY = 'user-selected-touch-bar-key';
 
 const redirectToCurrentPageAfterLogin = () => {
   const currentLocation = window.location;
@@ -22,6 +23,10 @@ const setVOKey = selection => {
   localStorage.setItem(VO_KEY, selection);
 };
 
+const setTouchBar = selection => {
+  localStorage.setItem(TOUCH_BAR_KEY, selection);
+};
+
 const getPlatform = () => {
   const result = localStorage.getItem(USER_SELECTED_PLATFORM);
   return result;
@@ -29,6 +34,11 @@ const getPlatform = () => {
 
 const getVOKey = () => {
   const result = localStorage.getItem(VO_KEY);
+  return result;
+};
+
+const getTouchBar = () => {
+  const result = localStorage.getItem(TOUCH_BAR_KEY);
   return result;
 };
 
@@ -67,6 +77,8 @@ export {
   getPlatform,
   setVOKey,
   getVOKey,
+  setTouchBar,
+  getTouchBar,
   setDebugViewsShown,
   getDebugViewsShown,
 };
@@ -80,6 +92,8 @@ export default {
   getPlatform,
   setVOKey,
   getVOKey,
+  setTouchBar,
+  getTouchBar,
   setDebugViewsShown,
   getDebugViewsShown,
 };
