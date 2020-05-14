@@ -14,13 +14,13 @@ export default class Space extends Component {
 
   render() {
     const {
-      spaceNumber,
       onClick,
       onSelect,
       onVisit,
       children,
       disabled,
       className,
+      onFocus,
       ...rest
     } = this.props;
 
@@ -40,7 +40,6 @@ export default class Space extends Component {
 
     return (
       <button
-        aria-label={`Move to space ${spaceNumber}`}
         onClick={() => {
           if (onClick && !disabled) {
             onClick();
@@ -48,6 +47,10 @@ export default class Space extends Component {
           markVisited();
         }}
         onFocus={() => {
+          console.log(`onFocus`);
+          if (onFocus) {
+            onFocus();
+          }
           this.setState({ selected: true });
           if (onSelect && !disabled) {
             onSelect();
@@ -61,9 +64,6 @@ export default class Space extends Component {
         {...rest}
       >
         {children}
-        {this.state.selected && (
-          <div className={getClassName('space__shadow')} />
-        )}
         <div className={getClassName('space__drop')} />
         <div className={getClassName('space__drop', 'space__drop--slide')} />
       </button>

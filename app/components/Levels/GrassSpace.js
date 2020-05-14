@@ -3,12 +3,12 @@ import { cssModules } from 'bpk-react-utils';
 import Space from './Space';
 
 import STYLES from './space.scss';
-import LAVA_STYLES from './lava-space.scss';
-import lava from './lava.png';
+import GRASS_STYLES from './grass-space.scss';
+import grass from './grass.svg';
 
-const getClassName = cssModules({ ...STYLES, ...LAVA_STYLES });
+const getClassName = cssModules({ ...STYLES, ...GRASS_STYLES });
 
-class LavaSpace extends Component {
+class GrassSpace extends Component {
   render() {
     const { spaceNumber, children, ...rest } = this.props;
 
@@ -17,13 +17,13 @@ class LavaSpace extends Component {
         aria-label={`Space ${spaceNumber}`}
         role="paragraph"
         tabIndex={0}
-        className={getClassName('lava-space__space')}
+        className={getClassName('grass-space__space')}
         {...rest}
       >
         <img
           aria-hidden
           className={getClassName('space__texture')}
-          src={lava}
+          src={grass}
         />
         {children}
       </Space>
@@ -31,4 +31,4 @@ class LavaSpace extends Component {
   }
 }
 
-export default LavaSpace;
+export default GrassSpace;
