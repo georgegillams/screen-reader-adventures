@@ -18,7 +18,7 @@ const PlatformSelector = props => {
           month={null}
           className={getClassName('pages__card')}
           // fillImageSrc="https://i.imgur.com/3n68rkf.jpg"
-          linkUrl="/setup/macOS"
+          linkUrl="/settings/macOS"
           title="macOS"
         >
           <Paragraph>Select to learn with VoiceOver for macOS</Paragraph>

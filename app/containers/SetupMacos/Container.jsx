@@ -9,7 +9,6 @@ import {
 import { Checkbox } from 'gg-components/Checkbox';
 import Image from 'components/Image';
 import { Button } from 'gg-components/Button';
-import { setPlatform } from 'helpers/storageHelpers';
 import { getCopy } from 'helpers/copyHelpers';
 import VoiceOverWelcome from './VoiceOverWelcome.png';
 import VoiceOverWelcome_light from './VoiceOverWelcome_light.png';
@@ -20,15 +19,11 @@ import STYLES from '../pages.scss';
 import { cssModules } from 'bpk-react-utils';
 const getClassName = cssModules(STYLES);
 
-class SetupIos extends React.Component {
+class SetupMacos extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {};
-  }
-
-  componentDidMount() {
-    setPlatform('macOS');
   }
 
   render() {
@@ -44,7 +39,7 @@ class SetupIos extends React.Component {
       <div className={outerClassNameFinal.join(' ')} {...rest}>
         <Helmet title="Setup VoiceOver on macOS" />
         <PageTitle
-          link={{ text: 'Change platform', to: '/' }}
+          link={{ text: 'Adjust settings', to: '/settings/macOS' }}
           name="Setup VoiceOver on macOS"
         >
           <Paragraph>{getCopy('setup1')}</Paragraph>
@@ -129,4 +124,4 @@ class SetupIos extends React.Component {
   }
 }
 
-export default SetupIos;
+export default SetupMacos;
