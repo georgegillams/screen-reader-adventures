@@ -10,6 +10,7 @@ import { Checkbox } from 'gg-components/Checkbox';
 import Image from 'components/Image';
 import { Button } from 'gg-components/Button';
 import { setPlatform } from 'helpers/storageHelpers';
+import { getCopy } from 'helpers/copyHelpers';
 import VoiceOverWelcome from './VoiceOverWelcome.png';
 import VoiceOverWelcome_light from './VoiceOverWelcome_light.png';
 import VoiceOverSafari from './VoiceOverSafari.png';
@@ -23,7 +24,7 @@ class SetupIos extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { checkboxChecked: false };
+    this.state = {};
   }
 
   componentDidMount() {
@@ -46,24 +47,13 @@ class SetupIos extends React.Component {
           link={{ text: 'Change platform', to: '/' }}
           name="Setup VoiceOver on macOS"
         >
-          <Paragraph>
-            To start, open Safari. VoiceOver works best when you use
-            Apple&apos;s own browser.
-          </Paragraph>
+          <Paragraph>{getCopy('setup1')}</Paragraph>
           <br />
           <br />
-          <Paragraph>
-            To enable VoiceOver, hold cmd and press F5. (if you have a TouchBar
-            device, you can press the power button 3 times to bring up
-            accessibility options.)
-          </Paragraph>
+          <Paragraph>{getCopy('setup2')}</Paragraph>
           <br />
           <br />
-          <Paragraph>
-            You&apos;ll see that the webpage has been highlighted with a black
-            and white box, and VoiceOver is telling you about it. If this
-            doesn&apos;t happen, click the webpage anywhere to select it.
-          </Paragraph>
+          <Paragraph>{getCopy('setup3')}</Paragraph>
           <br />
           <br />
           <Image
@@ -75,56 +65,31 @@ class SetupIos extends React.Component {
             darkSrc={VoiceOverSafari}
           />
           <SubSection name="Navigation">
-            <Paragraph>
-              VoiceOver navigation is 3D, meaning you can move inwards to
-              specific elements (right down to an individual character of a
-              word). To move into the structure of the page, hold
-              shift+ctrl+option and press down. You&apos;ll notice that the menu
-              button is now selected.
-            </Paragraph>
+            <Paragraph>{getCopy('setup4')}</Paragraph>
             <br />
             <br />
-            <Paragraph>
-              To move between elements within an area of the page, hold
-              ctrl+option and tap the left and right keys. If you press
-              ctrl+option+right 3 times, you&apos;ll be on the main web content.
-            </Paragraph>
+            <Paragraph>{getCopy('setup5')}</Paragraph>
             <br />
             <br />
-            <Paragraph>
-              Again, to move into the main content we must use
-              shift+ctrl+option+down. Once we&apos;re inside the main content,
-              we can navigate around it using ctrl+option+left/right.
-            </Paragraph>
+            <Paragraph>{getCopy('setup6')}</Paragraph>
             <br />
             <br />
-            <Paragraph>
-              Spend some time on this page getting familiar with how to navigate
-              between elements. Try going down into an element until you are
-              navigating between individaul charaters, then try coming up again.
-            </Paragraph>
+            <Paragraph>{getCopy('setup7')}</Paragraph>
           </SubSection>
           <SubSection name="Interaction">
-            <Paragraph>
-              When you move onto a button element, VoiceOver will read out the
-              title, and that the element is a button. If the button is
-              disabled, it will also tell you that it&apos;s "dimmed".
-            </Paragraph>
+            <Paragraph>{getCopy('setup8')}</Paragraph>
             <br />
             <br />
-            <Paragraph>
-              To "click" an interactive element using VoiceOver, we press
-              cmd+option+space. Give that a go on the button below.
-            </Paragraph>
+            <Paragraph>{getCopy('setup9')}</Paragraph>
             <br />
             <br />
             <Button className={getClassName('pages__component')} large>
-              Example
+              {getCopy('setupExampleElementLabel')}
             </Button>
             <br />
             <br />
             <Button className={getClassName('pages__component')} large disabled>
-              Example
+              {getCopy('setupExampleElementLabel')}
             </Button>
             <br />
             <br />
@@ -134,7 +99,7 @@ class SetupIos extends React.Component {
             <br />
             <br />
             <Checkbox
-              label={'Example'}
+              label={getCopy('setupExampleElementLabel')}
               checked={this.state.checkbox1Checked}
               onChange={event => {
                 this.setState({ checkbox1Checked: event.target.checked });
@@ -143,9 +108,9 @@ class SetupIos extends React.Component {
             <br />
             <br />
             <Checkbox
-              label={'Example'}
+              label={getCopy('setupExampleElementLabel')}
               checked={this.state.checkbox2Checked}
-              enabled={false}
+              disabled
               onChange={event => {
                 this.setState({ checkbox2Checked: event.target.checked });
               }}
@@ -156,7 +121,7 @@ class SetupIos extends React.Component {
             large
             href="/level/1"
           >
-            I&apos;m ready to play...
+            {getCopy('setupCTA')}
           </Button>
         </PageTitle>
       </div>

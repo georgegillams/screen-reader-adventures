@@ -47,7 +47,6 @@ export default class Space extends Component {
           markVisited();
         }}
         onFocus={() => {
-          console.log(`onFocus`);
           if (onFocus) {
             onFocus();
           }

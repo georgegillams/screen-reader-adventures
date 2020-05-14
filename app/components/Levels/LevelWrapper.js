@@ -12,6 +12,7 @@ import {
   GoalSpace,
   GrassSpace,
   HeadingSpace,
+  Hint,
   InputSpace,
   LavaSpace,
   ParagraphSpace,
@@ -159,10 +160,6 @@ export default class LevelWrapper extends Component {
     this.setState({
       targetCharacterGamePositions: targetCharacterGamePositions,
     });
-    console.log(
-      `movingChar nextTargetCharacterGamePosition`,
-      nextTargetCharacterGamePosition,
-    );
     let { x, y } = nextTargetCharacterGamePosition;
     if (xOverride !== undefined && yOverride !== undefined) {
       x = xOverride;
@@ -198,7 +195,6 @@ export default class LevelWrapper extends Component {
     const jumpingXWards = movingXWards && Math.abs(x - currentX) > 1;
     const jumpingYWards = movingYWards && Math.abs(y - currentY) > 1;
     const jumping = jumpingXWards || jumpingYWards;
-    console.log(`jumping`, jumping);
     if (jumping) {
       // TODO set transition to null
     } else {
@@ -218,9 +214,13 @@ export default class LevelWrapper extends Component {
       );
     }
 
+    const newGameState = JSON.parse(JSON.stringify(this.state.gameState));
+    newGameState[x][y].visited = true;
+
     this.setState({
       characterIsMoving: true,
       characterGamePos: { x, y },
+      gameState: newGameState,
     });
 
     // Recursively call the moving function to continue character movement
@@ -259,9 +259,7 @@ export default class LevelWrapper extends Component {
   // Instad of having a single destination for the character, we should keep a list of moves to do.
   summonCharacter = (x, y) => {
     const { targetCharacterGamePositions } = this.state;
-    console.log(`targetCharacterGamePositions`, targetCharacterGamePositions);
     targetCharacterGamePositions.push({ x, y });
-    console.log(`targetCharacterGamePositions`, targetCharacterGamePositions);
     this.setState({ targetCharacterGamePositions });
 
     if (!this.state.characterIsMoving && !this.state.gameOver) {
@@ -388,6 +386,7 @@ export default class LevelWrapper extends Component {
       monsterPositions,
       oilSpills,
       level,
+      hints,
       ...rest
     } = this.props;
 
@@ -395,6 +394,19 @@ export default class LevelWrapper extends Component {
     let inputNumber = 0;
 
     const gameOverComp = <GameOver />;
+
+    const hintsToDisplay = [];
+    level.forEach((row, i) => {
+      row.forEach((spaceDef, j) => {
+        let spaceHint = null;
+        if (spaceDef.getHint) {
+          spaceHint = spaceDef.getHint(this.state.gameState);
+        }
+        if (spaceHint) {
+          hintsToDisplay.push({ text: spaceHint, x: i, y: j });
+        }
+      });
+    });
 
     return (
       <PageTitle
@@ -420,6 +432,17 @@ export default class LevelWrapper extends Component {
           />
           {oilSpills.map((oS, i) => {
             return <OilSpill style={this.getOilSpillStyle(oS)} />;
+          })}
+          {hintsToDisplay.map((hint, i) => {
+            return (
+              <Hint
+                text={hint.text}
+                style={{
+                  left: `${hint.y * 2}rem`,
+                  top: `${hint.x * 2}rem`,
+                }}
+              />
+            );
           })}
           {monsterPositions.map((mP, i) => {
             const monsterRef = this.createMonsterRef(mP.x, mP.y);
