@@ -178,7 +178,7 @@
     "html-loader": "0.5.5",
     "html-webpack-plugin": "3.2.0",
     "http-server": "^0.12.0",
-    "image-webpack-loader": "^5.0.0",
+    "image-webpack-loader": "^6.0.0",
     "imports-loader": "0.8.0",
     "jest-cli": "^24.9.0",
     "node-sass": "^4.12.0",
