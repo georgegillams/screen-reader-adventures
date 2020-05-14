@@ -3,6 +3,7 @@ import moment from 'moment';
 const POST_LOGIN_REDIRECT_LOCATION = 'post-login-redirect-location';
 const USER_SELECTED_PLATFORM = 'user-selected-platform';
 const SESSION_DEBUG_VIEWS = 'showSessionDebugViews';
+const VO_KEY = 'user-selected-vo-key';
 
 const redirectToCurrentPageAfterLogin = () => {
   const currentLocation = window.location;
@@ -17,8 +18,17 @@ const setPlatform = selection => {
   localStorage.setItem(USER_SELECTED_PLATFORM, selection);
 };
 
+const setVOKey = selection => {
+  localStorage.setItem(VO_KEY, selection);
+};
+
 const getPlatform = () => {
   const result = localStorage.getItem(USER_SELECTED_PLATFORM);
+  return result;
+};
+
+const getVOKey = () => {
+  const result = localStorage.getItem(VO_KEY);
   return result;
 };
 
@@ -55,6 +65,8 @@ export {
   getPostLoginRedirectAndRemove,
   setPlatform,
   getPlatform,
+  setVOKey,
+  getVOKey,
   setDebugViewsShown,
   getDebugViewsShown,
 };
@@ -66,6 +78,8 @@ export default {
   getPostLoginRedirectAndRemove,
   setPlatform,
   getPlatform,
+  setVOKey,
+  getVOKey,
   setDebugViewsShown,
   getDebugViewsShown,
 };

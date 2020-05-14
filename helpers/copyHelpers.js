@@ -1,10 +1,17 @@
 import getCopyWithOptions from './copy';
-import { getPlatform } from './storageHelpers';
+import { getPlatform, getVOKey } from './storageHelpers';
 
 const getCopy = copyId => {
-  const copy = getCopyWithOptions({});
+  const VOKey = getVOKey();
+  const platform = getPlatform() || 'macOS';
 
-  const platform = getPlatform();
+  const copyOptions = {};
+  if (VOKey) {
+    copyOptions.VOKey = VOKey;
+  }
+
+  const copy = getCopyWithOptions(copyOptions);
+
   const copyForId = copy[copyId];
   if (!copyForId) {
     return copyId;
@@ -15,7 +22,7 @@ const getCopy = copyId => {
     return copyId;
   }
 
-  return copy[copyId][platform];
+  return result;
 };
 
 export { getCopy };

@@ -5,6 +5,7 @@ export GameOver from './GameOver';
 export GoalSpace from './GoalSpace';
 export GrassSpace from './GrassSpace';
 export HeadingSpace from './HeadingSpace';
+export Hint from './Hint';
 export InputSpace from './InputSpace';
 export LavaSpace from './LavaSpace';
 export Monster from './Monster';

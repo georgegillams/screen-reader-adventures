@@ -1,0 +1,20 @@
+@import '~bpk-mixins';
+@import 'helpers/tokens';
+
+.hint {
+  &__outer {
+    position: absolute;
+    z-index: 15;
+    width: $space-dimension;
+  }
+
+  &__hint {
+    background: $not-black;
+    border-radius: 0.4rem;
+    width: 15rem;
+    position: absolute;
+    display: block;
+    left: -7.5rem;
+    top: -3rem;
+  }
+}

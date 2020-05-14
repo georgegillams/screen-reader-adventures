@@ -15,7 +15,6 @@ const setUser = user => ({
 });
 
 const setLoginRedirect = loginRedirect => {
-  console.log(`setting the login redirect`);
   return {
     type: SET_LOGIN_REDIRECT,
     loginRedirect,
