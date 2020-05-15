@@ -12,7 +12,10 @@ const getCopyWithOptions = options => {
       macOS: `To start, open Safari. VoiceOver works best when you use Apple's own browser.`,
     },
     setup2: {
-      macOS: `To enable VoiceOver, hold cmd and press F5. (if you have a TouchBar device, you can press the power button 3 times to bring up accessibility options.)`,
+      macOS: {
+        touchBar: `To enable VoiceOver, press the power button 3 times to bring up accessibility options and tick "Enable VoiceOver".`,
+        noTouchBar: `To enable VoiceOver, hold cmd and press F5. (You may need to hold fn to enable your F-keys.)`,
+      },
     },
     setup3: {
       macOS: `You'll see that the webpage has been highlighted with a black and white box, and VoiceOver is telling you about it. If this doesn't happen, click the webpage anywhere to select it.`,

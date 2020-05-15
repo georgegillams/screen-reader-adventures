@@ -12,6 +12,7 @@ const Hint = props => {
   return (
     <div aria-hidden className={getClassName('hint__outer')} {...rest}>
       <Paragraph className={getClassName('hint__hint')}>{text}</Paragraph>
+      <div className={getClassName('hint__arrow')} />
     </div>
   );
 };
