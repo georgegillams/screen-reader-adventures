@@ -169,7 +169,7 @@
     "eslint-plugin-flowtype": "^4.3.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-redux-saga": "^1.1.1",
     "eslint_d": "^8.0.0",
     "eventsource-polyfill": "0.9.6",
