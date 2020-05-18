@@ -6,9 +6,13 @@ import { cssModules } from 'bpk-react-utils';
 import FormBuilder from './FormBuilder';
 import STYLES from './forms.scss';
 
-import {Button} from 'gg-components/Button';
+import { Button } from 'gg-components/Button';
 import { TextLink } from 'gg-components/Typography';
-import { USERNAMES_ENABLED, UNAME_REGEX, EMAIL_REGEX } from 'helpers/constants';
+import {
+  USERNAMES_ENABLED,
+  USERNAME_REGEX,
+  EMAIL_REGEX,
+} from 'helpers/constants';
 
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
@@ -39,7 +43,7 @@ class Login extends React.Component {
           {
             id: 'uname',
             name: 'Display name',
-            validationRegex: UNAME_REGEX,
+            validationRegex: USERNAME_REGEX,
             show: USERNAMES_ENABLED,
           },
           {
