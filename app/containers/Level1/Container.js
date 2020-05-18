@@ -19,7 +19,7 @@ const Container = props => {
     ) {
       return null;
     } else {
-      return getCopy('level2Hint');
+      return getCopy('level1Hint');
     }
   };
 

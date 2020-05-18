@@ -7,6 +7,7 @@ export GrassSpace from './GrassSpace';
 export HeadingSpace from './HeadingSpace';
 export Hint from './Hint';
 export InputSpace from './InputSpace';
+export KeySpace from './KeySpace';
 export LavaSpace from './LavaSpace';
 export Monster from './Monster';
 export OilSpill from './OilSpill';

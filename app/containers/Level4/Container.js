@@ -1,5 +1,5 @@
 import React from 'react';
-import LevelWrapper, { SubParagraph, SubHeading } from 'components/Levels';
+import LevelWrapper from 'components/Levels';
 import { getCopy } from 'helpers/copyHelpers';
 import { generateLevelDefinition } from 'helpers/gameLogic';
 import { cssModules } from 'bpk-react-utils';
@@ -9,64 +9,53 @@ import STYLES from '../pages.scss';
 const getClassName = cssModules(STYLES);
 
 const Container = props => {
-  const levelDefinition = generateLevelDefinition([
-    ['s'],
-    ['s'],
-    ['s'],
-    ['s'],
-    ['s'],
-    ['g'],
-  ]);
+  const level = generateLevelDefinition([['g', 'h', 'l', 'h', 'k']]);
+  level[0][3].getHint = gameState => {
+    if (
+      gameState &&
+      gameState[0] &&
+      gameState[0][3] &&
+      gameState[0][3].visited
+    ) {
+      return null;
+    }
+    return getCopy('level4Hint1');
+  };
 
-  // First content square is 1 down, 0 across
-  levelDefinition[1][0].subElements = [
-    <SubParagraph>These</SubParagraph>,
-    <SubParagraph>aren&apos;t</SubParagraph>,
-    <SubParagraph>the</SubParagraph>,
-    <SubParagraph>droids</SubParagraph>,
-    <SubParagraph>you&apos;re</SubParagraph>,
-    <SubParagraph>looking</SubParagraph>,
-    <SubParagraph>for</SubParagraph>,
-  ];
+  level[0][4].getHint = gameState => {
+    if (
+      gameState &&
+      gameState[0] &&
+      gameState[0][3] &&
+      gameState[0][3].visited &&
+      gameState[0][4] &&
+      !gameState[0][4].visited
+    ) {
+      return getCopy('level4Hint2');
+    }
+    return null;
+  };
 
-  // First content square is 2 down, 0 across
-  levelDefinition[2][0].subElements = [
-    <SubParagraph>He</SubParagraph>,
-    <SubParagraph>can</SubParagraph>,
-    <SubParagraph>go</SubParagraph>,
-    <SubParagraph>about</SubParagraph>,
-    <SubParagraph>his</SubParagraph>,
-    <SubParagraph>business.</SubParagraph>,
-    <SubHeading>Move along!</SubHeading>,
-  ];
+  level[0][1].getHint = gameState => {
+    if (
+      gameState &&
+      gameState[0] &&
+      gameState[0][4] &&
+      gameState[0][4].visited
+    ) {
+      return getCopy('level4Hint3');
+    }
+    return null;
+  };
 
-  // First content square is 3 down, 0 across
-  levelDefinition[3][0].subElements = [
-    <SubParagraph>These</SubParagraph>,
-    <SubParagraph>aren&apos;t</SubParagraph>,
-    <SubParagraph>the</SubParagraph>,
-    <SubParagraph>droids</SubParagraph>,
-    <SubParagraph>you&apos;re</SubParagraph>,
-    <SubParagraph>looking</SubParagraph>,
-    <SubParagraph>for</SubParagraph>,
-  ];
-
-  // First content square is 4 down, 0 across
-  levelDefinition[4][0].subElements = [
-    <SubParagraph>He</SubParagraph>,
-    <SubParagraph>can</SubParagraph>,
-    <SubParagraph>go</SubParagraph>,
-    <SubParagraph>about</SubParagraph>,
-    <SubParagraph>his</SubParagraph>,
-    <SubParagraph>business.</SubParagraph>,
-    <SubHeading>Move along!</SubHeading>,
-  ];
+  level[0][0].condition = gameState =>
+    gameState && gameState[0] && gameState[0][4] && gameState[0][4].visited;
 
   return (
     <LevelWrapper
       levelNumber={4}
       description={getCopy('level4Description')}
-      level={levelDefinition}
+      level={level}
       startSpace={{ x: 0, y: 0 }}
       {...props}
     />
