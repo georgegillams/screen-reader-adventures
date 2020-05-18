@@ -4,7 +4,7 @@ const INT_REGEX = /^[0-9]*$/gi;
 const SORT_CODE_REGEX = /^[0-9\.-]*$/gi;
 const STRING_REGEX = /^[A-Za-z0-9\.\ ]*$/gi;
 const ID_REGEX = /^[A-Za-z0-9\-]*$/gi;
-const UNAME_REGEX = /^[A-Za-z0-9\.\ ]*$/gi;
+const USERNAME_REGEX = /^[A-Za-z0-9\.\ ]*$/gi;
 const REDIRECT_REGEX = /^[A-Za-z0-9\.\ \-\_#\/]*$/gi;
 const NAME_REGEX = /^[A-Za-z\ ]*$/gi;
 const MONZOME_LINK_REGEX = /^(https?:\/\/)?monzo\.me\/[A-Za-z_-]+(\/.*)?$/gi;
@@ -173,7 +173,7 @@ export {
   TICKET_COST_R_TWO_DAY,
   TICKET_RESERVATION_LENGTH,
   TICKET_SALE_END,
-  UNAME_REGEX,
+  USERNAME_REGEX,
   UNAUTHORISED_READ,
   UNAUTHORISED_WRITE,
   USERNAMES_ENABLED,
@@ -236,7 +236,7 @@ export default {
   TICKET_COST_R_TWO_DAY,
   TICKET_RESERVATION_LENGTH,
   TICKET_SALE_END,
-  UNAME_REGEX,
+  USERNAME_REGEX,
   UNAUTHORISED_READ,
   UNAUTHORISED_WRITE,
   USERNAMES_ENABLED,

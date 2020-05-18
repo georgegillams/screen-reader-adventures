@@ -1,5 +1,5 @@
 import {
-  UNAME_REGEX,
+  USERNAME_REGEX,
   EMAIL_REGEX,
   PASSWORD_REGEX,
   STRING_REGEX,
@@ -10,7 +10,7 @@ import {
 const usersAllowedAttributes = [
   { attribute: 'name', pattern: STRING_REGEX },
   { attribute: 'magicLinkKey', pattern: ID_REGEX },
-  { attribute: 'uname', pattern: UNAME_REGEX },
+  { attribute: 'uname', pattern: USERNAME_REGEX },
   { attribute: 'email', pattern: EMAIL_REGEX },
   { attribute: 'admin', pattern: 'BOOL' },
   { attribute: 'divertToAdmin', pattern: 'BOOL' },
