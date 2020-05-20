@@ -10,6 +10,7 @@ import OilSpill from './OilSpill';
 import {
   BlankSpace,
   GoalSpace,
+  KeySpace,
   GrassSpace,
   HeadingSpace,
   Hint,
@@ -506,6 +507,33 @@ export default class LevelWrapper extends Component {
                         this.summonCharacter(spaceDef.x, spaceDef.y)
                       }
                     />
+                  );
+                }
+                if (spaceDef.type === 'k') {
+                  spaceNumber += 1;
+                  return (
+                    <KeySpace
+                      spaceNumber={spaceNumber}
+                      showKey={
+                        !(
+                          this.state.gameState &&
+                          this.state.gameState[0] &&
+                          this.state.gameState[0][4] &&
+                          this.state.gameState[0][4].visited
+                        )
+                      }
+                      ref={spaceRef}
+                      aria-hidden={this.spaceIsAriaHidden(
+                        spaceDef.type,
+                        spaceDef.x,
+                        spaceDef.y,
+                      )}
+                      onFocus={() =>
+                        this.summonCharacter(spaceDef.x, spaceDef.y)
+                      }
+                    >
+                      {spaceDef.subElements}
+                    </KeySpace>
                   );
                 }
                 if (spaceDef.type === 's') {

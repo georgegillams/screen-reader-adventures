@@ -15,7 +15,6 @@ import Level1 from 'containers/Level1/Loadable';
 import Level2 from 'containers/Level2/Loadable';
 import Level3 from 'containers/Level3/Loadable';
 import Level4 from 'containers/Level4/Loadable';
-import Level5 from 'containers/Level5/Loadable';
 import LoginPage from 'containers/Login/Loadable';
 import Konami from 'containers/Konami';
 import StatusPage from 'containers/Status/Loadable';
@@ -94,7 +93,7 @@ const App = () => (
           <Route exact path="/Level/1" component={Level1} />
           <Route exact path="/Level/2" component={Level2} />
           <Route exact path="/Level/3" component={Level3} />
-          <Route exact path="/Level/4" component={EndOfGame} />
+          <Route exact path="/Level/4" component={Level4} />
           <Route exact path="/Level/5" component={EndOfGame} />
           <Route exact path="/Level/6" component={EndOfGame} />
           <Route exact path="/settings/macOS" component={SettingsMacos} />
