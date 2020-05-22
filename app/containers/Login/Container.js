@@ -13,11 +13,7 @@ import { LoadingIndicator } from 'gg-components/LoadingIndicator';
 import { Button } from 'gg-components/Button';
 import { Section, SubSection, TextLink } from 'gg-components/Typography';
 import { CodeInline } from 'gg-components/Code';
-import {
-  DebugObject,
-  LoggedOutOnly,
-  LoadingCover,
-} from 'gg-components/Auth';
+import { DebugObject, LoggedOutOnly, LoadingCover } from 'gg-components/Auth';
 import { LoginForm } from 'components/Forms';
 import { CookiesOnly } from 'components/Sessions';
 import {
@@ -63,7 +59,7 @@ export default class Login extends React.Component {
               credentials={credentials || { useMagicLink: true }}
               onDataChanged={setCredentials}
               onSubmit={login}
-              presubmitText={
+              preSubmitText={
                 logInSuccess
                   ? 'A magic login link has been sent to your email address. Please check your junk folder before requesting another.'
                   : null
