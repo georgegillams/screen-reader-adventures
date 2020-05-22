@@ -61,7 +61,10 @@ const getCopyWithOptions = options => {
     },
     level3Hint: { macOS: `Press ${VOKey}+cmd+H to jump over the lava.` },
     level4Description: {
-      macOS: `Using the same principle as before you can jump over the lava and retrieve the key waiting on the other side. Once you have the key, jump back to a previous heading using ${VOKey}+cmd+shift+H. Do this until you're safely back across the lava.`,
+      macOS: `Using the same principle as before you can jump over the lava and retrieve the key waiting on the other side. Once you have the key, you can also jump backwards to the previous heading.`,
+    },
+    level5Description: {
+      macOS: `Skipping between headings is a good way to avoid lava that you can't see.`,
     },
     level4Hint1: { macOS: `Press ${VOKey}+cmd+H to jump over the lava.` },
     level4Hint2: { macOS: `Collect the key to unlock the goal.` },
