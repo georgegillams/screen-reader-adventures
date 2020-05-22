@@ -14,7 +14,7 @@ import { CodeInline } from 'gg-components/Code';
 import { LoginForm } from 'components/Forms';
 import { DebugObject } from 'gg-components/Auth';
 import { CookiesOnly } from 'components/Sessions';
-import { GGRedirect } from 'gg-components/Redirect';
+import { Redirect } from 'gg-components/Redirect';
 import {
   MONZOME_LINK_REGEX,
   SORT_CODE_REGEX,
@@ -57,7 +57,7 @@ export default class EmailVerification extends React.Component {
 
     if (verifySuccess) {
       return (
-        <GGRedirect
+        <Redirect
           className={outerClassNameFinal.join(' ')}
           to="/account"
           name="Thanks for verifying your email"

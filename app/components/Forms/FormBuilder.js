@@ -27,7 +27,7 @@ class FormBuilder extends React.Component {
     onDataChanged: PropTypes.func.isRequired,
     onSubmit: PropTypes.func.isRequired,
     submitLabel: PropTypes.string.isRequired,
-    presubmitText: PropTypes.string,
+    preSubmitText: PropTypes.string,
     formFields: PropTypes.arrayOf(PropTypes.object).isRequired,
     submitOnChange: PropTypes.bool,
     disabled: PropTypes.bool,
@@ -40,7 +40,7 @@ class FormBuilder extends React.Component {
     submitOnChange: false,
     disabled: false,
     centered: false,
-    presubmitText: null,
+    preSubmitText: null,
   };
 
   constructor(props) {
@@ -58,7 +58,7 @@ class FormBuilder extends React.Component {
       onDataChanged,
       submitOnChange,
       onSubmit,
-      presubmitText,
+      preSubmitText,
       submitLabel,
       formFields,
       ...rest
@@ -179,10 +179,10 @@ class FormBuilder extends React.Component {
             )}
           </Fragment>
         ))}
-        {presubmitText && (
+        {preSubmitText && (
           <Fragment>
             <div className={getClassName('forms__component')}>
-              {presubmitText}
+              {preSubmitText}
             </div>
           </Fragment>
         )}

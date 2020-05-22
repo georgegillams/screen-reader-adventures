@@ -14,7 +14,7 @@ import { CodeInline } from 'gg-components/Code';
 import { DebugObject } from 'gg-components/Auth';
 import { LoginForm } from 'components/Forms';
 import { CookiesOnly } from 'components/Sessions';
-import { GGRedirect } from 'gg-components/Redirect';
+import { Redirect } from 'gg-components/Redirect';
 import {
   REDIRECT_REGEX,
   SORT_CODE_REGEX,
@@ -68,7 +68,7 @@ export default class Login extends React.Component {
         redirectLocation = 'account';
       }
       return (
-        <GGRedirect
+        <Redirect
           className={outerClassNameFinal.join(' ')}
           to={`${SITE_URL}/${redirectLocation}`}
           name="Logged in"
