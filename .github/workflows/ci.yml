@@ -13,6 +13,8 @@ jobs:
     steps:
     # Checkout the repo
     - uses: actions/checkout@v2
+      with:
+        ref: ${{ github.head_ref }}
 
     - name: print job details
       run: |
@@ -42,6 +44,14 @@ jobs:
       with:
         name: bitmaps_reference
         path: backstop_data/bitmaps_reference
+
+
+    - name: commit changes to branch
+      if: failure()
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Snapshot changes
+        push_options: --force
 
     - name: build AWS
       run: |
