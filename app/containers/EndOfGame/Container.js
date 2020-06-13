@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Section, SubSection, TextLink } from 'gg-components/Typography';
-import { cssModules } from 'bpk-react-utils';
+import { cssModules } from 'gg-components/helpers/cssModules';
 
 import STYLES from '../pages.scss';
 const getClassName = cssModules(STYLES);

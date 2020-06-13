@@ -5,6 +5,8 @@ import invariant from 'invariant';
 
 /**
  * Validate the shape of redux store
+ * @param {object} store The store to check
+ * @returns {boolean} returns true if successful
  */
 export default function checkStore(store) {
   const shape = {
@@ -20,4 +22,5 @@ export default function checkStore(store) {
     conformsTo(store, shape),
     '(app/utils...) injectors: Expected a valid redux store',
   );
+  return true;
 }

@@ -1,4 +1,9 @@
+import { call, put, takeLatest } from 'redux-saga/effects';
+
 import { constants, actions } from './redux-definitions';
+
+import apiStructure from 'helpers/apiStructure';
+import request from 'utils/request';
 
 const { LOAD_NOTIFICATIONS } = constants;
 const {
@@ -6,28 +11,21 @@ const {
   loadNotificationsRegisterError,
 } = actions;
 
-import { call, put, select, takeLatest } from 'redux-saga/effects';
-import { API_ENDPOINT } from 'helpers/constants';
-import request from 'utils/request';
-
 export function* doLoadNotifications() {
-  const requestURL = `${API_ENDPOINT}/notifications/load`;
+  const requestURL = apiStructure.loadNotifications.fullPath;
 
   try {
-    const notifications = yield call(request, requestURL);
-    if (notifications.error) {
-      yield put(pushMessage(setKeyErrorMessage));
-      yield put(addKeyRegisterError(setKeyResult));
+    const result = yield call(request, requestURL);
+    if (result.error) {
+      yield put(loadNotificationsRegisterError(result));
     } else {
-      yield put(pushMessage(setKeySuccessMessage));
-      yield put(addKeyRegisterSuccess(setKeyResult));
+      yield put(loadNotificationsRegisterSuccess(result.notifications));
     }
-    yield put(loadNotificationsRegisterSuccess(notifications));
   } catch (err) {
     yield put(loadNotificationsRegisterError(err));
   }
 }
 
-export default function* getNotifications() {
+export default function* saga() {
   yield takeLatest(LOAD_NOTIFICATIONS, doLoadNotifications);
 }

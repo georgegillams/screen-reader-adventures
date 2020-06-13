@@ -6,24 +6,27 @@ const actionMeta = {
       attributes: ['blogId'],
       stateMutations: {
         blogId: action => action.blogId,
-        loading: true,
-        loadBlogError: false,
+        blogLoading: true,
+        blogLoadError: false,
       },
     },
     {
       LOAD_BLOG_REGISTER_SUCCESS: 'tbd',
       attributes: ['blog'],
       stateMutations: {
-        loading: false,
-        blog: action => action.blog,
+        blogLoading: false,
+        blogs: (action, prevValue) => ({
+          ...prevValue,
+          [action.blog.id]: action.blog,
+        }),
       },
     },
     {
       LOAD_BLOG_REGISTER_ERROR: 'tbd',
-      attributes: ['loadBlogError'],
+      attributes: ['blogLoadError'],
       stateMutations: {
-        loading: false,
-        loadBlogError: action => action.loadBlogError,
+        blogLoading: false,
+        blogLoadError: action => action.blogLoadError,
       },
     },
   ],

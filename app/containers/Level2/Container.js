@@ -2,7 +2,7 @@ import React from 'react';
 import LevelWrapper from 'components/Levels';
 import { getCopy } from 'helpers/copyHelpers';
 import { generateLevelDefinition } from 'helpers/gameLogic';
-import { cssModules } from 'bpk-react-utils';
+import { cssModules } from 'gg-components/helpers/cssModules';
 
 import STYLES from '../pages.scss';
 

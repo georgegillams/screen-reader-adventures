@@ -1,5 +1,5 @@
 import actionMeta from './actionMeta';
 
-import createReduxComponents from 'helpers/redux';
+import { createReduxComponents } from 'utils/redux-definitions';
 
 module.exports = createReduxComponents(actionMeta);

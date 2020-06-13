@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { cssModules } from 'bpk-react-utils';
+import { cssModules } from 'gg-components/helpers/cssModules';
 
 import {
   SectionSkeleton,
@@ -11,7 +11,7 @@ import STYLES from 'containers/pages.scss';
 const getClassName = cssModules(STYLES);
 
 const SignUpSkeleton = props => {
-  const { className, ...rest } = props;
+  const { className } = props;
 
   const outerClassNameFinal = [];
 
@@ -20,7 +20,7 @@ const SignUpSkeleton = props => {
   }
 
   return (
-    <div className={outerClassNameFinal.join(' ')} {...rest}>
+    <div className={outerClassNameFinal.join(' ')}>
       <SectionSkeleton />
       <InputSkeleton />
       <ButtonSkeleton />

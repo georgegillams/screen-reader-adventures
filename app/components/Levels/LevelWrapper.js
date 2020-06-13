@@ -20,7 +20,7 @@ import {
   Space,
 } from 'components/Levels';
 import { MONSTER_MOVING_SPEED } from 'helpers/constants';
-import { cssModules } from 'bpk-react-utils';
+import { cssModules } from 'gg-components/helpers/cssModules';
 
 import Character from './Character';
 import Monster from './Monster';

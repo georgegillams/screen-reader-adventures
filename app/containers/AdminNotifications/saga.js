@@ -1,4 +1,11 @@
+import { call, put, select, takeLatest } from 'redux-saga/effects';
+
 import { actions, constants, selectors } from './redux-definitions';
+
+import { pushMessage } from 'containers/RequestStatusWrapper/actions';
+import { COMMUNICATION_ERROR_MESSAGE } from 'helpers/messageConstants';
+import apiStructure from 'helpers/apiStructure';
+import request from 'utils/request';
 
 const {
   LOAD_NOTIFICATIONS,
@@ -15,11 +22,6 @@ const {
   loadNotificationsRegisterError,
 } = actions;
 const { makeSelectNotificationToDelete, makeSelectNewNotification } = selectors;
-
-import { call, put, select, takeLatest } from 'redux-saga/effects';
-import { pushMessage } from 'containers/RequestStatusWrapper/actions';
-import { API_ENDPOINT, COMMUNICATION_ERROR_MESSAGE } from 'helpers/constants';
-import request from 'utils/request';
 
 const loadNotificationsSuccessMessage = {
   type: 'success',
@@ -49,17 +51,19 @@ const notificationCreateErrorMessage = {
 };
 
 export function* doLoadNotifications() {
-  const notificationsRequestURL = `${API_ENDPOINT}/notifications/load`;
+  const requestURL = apiStructure.loadNotifications.fullPath;
 
   try {
-    const notificationsResult = yield call(request, notificationsRequestURL, {
+    const notificationsResult = yield call(request, requestURL, {
       method: 'GET',
     });
     if (notificationsResult.error) {
       yield put(loadNotificationsRegisterError(notificationsResult));
       yield put(pushMessage(notificationsLoadErrorMessage));
     } else {
-      yield put(loadNotificationsRegisterSuccess(notificationsResult));
+      yield put(
+        loadNotificationsRegisterSuccess(notificationsResult.notifications),
+      );
       yield put(pushMessage(loadNotificationsSuccessMessage));
     }
   } catch (err) {
@@ -70,20 +74,16 @@ export function* doLoadNotifications() {
 
 export function* doDeleteNotification() {
   const notificationToDelete = yield select(makeSelectNotificationToDelete());
-  const notificationDeleteUrl = `${API_ENDPOINT}/notifications/remove`;
+  const requestURL = apiStructure.deleteNotification.fullPath;
 
   try {
-    const notificationDeleteResult = yield call(
-      request,
-      notificationDeleteUrl,
-      {
-        method: 'POST',
-        body: JSON.stringify(notificationToDelete),
-        headers: {
-          'Content-Type': 'application/json',
-        },
+    const notificationDeleteResult = yield call(request, requestURL, {
+      method: 'POST',
+      body: JSON.stringify(notificationToDelete),
+      headers: {
+        'Content-Type': 'application/json',
       },
-    );
+    });
     if (notificationDeleteResult.error) {
       yield put(deleteNotificationRegisterError(notificationDeleteResult));
       yield put(pushMessage(notificationDeleteErrorMessage));
@@ -100,20 +100,16 @@ export function* doDeleteNotification() {
 
 export function* doCreateNotification() {
   const newNotification = yield select(makeSelectNewNotification());
-  const notificationDeleteUrl = `${API_ENDPOINT}/notifications/create`;
+  const requestURL = apiStructure.createNotification.fullPath;
 
   try {
-    const notificationCreateResult = yield call(
-      request,
-      notificationDeleteUrl,
-      {
-        method: 'POST',
-        body: JSON.stringify(newNotification),
-        headers: {
-          'Content-Type': 'application/json',
-        },
+    const notificationCreateResult = yield call(request, requestURL, {
+      method: 'POST',
+      body: JSON.stringify(newNotification),
+      headers: {
+        'Content-Type': 'application/json',
       },
-    );
+    });
     if (notificationCreateResult.error) {
       yield put(createNotificationRegisterError(notificationCreateResult));
       yield put(pushMessage(notificationCreateErrorMessage));
@@ -128,8 +124,8 @@ export function* doCreateNotification() {
   }
 }
 
-export default function* adminNotifications() {
-  yield takeLatest(LOAD_NOTIFICATIONS, () => doLoadNotifications());
-  yield takeLatest(DELETE_NOTIFICATION, () => doDeleteNotification());
-  yield takeLatest(CREATE_NOTIFICATION, () => doCreateNotification());
+export default function* saga() {
+  yield takeLatest(LOAD_NOTIFICATIONS, doLoadNotifications);
+  yield takeLatest(DELETE_NOTIFICATION, doDeleteNotification);
+  yield takeLatest(CREATE_NOTIFICATION, doCreateNotification);
 }

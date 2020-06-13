@@ -1,14 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { cssModules } from 'bpk-react-utils';
+import { DebugObject, LoadingCover } from 'gg-components/Auth';
 
 import CommentsListSkeleton from './CommentsListSkeleton';
 
-import { DebugObject, LoadingCover } from 'gg-components/Auth';
 import Comments, { CommentInput } from 'components/Comments';
-import STYLES from 'containers/pages.scss';
-
-const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 export default class CommentsContainer extends React.Component {
   componentWillMount = () => {
@@ -42,7 +38,6 @@ export default class CommentsContainer extends React.Component {
       deletingComment,
       deleteCommentSuccess,
       deleteCommentError,
-      ...rest
     } = this.props;
 
     const outerClassNameFinal = [];
@@ -51,7 +46,7 @@ export default class CommentsContainer extends React.Component {
     }
 
     return (
-      <div className={outerClassNameFinal.join(' ')} {...rest}>
+      <div className={outerClassNameFinal.join(' ')}>
         <DebugObject
           debugTitle="Comments"
           debugObject={{

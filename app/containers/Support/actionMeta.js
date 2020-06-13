@@ -15,7 +15,7 @@ const actionMeta = {
       stateMutations: {
         loadingLinks: false,
         loadLinksSuccess: true,
-        links: action => action.links,
+        links: action => action.links.supportMessages,
       },
     },
     {

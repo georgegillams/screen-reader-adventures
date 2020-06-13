@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { cssModules } from 'bpk-react-utils';
-import { getPlatform, getDebugViewsShown } from 'helpers/storageHelpers';
+import { cssModules } from 'gg-components/helpers/cssModules';
 
 import STYLES from './untappable-scrim.scss';
+
+import { getPlatform, getDebugViewsShown } from 'utils/storageHelpers';
 
 const getClassName = cssModules(STYLES);
 

@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-import { cssModules } from 'bpk-react-utils';
-
-import { SubSection, TextLink } from 'gg-components/Typography';
+import { cssModules } from 'gg-components/helpers/cssModules';
+import { SubSection, TextLink, PageTitle } from 'gg-components/Typography';
 import { LoadingIndicator } from 'gg-components/LoadingIndicator';
-import { NON_EMOJI_REGEX } from 'helpers/constants';
+
+import { NON_EMOJI_REGEX } from 'helpers/regexConstants';
 import redirects from 'helpers/redirects';
 import STYLES from 'containers/pages.scss';
 
-const getClassName = cssModules(STYLES); // REGEX_REPLACED
+const getClassName = cssModules(STYLES);
 
 export default class SiteMap extends React.Component {
   componentWillMount = () => {
@@ -17,25 +17,18 @@ export default class SiteMap extends React.Component {
   };
 
   render() {
-    const {
-      loadingBlogs,
-      loadBlogsError,
-      blogs,
-      loadBlogs,
-      className,
-      ...rest
-    } = this.props;
-    const outerClassNameFinal = [getClassName('pages__container--centered')];
+    const { blogsLoadError, blogs, className } = this.props;
+    const outerClassNameFinal = [];
 
     if (className) {
       outerClassNameFinal.push(className);
     }
 
     return (
-      <div className={outerClassNameFinal.join(' ')} {...rest}>
+      <div className={outerClassNameFinal.join(' ')}>
         <Helmet title="SiteMap" />
-        <LoadingIndicator loading={loadingBlogs} error={loadBlogsError}>
-          <div>
+        <LoadingIndicator loading={!blogs} error={blogsLoadError}>
+          <PageTitle style={{ lineHeight: '1.5rem' }} name="Site map">
             <SubSection
               anchor={false}
               className={getClassName('pages__site-map-item')}
@@ -116,17 +109,15 @@ export default class SiteMap extends React.Component {
               className={getClassName('pages__site-map-item')}
               name="Work 📱"
             >
+              <TextLink href="/work">Overview</TextLink>
+              <br />
+              <TextLink href="/work/backpack">Backpack</TextLink>
+              <br />
               <TextLink href="/work/degree">Degree</TextLink>
               <br />
-              <TextLink href="/work">Portfolio</TextLink>
+              <TextLink href="/work/epicc">EPICC</TextLink>
               <br />
-              <TextLink href="/work/bpk-component-demo">
-                Backpack Demo Component
-              </TextLink>
-              <br />
-              <TextLink href="/apps/password-character-extractor">
-                Password Character Extractor
-              </TextLink>
+              <TextLink href="/work/side-projects">Side projects</TextLink>
             </SubSection>
             <SubSection
               anchor={false}
@@ -167,13 +158,13 @@ export default class SiteMap extends React.Component {
               <br />
               <TextLink href="/contact">Contact</TextLink>
               <br />
-              <TextLink href="/gts">Location tracking</TextLink>
-              <br />
               <TextLink href="/payments">Payments</TextLink>
               <br />
               <TextLink href="/monzoPots">Monzo savings tracking</TextLink>
               <br />
               <TextLink href="/support">Support</TextLink>
+              <br />
+              <TextLink href="/status">Status</TextLink>
             </SubSection>
             <SubSection
               anchor={false}
@@ -188,8 +179,6 @@ export default class SiteMap extends React.Component {
                 SiteMap.xml{' '}
               </TextLink>
               <br />
-              <TextLink href="/418"> Error 418: I&apos;m a teapot</TextLink>
-              <br />
               <TextLink href="/page-not-found"> 404 Page</TextLink>
             </SubSection>
             <SubSection
@@ -197,9 +186,7 @@ export default class SiteMap extends React.Component {
               className={getClassName('pages__site-map-item')}
               name="API"
             >
-              <TextLink external href="/api/gts/loadLatest">
-                Tracking API endpoint{' '}
-              </TextLink>
+              <TextLink href="/api-docs">API docs</TextLink>
               <br />
               <TextLink external href="/greasemonkey/find_backpack_components">
                 /greasemonkey/find_backpack_components{' '}
@@ -255,19 +242,17 @@ export default class SiteMap extends React.Component {
               className={getClassName('pages__site-map-item')}
               name="Admin 👮‍♂️"
             >
-              <TextLink href="/admin/sessions">Sessions</TextLink>
+              <TextLink href="/admin/users">Users</TextLink>
               <br />
-              <TextLink href="/admin/blogs">Blogs</TextLink>
+              <TextLink href="/admin/analytics">Analytics</TextLink>
               <br />
-              <TextLink href="/admin/blog-comments">Blog comments</TextLink>
+              <TextLink href="/monzoPots">Monzo</TextLink>
               <br />
               <TextLink href="/admin/notifications">Notifications</TextLink>
               <br />
-              <TextLink href="/admin/payments">Payments</TextLink>
+              <TextLink href="/admin/blog">Blogs</TextLink>
               <br />
-              <TextLink href="/admin/ping-pen-testing">
-                Ping pen-testing
-              </TextLink>
+              <TextLink href="/payments">Payments</TextLink>
             </SubSection>
             <SubSection
               anchor={false}
@@ -283,7 +268,7 @@ export default class SiteMap extends React.Component {
                 </div>
               ))}
             </SubSection>
-          </div>
+          </PageTitle>
         </LoadingIndicator>
       </div>
     );
@@ -291,8 +276,7 @@ export default class SiteMap extends React.Component {
 }
 
 SiteMap.propTypes = {
-  loadingBlogs: PropTypes.bool,
-  loadBlogsError: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
+  blogsLoadError: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
   blogs: PropTypes.object,
   filter: PropTypes.func,
   linkPrefix: PropTypes.string,

@@ -1,15 +1,14 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import { CardSkeleton } from 'gg-components/Skeletons';
 
-import { SectionSkeleton, CardSkeleton } from 'gg-components/Skeletons';
-
-const AccountSkeleton = props => (
-  <Fragment>
+const BlogsSkeleton = () => (
+  <>
     <CardSkeleton />
     <CardSkeleton />
     <CardSkeleton />
     <CardSkeleton />
     <CardSkeleton />
-  </Fragment>
+  </>
 );
 
-export default AccountSkeleton;
+export default BlogsSkeleton;

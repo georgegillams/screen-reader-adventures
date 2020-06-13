@@ -4,7 +4,7 @@ import { TextLink } from 'gg-components/Typography';
 import MadeWithLove from './MadeWithLove';
 
 import STYLES from './footer.scss';
-import { cssModules } from 'bpk-react-utils';
+import { cssModules } from 'gg-components/helpers/cssModules';
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 const SRFooter = props => {

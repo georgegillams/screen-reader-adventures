@@ -1,15 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import {
-  NavigationBar,
-  NavigationItem,
-} from 'gg-components/NavigationBar';
+import { NavigationBar, NavigationItem } from 'gg-components/NavigationBar';
 import { Logo } from 'gg-components/Logo';
 import { SmallButtonSkeleton } from 'gg-components/Skeletons';
 
 const NavigationBarWrapper = props => {
-  const { user, userLoading, ...rest } = props;
+  const { user, userLoading } = props;
 
   const accountItem = userLoading ? (
     <SmallButtonSkeleton />
@@ -46,7 +42,6 @@ const NavigationBarWrapper = props => {
       menuItems={menuItems}
       logo={<Logo padding={false} small animated />}
       accountMenuItem={accountItem}
-      {...rest}
     />
   );
 };

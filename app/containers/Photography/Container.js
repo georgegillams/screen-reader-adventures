@@ -5,19 +5,22 @@ import BpkImage, {
   withLazyLoading,
   withLoadingBehavior,
 } from 'bpk-component-image';
-import { cssModules } from 'bpk-react-utils';
+import { CreativeCommons } from 'gg-components/CreativeCommons';
+import { ArticleCard, ARTICLE_CARD_LAYOUTS } from 'gg-components/Cards';
+import {
+  Paragraph,
+  Section,
+  SubSection,
+  PageTitle,
+} from 'gg-components/Typography';
+import { cssModules } from 'gg-components/helpers/cssModules';
 
 import STYLES from '../pages.scss';
 
-import { ArticleCard, ARTICLE_CARD_LAYOUTS } from 'gg-components/Cards';
-import { CreativeCommons } from 'gg-components/CreativeCommons';
-import { Section, SubSection } from 'gg-components/Typography';
 import GraphicContent, {
   withGraphicContentBehaviour,
 } from 'components/GraphicContent';
 import Comments from 'containers/Comments';
-
-const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 const PAGE_ID = '857216';
 const documentIfExists = typeof window !== 'undefined' ? document : null;
@@ -25,6 +28,8 @@ const FadingLazyLoadedImage = withLoadingBehavior(
   withLazyLoading(BpkImage, documentIfExists),
 );
 const GcbGraphicContent = withGraphicContentBehaviour(GraphicContent);
+
+const getClassName = cssModules(STYLES);
 
 export default class Photography extends Component {
   static propTypes = {
@@ -55,7 +60,6 @@ export default class Photography extends Component {
       loadComments,
       createComment,
       className,
-      ...rest
     } = this.props;
 
     return (
@@ -64,7 +68,7 @@ export default class Photography extends Component {
         style={{ textAlign: 'center' }}
       >
         <Helmet title="Photography" />
-        <Section anchor={false} name="Photography">
+        <PageTitle anchor={false} name="Photography">
           <div
             style={{ paddingTop: '1rem' }}
             className={getClassName('pages__compact-card-container')}
@@ -86,6 +90,15 @@ export default class Photography extends Component {
               imageSrc="https://i.imgur.com/u30cQWU.png"
               href="https://www.flickr.com/people/georgegillams/"
               title="Find me on Flickr"
+            />
+            <ArticleCard
+              layout={ARTICLE_CARD_LAYOUTS.narrowCompact}
+              day={null}
+              month={null}
+              className={getClassName('pages__card')}
+              imageSrc="https://i.imgur.com/obBqvqK.png"
+              href="https://unsplash.com/@georgegillams"
+              title="Find me on Unsplash"
             />
           </div>
           <SubSection anchor={false} name="Harlequins vs Worcester Rugby Match">
@@ -164,15 +177,16 @@ export default class Photography extends Component {
               src="https://i.imgur.com/h4BFWqS.jpg"
             />
           </SubSection>
-        </Section>
+        </PageTitle>
         <Section name="Photoshop">
           <SubSection anchor={false} name="Tulips exploding with light">
-            For some reason the idea of light exploding out of tulips popped
-            into my mind, so I went out to find some and made it a reality. I
-            used a similar effect in Art that I had used in the past to create
-            beams of sunlight breaking through the clouds, and then darkened the
-            background a little.
-            <br />
+            <Paragraph>
+              For some reason the idea of light exploding out of tulips popped
+              into my mind, so I went out to find some and made it a reality. I
+              used a similar effect in Art that I had used in the past to create
+              beams of sunlight breaking through the clouds, and then darkened
+              the background a little.
+            </Paragraph>
             <br />
             <FadingLazyLoadedImage
               className={getClassName('pages__image')}
@@ -183,9 +197,11 @@ export default class Photography extends Component {
             />
           </SubSection>
           <SubSection anchor={false} name="Miss Saigon sketch">
-            With Miss Saigon coming to cinemas soon for one day only, I was
-            inspired to draw the production logo (aka tempted to procrastinate).
-            <br />
+            <Paragraph>
+              With Miss Saigon coming to cinemas soon for one day only, I was
+              inspired to draw the production logo (aka tempted to
+              procrastinate).
+            </Paragraph>
             <br />
             <FadingLazyLoadedImage
               className={getClassName('pages__image')}
@@ -199,10 +215,11 @@ export default class Photography extends Component {
             anchor={false}
             name="Dual-carriageway light-painting (in post)"
           >
-            One evening after leaving work at an unearthly hour, I shot this
-            uninspired photo. In Photoshop, I then used the brush tool and some
-            layer styles to create a 'painting with light' effect.
-            <br />
+            <Paragraph>
+              One evening after leaving work at an unearthly hour, I shot this
+              uninspired photo. In Photoshop, I then used the brush tool and
+              some layer styles to create a 'painting with light' effect.
+            </Paragraph>
             <br />
             <FadingLazyLoadedImage
               className={getClassName('pages__image')}
@@ -215,10 +232,11 @@ export default class Photography extends Component {
         </Section>
         <Section name="Food is art! (...sometimes)">
           <SubSection anchor={false} name="Guinness cake">
-            I like spending time on food presentation when the opportunity calls
-            for it. So I created this masterpiece to share with the office and
-            celebrate a legendary drink!
-            <br />
+            <Paragraph>
+              I like spending time on food presentation when the opportunity
+              calls for it. So I created this masterpiece to share with the
+              office and celebrate a legendary drink!
+            </Paragraph>
             <br />
             <FadingLazyLoadedImage
               className={getClassName('pages__image')}
@@ -229,10 +247,11 @@ export default class Photography extends Component {
             />
           </SubSection>
           <SubSection anchor={false} name="Ratatouille">
-            To get us in the mood for Disneyland, I cooked up this Ratatouille
-            in the style of the dish served in the film. It came out better than
-            I expected... Pretty pleased with the result!
-            <br />
+            <Paragraph>
+              To get us in the mood for Disneyland, I cooked up this Ratatouille
+              in the style of the dish served in the film. It came out better
+              than I expected... Pretty pleased with the result!
+            </Paragraph>
             <br />
             <FadingLazyLoadedImage
               className={getClassName('pages__image')}
@@ -246,7 +265,12 @@ export default class Photography extends Component {
         <br />
         {/* <LicenseInfo centered /> */}
         <Comments pageId={PAGE_ID} />
-        <CreativeCommons />
+        <CreativeCommons
+          className={getClassName(
+            'pages__full-width-container',
+            'pages__full-width-container--centered',
+          )}
+        />
       </div>
     );
   }

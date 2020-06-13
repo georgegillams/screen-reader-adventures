@@ -1,4 +1,4 @@
-import { STRING_REGEX, ANYTHING_REGEX } from 'helpers/constants';
+import { STRING_REGEX, ANYTHING_REGEX } from 'helpers/regexConstants';
 
 const analyticsAllowedAttributes = [
   { attribute: 'type', pattern: STRING_REGEX },

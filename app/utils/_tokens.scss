@@ -1,0 +1,31 @@
+@import '~gg-components/Tokens/common';
+
+// SRA brand colors:
+$really-really-dark-purple: #2f2552;
+$really-dark-purple: #423574;
+$dark-purple: #5a489b;
+$light-purple: #8e7bd3;
+
+// Override tokens:
+$primary-color-dark-invert: $light-purple;
+$primary-color-dark: $dark-purple;
+$primary-color-invert: $light-purple;
+$primary-color-light: $light-purple;
+$primary-color-transparent: rgba(0, 144, 173, 0.15);
+$primary-color: $light-purple;
+
+$cta-color-dark-invert: $really-really-dark-purple;
+$cta-color-dark: $really-really-dark-purple;
+$cta-color-invert: $really-dark-purple;
+$cta-color: $really-dark-purple;
+
+$link-color: $dark-purple;
+$link-color-invert: $light-purple;
+$link-color-hover: $primary-color;
+
+$checkbox-tick-color: $primary-color;
+$segmented-control-selected-color: $dark-purple;
+
+// Define other app-specific tokens:
+$space-dimension: 2rem;
+$character-move-speed: 0.2s;

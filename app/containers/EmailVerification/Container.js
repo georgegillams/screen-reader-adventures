@@ -1,30 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-import BpkImage, {
-  withLazyLoading,
-  withLoadingBehavior,
-} from 'bpk-component-image';
-import { cssModules } from 'bpk-react-utils';
-
-import { LoadingIndicator } from 'gg-components/LoadingIndicator';
-import { Button } from 'gg-components/Button';
-import { Section, SubSection, TextLink } from 'gg-components/Typography';
-import { CodeInline } from 'gg-components/Code';
-import { LoginForm } from 'components/Forms';
+import { PageTitle } from 'gg-components/Typography';
 import { DebugObject } from 'gg-components/Auth';
-import { CookiesOnly } from 'components/Sessions';
 import { Redirect } from 'gg-components/Redirect';
-import {
-  MONZOME_LINK_REGEX,
-  SORT_CODE_REGEX,
-  INT_REGEX,
-  STRING_REGEX,
-  DECIMAL_REGEX,
-} from 'helpers/constants';
-import STYLES from 'containers/pages.scss';
-
-const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 export default class EmailVerification extends React.Component {
   componentDidMount = () => {
@@ -47,7 +26,6 @@ export default class EmailVerification extends React.Component {
       verifySuccess,
       verifyError,
       className,
-      ...rest
     } = this.props;
     const outerClassNameFinal = [];
 
@@ -66,7 +44,7 @@ export default class EmailVerification extends React.Component {
     }
 
     return (
-      <div className={outerClassNameFinal.join(' ')} {...rest}>
+      <div className={outerClassNameFinal.join(' ')}>
         <Helmet title="Email verification" />
         <CookiesOnly
           cookiesAccepted={cookiesAllowed}
@@ -74,9 +52,9 @@ export default class EmailVerification extends React.Component {
             onCookiesAccepted();
           }}
         />
-        <Section name="Email verification">
+        <PageTitle name="Email verification">
           {verifySuccess && <span>Thanks for verifying your email!</span>}
-        </Section>
+        </PageTitle>
         <DebugObject
           debugTitle="Email verification"
           debugObject={{

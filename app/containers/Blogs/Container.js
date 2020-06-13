@@ -1,17 +1,14 @@
-import React, { Fragment } from 'react';
-import { withRouter } from 'react-router';
-import BpkThemeProvider from 'bpk-theming';
-import { themeAttributes as hnThemeAttributes } from 'bpk-component-horizontal-nav';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-import { cssModules } from 'bpk-react-utils';
+import { cssModules } from 'gg-components/helpers/cssModules';
+import { DebugObject, LoadingCover } from 'gg-components/Auth';
+import { CreativeCommons } from 'gg-components/CreativeCommons';
 
 import BlogListSkeleton from './BlogListSkeleton';
 import BlogsNav from './BlogsNav';
 
-import { DebugObject, LoadingCover } from 'gg-components/Auth';
-import BlogsList from 'components/Blogs';
-import { CreativeCommons } from 'gg-components/CreativeCommons';
+import { BlogsList } from 'components/Blogs';
 import STYLES from 'containers/pages.scss';
 
 const getClassName = cssModules(STYLES);
@@ -44,15 +41,15 @@ export default class BlogsPage extends React.Component {
 
   render() {
     const {
-      loading,
-      loadBlogsError,
-      blogs,
       loadBlogs,
+
+      blogsLoadError,
+      blogs,
+
       selectedNav,
       filter,
       linkPrefix,
       className,
-      ...rest
     } = this.props;
     const outerClassNameFinal = [];
 
@@ -60,25 +57,14 @@ export default class BlogsPage extends React.Component {
       outerClassNameFinal.push(className);
     }
 
-    const textColor = this.getTextColor();
-
-    const theme = {
-      horizontalNavLinkColor: textColor,
-      horizontalNavLinkHoverColor: textColor,
-      horizontalNavLinkActiveColor: '#44aeff',
-      horizontalNavLinkSelectedColor: '#44aeff',
-      horizontalNavBarSelectedColor: '#44aeff',
-    };
-
     return (
-      <div className={outerClassNameFinal.join(' ')} {...rest}>
+      <div className={outerClassNameFinal.join(' ')}>
         <DebugObject
           debugTitle="Blogs"
           debugObject={{
-            loading,
             blogs,
             loadBlogs,
-            loadBlogsError,
+            blogsLoadError,
             selectedNav,
             filter,
             linkPrefix,
@@ -86,26 +72,22 @@ export default class BlogsPage extends React.Component {
           }}
         />
         <Helmet title="Blog" />
-        <BpkThemeProvider
-          theme={theme}
-          themeAttributes={[...hnThemeAttributes]}
-        >
-          <BlogsNav
-            className={getClassName('pages__component')}
-            selected={selectedNav}
-          />
-        </BpkThemeProvider>
+        <BlogsNav
+          className={getClassName('pages__component')}
+          style={{ marginTop: '1rem' }}
+          selected={selectedNav}
+        />
         <LoadingCover
           loadingSkeleton={BlogListSkeleton}
-          loading={loading}
-          error={loadBlogsError}
+          loading={!blogs}
+          error={blogsLoadError}
         >
-          <Fragment>
+          <>
             {this.filteredBlogs && (
               <BlogsList blogs={this.filteredBlogs} linkPrefix={linkPrefix} />
             )}
             <CreativeCommons />
-          </Fragment>
+          </>
         </LoadingCover>
       </div>
     );
@@ -113,11 +95,21 @@ export default class BlogsPage extends React.Component {
 }
 
 BlogsPage.propTypes = {
-  loading: PropTypes.bool,
-  loadBlogsError: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
+  blogsLoadError: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
+  // eslint-disable-next-line react/forbid-prop-types
   blogs: PropTypes.object,
   filter: PropTypes.func,
   linkPrefix: PropTypes.string,
   loadBlogs: PropTypes.func.isRequired,
   className: PropTypes.string,
+  selectedNav: PropTypes.string,
+};
+
+BlogsPage.defaultProps = {
+  blogsLoadError: false,
+  blogs: null,
+  filter: null,
+  linkPrefix: null,
+  className: null,
+  selectedNav: null,
 };

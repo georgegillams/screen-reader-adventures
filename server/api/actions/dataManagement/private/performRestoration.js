@@ -1,26 +1,17 @@
-import { PROJECT_NAME } from 'helpers/constants';
+import appConfig from 'helpers/appConfig';
 import redis from 'utils/redis';
 
+/**
+ * Overwrites all redis data stores with the data values provided
+ * @param {object} data The data object to perform the restoration from
+ * @returns {null} none
+ */
 export default function performRestoration(data) {
-  return new Promise((resolve, reject) => {
-    const promises = [];
-    Object.keys(data).forEach(key => {
-      promises.push(
-        new Promise((res, rej) => {
-          redis.del(key); // This line is legacy
-          redis.del(`${PROJECT_NAME}_${key}`);
-          if (data[key].length > 0) {
-            const newData = data[key].map(d => {
-              return JSON.stringify(d);
-            });
-            redis.rpush([`${PROJECT_NAME}_${key}`, ...newData]);
-          }
-          res(true);
-        }),
-      );
-    });
-    Promise.all(promises).then(() => {
-      resolve(true);
-    });
+  Object.keys(data).forEach(key => {
+    redis.del(`${appConfig.projectName}_${key}`);
+    if (data[key].length > 0) {
+      const newData = data[key].map(d => JSON.stringify(d));
+      redis.rpush([`${appConfig.projectName}_${key}`, ...newData]);
+    }
   });
 }

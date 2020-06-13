@@ -5,6 +5,9 @@
 const path = require('path');
 
 const webpack = require('webpack');
+const {
+  WebpackBundleSizeAnalyzerPlugin,
+} = require('webpack-bundle-size-analyzer');
 
 process.noDeprecation = true;
 
@@ -14,20 +17,17 @@ const {
   STRIPE_PUBLIC_API_KEY,
   PROJECT_UNDER_TEST,
   PORT,
-  AWS,
 } = process.env;
 
 module.exports = options => ({
   mode: options.mode,
   entry: options.entry,
-  output: Object.assign(
-    {
-      // Compile into js/build.js
-      path: path.resolve(process.cwd(), 'build'),
-      publicPath: '/',
-    },
-    options.output,
-  ), // Merge with env dependent settings
+  output: {
+    // Compile into js/build.js
+    path: path.resolve(process.cwd(), 'build'),
+    publicPath: '/',
+    ...options.output,
+  }, // Merge with env dependent settings
   module: {
     rules: [
       {
@@ -118,6 +118,7 @@ module.exports = options => ({
     ],
   },
   plugins: options.plugins.concat([
+    new WebpackBundleSizeAnalyzerPlugin('./plain-report.txt'),
     new webpack.ProvidePlugin({
       // make fetch available
       fetch: 'exports-loader?self.fetch!whatwg-fetch',
@@ -133,7 +134,6 @@ module.exports = options => ({
         STRIPE_PUBLIC_API_KEY: JSON.stringify(STRIPE_PUBLIC_API_KEY),
         PROJECT_UNDER_TEST: JSON.stringify(PROJECT_UNDER_TEST),
         PORT: JSON.stringify(PORT),
-        AWS: JSON.stringify(AWS),
       },
     }),
   ]),

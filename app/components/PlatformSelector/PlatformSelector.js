@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Paragraph } from 'gg-components/Typography';
 import { ArticleCard, ARTICLE_CARD_LAYOUTS } from 'gg-components/Cards';
 import STYLES from 'containers/pages.scss';
-import { cssModules } from 'bpk-react-utils';
+import { cssModules } from 'gg-components/helpers/cssModules';
 const getClassName = cssModules(STYLES);
 
 const PlatformSelector = props => {

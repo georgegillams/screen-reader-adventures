@@ -1,11 +1,11 @@
 import actionMeta from './actionMeta';
 import reducer from './reducer';
 
-import createSelectors from 'helpers/redux/selectors';
+import createSelectors from 'utils/redux-definitions/selectors';
 import {
   inferPropertiesFromInitialState,
   getInitialState,
-} from 'helpers/redux/reducers';
+} from 'utils/redux-definitions/reducers';
 
 module.exports = createSelectors(
   actionMeta.key,

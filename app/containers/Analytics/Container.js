@@ -1,31 +1,29 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet';
-import cookie from 'react-cookies';
-import { cssModules } from 'bpk-react-utils';
 import { detect } from 'detect-browser';
-const queryString = require('query-string');
-
-import { Section, SubSection, TextLink } from 'gg-components/Typography';
 import { DebugObject } from 'gg-components/Auth';
-import STYLES from 'containers/pages.scss';
 
-const getClassName = cssModules(STYLES);
+const queryString = require('query-string');
 
 class Analytics extends React.Component {
   componentDidMount = () => {
-    let utm_medium, utm_source, url, browser, browserVersion, os;
+    let utm_medium;
+    let utm_source;
+    let url;
+    let browser;
+    let browserVersion;
+    let os;
     const detectResult = detect();
     if (detectResult) {
       browser = detectResult.name;
       browserVersion = detectResult.version;
       os = detectResult.os;
     }
-    const location = this.props.location;
+    const { location } = this.props;
     if (location) {
       url = location.pathname;
-      const search = location.search;
+      const { search } = location;
       if (search) {
         const parsedSearch = queryString.parse(search);
         utm_medium = parsedSearch.utm_medium;
@@ -54,8 +52,8 @@ class Analytics extends React.Component {
       sendSuccess,
       sendError,
       className,
-      ...rest
     } = this.props;
+
     const outerClassNameFinal = [];
 
     if (className) {
@@ -63,7 +61,7 @@ class Analytics extends React.Component {
     }
 
     return (
-      <div className={outerClassNameFinal.join(' ')} {...rest}>
+      <div className={outerClassNameFinal.join(' ')}>
         <DebugObject
           debugTitle="Analytics"
           debugObject={{
@@ -82,14 +80,5 @@ class Analytics extends React.Component {
     );
   }
 }
-
-Analytics.propTypes = {
-  cookiesAllowed: PropTypes.bool,
-  sending: PropTypes.bool,
-  sendError: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
-  createdPayment: PropTypes.object,
-  login: PropTypes.func.isRequired,
-  className: PropTypes.string,
-};
 
 export default withRouter(Analytics);

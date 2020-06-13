@@ -1,8 +1,10 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
 
-const express = require('express');
-const wget = require('wget-improved');
+import express from 'express';
+import wget from 'wget-improved';
+
+import logger from 'utils/logger';
 
 const router = express.Router();
 
@@ -24,8 +26,8 @@ function getMeta(cb) {
 }
 
 function createWorkingDirectories() {
-  var serverContentDir = path.join(__dirname, './server_content');
-  var greasemonkeyDir = path.join(__dirname, './server_content/greasemonkey');
+  const serverContentDir = path.join(__dirname, './server_content');
+  const greasemonkeyDir = path.join(__dirname, './server_content/greasemonkey');
 
   if (!fs.existsSync(serverContentDir)) {
     fs.mkdirSync(serverContentDir);
@@ -56,13 +58,14 @@ function sendGreasemonkeyFile(scriptId, req, res) {
           );
         });
       } else {
-        res
-          .status(500)
-          .send({ error: 'An error occured fetching resources from GitHub.' });
+        res.status(404).send({ error: `Script ${scriptId} not found` });
       }
     });
-  } catch (e) {
-    console.error(`An error occured fetching resources from GitHub`, err);
+  } catch (err) {
+    res
+      .status(500)
+      .send({ error: 'An error occurred fetching resources from GitHub.' });
+    logger.error(`Error`, err);
   }
 }
 

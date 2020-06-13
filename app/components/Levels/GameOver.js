@@ -1,6 +1,6 @@
 import React from 'react';
 import { Section } from 'gg-components/Typography';
-import { cssModules } from 'bpk-react-utils';
+import { cssModules } from 'gg-components/helpers/cssModules';
 
 import STYLES from './game-over.scss';
 

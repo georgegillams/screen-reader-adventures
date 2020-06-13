@@ -21,10 +21,11 @@ yarn-error.log
 build
 app/helpers
 helpers/helpers
-server/api/helpers
+server/helpers
 
 # runtime stuff
 server/server_content/greasemonkey
+server/server_content/data.json
 
 # redis
 dump.rdb

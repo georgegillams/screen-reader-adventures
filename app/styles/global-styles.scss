@@ -1,23 +1,23 @@
-@import '~bpk-mixins';
-@import 'helpers/tokens';
+@import '~utils/tokens';
 
 :root {
   --checkbox-tick-color: #{$checkbox-tick-color};
-  --segmented-control-selected-color: #{$segmented-control-selected-color};
+
+  --cta-color-dark-invert: #{$cta-color-dark-invert};
+  --cta-color-invert: #{$cta-color-invert};
+  --cta-color: #{$cta-color};
 
   --link-color-hover: #{$link-color-hover};
   --link-color-invert: #{$link-color-invert};
   --link-color: #{$link-color};
+  --link-hover-color: #{$primary-color};
 
   --primary-color-dark: #{$primary-color-dark};
   --primary-color-invert: #{$primary-color-invert};
   --primary-color-light: #{$primary-color-light};
   --primary-color: #{$primary-color};
 
-  --cta-color-dark-invert: #{$cta-color-dark-invert};
-  --cta-color-dark: #{$cta-color-dark};
-  --cta-color-invert: #{$cta-color-invert};
-  --cta-color: #{$cta-color};
+  --segmented-control-selected-color: #{$segmented-control-selected-color};
 }
 
 html,

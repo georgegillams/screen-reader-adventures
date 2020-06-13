@@ -1,4 +1,11 @@
+import { call, put, select, takeLatest } from 'redux-saga/effects';
+
 import { constants, selectors, actions } from './redux-definitions';
+
+import { pushMessage } from 'containers/RequestStatusWrapper/actions';
+import { COMMUNICATION_ERROR_MESSAGE } from 'helpers/messageConstants';
+import apiStructure from 'helpers/apiStructure';
+import request from 'utils/request';
 
 const {
   LOAD_COMMENTS,
@@ -19,18 +26,15 @@ const {
 } = actions;
 const { makeSelectComment, makeSelectCurrentPageId } = selectors;
 
-import { pushMessage } from 'containers/RequestStatusWrapper/actions';
-import { call, put, select, takeLatest } from 'redux-saga/effects';
-import { COMMUNICATION_ERROR_MESSAGE, API_ENDPOINT } from 'helpers/constants';
-import request from 'utils/request';
-
 export function* doLoadComments() {
   const pageId = yield select(makeSelectCurrentPageId());
-  const requestURL = `${API_ENDPOINT}/comments/load?pageId=${pageId}`;
+  const requestURL = apiStructure.loadComments.fullPath
+    .split(':pageId')
+    .join(pageId);
 
   try {
-    const comments = yield call(request, requestURL);
-    yield put(loadCommentsRegisterSuccess(comments));
+    const result = yield call(request, requestURL);
+    yield put(loadCommentsRegisterSuccess(result.comments));
   } catch (err) {
     yield put(loadCommentsRegisterError(err));
     yield put(pushMessage(COMMUNICATION_ERROR_MESSAGE));
@@ -41,7 +45,7 @@ export function* doCreateComment() {
   const comment = yield select(makeSelectComment());
   const pageId = yield select(makeSelectCurrentPageId());
   comment.pageId = pageId;
-  const requestURL = `${API_ENDPOINT}/comments/create`;
+  const requestURL = apiStructure.createComment.fullPath;
 
   try {
     const commentResult = yield call(request, requestURL, {
@@ -62,7 +66,7 @@ export function* doCreateComment() {
 export function* doUpdateComment() {
   const comment = yield select(makeSelectComment());
   const pageId = yield select(makeSelectCurrentPageId());
-  const requestURL = `${API_ENDPOINT}/comments/update`;
+  const requestURL = apiStructure.updateComment.fullPath;
 
   try {
     const commentResult = yield call(request, requestURL, {
@@ -83,7 +87,7 @@ export function* doUpdateComment() {
 export function* doDeleteComment() {
   const comment = yield select(makeSelectComment());
   const pageId = yield select(makeSelectCurrentPageId());
-  const requestURL = `${API_ENDPOINT}/comments/remove`;
+  const requestURL = apiStructure.deleteComment.fullPath;
 
   try {
     const commentResult = yield call(request, requestURL, {

@@ -1,97 +1,88 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Input } from 'gg-components/Input';
-import { cssModules } from 'bpk-react-utils';
+import { cssModules } from 'gg-components/helpers/cssModules';
+import { Button } from 'gg-components/Button';
 
 import STYLES from './forms.scss';
 
-import { TextLink } from 'gg-components/Typography';
-import { Button } from 'gg-components/Button';
-import { EMAIL_REGEX, PASSWORD_REGEX } from 'helpers/constants';
+const getClassName = cssModules(STYLES);
 
-const getClassName = cssModules(STYLES); // REGEX_REPLACED
+const CreateNotificationForm = props => {
+  const {
+    className,
+    notification,
+    onDataChanged,
+    onSubmit,
+    submitLabel,
+    ...rest
+  } = props;
 
-class LoginForm extends React.Component {
-  static propTypes = {
-    notification: PropTypes.object.isRequired,
-    onDataChanged: PropTypes.func.isRequired,
-    onSubmit: PropTypes.func.isRequired,
-  };
-
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-  }
-
-  onTypeChanged = event => {
-    const newValue = JSON.parse(JSON.stringify(this.props.notification));
+  const onTypeChanged = event => {
+    const newValue = JSON.parse(JSON.stringify(props.notification));
     newValue.type = event.target.value;
-    this.props.onDataChanged(newValue);
+    onDataChanged(newValue);
   };
 
-  onMessageChanged = event => {
-    const newValue = JSON.parse(JSON.stringify(this.props.notification));
+  const onMessageChanged = event => {
+    const newValue = JSON.parse(JSON.stringify(props.notification));
     newValue.message = event.target.value;
-    this.props.onDataChanged(newValue);
+    onDataChanged(newValue);
   };
 
-  render() {
-    const {
-      className,
-      notification,
-      onDataChanged,
-      onSubmit,
-      ...rest
-    } = this.props;
+  const classNameFinal = [];
+  if (className) classNameFinal.push(className);
 
-    const classNameFinal = [];
-    if (className) classNameFinal.push(className);
+  return (
+    <div className={classNameFinal.join(' ')} {...rest}>
+      <label htmlFor="type" className={getClassName('forms__label')}>
+        Type
+      </label>
+      <Input
+        className={getClassName('forms__component')}
+        id="type"
+        name="type"
+        value={notification.type}
+        onChange={onTypeChanged}
+        placeholder="type"
+      />
+      <label htmlFor="message" className={getClassName('forms__label')}>
+        Message
+      </label>
+      <Input
+        className={getClassName('forms__component')}
+        id="message"
+        name="message"
+        value={notification.message}
+        onChange={onMessageChanged}
+        placeholder="message"
+      />
+      <br />
+      <Button
+        large
+        className={getClassName('forms__component')}
+        onClick={onSubmit}
+      >
+        {submitLabel || 'Create notification'}
+      </Button>
+    </div>
+  );
+};
 
-    return (
-      <div className={classNameFinal.join(' ')} {...rest}>
-        <label htmlFor="type" className={getClassName('forms__label')}>
-          Type
-        </label>
-        <Input
-          className={getClassName('forms__component')}
-          id="type"
-          name="type"
-          value={notification.type}
-          onChange={this.onTypeChanged}
-          placeholder="type"
-        />
-        <label htmlFor="message" className={getClassName('forms__label')}>
-          Message
-        </label>
-        <Input
-          className={getClassName('forms__component')}
-          id="message"
-          name="message"
-          value={notification.message}
-          onChange={this.onMessageChanged}
-          placeholder="message"
-        />
-        <br />
-        <Button
-          className={getClassName('forms__component')}
-          onClick={onSubmit}
-        >
-          Create notification
-        </Button>
-      </div>
-    );
-  }
-}
-
-LoginForm.propTypes = {
+CreateNotificationForm.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  notification: PropTypes.object.isRequired,
+  onDataChanged: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
   centered: PropTypes.bool,
   className: PropTypes.string,
+  submitLabel: PropTypes.string,
 };
 
-LoginForm.defaultProps = {
+CreateNotificationForm.defaultProps = {
   centered: false,
   className: null,
+  submitLabel: null,
 };
 
-export default LoginForm;
+export default CreateNotificationForm;

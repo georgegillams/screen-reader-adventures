@@ -1,9 +1,8 @@
-import { datumLoad, datumUpdate } from '../datum';
-
-import { STRING_REGEX, ID_REGEX, RESOURCE_NOT_FOUND } from 'helpers/constants';
+import { STRING_REGEX } from 'helpers/regexConstants';
+import appConfig from 'helpers/appConfig';
+import { UNAUTHORISED_WRITE } from 'utils/errorConstants';
 import redis from 'utils/redis';
-import { find } from 'utils/find';
-import { PROJECT_NAME, UNAUTHORISED_WRITE } from 'helpers/constants';
+import { InvalidInputError } from 'utils/errors';
 import authentication from 'utils/authentication';
 import setContentLastUpdatedTimestamp from 'utils/setContentLastUpdatedTimestamp';
 import reqSecure from 'utils/reqSecure';
@@ -13,26 +12,19 @@ const deleteSetAllowedAttributes = [
 ];
 
 export default function deleteSet(req) {
-  const reqSecured = reqSecure(req, deleteSetAllowedAttributes);
-  return new Promise((resolve, reject) => {
-    authentication(reqSecured).then(
-      user => {
-        if (user && user.admin) {
-          const { collectionName } = reqSecured.body;
-          if (!collectionName) {
-            reject({
-              error: `wrong-input`,
-              errorMessage: 'CollectionName must be provided',
-            });
-          } else {
-            resolve(redis.del(`${PROJECT_NAME}_${collectionName}`));
-            setContentLastUpdatedTimestamp();
-          }
-        } else {
-          reject(UNAUTHORISED_WRITE);
-        }
-      },
-      err => reject(err),
-    );
-  });
+  reqSecure(req, deleteSetAllowedAttributes);
+  return authentication(req)
+    .then(user => {
+      if (!user || !user.admin) {
+        throw UNAUTHORISED_WRITE;
+      }
+      const { collectionName } = req.body;
+      if (!collectionName) {
+        throw new InvalidInputError('collectionName must be provided');
+      } else {
+        redis.del(`${appConfig.projectName}_${collectionName}`);
+        return setContentLastUpdatedTimestamp();
+      }
+    })
+    .then(() => true);
 }

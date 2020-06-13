@@ -1,5 +1,8 @@
 import { fromJS } from 'immutable';
-import { createInitialState, createAppReducer } from 'helpers/redux/reducers';
+import {
+  createInitialState,
+  createAppReducer,
+} from 'utils/redux-definitions/reducers';
 
 import actionMeta from './actionMeta';
 import constants from './constants';

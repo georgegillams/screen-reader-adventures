@@ -1,51 +1,36 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import { cssModules } from 'bpk-react-utils';
-import { getTimeDifference } from 'helpers/time';
+import { cssModules } from 'gg-components/helpers/cssModules';
+import { Paragraph, SubSection, PageTitle } from 'gg-components/Typography';
 
 import STYLES from '../pages.scss';
 
-import { Paragraph, Section, SubSection, PageTitle } from 'gg-components/Typography';
+import { getTimeDifference } from 'helpers/time';
+
 const getClassName = cssModules(STYLES);
 
-const Status = props => {
-  return (
-    <div {...props}>
-      <Helmet title="Status" />
-      <PageTitle anchor={false} name="Status">
-        <img
-          className={getClassName('pages__component')}
-          alt="Build status"
-          src="https://api.travis-ci.org/georgegillams/georgegillams.co.uk.svg?branch=master"
-        />
-        <br />
-        <img
-          className={getClassName('pages__component')}
-          alt="Greenkeeper status"
-          src="https://badges.greenkeeper.io/georgegillams/georgegillams.co.uk.svg"
-        />
-        <SubSection className={getClassName('pages__component')} anchor={false}>
-          <Paragraph>
-            Built {getTimeDifference(new Date(process.env.BUILT_AT * 1000))}
-          </Paragraph>
-        </SubSection>
-      </PageTitle>
-      <Section anchor={false} name="gg-components">
-        <img
-          className={getClassName('pages__component')}
-          alt="Build status"
-          src="https://api.travis-ci.org/georgegillams/gg-components.svg?branch=master"
-        />
-        <br />
-        <img
-          className={getClassName('pages__component')}
-          alt="Greenkeeper status"
-          src="https://badges.greenkeeper.io/georgegillams/gg-components.svg"
-        />
-      </Section>
-    </div>
-  );
-};
+const Status = props => (
+  <div {...props}>
+    <Helmet title="Status" />
+    <PageTitle anchor={false} name="Status">
+      <img
+        className={getClassName('pages__component')}
+        alt="Build status"
+        src="https://github.com/georgegillams/georgegillams.co.uk/workflows/CI/badge.svg"
+      />
+      <br />
+      <img
+        className={getClassName('pages__component')}
+        alt="Dependency status"
+        src="https://img.shields.io/david/georgegillams/georgegillams.co.uk"
+      />
+      <SubSection className={getClassName('pages__component')} anchor={false}>
+        <Paragraph>
+          Built {getTimeDifference(new Date(process.env.BUILT_AT * 1000))}
+        </Paragraph>
+      </SubSection>
+    </PageTitle>
+  </div>
+);
 
 export default Status;

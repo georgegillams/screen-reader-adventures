@@ -1,62 +1,66 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Input } from 'gg-components/Input';
-import { cssModules } from 'bpk-react-utils';
+import { FormBuilder } from 'gg-components/FormBuilder';
 
-import FormBuilder from './FormBuilder';
-import STYLES from './forms.scss';
+import { USERNAME_REGEX, EMAIL_REGEX } from 'helpers/regexConstants';
 
-import { Button } from 'gg-components/Button';
-import { TextLink } from 'gg-components/Typography';
-import {
-  USERNAMES_ENABLED,
-  USERNAME_REGEX,
-  EMAIL_REGEX,
-} from 'helpers/constants';
+const SignUpForm = props => {
+  const { onDataChanged, className, credentials, submitLabel, ...rest } = props;
 
-const getClassName = cssModules(STYLES); // REGEX_REPLACED
+  const classNameFinal = [];
+  if (className) classNameFinal.push(className);
 
-class Login extends React.Component {
-  static propTypes = {
-    credentials: PropTypes.object.isRequired,
-    onDataChanged: PropTypes.func.isRequired,
-    onSubmit: PropTypes.func.isRequired,
+  const onDataChangedCustom = newValue => {
+    if (!newValue.email) {
+      onDataChanged(newValue);
+    }
+    const newEmail = newValue.email.split(' ').join('');
+    onDataChanged({ ...newValue, email: newEmail });
   };
 
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-  }
-
-  render() {
-    const { className, credentials, submitLabel, ...rest } = this.props;
-
-    const classNameFinal = [];
-    if (className) classNameFinal.push(className);
-
-    return (
-      <FormBuilder
-        entity={credentials}
-        submitLabel={submitLabel || 'Sign up'}
-        formFields={[
-          {
-            id: 'uname',
-            name: 'Display name',
-            validationRegex: USERNAME_REGEX,
-            show: USERNAMES_ENABLED,
+  return (
+    <FormBuilder
+      onDataChanged={onDataChangedCustom}
+      entity={credentials}
+      submitLabel={submitLabel || 'Sign up'}
+      formFields={[
+        {
+          id: 'uname',
+          name: 'Display name',
+          validationRegex: USERNAME_REGEX,
+          show: true,
+          inputProps: {
+            autofill: 'username',
           },
-          {
-            id: 'email',
-            name: 'Email',
-            validationRegex: EMAIL_REGEX,
-            show: true,
+        },
+        {
+          id: 'email',
+          name: 'Email',
+          validationRegex: EMAIL_REGEX,
+          show: true,
+          inputProps: {
+            spellcheck: 'false',
+            autofill: 'email',
           },
-        ]}
-        {...rest}
-      />
-    );
-  }
-}
+        },
+      ]}
+      {...rest}
+    />
+  );
+};
 
-export default Login;
+SignUpForm.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  credentials: PropTypes.object.isRequired,
+  onDataChanged: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  submitLabel: PropTypes.string,
+  className: PropTypes.string,
+};
+
+SignUpForm.defaultProps = {
+  submitLabel: null,
+  className: null,
+};
+
+export default SignUpForm;

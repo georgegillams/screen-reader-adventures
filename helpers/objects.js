@@ -14,6 +14,21 @@ const formValueChanged = (
   }
 };
 
+const normaliseArray = ar => {
+  const arClone = JSON.parse(JSON.stringify(ar));
+  const result = {};
+  arClone.forEach((item, index) => {
+    let newObjectKey = `${index}`;
+    if (item.id) {
+      newObjectKey = item.id;
+    }
+    result[newObjectKey] = arClone[index];
+  });
+  return result;
+};
+
+const denormaliseObject = obj => Object.keys(obj).map(key => obj[key]);
+
 const createDictionary = (data, keyProperty) => {
   const dict = {};
   for (let i = 0; i < data.length; i += 1) {
@@ -34,6 +49,7 @@ const deArrayitise = array => {
   return array;
 };
 
+// TODO TEST THIS
 const associate = (
   data,
   additionalData,
@@ -62,8 +78,10 @@ const associate = (
   return newData;
 };
 
-export { formValueChanged, associate };
+export { formValueChanged, associate, normaliseArray, denormaliseObject };
 export default {
   formValueChanged,
   associate,
+  normaliseArray,
+  denormaliseObject,
 };

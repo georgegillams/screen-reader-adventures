@@ -1,5 +1,4 @@
-@import '~bpk-mixins';
-@import 'helpers/tokens';
+@import '~utils/tokens';
 
 .forms {
   &__component {
@@ -25,12 +24,20 @@
       font-weight: bold;
       font-style: italic;
       font-size: 0.8rem;
-      font-family: 'Quattrocento Sans', sans-serif;
       color: $not-black;
 
       @media (prefers-color-scheme: dark) {
         color: $not-black-invert;
       }
     }
+  }
+  &__bpk-input {
+    cursor: auto;
+    border: 1px #b2b2bf solid;
+    border-radius: 0.25rem;
+    height: 2rem;
+    font-size: 1rem;
+    padding: 0.5rem;
+    background-color: white;
   }
 }

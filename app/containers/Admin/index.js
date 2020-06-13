@@ -1,11 +1,11 @@
-import appSelectors from 'containers/App/selectors';
-import appActions from 'containers/App/actions';
-
-import { composeContainer } from 'helpers/redux';
 import actionMeta from './actionMeta';
 import saga from './saga';
 import reducer from './reducer';
 import Container from './Container';
+
+import { composeContainer } from 'utils/redux-definitions';
+import appActions from 'containers/App/actions';
+import appSelectors from 'containers/App/selectors';
 
 module.exports = composeContainer(
   Container,

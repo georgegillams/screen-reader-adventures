@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from 'react';
-import konami from 'konami';
+import React, { Component } from 'react';
+import KonamiResponder from 'konami';
 import { DebugObject } from 'gg-components/Auth';
 import ConfettiGenerator from 'confetti-js';
 
@@ -9,22 +9,22 @@ class Konami extends Component {
 
     this.state = { konamiActivated: false };
 
-    var easter_egg = new konami(() => {
+    this.easterEgg = new KonamiResponder(() => {
       this.setState({ konamiActivated: true });
       this.setupConfetti();
     });
   }
 
   setupConfetti = () => {
-    var confettiSettings = { target: 'confetti-holder' };
-    var confetti = new ConfettiGenerator(confettiSettings);
+    const confettiSettings = { target: 'confetti-holder' };
+    const confetti = new ConfettiGenerator(confettiSettings);
     confetti.render();
   };
 
   render() {
     const { konamiActivated } = this.state;
     return (
-      <Fragment>
+      <>
         {konamiActivated && (
           <canvas
             aria-hidden="true"
@@ -38,7 +38,7 @@ class Konami extends Component {
           />
         )}
         <DebugObject debugTitle="Konami" debugObject={{ konamiActivated }} />
-      </Fragment>
+      </>
     );
   }
 }
