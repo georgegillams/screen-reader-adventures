@@ -1,2 +1,4 @@
-export SessionManagement from './SessionManagement';
-export CookiesOnly from './CookiesOnly';
+import CookiesOnly from './CookiesOnly';
+
+export default CookiesOnly;
+export { CookiesOnly };

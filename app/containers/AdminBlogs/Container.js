@@ -1,22 +1,20 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-import Card from 'bpk-component-card';
-import { cssModules } from 'bpk-react-utils';
-
-import Skeleton from './Skeleton';
-
-import { BlogCard } from 'components/Blogs';
+import { cssModules } from 'gg-components/helpers/cssModules';
+import { PageTitle } from 'gg-components/Typography';
+import { Card } from 'gg-components/Cards';
 import { Button } from 'gg-components/Button';
-import { Section } from 'gg-components/Typography';
-import FormBuilder from 'components/Forms';
-import { ID_REGEX } from 'helpers/constants';
 import {
   DebugObject,
   APIEntity,
   AdminOnly,
   LoadingCover,
 } from 'gg-components/Auth';
+
+import Skeleton from './Skeleton';
+
+import { BlogCard } from 'components/Blogs';
 import STYLES from 'containers/pages.scss';
 
 const getClassName = cssModules(STYLES);
@@ -39,7 +37,6 @@ export default class AdminBlogs extends React.Component {
       error,
       deleteBlog,
       deleting,
-      ...rest
     } = this.props;
     const outerClassNameFinal = [];
 
@@ -48,12 +45,12 @@ export default class AdminBlogs extends React.Component {
     }
 
     const page = (
-      <div className={outerClassNameFinal.join(' ')} {...rest}>
+      <div className={outerClassNameFinal.join(' ')}>
         <AdminOnly
           user={user}
           setLoginRedirect={() => setLoginRedirect('admin/blog')}
         >
-          <Section name="Admin - blog">
+          <PageTitle link={{ to: '/admin', text: 'Admin' }} name="Admin - blog">
             <Button
               className={getClassName('pages__component')}
               large
@@ -82,13 +79,13 @@ export default class AdminBlogs extends React.Component {
                   </Button>
                 </Card>
               ))}
-          </Section>
+          </PageTitle>
         </AdminOnly>
       </div>
     );
 
     return (
-      <Fragment>
+      <>
         <Helmet title="Admin - blogs" />
         <LoadingCover
           loadingSkeleton={Skeleton}
@@ -110,16 +107,14 @@ export default class AdminBlogs extends React.Component {
             error,
           }}
         />
-      </Fragment>
+      </>
     );
   }
 }
 
 AdminBlogs.propTypes = {
-  createBlog: PropTypes.func.isRequired,
   deleteBlog: PropTypes.func.isRequired,
   loadBlogs: PropTypes.func.isRequired,
-  login: PropTypes.func.isRequired,
   setLoginRedirect: PropTypes.func.isRequired,
   blogs: PropTypes.arrayOf(PropTypes.object),
   // eslint-disable-next-line react/forbid-prop-types
@@ -127,9 +122,7 @@ AdminBlogs.propTypes = {
   success: PropTypes.bool,
   loading: PropTypes.bool,
   className: PropTypes.string,
-  creatingBlog: PropTypes.bool,
   deleting: PropTypes.bool,
-  loggingIn: PropTypes.bool,
   // eslint-disable-next-line react/forbid-prop-types
   user: PropTypes.object,
   userLoading: PropTypes.bool,
@@ -141,9 +134,7 @@ AdminBlogs.defaultProps = {
   success: false,
   loading: false,
   className: null,
-  creatingBlog: false,
   deleting: false,
-  loggingIn: false,
   user: null,
   userLoading: false,
 };

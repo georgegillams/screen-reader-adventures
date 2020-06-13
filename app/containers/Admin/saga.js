@@ -1,1 +1,2 @@
-export default function* admin() {}
+// eslint-disable-next-line no-empty-function
+export default function* saga() {}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { cssModules } from 'bpk-react-utils';
+import { cssModules } from 'gg-components/helpers/cssModules';
 import GrassSpace from './GrassSpace';
 import finishLineFlag from './finish-line-flag.svg';
 

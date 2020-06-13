@@ -11,11 +11,13 @@ function appReducer(state = initialState, action) {
     case PUSH_MESSAGE: {
       const currentMessages = state.get('messages');
       let duplicateMessage = null;
-      currentMessages.forEach(m => {
-        if (m.message === action.message.message) {
-          duplicateMessage = m;
-        }
-      });
+      if (currentMessages) {
+        currentMessages.forEach(m => {
+          if (m.message === action.message.message) {
+            duplicateMessage = m;
+          }
+        });
+      }
       const newMessage = action.message;
       return state.set('messages', [
         ...(currentMessages

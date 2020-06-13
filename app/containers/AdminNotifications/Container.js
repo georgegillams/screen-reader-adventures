@@ -1,29 +1,16 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-import Card from 'bpk-component-card';
-import { cssModules } from 'bpk-react-utils';
+import { cssModules } from 'gg-components/helpers/cssModules';
+import { PageTitle } from 'gg-components/Typography';
+import { Button } from 'gg-components/Button';
+import { FormBuilder } from 'gg-components/FormBuilder';
+import { DebugObject, AdminOnly, LoadingCover } from 'gg-components/Auth';
 
+import NotificationEntity from './NotificationEntity';
 import Skeleton from './Skeleton';
 
-import { NotificationComp } from 'gg-components/Notifications';
-import { Button } from 'gg-components/Button';
-import { Section } from 'gg-components/Typography';
-import FormBuilder from 'components/Forms';
-import {
-  STRING_REGEX,
-  INT_REGEX,
-  EMAIL_REGEX,
-  NAME_REGEX,
-  PASSWORD_REGEX,
-  DECIMAL_REGEX,
-} from 'helpers/constants';
-import {
-  DebugObject,
-  APIEntity,
-  AdminOnly,
-  LoadingCover,
-} from 'gg-components/Auth';
+import { STRING_REGEX } from 'helpers/regexConstants';
 import STYLES from 'containers/pages.scss';
 
 const getClassName = cssModules(STYLES);
@@ -54,7 +41,6 @@ export default class AdminNotifications extends React.Component {
       creatingNotification,
       deleteNotification,
       deletingNotification,
-      ...rest
     } = this.props;
     const outerClassNameFinal = [];
 
@@ -63,12 +49,20 @@ export default class AdminNotifications extends React.Component {
     }
 
     const page = (
-      <div className={outerClassNameFinal.join(' ')} {...rest}>
+      <div className={outerClassNameFinal.join(' ')}>
         <AdminOnly
           user={user}
           setLoginRedirect={() => setLoginRedirect('admin/notification')}
         >
-          <Section name="Admin - notifications">
+          <PageTitle
+            link={{ to: '/admin', text: 'Admin' }}
+            name="Admin - notifications"
+          >
+            <Button onClick={() => loadNotifications()} large>
+              Reload notifications
+            </Button>
+            <br />
+            <br />
             <FormBuilder
               entity={this.state.newNotification}
               submitLabel="Create notification"
@@ -96,40 +90,42 @@ export default class AdminNotifications extends React.Component {
             />
             {notifications &&
               notifications.map &&
-              notifications.map(b => (
-                <Card
-                  className={getClassName(
-                    'pages__component',
-                    'pages__bpk-card',
-                  )}
+              notifications.map(n => (
+                <NotificationEntity
+                  entity={n}
+                  className={getClassName('pages__component')}
+                  onNotificationUpdateSuccess={loadNotifications}
                 >
-                  <APIEntity name="more" entityType="Notification" entity={b} />
-                  <NotificationComp type={b.type} deleted={b.deleted}>
-                    {b.message}
-                  </NotificationComp>
+                  <Button
+                    large
+                    disabled={deletingNotification}
+                    href={`/admin/notifications/${n.id}`}
+                  >
+                    Edit notification on dedicated page
+                  </Button>
+                  <br />
+                  <br />
                   <Button
                     large
                     destructive
                     disabled={deletingNotification}
-                    onClick={() => deleteNotification(b)}
+                    onClick={() => deleteNotification(n)}
                   >
                     Delete
                   </Button>
-                </Card>
+                </NotificationEntity>
               ))}
-          </Section>
+          </PageTitle>
         </AdminOnly>
       </div>
     );
 
     return (
-      <Fragment>
+      <>
         <Helmet title="Admin - notifications" />
         <LoadingCover
           loadingSkeleton={Skeleton}
-          loadingNotifications={
-            userLoading || (!notifications && loadingNotifications)
-          }
+          loading={userLoading || (!notifications && loadingNotifications)}
         >
           {page}
         </LoadingCover>
@@ -147,7 +143,7 @@ export default class AdminNotifications extends React.Component {
             loadNotificationsError,
           }}
         />
-      </Fragment>
+      </>
     );
   }
 }

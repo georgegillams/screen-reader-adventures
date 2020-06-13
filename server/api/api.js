@@ -1,45 +1,98 @@
-import PrettyError from 'pretty-error';
+import apiStructure from './apiStructureWithActions';
 
-import * as actions from './actions/index';
-
-import { mapUrl } from 'utils/url.js';
-
-const pretty = new PrettyError();
+import {
+  CategorisedError,
+  InternalServerError,
+  NotImplementedError,
+} from 'utils/errors';
+import { mapPathToAction } from 'utils/mapPathToAction.js';
+import logger from 'utils/logger';
 
 const appFunc = (req, res) => {
-  const splittedUrlPath = req.url
+  const splitUrlPath = req.url
     .split('?')[0]
     .split('/')
     .slice(1);
 
-  const { action, params } = mapUrl(actions, splittedUrlPath);
+  const pathMatches = mapPathToAction(apiStructure, splitUrlPath);
+  const pathMatchesForMethod = pathMatches.filter(
+    c => c.apiCapability.method === req.method,
+  );
+
+  let action = null;
+  let params = [];
+
+  if (pathMatchesForMethod.length === 0 && pathMatches.length > 0) {
+    res.status(405);
+    res.json({
+      error: 'method_not_allowed',
+      errorMessage: `This API function cannot be called with HTTP method ${req.method}`,
+    });
+  }
+  if (pathMatchesForMethod.length === 1) {
+    action = pathMatchesForMethod[0].apiCapability.action;
+    params = pathMatchesForMethod[0].params;
+  }
+  if (pathMatchesForMethod.length > 1) {
+    const isError = new InternalServerError(
+      'Ambiguous request - the API has multiple functions matching the request',
+    );
+    res.status(isError.httpStatus);
+    res.json({
+      error: isError.category,
+      errorMessage: isError.message,
+    });
+  }
 
   try {
     if (action) {
-      action(req, params).then(
-        result => {
+      action(req, params)
+        .then(result => {
           if (result instanceof Function) {
             result(res);
           } else {
             res.json(result);
           }
-        },
-        err => {
+          return true;
+        })
+        .catch(err => {
           if (err && err.redirect) {
             res.redirect(err.redirect);
+          } else if (err instanceof CategorisedError) {
+            res.status(err.httpStatus);
+            res.json({ error: err.category, errorMessage: err.message });
+          } else if (err instanceof Error) {
+            // An error that we haven't created. Maybe created by redis or something
+            logger.error(`Uncategorised error`, err);
+            const internalServerError = new InternalServerError(err.message);
+            res.status(internalServerError.httpStatus);
+            res.json({
+              error: internalServerError.category,
+              errorMessage: internalServerError.message,
+            });
           } else {
-            // Return a valid response even if there has been some server-side error.
-            // This gives us greater control over how we handle errors.
-            // Due to a limitation in our `react-saga` exception handling mechanism.
-            res.json(err);
+            // The error is an invalid object format, instead of being an instance of Error
+            logger.error(
+              `LEGACY ERROR - a promise rejected an object instead of an actual Error`,
+              err,
+            );
+            const internalServerError = new InternalServerError(err.message);
+            res.status(internalServerError.httpStatus);
+            res.json({
+              error: internalServerError.category,
+              errorMessage: internalServerError.message,
+            });
           }
-        },
-      );
+        });
     } else {
-      res.status(404).end('NOT FOUND');
+      const err = new NotImplementedError(
+        'This method has not been implemented',
+      );
+      res.status(err.httpStatus);
+      res.json({ error: err.category, errorMessage: err.message });
     }
   } catch (err) {
-    console.error(err);
+    logger.error(err);
   }
 };
 

@@ -1,31 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-import BpkImage, {
-  withLazyLoading,
-  withLoadingBehavior,
-} from 'bpk-component-image';
-import { cssModules } from 'bpk-react-utils';
-
-import { LoadingIndicator } from 'gg-components/LoadingIndicator';
-import { Button } from 'gg-components/Button';
-import { Section, SubSection, TextLink } from 'gg-components/Typography';
-import { CodeInline } from 'gg-components/Code';
+import { PageTitle } from 'gg-components/Typography';
 import { DebugObject } from 'gg-components/Auth';
-import { LoginForm } from 'components/Forms';
-import { CookiesOnly } from 'components/Sessions';
 import { Redirect } from 'gg-components/Redirect';
-import {
-  REDIRECT_REGEX,
-  SORT_CODE_REGEX,
-  INT_REGEX,
-  STRING_REGEX,
-  DECIMAL_REGEX,
-  SITE_URL,
-} from 'helpers/constants';
-import STYLES from 'containers/pages.scss';
 
-const getClassName = cssModules(STYLES); // REGEX_REPLACED
+import { CookiesOnly } from 'components/Sessions';
+import { REDIRECT_REGEX } from 'helpers/regexConstants';
+import appConfig from 'helpers/appConfig';
 
 export default class Login extends React.Component {
   componentDidMount = () => {
@@ -48,7 +30,6 @@ export default class Login extends React.Component {
       logInSuccess,
       logInError,
       className,
-      ...rest
     } = this.props;
     const outerClassNameFinal = [];
 
@@ -70,14 +51,14 @@ export default class Login extends React.Component {
       return (
         <Redirect
           className={outerClassNameFinal.join(' ')}
-          to={`${SITE_URL}/${redirectLocation}`}
+          to={`${appConfig.siteUrl}/${redirectLocation}`}
           name="Logged in"
         />
       );
     }
 
     return (
-      <div className={outerClassNameFinal.join(' ')} {...rest}>
+      <div className={outerClassNameFinal.join(' ')}>
         <Helmet title="Login" />
         <CookiesOnly
           cookiesAccepted={cookiesAllowed}
@@ -85,7 +66,9 @@ export default class Login extends React.Component {
             onCookiesAccepted();
           }}
         />
-        <Section name="Magic login">{user && <text>Logged in!</text>}</Section>
+        <PageTitle name="Magic login">
+          {user && <text>Logged in!</text>}
+        </PageTitle>
         <DebugObject
           debugTitle="Magic login"
           debugObject={{

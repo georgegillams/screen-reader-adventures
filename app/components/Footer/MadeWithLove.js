@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Section, TextLink } from 'gg-components/Typography';
 
 import STYLES from './tech-specs.scss';
-import { cssModules } from 'bpk-react-utils';
+import { cssModules } from 'gg-components/helpers/cssModules';
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 const MadeWithLove = props => {

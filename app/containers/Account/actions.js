@@ -1,7 +1,9 @@
 import constants from './constants';
 import actionMeta from './actionMeta';
 
-import defineActions, { populateConstants } from 'helpers/redux/actions';
+import defineActions, {
+  populateConstants,
+} from 'utils/redux-definitions/actions';
 
 const { actionDefinitions } = actionMeta;
 

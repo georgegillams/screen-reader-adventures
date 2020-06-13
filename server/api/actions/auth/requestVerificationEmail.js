@@ -1,24 +1,18 @@
-import { datumLoad, datumUpdate } from '../datum';
-
+import sendEmailVerificationEmail from './private/sendEmailVerificationEmail';
 import authAllowedAttributes from './private/authAllowedAttributes';
 
-import { find } from 'utils/find';
 import authentication from 'utils/authentication';
-import setContentLastUpdatedTimestamp from 'utils/setContentLastUpdatedTimestamp';
 import reqSecure from 'utils/reqSecure';
-import { sendEmailVerificationEmail } from 'utils/emailHelpers';
-import { UNAUTHORISED_WRITE } from 'helpers/constants';
+import { UNAUTHORISED_WRITE } from 'utils/errorConstants';
 
 export default function requestVerificationEmail(req) {
-  const reqSecured = reqSecure(req, authAllowedAttributes);
-  return new Promise((resolve, reject) => {
-    authentication(reqSecured).then(user => {
+  reqSecure(req, authAllowedAttributes);
+  return authentication(req)
+    .then(user => {
       if (user) {
-        sendEmailVerificationEmail(user);
-        resolve('Verification email resent');
-      } else {
-        reject(UNAUTHORISED_WRITE);
+        return sendEmailVerificationEmail(user);
       }
-    });
-  });
+      throw UNAUTHORISED_WRITE;
+    })
+    .then(() => ({ success: 'Verification email resent' }));
 }

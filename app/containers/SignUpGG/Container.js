@@ -1,26 +1,14 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-import BpkImage, {
-  withLazyLoading,
-  withLoadingBehavior,
-} from 'bpk-component-image';
-import { cssModules } from 'bpk-react-utils';
+import { TextLink, PageTitle } from 'gg-components/Typography';
+import { Redirect } from 'gg-components/Redirect';
+import { LoggedOutOnly, LoadingCover } from 'gg-components/Auth';
 
 import Skeleton from './Skeleton';
 
-import { LoadingIndicator } from 'gg-components/LoadingIndicator';
-import { Button } from 'gg-components/Button';
-import { Section, SubSection, TextLink } from 'gg-components/Typography';
-import { CodeInline } from 'gg-components/Code';
-import { SignUpForm } from 'components/Forms';
 import { CookiesOnly } from 'components/Sessions';
-import { Redirect } from 'gg-components/Redirect';
-import { LoggedOutOnly, LoadingCover } from 'gg-components/Auth';
-import { STRING_REGEX } from 'helpers/constants';
-import STYLES from 'containers/pages.scss';
-
-const getClassName = cssModules(STYLES); // REGEX_REPLACED
+import { SignUpForm } from 'components/Forms';
 
 export default class SignUp extends React.Component {
   render() {
@@ -36,7 +24,6 @@ export default class SignUp extends React.Component {
       signUpSuccess,
       signUpError,
       className,
-      ...rest
     } = this.props;
     const outerClassNameFinal = [];
 
@@ -51,9 +38,9 @@ export default class SignUp extends React.Component {
     }
 
     const page = (
-      <div className={outerClassNameFinal.join(' ')} {...rest}>
+      <div className={outerClassNameFinal.join(' ')}>
         <LoggedOutOnly user={user}>
-          <Section name="Sign up">
+          <PageTitle name="Sign up">
             <SignUpForm
               disabled={signingUp}
               credentials={credentials || {}}
@@ -62,13 +49,13 @@ export default class SignUp extends React.Component {
             />
             <br />
             <TextLink to="/login">Already got an account? Login here.</TextLink>
-          </Section>
+          </PageTitle>
         </LoggedOutOnly>
       </div>
     );
 
     return (
-      <Fragment>
+      <>
         <Helmet title="Sign up" />
         <CookiesOnly
           cookiesAccepted={cookiesAllowed}
@@ -80,7 +67,7 @@ export default class SignUp extends React.Component {
         >
           {page}
         </LoadingCover>
-      </Fragment>
+      </>
     );
   }
 }

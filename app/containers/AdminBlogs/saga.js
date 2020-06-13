@@ -1,3 +1,5 @@
+import { call, put, select, takeLatest } from 'redux-saga/effects';
+
 import { LOAD_BLOGS, DELETE_BLOG, CREATE_BLOG } from './constants';
 import {
   loadBlogs,
@@ -8,9 +10,9 @@ import {
 } from './actions';
 import { makeSelectBlogToDelete } from './selectors';
 
-import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { pushMessage } from 'containers/RequestStatusWrapper/actions';
-import { API_ENDPOINT, COMMUNICATION_ERROR_MESSAGE } from 'helpers/constants';
+import { COMMUNICATION_ERROR_MESSAGE } from 'helpers/messageConstants';
+import apiStructure from 'helpers/apiStructure';
 import request from 'utils/request';
 
 const loadBlogsSuccessMessage = { type: 'success', message: 'Blogs loaded!' };
@@ -26,17 +28,17 @@ const blogDeleteErrorMessage = {
 };
 
 export function* doLoadBlogs() {
-  const blogsRequestURL = `${API_ENDPOINT}/blogs/load`;
+  const requestURL = apiStructure.loadBlogs.fullPath;
 
   try {
-    const blogsResult = yield call(request, blogsRequestURL, {
+    const blogsResult = yield call(request, requestURL, {
       method: 'GET',
     });
     if (blogsResult.error) {
       yield put(loadBlogsError(blogsResult));
       yield put(pushMessage(blogsLoadErrorMessage));
     } else {
-      yield put(loadBlogsSuccess(blogsResult));
+      yield put(loadBlogsSuccess(blogsResult.blogs));
       yield put(pushMessage(loadBlogsSuccessMessage));
     }
   } catch (err) {
@@ -47,10 +49,10 @@ export function* doLoadBlogs() {
 
 export function* doDeleteBlog() {
   const blogToDelete = yield select(makeSelectBlogToDelete());
-  const blogDeleteUrl = `${API_ENDPOINT}/blogs/remove`;
+  const requestURL = apiStructure.deleteBlog.fullPath;
 
   try {
-    const blogDeleteResult = yield call(request, blogDeleteUrl, {
+    const blogDeleteResult = yield call(request, requestURL, {
       method: 'POST',
       body: JSON.stringify(blogToDelete),
       headers: {
@@ -71,7 +73,7 @@ export function* doDeleteBlog() {
   }
 }
 
-export default function* adminUsers() {
-  yield takeLatest(LOAD_BLOGS, () => doLoadBlogs());
-  yield takeLatest(DELETE_BLOG, () => doDeleteBlog());
+export default function* saga() {
+  yield takeLatest(LOAD_BLOGS, doLoadBlogs);
+  yield takeLatest(DELETE_BLOG, doDeleteBlog);
 }

@@ -1,8 +1,7 @@
 // TODO REMOVE UNUSED CLASSES FROM HERE
 // TODO REMOVE UNUSED CLASSES FROM HERE
 
-@import '~bpk-mixins';
-@import '~gg-components/Tokens/common';
+@import '~utils/tokens';
 
 .pages {
   &__container {
@@ -32,6 +31,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      width: 100%;
     }
 
     &--prose {
@@ -43,9 +43,40 @@
 
   &__component {
     margin-bottom: 1rem !important;
+
     &--upper-margin {
       margin-bottom: 0;
       margin-top: 1rem !important;
+    }
+  }
+
+  &__split-view {
+    &-container {
+      z-index: 1;
+      padding: 4rem 0 0 0;
+      position: absolute;
+      left: 0;
+      top: 0;
+      margin-top: 2rem;
+      height: calc(100vh - 2rem);
+      width: 100vw;
+      display: flex;
+      flex-flow: column;
+      background: $background-color;
+
+      @media (prefers-color-scheme: dark) {
+        background: $background-color-invert;
+      }
+
+      &-header {
+        padding: 0 2rem;
+      }
+    }
+
+    &-split-view {
+      flex: 1;
+      overflow: hidden;
+      min-height: 15rem;
     }
   }
 

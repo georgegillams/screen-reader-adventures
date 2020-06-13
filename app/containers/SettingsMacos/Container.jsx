@@ -8,19 +8,21 @@ import {
 } from 'gg-components/Typography';
 import { SegmentedControl } from 'gg-components/SegmentedControl';
 import { Checkbox } from 'gg-components/Checkbox';
-import Image from 'components/Image';
 import { Button } from 'gg-components/Button';
+import { cssModules } from 'gg-components/helpers/cssModules';
+
+import STYLES from '../pages.scss';
+
+import { getCopy } from 'helpers/copyHelpers';
 import {
   setPlatform,
   getTouchBar,
   setTouchBar,
   getVOKey,
   setVOKey,
-} from 'helpers/storageHelpers';
-import { getCopy } from 'helpers/copyHelpers';
+} from 'utils/storageHelpers';
+import Image from 'components/Image';
 
-import STYLES from '../pages.scss';
-import { cssModules } from 'bpk-react-utils';
 const getClassName = cssModules(STYLES);
 
 class SettingsMacos extends React.Component {

@@ -1,31 +1,40 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { cssModules } from 'bpk-react-utils';
+import { cssModules } from 'gg-components/helpers/cssModules';
+import {
+  Paragraph,
+  SubSection,
+  TextLink,
+  PageTitle,
+} from 'gg-components/Typography';
 
 import STYLES from './not-found.scss';
 
-import { Section, SubSection, TextLink } from 'gg-components/Typography';
-
-const getClassName = cssModules(STYLES); // REGEX_REPLACED
+const getClassName = cssModules(STYLES);
 
 class NotFoundPage extends Component {
   render() {
-    const { className, ...rest } = this.props;
+    const { className } = this.props;
     const classNameFinal = [getClassName('not-found__container')];
     if (className) {
       classNameFinal.push(className);
     }
 
     return (
-      <main className={classNameFinal.join(' ')} {...rest}>
-        <Section className={getClassName('not-found__container')} name="Oops.">
+      <main className={classNameFinal.join(' ')}>
+        <PageTitle
+          className={getClassName('not-found__container')}
+          name="Oops."
+        >
           <SubSection anchor={false}>
-            The page you&apos;re looking for doesn&apos;t exist, or you
-            don&apos;t have permission to view it.
-            <br />
-            Maybe the <TextLink href="/site-map">sitemap</TextLink> can help
+            <Paragraph>
+              The page you&apos;re looking for doesn&apos;t exist, or you
+              don&apos;t have permission to view it.
+              <br />
+              Maybe the <TextLink href="/site-map">sitemap</TextLink> can help
+            </Paragraph>
           </SubSection>
-        </Section>
+        </PageTitle>
       </main>
     );
   }

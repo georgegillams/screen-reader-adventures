@@ -6,7 +6,7 @@ import {
   SectionSkeleton,
 } from 'gg-components/Skeletons';
 import STYLES from 'containers/pages.scss';
-import { cssModules } from 'bpk-react-utils';
+import { cssModules } from 'gg-components/helpers/cssModules';
 const getClassName = cssModules(STYLES);
 
 const LoginFormSkeleton = props => {

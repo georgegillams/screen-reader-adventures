@@ -1,12 +1,9 @@
-# [https://www.screen-reader-adventures.com/](https://www.screen-reader-adventures.com/)
+# [https://www.screen-reader-adventures.com/](https://www.screen-reader-adventures.com/?utm_source=GitHub)
 
+![Build status](https://github.com/georgegillams/screen-reader-adventures/workflows/CI/badge.svg)
+![Dependencies status](https://img.shields.io/david/georgegillams/screen-reader-adventures)
 
-
-![Travis status](https://api.travis-ci.org/georgegillams/screen-reader-adventures.com?branch=master)
-
-This repo was originally a fork of [Dinesh Pandiyan's React Redux Boilerplate app](https://github.com/flexdinesh/react-redux-boilerplate).
-
-This is the code for Screen Reader Adventures, an online game that makes it fun to learn how to use a screen reader!. The project uses React, Redux, and has a Node API which talks to a Redis database.
+This is the code for the screen-reader-adventures website and API! The project uses React, Redux, and has a Node API which talks to a Redis database.
 
 ## Developing
 
@@ -17,24 +14,26 @@ Ensure redis is installed (`brew install redis`).
 ### Running locally
 
 ```
-npm i
+PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci
 npm run dev
 ```
 
 `npm run dev` will set all necessary environment variables needed to run the application.
 
-The front-end app is server-side rendered with React and interacts with the API via Redux middleware.
+A debugger can be attached to debug server-side code.
 
 ### Testing
 
 If components have changed, snapshot tests may need to be updated. Backstop js visual regression tests may also need to be updated.
 
 To update jest snapshots:
+
 ```
 npx jest -u
 ```
 
 To update backstopJS snapshots:
+
 ```
 docker build -t georgegillams-test -f Dockerfile.backstopjstest .
 docker run georgegillams-test
@@ -43,19 +42,25 @@ docker cp DOCKER_CONTAINER_ID:/usr/src/tmp/backstop_data ./
 
 Any changes resulting from these commands should be verified and checked in.
 
-## API
+## Hosting
 
-## Hosting on Heroku
-To host this on Heroku, you will need to add the [Heroku-redis Add-on](https://devcenter.heroku.com/articles/heroku-redis) and ensure the following environment variables are created:
+The following environment variables should be set up
 
-| Env var             | Reason                                 | Value                                                |
-| ------------------- | -------------------------------------- | -----------------------------------------------------|
-| GSUITE_APP_PASSWORD | To send emails from your Gmail account | The password generated to access yout G-Suite account|
-| GSUITE_EMAIL        | To send emails from your Gmail account | Your G-Suite email address                           |
-| NODE_ENV            | Makes the magic happen                 | `production`                                         |
-| REDIS_URL           | To access the redis database           | \<Created by the Add-on\>                            |
-| SECRET_API_KEY      | Used to make admin API requests        | Anything secret and impossible to guess              |
-| SESSION_SECRET      | Used to sign cookies                   | Anything secret and impossible to guess              |
+| Env var               | Reason                                 | Value                                                                     |
+| --------------------- | -------------------------------------- | ------------------------------------------------------------------------- |
+| GSUITE_APP_PASSWORD   | To send emails from your Gmail account | The password generated to access yout G-Suite account                     |
+| GSUITE_EMAIL          | To send emails from your Gmail account | Your G-Suite email address                                                |
+| NODE_ENV              | Makes the magic happen                 | `production`                                                              |
+| REDIS_URL             | To access the redis database.          | If no URL is provided, the server will connect to a local redis instance. |
+| SECRET_API_KEY        | Used to make admin API requests        | Anything secret and impossible to guess                                   |
+| SESSION_SECRET        | Used to sign cookies                   | Anything secret and impossible to guess                                   |
+| STRIPE_PUBLIC_API_KEY | Used to enable card payments           | Comes from the Stripe dashboard                                           |
+| STRIPE_SECRET_API_KEY | Used to enable card payments           | Comes from the Stripe dashboard                                           |
+
+### Hosting on Heroku
+
+To host this on Heroku, you will need to add the [Heroku-redis Add-on](https://devcenter.heroku.com/articles/heroku-redis). Doing so will create a the REDIS_URL environment variable required to connect to the DB.
 
 ## Contributing
+
 Contributions are welcome. Please fork and submit a PR if you want to add or change a feature.

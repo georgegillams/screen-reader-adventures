@@ -3,10 +3,11 @@ import isFunction from 'lodash/isFunction';
 import isString from 'lodash/isString';
 import invariant from 'invariant';
 import conformsTo from 'lodash/conformsTo';
-import HelperFunctions from 'helpers/HelperFunctions';
 
 import checkStore from './checkStore';
 import { DAEMON, ONCE_TILL_UNMOUNT, RESTART_ON_REMOUNT } from './constants';
+
+import HelperFunctions from 'helpers/HelperFunctions';
 
 const allowedModes = [RESTART_ON_REMOUNT, DAEMON, ONCE_TILL_UNMOUNT];
 
@@ -58,6 +59,7 @@ export function injectSagaFactory(store, isValid) {
       !hasSaga ||
       (hasSaga && mode !== DAEMON && mode !== ONCE_TILL_UNMOUNT)
     ) {
+      // eslint-disable-next-line no-param-reassign
       store.injectedSagas[key] = {
         ...newDescriptor,
         task: store.runSaga(saga, args),

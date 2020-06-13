@@ -1,15 +1,20 @@
+import { call, put, select, takeLatest } from 'redux-saga/effects';
+
 import { selectors, actions, constants } from './redux-definitions';
 
-const { LOAD_USERS, REQUEST_MAGIC_LINK_FOR_USER } = constants;
-const { loadUsersRegisterSuccess, loadUsersRegisterError } = actions;
-const { makeSelectMagicLinkUser } = selectors;
-
-import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { pushMessage } from 'containers/RequestStatusWrapper/actions';
-import { API_ENDPOINT, COMMUNICATION_ERROR_MESSAGE } from 'helpers/constants';
-import { calculateOutstandingBalance } from 'helpers/ticketing';
-import { associate } from 'helpers/objects';
+import { COMMUNICATION_ERROR_MESSAGE } from 'helpers/messageConstants';
+import apiStructure from 'helpers/apiStructure';
 import request from 'utils/request';
+
+const { LOAD_USERS, REQUEST_MAGIC_LINK_FOR_USER, DELETE_USER } = constants;
+const {
+  loadUsersRegisterSuccess,
+  loadUsersRegisterError,
+  deleteUserRegisterError,
+  deleteUserRegisterSuccess,
+} = actions;
+const { makeSelectMagicLinkUser, makeSelectUserToDelete } = selectors;
 
 const usersLoadedMessage = { type: 'success', message: 'Users loaded!' };
 const usersLoadedErrorMessage = {
@@ -25,21 +30,47 @@ const magicLinkErrorMessage = {
   message: 'Could not generate magic link.',
 };
 
-const ticketSuccessMessage = {
+const deleteUserSuccessMessage = {
   type: 'success',
-  message: 'Ticket for user sent!',
+  message: 'User deleted.',
 };
-const ticketErrorMessage = {
+
+const deleteUserErrorMessage = {
   type: 'error',
-  message: 'Could not send ticket.',
+  message: 'Could not delete user.',
 };
+
+export function* doDeleteUser() {
+  const userToDelete = yield select(makeSelectUserToDelete());
+  const requestURL = apiStructure.deleteUser.fullPath;
+
+  try {
+    const deleteRequest = yield call(request, requestURL, {
+      method: 'POST',
+      body: JSON.stringify(userToDelete),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    if (deleteRequest.error) {
+      yield put(deleteUserRegisterError(deleteRequest));
+      yield put(pushMessage(deleteUserErrorMessage));
+    } else {
+      yield put(deleteUserRegisterSuccess(deleteRequest));
+      yield put(pushMessage(deleteUserSuccessMessage));
+    }
+  } catch (err) {
+    yield put(pushMessage(COMMUNICATION_ERROR_MESSAGE));
+    yield put(deleteUserRegisterError({}));
+  }
+}
 
 export function* doRequestMagicLink() {
   const user = yield select(makeSelectMagicLinkUser());
-  const magicLinkUrl = `${API_ENDPOINT}/getmagiclink`;
+  const requestURL = apiStructure.requestMagicLink.fullPath;
 
   try {
-    const magicLinkResult = yield call(request, magicLinkUrl, {
+    const magicLinkResult = yield call(request, requestURL, {
       method: 'POST',
       body: JSON.stringify({ email: user.email, divertToAdmin: true }),
       headers: {
@@ -57,41 +88,27 @@ export function* doRequestMagicLink() {
 }
 
 export function* doLoadUsers() {
-  const usersRequestURL = `${API_ENDPOINT}/users/load`;
-  const userDetailsRequestURL = `${API_ENDPOINT}/userDetails/loadAll`;
+  const requestURL = apiStructure.loadUsers.fullPath;
 
   try {
-    const usersResult = yield call(request, usersRequestURL, {
-      method: 'GET',
-    });
-    const userDetailsResult = yield call(request, userDetailsRequestURL, {
+    const usersResult = yield call(request, requestURL, {
       method: 'GET',
     });
     if (usersResult.error) {
       yield put(loadUsersRegisterError(usersResult));
       yield put(pushMessage(usersLoadedErrorMessage));
-    } else if (userDetailsResult.error) {
-      yield put(loadUsersRegisterError(userDetailsResult));
-      yield put(pushMessage(usersLoadedErrorMessage));
     } else {
-      let associatedData = associate(
-        usersResult,
-        userDetailsResult,
-        'id',
-        'authorId',
-        'userDetails',
-      );
-      yield put(loadUsersRegisterSuccess(associatedData));
+      yield put(loadUsersRegisterSuccess(usersResult));
       yield put(pushMessage(usersLoadedMessage));
     }
   } catch (err) {
-    debugger;
     yield put(loadUsersRegisterError(err));
     yield put(pushMessage(COMMUNICATION_ERROR_MESSAGE));
   }
 }
 
-export default function* adminUsers() {
-  yield takeLatest(LOAD_USERS, () => doLoadUsers());
-  yield takeLatest(REQUEST_MAGIC_LINK_FOR_USER, () => doRequestMagicLink());
+export default function* saga() {
+  yield takeLatest(LOAD_USERS, doLoadUsers);
+  yield takeLatest(REQUEST_MAGIC_LINK_FOR_USER, doRequestMagicLink);
+  yield takeLatest(DELETE_USER, doDeleteUser);
 }

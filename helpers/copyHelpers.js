@@ -1,5 +1,6 @@
 import getCopyWithOptions from './copy';
-import { getPlatform, getVOKey, getTouchBar } from './storageHelpers';
+
+import { getPlatform, getVOKey, getTouchBar } from 'utils/storageHelpers';
 
 const getCopy = copyId => {
   const VOKey = getVOKey();

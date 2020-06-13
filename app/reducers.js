@@ -23,6 +23,9 @@ const routeInitialState = fromJS({
 
 /**
  * Merge route into the global application state
+ * @param {state} state the current state
+ * @param {action} action the action to perform
+ * @returns {state} updated state
  */
 function routeReducer(state = routeInitialState, action) {
   switch (action.type) {
@@ -38,6 +41,8 @@ function routeReducer(state = routeInitialState, action) {
 
 /**
  * Creates the main reducer with the dynamically injected ones
+ * @param {array} injectedReducers the dynamically injected reducers
+ * @returns {reducer} combined reducers
  */
 export default function createReducer(injectedReducers) {
   return combineReducers({

@@ -16,7 +16,7 @@ import VoiceOverSafari from './VoiceOverSafari.png';
 import VoiceOverSafari_light from './VoiceOverSafari_light.png';
 
 import STYLES from '../pages.scss';
-import { cssModules } from 'bpk-react-utils';
+import { cssModules } from 'gg-components/helpers/cssModules';
 const getClassName = cssModules(STYLES);
 
 class SetupMacos extends React.Component {

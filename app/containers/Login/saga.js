@@ -1,29 +1,25 @@
+import { call, put, select, takeLatest } from 'redux-saga/effects';
+
 import { selectors, actions, constants } from './redux-definitions';
+
+import { setUser } from 'containers/App/actions';
+import { pushMessage } from 'containers/RequestStatusWrapper/actions';
+import { COMMUNICATION_ERROR_MESSAGE } from 'helpers/messageConstants';
+import apiStructure from 'helpers/apiStructure';
+import { makeSelectLoginRedirect } from 'containers/App/selectors';
+import request from 'utils/request';
 
 const { LOGIN } = constants;
 const { loginRegisterSuccess, loginRegisterError } = actions;
 const { makeSelectCredentials } = selectors;
 
-import { call, put, select, takeLatest } from 'redux-saga/effects';
-import { setUser } from 'containers/App/actions';
-import { pushMessage } from 'containers/RequestStatusWrapper/actions';
-import { API_ENDPOINT, COMMUNICATION_ERROR_MESSAGE } from 'helpers/constants';
-import { makeSelectLoginRedirect } from 'containers/App/selectors';
-import request from 'utils/request';
-
 const magicLinkSentMessage = { type: 'success', message: 'Magic link sent!' };
 const loggedInMessage = { type: 'success', message: 'Login successful!' };
-const logInErrorMessage = {
-  type: 'error',
-  message: 'Login failed. Please check entered details.',
-};
 
 export function* doLogin() {
   const credentials = yield select(makeSelectCredentials());
   const loginRedirect = yield select(makeSelectLoginRedirect());
-  const requestURL = `${API_ENDPOINT}${
-    credentials.useMagicLink ? '/getmagiclink' : '/login'
-  }`;
+  const requestURL = apiStructure.requestMagicLink.fullPath;
 
   try {
     const loginResult = yield call(request, requestURL, {
@@ -35,7 +31,9 @@ export function* doLogin() {
     });
     if (loginResult.error) {
       yield put(loginRegisterError(loginResult));
-      yield put(pushMessage(logInErrorMessage));
+      yield put(
+        pushMessage({ type: 'error', message: loginResult.errorMessage }),
+      );
     } else {
       yield put(loginRegisterSuccess());
       yield put(
@@ -53,6 +51,6 @@ export function* doLogin() {
   }
 }
 
-export default function* login() {
-  yield takeLatest(LOGIN, () => doLogin());
+export default function* saga() {
+  yield takeLatest(LOGIN, doLogin);
 }

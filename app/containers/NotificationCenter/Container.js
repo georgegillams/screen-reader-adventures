@@ -1,16 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet';
-import { cssModules } from 'bpk-react-utils';
-
-import Skeleton from './Skeleton';
-
-import { Section, SubSection } from 'gg-components/Typography';
 import { NotificationCollection } from 'gg-components/Notifications';
 import { DebugObject, LoadingCover } from 'gg-components/Auth';
-import STYLES from 'containers/pages.scss';
 
-const getClassName = cssModules(STYLES); // REGEX_REPLACED
+import Skeleton from './Skeleton';
 
 export default class NotificationCenter extends React.Component {
   componentWillMount = () => {
@@ -24,8 +17,8 @@ export default class NotificationCenter extends React.Component {
       loadingNotifications,
       loadNotificationsError,
       className,
-      ...rest
     } = this.props;
+
     const outerClassNameFinal = [];
 
     if (className) {
@@ -43,7 +36,7 @@ export default class NotificationCenter extends React.Component {
     }
 
     return (
-      <div className={outerClassNameFinal.join(' ')} {...rest}>
+      <div className={outerClassNameFinal.join(' ')}>
         <NotificationCollection notifications={notifications} />
         <DebugObject
           debugTitle="Notifications"

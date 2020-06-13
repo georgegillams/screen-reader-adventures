@@ -1,14 +1,10 @@
-import React, { Fragment } from 'react';
-import { cssModules } from 'bpk-react-utils';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import CommentsListSkeleton from './CommentsListSkeleton';
 
-import STYLES from 'containers/pages.scss';
-
-const getClassName = cssModules(STYLES);
-
 const Skeleton = props => {
-  const { className, ...rest } = props; // eslint-disable-line no-shadow
+  const { className } = props;
 
   const outerClassNameFinal = [];
 
@@ -21,6 +17,14 @@ const Skeleton = props => {
       <CommentsListSkeleton />
     </div>
   );
+};
+
+Skeleton.propTypes = {
+  className: PropTypes.string,
+};
+
+Skeleton.defaultProps = {
+  className: null,
 };
 
 export default Skeleton;

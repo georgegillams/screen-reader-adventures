@@ -19,17 +19,10 @@ const mapStateToProps = createStructuredSelector({
   messages: makeSelectMessages(),
 });
 
-const withConnect = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-);
+const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
 const withReducer = injectReducer({ key: 'messages', reducer });
 const withSaga = injectSaga({ key: 'messages', saga });
 
-export default compose(
-  withReducer,
-  withSaga,
-  withConnect,
-)(Container);
+export default compose(withReducer, withSaga, withConnect)(Container);
 export { mapDispatchToProps };

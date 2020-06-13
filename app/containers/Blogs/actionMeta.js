@@ -5,24 +5,24 @@ const actionMeta = {
       LOAD_BLOGS: 'tbd',
       attributes: [],
       stateMutations: {
-        loading: true,
-        loadBlogsError: false,
+        blogsLoading: true,
+        blogsLoadError: false,
       },
     },
     {
       LOAD_BLOGS_REGISTER_SUCCESS: 'tbd',
       attributes: ['blogs'],
       stateMutations: {
-        loading: false,
+        blogsLoading: false,
         blogs: action => action.blogs,
       },
     },
     {
       LOAD_BLOGS_REGISTER_ERROR: 'tbd',
-      attributes: ['loadBlogsError'],
+      attributes: ['blogsLoadError'],
       stateMutations: {
-        loading: false,
-        loadBlogsError: action => action.loadBlogsError,
+        blogsLoading: false,
+        blogsLoadError: action => action.blogsLoadError,
       },
     },
   ],

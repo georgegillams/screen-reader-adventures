@@ -1,57 +1,89 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet';
-import { cssModules } from 'bpk-react-utils';
-
-import AdminUsersAPIEntity from './AdminUsersAPIEntity';
-import Skeleton from './Skeleton';
-import generateCsv from './generateCsv';
-import HelperFunctions from 'helpers/HelperFunctions';
-
-import { LoadingIndicator } from 'gg-components/LoadingIndicator';
-import { ArticleCard, ARTICLE_CARD_LAYOUTS } from 'gg-components/Cards';
-import { Button } from 'gg-components/Button';
-import { Section, SubSection, TextLink } from 'gg-components/Typography';
-import { CodeInline } from 'gg-components/Code';
-import Ticket from 'components/Ticket';
 import {
-  DebugObject,
-  APIEntity,
-  AdminOnly,
-  LoadingCover,
-} from 'gg-components/Auth';
-import { LoginForm } from 'components/Forms';
-import { CookiesOnly } from 'components/Sessions';
-import { downloadStringAsCsv } from 'helpers/clientOperations';
+  Section,
+  Paragraph,
+  PageTitle,
+  SubSection,
+} from 'gg-components/Typography';
+import { Select, Input } from 'gg-components/Input';
+import { Helmet } from 'react-helmet';
+import { cssModules } from 'gg-components/helpers/cssModules';
+import queryString from 'query-string';
+import { Button } from 'gg-components/Button';
+import { Card } from 'gg-components/Cards';
+import { DebugObject, AdminOnly, LoadingCover } from 'gg-components/Auth';
+import { Checkbox } from 'gg-components/Checkbox';
+
+import Skeleton from './Skeleton';
+import AdminUsersAPIEntity from './AdminUsersAPIEntity';
+
+import { SplitDetailView } from 'components/SplitDetailView';
 import STYLES from 'containers/pages.scss';
 
-const getClassName = cssModules(STYLES); // REGEX_REPLACED
-
-const downloadData = data => {
-  const csv = generateCsv(data);
-  downloadStringAsCsv('user_data.csv', csv);
-};
+const getClassName = cssModules(STYLES);
 
 export default class AdminUsers extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      highlightId: null,
+      showFilters: false,
+      filterDeleted: true,
+      filterAdminStatus: 'all',
+      filterEmailVerified: 'all',
+      filterName: '',
+    };
   }
 
   componentDidMount = () => {
     this.props.loadUsers();
   };
 
-  expandAll = () => {
-    const allElements = document.getElementsByTagName('DIV');
-    for (let i = 0; i < allElements.length; i += 1) {
-      const element = allElements[i];
-      if (HelperFunctions.includes(element.textContent, '▶️ ')) {
-        element.click();
-      }
+  setHighlightId = highlightId => {
+    if (this.state.highlightId !== highlightId) {
+      this.setState({ highlightId });
     }
   };
+
+  scrollToHighlightedId = () => {
+    if (!this.state.highlightIdToScrollTo) {
+      return;
+    }
+
+    const scrollToElement = document.getElementById(
+      this.state.highlightIdToScrollTo,
+    );
+    if (scrollToElement) {
+      scrollToElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      this.setState({ highlightIdToScrollTo: false });
+    }
+  };
+
+  componentWillReceiveProps(newProps) {
+    const { location } = newProps;
+    if (location) {
+      const { search } = location;
+      if (search) {
+        const parsedSearch = queryString.parse(search);
+        const highlightId = parsedSearch.highlight;
+        this.setHighlightId(highlightId);
+        if (!this.props.users && newProps.users) {
+          this.setState({ highlightIdToScrollTo: highlightId });
+        }
+      } else {
+        this.setHighlightId(null);
+      }
+    } else {
+      this.setHighlightId(null);
+    }
+  }
+
+  componentDidUpdate() {
+    this.scrollToHighlightedId();
+  }
 
   render() {
     const {
@@ -61,75 +93,262 @@ export default class AdminUsers extends React.Component {
       cookiesAllowed,
       onCookiesAccepted,
       className,
-      loadUsers,
       users,
-      loading,
+      loadUsers,
+      loadingUsers,
       loadUserSuccess,
       loadUserError,
+      deleteUser,
+      deletingUser,
       requestMagicLinkForUser,
-      ...rest
     } = this.props;
-    const outerClassNameFinal = [];
+    const outerClassNameFinal = [getClassName('pages__split-view-container')];
 
     if (className) {
       outerClassNameFinal.push(className);
     }
 
+    let filteredUsers = users;
+    if (filteredUsers && filteredUsers.filter) {
+      if (this.state.filterDeleted) {
+        filteredUsers = filteredUsers.filter(x => !x.deleted);
+      }
+      if (
+        this.state.filterAdminStatus &&
+        this.state.filterAdminStatus !== 'all'
+      ) {
+        filteredUsers = filteredUsers.filter(x => {
+          if (x.admin && this.state.filterAdminStatus === 'admin') {
+            return true;
+          }
+          if (!x.admin && this.state.filterAdminStatus === 'nonAdmin') {
+            return true;
+          }
+          return false;
+        });
+      }
+      if (
+        this.state.filterEmailVerified &&
+        this.state.filterEmailVerified !== 'all'
+      ) {
+        filteredUsers = filteredUsers.filter(x => {
+          if (
+            x.emailVerified &&
+            this.state.filterEmailVerified === 'verified'
+          ) {
+            return true;
+          }
+          if (
+            !x.emailVerified &&
+            this.state.filterEmailVerified === 'notVerified'
+          ) {
+            return true;
+          }
+          return false;
+        });
+      }
+      if (this.state.filterName) {
+        filteredUsers = filteredUsers.filter(x =>
+          x.name.includes(this.state.filterName),
+        );
+      }
+    }
+
+    const showUsers =
+      !!filteredUsers && !!filteredUsers.length && !!filteredUsers.map;
+
+    const newUserForm = <Section name="Coming soon" />;
+
+    const listView = (
+      <div>
+        <Link to="/admin/users?highlight=new">
+          <Card className={getClassName('pages__component')}>
+            <SubSection name="New +" anchor={false} noPadding />
+          </Card>
+        </Link>
+        {showUsers &&
+          filteredUsers.map(n => (
+            <Link to={`/admin/users?highlight=${n.id}`}>
+              <AdminUsersAPIEntity
+                compact
+                entity={n}
+                highlighted={this.state.highlightId === n.id}
+                className={getClassName('pages__component')}
+              />
+            </Link>
+          ))}
+      </div>
+    );
+
+    let detailView = null;
+    if (this.state.highlightId === 'new') {
+      detailView = newUserForm;
+    } else {
+      const detailUsers =
+        users && users.filter && this.state.highlightId
+          ? users.filter(g => g.id === this.state.highlightId)
+          : null;
+      const detailUser =
+        detailUsers && detailUsers.length > 0 ? detailUsers[0] : null;
+
+      detailView = !detailUser ? null : (
+        <AdminUsersAPIEntity
+          entity={detailUser}
+          highlighted={this.state.highlightId === detailUser.id}
+          className={getClassName('pages__component')}
+          onUserUpdateSuccess={() => {
+            loadUsers();
+          }}
+        >
+          <br />
+          <br />
+          <Button
+            large
+            disabled={deletingUser}
+            href={`/admin/users/${detailUser.id}`}
+          >
+            Edit user on dedicated page
+          </Button>
+          <br />
+          <br />
+          <Button
+            large
+            destructive
+            onClick={() => requestMagicLinkForUser(detailUser)}
+          >
+            Login as user
+          </Button>
+          <br />
+          <br />
+          <Button
+            large
+            destructive
+            disabled={deletingUser}
+            onClick={() => deleteUser(detailUser)}
+          >
+            Delete
+          </Button>
+        </AdminUsersAPIEntity>
+      );
+    }
+
+    const showFilters = users && this.state.showFilters;
     const page = (
-      <div className={outerClassNameFinal.join(' ')} {...rest}>
+      <div className={outerClassNameFinal.join(' ')}>
         <AdminOnly
           user={user}
           setLoginRedirect={() => setLoginRedirect('admin/users')}
         >
-          <Section name="Admin - users">
-            <span>Users: </span>
-            {users && users.length && <span>{users.length}</span>}
+          <PageTitle
+            link={{ to: '/admin', text: 'Admin' }}
+            name="Admin - users"
+            className={getClassName('pages__split-view-container-header')}
+          >
+            <Button
+              style={{ marginRight: '1rem', marginBottom: '1rem' }}
+              disabled={loadingUsers}
+              onClick={() => loadUsers()}
+              large
+            >
+              Reload users
+            </Button>
+            <Button
+              style={{ marginBottom: '1rem' }}
+              onClick={() =>
+                this.setState({ showFilters: !this.state.showFilters })
+              }
+              large
+            >
+              {this.state.showFilters ? 'Hide filters' : 'Show filters'}
+            </Button>
             <br />
             <br />
-            {users && users.length && (
-              <Fragment>
-                <Button onClick={() => downloadData(users)} large>
-                  Download user data
-                </Button>
+            {showFilters && (
+              <>
+                <Checkbox
+                  label="Show deleted"
+                  name="filterDeleted"
+                  checked={!this.state.filterDeleted}
+                  onChange={event => {
+                    this.setState({
+                      filterDeleted: !event.target.checked,
+                    });
+                  }}
+                />
                 <br />
                 <br />
-                <Button onClick={this.expandAll} large>
-                  Expand all entities
-                </Button>
-              </Fragment>
+                <label htmlFor="filterAdminStatus">
+                  Filter by admin status
+                </label>
+                <Select
+                  id="filterAdminStatus"
+                  name="Filter by admin status"
+                  value={this.state.filterAdminStatus}
+                  options={[
+                    { value: 'all', name: 'All' },
+                    { value: 'admin', name: 'Admin' },
+                    { value: 'nonAdmin', name: 'Non-admin' },
+                  ]}
+                  onChange={event => {
+                    this.setState({ filterAdminStatus: event.target.value });
+                  }}
+                />
+                <br />
+                <br />
+                <label htmlFor="filterEmailVerified">
+                  Filter by email verification status
+                </label>
+                <Select
+                  id="filterEmailVerified"
+                  name="Filter by email verification status"
+                  value={this.state.filterEmailVerified}
+                  options={[
+                    { value: 'all', name: 'All' },
+                    { value: 'verified', name: 'Verified' },
+                    { value: 'nonVerified', name: 'Non-verified' },
+                  ]}
+                  onChange={event => {
+                    this.setState({ filterEmailVerified: event.target.value });
+                  }}
+                />
+                <br />
+                <br />
+                <label htmlFor="filterName">Filter by name</label>
+                <Input
+                  id="filterName"
+                  value={this.state.filterName}
+                  onChange={event =>
+                    this.setState({ filterName: event.target.value })}
+                />
+              </>
             )}
-            <br />
-            <br />
-            {users &&
-              users.map &&
-              users.map(u => (
-                <AdminUsersAPIEntity name="more" entityType="User" entity={u}>
-                  <br />
-                  <br />
-                  <Button
-                    destructive
-                    large
-                    onClick={() => requestMagicLinkForUser(u)}
-                  >
-                    Login as user
-                  </Button>
-                </AdminUsersAPIEntity>
-              ))}
-          </Section>
+            {users && (
+              <>
+                <br />
+                <Paragraph>
+                  Showing {filteredUsers.length} of {users.length} users
+                </Paragraph>
+                <br />
+                <br />
+              </>
+            )}
+          </PageTitle>
+          <SplitDetailView
+            className={getClassName('pages__split-view-split-view')}
+            listView={listView}
+            detailView={detailView}
+            closeLink="/admin/users"
+          />
         </AdminOnly>
       </div>
     );
 
     return (
-      <Fragment>
+      <>
         <Helmet title="Admin - users" />
-        <CookiesOnly
-          cookiesAccepted={cookiesAllowed}
-          onAccept={onCookiesAccepted}
-        />
         <LoadingCover
           loadingSkeleton={Skeleton}
-          loading={!cookiesAllowed || userLoading || loading}
+          loading={userLoading || (!users && loadingUsers)}
         >
           {page}
         </LoadingCover>
@@ -139,26 +358,45 @@ export default class AdminUsers extends React.Component {
             setLoginRedirect,
             user,
             userLoading,
-            cookiesAllowed,
-            onCookiesAccepted,
             className,
             loadUsers,
             users,
-            loading,
+            loadingUsers,
             loadUserSuccess,
             loadUserError,
-            requestMagicLinkForUser,
           }}
         />
-      </Fragment>
+      </>
     );
   }
 }
 
 AdminUsers.propTypes = {
-  loggingIn: PropTypes.bool,
-  loadUserError: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
-  createdPayment: PropTypes.object,
+  deleteUser: PropTypes.func.isRequired,
+  loadUsers: PropTypes.func.isRequired,
   login: PropTypes.func.isRequired,
+  setLoginRedirect: PropTypes.func.isRequired,
+  users: PropTypes.arrayOf(PropTypes.object),
+  // eslint-disable-next-line react/forbid-prop-types
+  loadUserError: PropTypes.object,
+  loadUserSuccess: PropTypes.bool,
+  loadingUsers: PropTypes.bool,
   className: PropTypes.string,
+  deletingUser: PropTypes.bool,
+  loggingIn: PropTypes.bool,
+  // eslint-disable-next-line react/forbid-prop-types
+  user: PropTypes.object,
+  userLoading: PropTypes.bool,
+};
+
+AdminUsers.defaultProps = {
+  users: null,
+  loadUserError: null,
+  loadUserSuccess: false,
+  loadingUsers: false,
+  className: null,
+  deletingUser: false,
+  loggingIn: false,
+  user: null,
+  userLoading: false,
 };

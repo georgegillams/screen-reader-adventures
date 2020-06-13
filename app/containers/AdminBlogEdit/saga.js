@@ -1,4 +1,11 @@
+import { call, put, select, takeLatest } from 'redux-saga/effects';
+
 import { selectors, constants, actions } from './redux-definitions';
+
+import { pushMessage } from 'containers/RequestStatusWrapper/actions';
+import { COMMUNICATION_ERROR_MESSAGE } from 'helpers/messageConstants';
+import apiStructure from 'helpers/apiStructure';
+import request from 'utils/request';
 
 const { LOAD_BLOG, UPDATE_BLOG, CREATE_BLOG } = constants;
 const {
@@ -10,11 +17,6 @@ const {
   createBlogRegisterError,
 } = actions;
 const { makeSelectBlogId, makeSelectNewBlog } = selectors;
-
-import { call, put, select, takeLatest } from 'redux-saga/effects';
-import { pushMessage } from 'containers/RequestStatusWrapper/actions';
-import { API_ENDPOINT, COMMUNICATION_ERROR_MESSAGE } from 'helpers/constants';
-import request from 'utils/request';
 
 const blogCreatedMessage = { type: 'success', message: 'Blog created!' };
 const blogCreateErrorMessage = {
@@ -35,10 +37,10 @@ const blogUpdatedErrorMessage = {
 
 export function* doLoadBlog() {
   const blogId = yield select(makeSelectBlogId());
-  const blogsRequestURL = `${API_ENDPOINT}/blogs/loadSingle?id=${blogId}`;
+  const requestURL = apiStructure.loadBlog.fullPath.split(':id').join(blogId);
 
   try {
-    const blogResult = yield call(request, blogsRequestURL, {
+    const blogResult = yield call(request, requestURL, {
       method: 'GET',
     });
     if (blogResult.error) {
@@ -56,10 +58,10 @@ export function* doLoadBlog() {
 
 export function* doUpdateBlog() {
   const blog = yield select(makeSelectNewBlog());
-  const blogsRequestURL = `${API_ENDPOINT}/blogs/update`;
+  const requestURL = apiStructure.updateBlog.fullPath;
 
   try {
-    const updateResult = yield call(request, blogsRequestURL, {
+    const updateResult = yield call(request, requestURL, {
       method: 'POST',
       body: JSON.stringify(blog),
       headers: {
@@ -81,10 +83,10 @@ export function* doUpdateBlog() {
 
 export function* doCreateBlog() {
   const blog = yield select(makeSelectNewBlog());
-  const blogDeleteUrl = `${API_ENDPOINT}/blogs/create`;
+  const requestURL = apiStructure.createBlog.fullPath;
 
   try {
-    const blogCreateResult = yield call(request, blogDeleteUrl, {
+    const blogCreateResult = yield call(request, requestURL, {
       method: 'POST',
       body: JSON.stringify(blog),
       headers: {
@@ -105,8 +107,8 @@ export function* doCreateBlog() {
   }
 }
 
-export default function* adminUsers() {
-  yield takeLatest(LOAD_BLOG, () => doLoadBlog());
-  yield takeLatest(UPDATE_BLOG, () => doUpdateBlog());
-  yield takeLatest(CREATE_BLOG, () => doCreateBlog());
+export default function* saga() {
+  yield takeLatest(LOAD_BLOG, doLoadBlog);
+  yield takeLatest(UPDATE_BLOG, doUpdateBlog);
+  yield takeLatest(CREATE_BLOG, doCreateBlog);
 }

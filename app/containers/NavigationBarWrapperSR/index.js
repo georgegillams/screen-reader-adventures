@@ -6,10 +6,10 @@ import reducer from './reducer';
 import saga from './saga';
 import Container from './Container';
 
+import { mapSelectors } from 'utils/redux-definitions/selectors';
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
 import appSelectors from 'containers/App/selectors';
-import { mapSelectors } from 'helpers/redux/selectors';
 
 const mapDispatchToProps = () => ({});
 

@@ -1,7 +1,6 @@
-const path = require('path');
+import path from 'path';
 
-const express = require('express');
-const wget = require('wget-improved');
+import express from 'express';
 
 const router = express.Router();
 

@@ -4,11 +4,8 @@ const selectGlobal = state => state.get('global');
 
 const selectRoute = state => state.get('route');
 
-const makeSelectLoginRedirect = () => {
-  return createSelector(selectGlobal, globalState =>
-    globalState.get('loginRedirect'),
-  );
-};
+const makeSelectLoginRedirect = () =>
+  createSelector(selectGlobal, globalState => globalState.get('loginRedirect'));
 
 const makeSelectUser = () =>
   createSelector(selectGlobal, globalState => globalState.get('user'));

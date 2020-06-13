@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import PlatformSelector from 'components/PlatformSelector';
 import { PageTitle, Paragraph } from 'gg-components/Typography';
 import STYLES from 'containers/pages.scss';
-import { cssModules } from 'bpk-react-utils';
+import { cssModules } from 'gg-components/helpers/cssModules';
 const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 export default class HomePage extends React.PureComponent {

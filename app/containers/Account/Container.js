@@ -1,41 +1,15 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-import BpkImage, {
-  withLazyLoading,
-  withLoadingBehavior,
-} from 'bpk-component-image';
-import { cssModules } from 'bpk-react-utils';
+import { Button } from 'gg-components/Button';
+import { Paragraph, PageTitle } from 'gg-components/Typography';
+import { DebugObject, LoggedInOnly, LoadingCover } from 'gg-components/Auth';
 
 import Skeleton from './Skeleton';
 
-import { LoadingIndicator } from 'gg-components/LoadingIndicator';
-import { Button } from 'gg-components/Button';
-import { Section, SubSection, TextLink } from 'gg-components/Typography';
-import { CodeInline } from 'gg-components/Code';
-import {
-  DebugObject,
-  LoggedInOnly,
-  LoadingCover,
-} from 'gg-components/Auth';
-import { LoginForm } from 'components/Forms';
 import { CookiesOnly } from 'components/Sessions';
-import {
-  MONZOME_LINK_REGEX,
-  SORT_CODE_REGEX,
-  INT_REGEX,
-  STRING_REGEX,
-  DECIMAL_REGEX,
-  PROJECT_NAME,
-  EMAIL_VERIFICATION_ENABLED,
-} from 'helpers/constants';
-import STYLES from 'containers/pages.scss';
-
-const getClassName = cssModules(STYLES); // REGEX_REPLACED
 
 export default class Account extends React.Component {
-  componentWillMount = () => {};
-
   render() {
     const {
       setLoginRedirect,
@@ -52,8 +26,7 @@ export default class Account extends React.Component {
       requestingSuccess,
       requestingError,
       className,
-      ...rest
-    } = this.props; // eslint-disable-line no-shadow
+    } = this.props;
     const outerClassNameFinal = [];
 
     if (className) {
@@ -61,43 +34,50 @@ export default class Account extends React.Component {
     }
 
     const page = (
-      <div className={outerClassNameFinal.join(' ')} {...rest}>
+      <div className={outerClassNameFinal.join(' ')}>
         <LoggedInOnly
           user={user}
           setLoginRedirect={() => setLoginRedirect('account')}
         >
-          <Section name="Account">
-            {user && user.email && <div>{`Email: ${user.email}`}</div>}
-            {user && user.uname && <div>{`Display name: ${user.uname}`}</div>}
-            <br />
-            {user && !user.emailVerified && EMAIL_VERIFICATION_ENABLED && (
-              <Fragment>
+          <PageTitle name="Account">
+            <Paragraph>
+              {user && user.email && <div>{`Email: ${user.email}`}</div>}
+              {user && user.uname && <div>{`Display name: ${user.uname}`}</div>}
+              <br />
+            </Paragraph>
+            {user && !user.emailVerified && (
+              <>
                 <Button large onClick={requestVerificationEmail}>
                   Request new verification email
                 </Button>
                 <br />
                 <br />
-              </Fragment>
+              </>
             )}
-            {PROJECT_NAME === 'EPICC' && (
-              <Fragment>
-                <Button large href="/sign-up/continue?page=1">
-                  {'View/edit details'}
+            {user && user.admin && (
+              <>
+                <Button large href="/admin">
+                  Admin
                 </Button>
                 <br />
                 <br />
-              </Fragment>
+                <Button large href="/status">
+                  Site status
+                </Button>
+                <br />
+                <br />
+              </>
             )}
             <Button large onClick={logout}>
               Logout
             </Button>
-          </Section>
+          </PageTitle>
         </LoggedInOnly>
       </div>
     );
 
     return (
-      <Fragment>
+      <>
         <Helmet title="Account" />
         <CookiesOnly
           cookiesAccepted={cookiesAllowed}
@@ -126,7 +106,7 @@ export default class Account extends React.Component {
             requestingError,
           }}
         />
-      </Fragment>
+      </>
     );
   }
 }

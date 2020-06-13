@@ -1,5 +1,5 @@
 import React from 'react';
-import { cssModules } from 'bpk-react-utils';
+import { cssModules } from 'gg-components/helpers/cssModules';
 
 import { SectionSkeleton, ButtonSkeleton } from 'gg-components/Skeletons';
 import STYLES from 'containers/pages.scss';
@@ -7,7 +7,7 @@ import STYLES from 'containers/pages.scss';
 const getClassName = cssModules(STYLES);
 
 const AccountSkeleton = props => {
-  const { className, ...rest } = props;
+  const { className } = props;
 
   const outerClassNameFinal = [];
 
@@ -16,8 +16,8 @@ const AccountSkeleton = props => {
   }
 
   return (
-    <div className={outerClassNameFinal.join(' ')} {...rest}>
-      <SectionSkeleton />
+    <div className={outerClassNameFinal.join(' ')}>
+      <SectionSkeleton style={{ marginTop: '3rem' }} />
       <ButtonSkeleton />
       <ButtonSkeleton />
     </div>

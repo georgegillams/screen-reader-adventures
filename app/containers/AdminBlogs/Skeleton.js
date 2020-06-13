@@ -1,14 +1,11 @@
 import React from 'react';
 
-import {
-  CompactCardSkeleton,
-  SectionSkeleton,
-} from 'gg-components/Skeletons';
+import { CompactCardSkeleton, SectionSkeleton } from 'gg-components/Skeletons';
 
 const getClassName = c => c;
 
 const AdminBlogsSkeleton = props => {
-  const { className, ...rest } = props;
+  const { className } = props;
 
   const outerClassNameFinal = [];
 
@@ -17,7 +14,7 @@ const AdminBlogsSkeleton = props => {
   }
 
   return (
-    <div className={outerClassNameFinal.join(' ')} {...rest}>
+    <div className={outerClassNameFinal.join(' ')}>
       <SectionSkeleton />
       <div className={getClassName('pages__compact-card-container')}>
         <CompactCardSkeleton />

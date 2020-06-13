@@ -1,27 +1,12 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-import { cssModules } from 'bpk-react-utils';
+import { PageTitle } from 'gg-components/Typography';
+import { DebugObject, AdminOnly, LoadingCover } from 'gg-components/Auth';
 
 import Skeleton from './Skeleton';
 
-import { LoadingIndicator } from 'gg-components/LoadingIndicator';
-import BlogsList from 'components/Blogs';
-import { ArticleCard, ARTICLE_CARD_LAYOUTS } from 'gg-components/Cards';
-import { Button } from 'gg-components/Button';
-import { Section, SubSection, TextLink } from 'gg-components/Typography';
-import { CodeInline } from 'gg-components/Code';
-import Ticket from 'components/Ticket';
-import {
-  DebugObject,
-  APIEntity,
-  AdminOnly,
-  LoadingCover,
-} from 'gg-components/Auth';
 import { CreateBlogForm } from 'components/Forms';
-import STYLES from 'containers/pages.scss';
-
-const getClassName = cssModules(STYLES);
 
 export default class AdminBlogEdit extends React.Component {
   constructor(props) {
@@ -58,7 +43,6 @@ export default class AdminBlogEdit extends React.Component {
       creatingBlog,
       createBlogSuccess,
       createBlogError,
-      ...rest
     } = this.props;
     const outerClassNameFinal = [];
 
@@ -67,12 +51,15 @@ export default class AdminBlogEdit extends React.Component {
     }
 
     const page = (
-      <div className={outerClassNameFinal.join(' ')} {...rest}>
+      <div className={outerClassNameFinal.join(' ')}>
         <AdminOnly
           user={user}
           setLoginRedirect={() => setLoginRedirect('admin/blog')}
         >
-          <Section name="Admin - blog">
+          <PageTitle
+            link={{ to: '/admin/blog', text: 'Blogs' }}
+            name="Admin - blog"
+          >
             <CreateBlogForm
               disabled={updatingBlog || creatingBlog || !this.state.newBlog}
               blog={this.state.newBlog || blog || {}}
@@ -86,13 +73,13 @@ export default class AdminBlogEdit extends React.Component {
               }}
               submitLabel={blog ? 'Update blog' : 'Create blog'}
             />
-          </Section>
+          </PageTitle>
         </AdminOnly>
       </div>
     );
 
     return (
-      <Fragment>
+      <>
         <Helmet title="Admin - blog" />
         <LoadingCover
           loadingSkeleton={Skeleton}
@@ -122,15 +109,52 @@ export default class AdminBlogEdit extends React.Component {
             createBlogError,
           }}
         />
-      </Fragment>
+      </>
     );
   }
 }
 
 AdminBlogEdit.propTypes = {
-  loggingIn: PropTypes.bool,
-  error: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
-  createdPayment: PropTypes.object,
-  login: PropTypes.func.isRequired,
+  setLoginRedirect: PropTypes.func,
+  // eslint-disable-next-line react/forbid-prop-types
+  user: PropTypes.object,
+  userLoading: PropTypes.bool,
   className: PropTypes.string,
+  loadBlog: PropTypes.func,
+  updateBlog: PropTypes.func,
+  createBlog: PropTypes.func,
+  // eslint-disable-next-line react/forbid-prop-types
+  blog: PropTypes.object,
+  loadingBlog: PropTypes.bool,
+  loadBlogSuccess: PropTypes.bool,
+  // eslint-disable-next-line react/forbid-prop-types
+  loadBlogError: PropTypes.object,
+  updatingBlog: PropTypes.bool,
+  updateBlogSuccess: PropTypes.bool,
+  // eslint-disable-next-line react/forbid-prop-types
+  updateBlogError: PropTypes.object,
+  creatingBlog: PropTypes.bool,
+  createBlogSuccess: PropTypes.bool,
+  // eslint-disable-next-line react/forbid-prop-types
+  createBlogError: PropTypes.object,
+};
+
+AdminBlogEdit.defaultProps = {
+  setLoginRedirect: null,
+  user: null,
+  userLoading: false,
+  className: null,
+  loadBlog: null,
+  updateBlog: null,
+  createBlog: null,
+  blog: null,
+  loadingBlog: false,
+  loadBlogSuccess: false,
+  loadBlogError: null,
+  updatingBlog: false,
+  updateBlogSuccess: false,
+  updateBlogError: null,
+  creatingBlog: false,
+  createBlogSuccess: false,
+  createBlogError: null,
 };

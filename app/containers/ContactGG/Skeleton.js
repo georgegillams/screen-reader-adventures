@@ -1,38 +1,48 @@
-import React, { Fragment } from 'react';
-import { cssModules } from 'bpk-react-utils';
-
+import React from 'react';
+import PropTypes from 'prop-types';
+import { cssModules } from 'gg-components/helpers/cssModules';
 import {
-  CompactCardSkeleton,
+  InfoCellSkeleton,
   ButtonSkeleton,
   SectionSkeleton,
 } from 'gg-components/Skeletons';
+
 import STYLES from 'containers/pages.scss';
 
 const getClassName = cssModules(STYLES);
 
-const ContactSkeleton = props => {
-  const { className, ...rest } = props;
+const Skeleton = props => {
+  const { className } = props;
 
-  const outerClassNameFinal = ['pages__container--centered'];
+  const outerClassNameFinal = [getClassName('pages__container--centered')];
 
   if (className) {
     outerClassNameFinal.push(className);
   }
 
   return (
-    <div className={outerClassNameFinal.join(' ')} {...rest}>
-      <SectionSkeleton />
-      <div className={getClassName('pages__compact-card-container')}>
-        <CompactCardSkeleton />
-        <CompactCardSkeleton />
-        <CompactCardSkeleton />
-        <CompactCardSkeleton />
+    <div className={outerClassNameFinal.join(' ')}>
+      <SectionSkeleton style={{ marginTop: '3rem', width: '20rem' }} />
+      <div style={{ width: '100vw' }}>
+        <InfoCellSkeleton style={{ opacity: 0.5 }} />
+        <InfoCellSkeleton />
+        <InfoCellSkeleton style={{ opacity: 0.5 }} />
+        <InfoCellSkeleton />
+        <InfoCellSkeleton style={{ opacity: 0.5 }} />
+        <InfoCellSkeleton />
       </div>
       <ButtonSkeleton />
       <ButtonSkeleton />
-      <SectionSkeleton />
     </div>
   );
 };
 
-export default ContactSkeleton;
+Skeleton.propTypes = {
+  className: PropTypes.string,
+};
+
+Skeleton.defaultProps = {
+  className: null,
+};
+
+export default Skeleton;

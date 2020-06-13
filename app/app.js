@@ -14,43 +14,38 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 import FontFaceObserver from 'fontfaceobserver';
-import createHistory from 'history/createBrowserHistory';
 import 'sanitize.css/sanitize.css';
-
-// Import root app
-import App from 'containers/App';
-
-// Load the favicon
-/* eslint-disable import/no-webpack-loader-syntax */
-import '!file-loader?name=[name].[ext]!./images/favicon.ico';
-/* eslint-enable import/no-webpack-loader-syntax */
-
-// Import CSS reset and Global Styles
-import STYLES from 'styles/theme.scss';
-
-import { cssModules } from 'bpk-react-utils'; // REGEX_REPLACED
+import { createBrowserHistory } from 'history';
 
 import configureStore from './configureStore';
 
-const getClassName = cssModules(STYLES);
+import App from 'containers/App';
+
+// Load the favicon
+/* eslint-disable import/no-webpack-loader-syntax, import/no-unresolved */
+import '!file-loader?name=[name].[ext]!./images/favicon.ico';
+/* eslint-enable  */
+
+// Import CSS reset and Global Styles
+import 'styles/global-styles.scss';
 
 // Observe loading of Open Sans (to remove open sans, remove the <link> tag in
 // the index.html file and this observer)
 const openSansObserver = new FontFaceObserver('Open Sans', {});
 
 // When Open Sans is loaded, add a font-family using Open Sans to the body
-openSansObserver.load().then(
-  () => {
-    document.body.classList.add('fontLoaded');
-  },
-  () => {
-    document.body.classList.remove('fontLoaded');
-  },
-);
+openSansObserver
+  .load()
+  .then(() => document.body.classList.add('fontLoaded'))
+  .catch(error => {
+    // eslint-disable-next-line no-console
+    console.error(`loading openSansObserver failed`, error);
+    return document.body.classList.remove('fontLoaded');
+  });
 
 // Create redux store with history
 const initialState = {};
-const history = createHistory();
+const history = createBrowserHistory();
 const store = configureStore(initialState, history);
 const MOUNT_NODE = document.getElementById('app');
 
