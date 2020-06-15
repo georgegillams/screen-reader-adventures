@@ -49,7 +49,6 @@ const SRLogo = props => {
 
   const date = new Date();
   const isPride = date.getMonth() === 5;
-  console.log(`isPride`, isPride);
   const Logo = isPride ? PrideLogo : RegularLogo;
 
   return (
