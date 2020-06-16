@@ -16,7 +16,6 @@ import slowDown from 'express-slow-down';
 import seo from './seo';
 import api from './api/api';
 import greasemonkey from './greasemonkey';
-import redirectNonWWW from './redirectNonWWW';
 import setup from './middlewares/frontendMiddleware';
 
 import { NODE_ENV, SESSION_SECRET } from 'helpers/constants';
@@ -72,9 +71,6 @@ app.use(
 
 // enable sending API requests with files in form-data
 app.use(fileupload());
-
-// Redirect naked domain to include `www`
-app.use(redirectNonWWW);
 
 app.use(greasemonkey);
 
