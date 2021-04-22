@@ -1,22 +1,24 @@
 {
-  "presets": [
-    "@babel/preset-env",
-    "@babel/preset-react",
-    "@babel/preset-flow",
-  ],
+  "env": {
+    "development": {
+      "presets": ["next/babel"]
+    },
+    "production": {
+      "presets": ["next/babel"]
+    },
+    "test": {
+      "presets": ["next/babel"]
+    }
+  },
   "plugins": [
-    "@babel/plugin-proposal-function-bind",
-    "@babel/plugin-transform-modules-commonjs",
-    "transform-react-remove-prop-types",
-    "@babel/plugin-transform-react-constant-elements",
-    "@babel/plugin-transform-react-inline-elements",
-    "@babel/plugin-transform-runtime",
-    "add-module-exports",
-    "@babel/plugin-proposal-export-default-from",
-    "@babel/plugin-proposal-export-namespace-from",
-    ["@babel/plugin-proposal-decorators", {"legacy":true}],
-    "babel-plugin-transform-react-display-name",
-    "@babel/plugin-proposal-object-rest-spread",
-    "@babel/plugin-proposal-class-properties"
+    "babel-plugin-add-module-exports", 
+    ["module-resolver", { 
+      "root": ["./"],
+      "alias": {
+        "helpers": "./shared/helpers",
+        "server-utils": "./server/utils",
+        "client-utils": "./src/utils"
+      }
+    }]
   ]
 }

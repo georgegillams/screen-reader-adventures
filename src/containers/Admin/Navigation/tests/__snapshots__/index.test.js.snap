@@ -1,0 +1,414 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AdminNavigation /> should render correctly - index 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <div
+      class="skeleton__outer skeleton__section"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="admin-navigation__card-container"
+    >
+      <div
+        class="skeleton__outer skeleton__card--compact"
+      >
+        <div
+          class="skeleton__shimmer"
+          style="margin-left: -0px;"
+        />
+      </div>
+      <div
+        class="skeleton__outer skeleton__card--compact"
+      >
+        <div
+          class="skeleton__shimmer"
+          style="margin-left: -0px;"
+        />
+      </div>
+      <div
+        class="skeleton__outer skeleton__card--compact"
+      >
+        <div
+          class="skeleton__shimmer"
+          style="margin-left: -0px;"
+        />
+      </div>
+      <div
+        class="skeleton__outer skeleton__card--compact"
+      >
+        <div
+          class="skeleton__shimmer"
+          style="margin-left: -0px;"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<AdminNavigation /> should render correctly with admin user 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <h1
+      class="page-title__heading"
+    >
+      Admin
+    </h1>
+    <div
+      class="admin-navigation__card-container"
+    >
+      <a
+        aria-label="Debug settings"
+        class="card feature-card feature-card--narrow-compact admin-navigation__card card--atomic card--not-disabled"
+        href="/debug"
+      >
+        <div
+          class="card__outer-container"
+        >
+          <div
+            class="card__background"
+          />
+          <div
+            class="card__content-container card__content-container--padded"
+          >
+            <div
+              aria-hidden="true"
+              class="feature-card__outer-container feature-card__outer-container--narrow-compact"
+            >
+              <div
+                class="feature-card__date feature-card__date--narrow-compact"
+              />
+              <div
+                class="feature-card__center-container feature-card__center-container--narrow-compact"
+              >
+                <div
+                  class="section__outer section__outer--inherit-color feature-card__title"
+                >
+                  <h2
+                    class="section__heading section__heading--no-padding"
+                    id="debug-settings"
+                  >
+                    Debug settings
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a
+        aria-label="Analytics"
+        class="card feature-card feature-card--narrow-compact admin-navigation__card card--atomic card--not-disabled"
+        href="/admin/analytics"
+      >
+        <div
+          class="card__outer-container"
+        >
+          <div
+            class="card__background"
+          />
+          <div
+            class="card__content-container card__content-container--padded"
+          >
+            <div
+              aria-hidden="true"
+              class="feature-card__outer-container feature-card__outer-container--narrow-compact"
+            >
+              <div
+                class="feature-card__date feature-card__date--narrow-compact"
+              />
+              <div
+                class="feature-card__center-container feature-card__center-container--narrow-compact"
+              >
+                <div
+                  class="section__outer section__outer--inherit-color feature-card__title"
+                >
+                  <h2
+                    class="section__heading section__heading--no-padding"
+                    id="analytics"
+                  >
+                    Analytics
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a
+        aria-label="Emails"
+        class="card feature-card feature-card--narrow-compact admin-navigation__card card--atomic card--not-disabled"
+        href="/admin/emails"
+      >
+        <div
+          class="card__outer-container"
+        >
+          <div
+            class="card__background"
+          />
+          <div
+            class="card__content-container card__content-container--padded"
+          >
+            <div
+              aria-hidden="true"
+              class="feature-card__outer-container feature-card__outer-container--narrow-compact"
+            >
+              <div
+                class="feature-card__date feature-card__date--narrow-compact"
+              />
+              <div
+                class="feature-card__center-container feature-card__center-container--narrow-compact"
+              >
+                <div
+                  class="section__outer section__outer--inherit-color feature-card__title"
+                >
+                  <h2
+                    class="section__heading section__heading--no-padding"
+                    id="emails"
+                  >
+                    Emails
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a
+        aria-label="Notifications"
+        class="card feature-card feature-card--narrow-compact admin-navigation__card card--atomic card--not-disabled"
+        href="/admin/notifications"
+      >
+        <div
+          class="card__outer-container"
+        >
+          <div
+            class="card__background"
+          />
+          <div
+            class="card__content-container card__content-container--padded"
+          >
+            <div
+              aria-hidden="true"
+              class="feature-card__outer-container feature-card__outer-container--narrow-compact"
+            >
+              <div
+                class="feature-card__date feature-card__date--narrow-compact"
+              />
+              <div
+                class="feature-card__center-container feature-card__center-container--narrow-compact"
+              >
+                <div
+                  class="section__outer section__outer--inherit-color feature-card__title"
+                >
+                  <h2
+                    class="section__heading section__heading--no-padding"
+                    id="notifications"
+                  >
+                    Notifications
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <a
+        aria-label="Users"
+        class="card feature-card feature-card--narrow-compact admin-navigation__card card--atomic card--not-disabled"
+        href="/admin/users"
+      >
+        <div
+          class="card__outer-container"
+        >
+          <div
+            class="card__background"
+          />
+          <div
+            class="card__content-container card__content-container--padded"
+          >
+            <div
+              aria-hidden="true"
+              class="feature-card__outer-container feature-card__outer-container--narrow-compact"
+            >
+              <div
+                class="feature-card__date feature-card__date--narrow-compact"
+              />
+              <div
+                class="feature-card__center-container feature-card__center-container--narrow-compact"
+              >
+                <div
+                  class="section__outer section__outer--inherit-color feature-card__title"
+                >
+                  <h2
+                    class="section__heading section__heading--no-padding"
+                    id="users"
+                  >
+                    Users
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<AdminNavigation /> should render correctly with auth error 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <div
+      class="skeleton__outer skeleton__section"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="admin-navigation__card-container"
+    >
+      <div
+        class="skeleton__outer skeleton__card--compact"
+      >
+        <div
+          class="skeleton__shimmer"
+          style="margin-left: -0px;"
+        />
+      </div>
+      <div
+        class="skeleton__outer skeleton__card--compact"
+      >
+        <div
+          class="skeleton__shimmer"
+          style="margin-left: -0px;"
+        />
+      </div>
+      <div
+        class="skeleton__outer skeleton__card--compact"
+      >
+        <div
+          class="skeleton__shimmer"
+          style="margin-left: -0px;"
+        />
+      </div>
+      <div
+        class="skeleton__outer skeleton__card--compact"
+      >
+        <div
+          class="skeleton__shimmer"
+          style="margin-left: -0px;"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="subsection__outer loading-cover__overlay--content"
+  >
+    <h3
+      class="subsection__heading subsection__heading--no-padding"
+      id="this-is-taking-a-while.-maybe-something-isn't-quite-right..."
+    >
+      This is taking a while. Maybe something isn't quite right...
+    </h3>
+  </div>
+</div>
+`;
+
+exports[`<AdminNavigation /> should render correctly with initial state 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <div
+      class="skeleton__outer skeleton__section"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="admin-navigation__card-container"
+    >
+      <div
+        class="skeleton__outer skeleton__card--compact"
+      >
+        <div
+          class="skeleton__shimmer"
+          style="margin-left: -0px;"
+        />
+      </div>
+      <div
+        class="skeleton__outer skeleton__card--compact"
+      >
+        <div
+          class="skeleton__shimmer"
+          style="margin-left: -0px;"
+        />
+      </div>
+      <div
+        class="skeleton__outer skeleton__card--compact"
+      >
+        <div
+          class="skeleton__shimmer"
+          style="margin-left: -0px;"
+        />
+      </div>
+      <div
+        class="skeleton__outer skeleton__card--compact"
+      >
+        <div
+          class="skeleton__shimmer"
+          style="margin-left: -0px;"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<AdminNavigation /> should render correctly with user 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <div
+      class="section__outer"
+    >
+      <h2
+        class="section__heading"
+        id="admin-only"
+      >
+        Admin only
+      </h2>
+      <span
+        class="paragraph"
+      >
+        You need to be logged in with an admin account to view this content.
+        <br />
+        <a
+          class="text-link text-link--text-link text-link--no-padding text-link--inline"
+          href="/login"
+        >
+          Got a different admin account? Log in here.
+        </a>
+      </span>
+    </div>
+  </div>
+</div>
+`;

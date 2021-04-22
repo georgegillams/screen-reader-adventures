@@ -1,5 +1,10 @@
-/packages/bpk-tokens/tokens/
-/packages/bpk-svgs/dist/
-/packages/bpk-component-icon/lg/
-/packages/bpk-component-icon/sm/
-/packages/bpk-stylesheets/base.js
+.next
+build
+
+node_modules
+.cache
+coverage/
+
+# Cruft
+.DS_Store
+npm-debug.log

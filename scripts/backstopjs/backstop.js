@@ -26,7 +26,7 @@ scenarioData.scenarioIds.forEach(sI => {
 });
 
 const config = {
-  id: 'georgegillams-co-uk-default',
+  id: 'screen-reader-adventures-com-default',
   misMatchThreshold: 3,
   viewports: [
     {
@@ -69,7 +69,5 @@ backstop('test', { config })
   })
   .catch(() => {
     //       // test failed
-    backstop('approve', { config }).then(() =>
-      process.exit(allowFailure ? 0 : 1),
-    );
+    backstop('approve', { config }).then(() => process.exit(allowFailure ? 0 : 1));
   });

@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LoggedInOnly /> Should render correctly 1`] = `
+<div>
+  <div
+    class="section__outer"
+  >
+    <h2
+      class="section__heading"
+      id="logged-out"
+    >
+      Logged out
+    </h2>
+    <span
+      class="paragraph"
+    >
+      You need to be logged in to 
+      view this content
+      <br />
+      <a
+        class="text-link text-link--text-link text-link--no-padding text-link--inline"
+        href="/sign-up"
+      >
+        Register here - it's quick and easy.
+      </a>
+      <br />
+      <a
+        class="text-link text-link--text-link text-link--no-padding text-link--inline"
+        href="/login"
+      >
+        Already got an account? Log in here.
+      </a>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<LoggedInOnly /> Should render correctly with user 1`] = `
+<div>
+  Test
+</div>
+`;

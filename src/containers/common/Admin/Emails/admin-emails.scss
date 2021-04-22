@@ -1,0 +1,26 @@
+@import '~utils/tokens';
+
+.admin-emails {
+  &__card {
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  &__split-view {
+    flex: 1;
+    overflow: hidden;
+  }
+
+  &__preview {
+    margin: $spacing-base 0;
+  }
+
+  &__control {
+    margin-bottom: $spacing-base;
+  }
+
+  &__count {
+    display: inline-block;
+    margin: 0 0 $spacing-base 0;
+  }
+}

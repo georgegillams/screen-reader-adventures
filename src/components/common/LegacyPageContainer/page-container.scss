@@ -1,0 +1,55 @@
+@import '~utils/tokens';
+
+.page-container {
+  &__container {
+    display: flow-root;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    // overflow is needed to ensure elements animated
+    // from outside the page don't affect page width
+    overflow: hidden;
+
+    &--bottom-padding {
+      padding-bottom: $spacing-lg;
+    }
+
+    &--debug {
+      background-color: orange;
+
+      @media (prefers-color-scheme: dark) {
+        background-color: darkorange;
+      }
+    }
+
+    &--regular {
+      max-width: $page-max-width;
+      padding-right: $spacing-lg;
+      padding-left: $spacing-lg;
+
+      @include bpk-breakpoint-tablet {
+        padding-right: $spacing-base;
+        padding-left: $spacing-base;
+      }
+    }
+
+    &--prose {
+      max-width: $page-max-width-prose;
+      padding-right: $spacing-lg;
+      padding-left: $spacing-lg;
+
+      @include bpk-breakpoint-tablet {
+        padding-right: $spacing-base;
+        padding-left: $spacing-base;
+      }
+    }
+
+    &--center {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  }
+}

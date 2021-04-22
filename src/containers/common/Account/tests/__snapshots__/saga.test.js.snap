@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Account saga logout actions Should call logout.failure if API returns error 1`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "combinator": false,
+  "payload": Object {
+    "action": Object {
+      "type": "app/account/LOGOUT/REQUEST",
+    },
+    "channel": undefined,
+  },
+  "type": "PUT",
+}
+`;
+
+exports[`Account saga logout actions Should call logout.failure if an exception occurs 1`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "combinator": false,
+  "payload": Object {
+    "action": Object {
+      "type": "app/account/LOGOUT/REQUEST",
+    },
+    "channel": undefined,
+  },
+  "type": "PUT",
+}
+`;
+
+exports[`Account saga logout actions Should call logout.success on successful API call 1`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "combinator": false,
+  "payload": Object {
+    "action": Object {
+      "type": "app/account/LOGOUT/REQUEST",
+    },
+    "channel": undefined,
+  },
+  "type": "PUT",
+}
+`;
+
+exports[`Account saga requestVerificationEmail actions Should call requestVerificationEmail.failure if API returns error 1`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "combinator": false,
+  "payload": Object {
+    "action": Object {
+      "type": "app/account/REQUEST_VERIFICATION_EMAIL/REQUEST",
+    },
+    "channel": undefined,
+  },
+  "type": "PUT",
+}
+`;
+
+exports[`Account saga requestVerificationEmail actions Should call requestVerificationEmail.failure if an exception occurs 1`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "combinator": false,
+  "payload": Object {
+    "action": Object {
+      "type": "app/account/REQUEST_VERIFICATION_EMAIL/REQUEST",
+    },
+    "channel": undefined,
+  },
+  "type": "PUT",
+}
+`;
+
+exports[`Account saga requestVerificationEmail actions Should call requestVerificationEmail.success on successful API call 1`] = `
+Object {
+  "@@redux-saga/IO": true,
+  "combinator": false,
+  "payload": Object {
+    "action": Object {
+      "type": "app/account/REQUEST_VERIFICATION_EMAIL/REQUEST",
+    },
+    "channel": undefined,
+  },
+  "type": "PUT",
+}
+`;

@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TextLink /> Should render correctly 1`] = `
+<div>
+  <a
+    class="text-link text-link--text-link text-link--no-padding text-link--inline"
+    href="/test"
+  >
+    some text
+  </a>
+</div>
+`;
+
+exports[`<TextLink /> Should render correctly with custom className 1`] = `
+<div>
+  <a
+    class="text-link text-link--text-link text-link--no-padding text-link--inline test-custom-classname"
+    href="/test"
+  >
+    some text
+  </a>
+</div>
+`;
+
+exports[`<TextLink /> Should render with nextified href 1`] = `
+<div>
+  <a
+    class="text-link text-link--text-link text-link--no-padding text-link--inline"
+    href="/blog/test"
+  >
+    some text
+  </a>
+</div>
+`;

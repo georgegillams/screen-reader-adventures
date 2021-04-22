@@ -1,0 +1,351 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AdminAnalytics /> should render correctly - index 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <div
+      class="skeleton__outer skeleton__section"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="skeleton__outer skeleton__card--compact"
+      style="margin-top: 1.2rem;"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="skeleton__outer skeleton__card--compact"
+      style="margin-top: 1.2rem;"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="skeleton__outer skeleton__card--compact"
+      style="margin-top: 1.2rem;"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="skeleton__outer skeleton__card--compact"
+      style="margin-top: 1.2rem;"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<AdminAnalytics /> should render correctly with admin user 1`] = `
+<div>
+  <div>
+    <a
+      class="text-link text-link--text-link text-link--no-padding text-link--inline page-title__link"
+      href="/admin"
+    >
+      ⇠ Admin
+    </a>
+    <h1
+      class="page-title__heading page-title__heading--with-link"
+    >
+      Admin analytics
+    </h1>
+  </div>
+  <div>
+    <button
+      class="button__outer button__outer--regular button__outer--no-bouncy admin-analytics__control"
+      type="button"
+    >
+      <span
+        class="button__child"
+      >
+        Reload analytics
+      </span>
+    </button>
+    <button
+      class="button__outer button__outer--regular button__outer--no-bouncy admin-analytics__control"
+      type="button"
+    >
+      <span
+        class="button__child"
+      >
+        Show filters
+      </span>
+    </button>
+  </div>
+  <div
+    class="admin-analytics__card-container"
+  />
+</div>
+`;
+
+exports[`<AdminAnalytics /> should render correctly with analytics 1`] = `
+<div>
+  <div>
+    <a
+      class="text-link text-link--text-link text-link--no-padding text-link--inline page-title__link"
+      href="/admin"
+    >
+      ⇠ Admin
+    </a>
+    <h1
+      class="page-title__heading page-title__heading--with-link"
+    >
+      Admin analytics
+    </h1>
+  </div>
+  <div>
+    <button
+      class="button__outer button__outer--regular button__outer--no-bouncy admin-analytics__control"
+      type="button"
+    >
+      <span
+        class="button__child"
+      >
+        Reload analytics
+      </span>
+    </button>
+    <button
+      class="button__outer button__outer--regular button__outer--no-bouncy admin-analytics__control"
+      type="button"
+    >
+      <span
+        class="button__child"
+      >
+        Show filters
+      </span>
+    </button>
+  </div>
+  <div
+    class="admin-analytics__card-container"
+  />
+</div>
+`;
+
+exports[`<AdminAnalytics /> should render correctly with initial state 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <div
+      class="skeleton__outer skeleton__section"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="skeleton__outer skeleton__card--compact"
+      style="margin-top: 1.2rem;"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="skeleton__outer skeleton__card--compact"
+      style="margin-top: 1.2rem;"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="skeleton__outer skeleton__card--compact"
+      style="margin-top: 1.2rem;"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="skeleton__outer skeleton__card--compact"
+      style="margin-top: 1.2rem;"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<AdminAnalytics /> should render correctly with loadError 1`] = `
+<div>
+  <div>
+    <a
+      class="text-link text-link--text-link text-link--no-padding text-link--inline page-title__link"
+      href="/admin"
+    >
+      ⇠ Admin
+    </a>
+    <h1
+      class="page-title__heading page-title__heading--with-link"
+    >
+      Admin analytics
+    </h1>
+  </div>
+  <div>
+    <button
+      class="button__outer button__outer--regular button__outer--no-bouncy admin-analytics__control"
+      type="button"
+    >
+      <span
+        class="button__child"
+      >
+        Reload analytics
+      </span>
+    </button>
+    <button
+      class="button__outer button__outer--regular button__outer--no-bouncy admin-analytics__control"
+      type="button"
+    >
+      <span
+        class="button__child"
+      >
+        Show filters
+      </span>
+    </button>
+  </div>
+  <span
+    class="paragraph"
+  >
+    <span
+      class="error"
+    >
+      Could not load analytics
+      <br />
+      Something went wrong
+    </span>
+  </span>
+  <div
+    class="admin-analytics__card-container"
+  />
+</div>
+`;
+
+exports[`<AdminAnalytics /> should render correctly with loading=true 1`] = `
+<div>
+  <div>
+    <a
+      class="text-link text-link--text-link text-link--no-padding text-link--inline page-title__link"
+      href="/admin"
+    >
+      ⇠ Admin
+    </a>
+    <h1
+      class="page-title__heading page-title__heading--with-link"
+    >
+      Admin analytics
+    </h1>
+  </div>
+  <div>
+    <button
+      class="button__outer button__outer--regular button__outer--no-bouncy button__outer--disabled admin-analytics__control"
+      disabled=""
+      type="button"
+    >
+      <span
+        class="button__child button__child--loading"
+      >
+        Reload analytics
+      </span>
+      <div
+        aria-hidden="true"
+        class="button__loading-spinner"
+      >
+        <div
+          class="spinner__outer"
+        >
+          <div
+            class="spinner__inner"
+          />
+          <div
+            class="spinner__inner"
+          />
+          <div
+            class="spinner__inner"
+          />
+          <div
+            class="spinner__inner"
+          />
+          <div
+            class="spinner__inner"
+          />
+          <div
+            class="spinner__inner"
+          />
+          <div
+            class="spinner__inner"
+          />
+          <div
+            class="spinner__inner"
+          />
+        </div>
+      </div>
+    </button>
+    <button
+      class="button__outer button__outer--regular button__outer--no-bouncy admin-analytics__control"
+      type="button"
+    >
+      <span
+        class="button__child"
+      >
+        Show filters
+      </span>
+    </button>
+  </div>
+  <div
+    class="admin-analytics__card-container"
+  />
+</div>
+`;
+
+exports[`<AdminAnalytics /> should render correctly with user 1`] = `
+<div>
+  <div
+    class="section__outer"
+  >
+    <h2
+      class="section__heading"
+      id="admin-only"
+    >
+      Admin only
+    </h2>
+    <span
+      class="paragraph"
+    >
+      You need to be logged in with an admin account to view this content.
+      <br />
+      <a
+        class="text-link text-link--text-link text-link--no-padding text-link--inline"
+        href="/login"
+      >
+        Got a different admin account? Log in here.
+      </a>
+    </span>
+  </div>
+</div>
+`;

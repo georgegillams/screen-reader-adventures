@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Home /> should render correctly 1`] = `
+<div>
+  <div
+    class="page-container__container page-container__container--regular page-container__container--center"
+  >
+    <h1
+      class="page-title__heading"
+    >
+      Home
+    </h1>
+    <div
+      class="subsection__outer"
+    >
+      <span
+        class="paragraph"
+      >
+        This is just a boilerplate page, but you can put any content you want in here.
+        <br />
+        This page is pretty boring, but the 
+        <a
+          class="text-link text-link--text-link text-link--no-padding text-link--inline"
+          href="/sitemap"
+        >
+          site map
+        </a>
+         might be more inspiring.
+      </span>
+    </div>
+  </div>
+</div>
+`;

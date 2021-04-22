@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NotFound /> should render correctly 1`] = `
+<div>
+  <div
+    class="not-found__container"
+  >
+    <h1
+      class="page-title__heading not-found__container"
+    >
+      Oops.
+    </h1>
+    <div
+      class="subsection__outer"
+    >
+      <span
+        class="paragraph"
+      >
+        The page you're looking for doesn't exist, or you don't have permission to view it.
+        <br />
+        Maybe the 
+        <a
+          class="text-link text-link--text-link text-link--no-padding text-link--inline"
+          href="/sitemap"
+        >
+          site map
+        </a>
+         can help
+      </span>
+    </div>
+  </div>
+</div>
+`;

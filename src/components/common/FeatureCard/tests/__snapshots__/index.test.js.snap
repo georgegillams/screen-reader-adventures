@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NavigationItem /> Should render correctly 1`] = `
+<div>
+  <a
+    class="card feature-card card--atomic card--not-disabled"
+    href="/test"
+  >
+    <div
+      class="card__outer-container"
+    >
+      <div
+        class="card__background"
+      />
+      <div
+        class="card__content-container card__content-container--padded"
+      >
+        <div
+          aria-hidden="true"
+          class="feature-card__outer-container feature-card__outer-container--auto"
+        >
+          <div
+            class="feature-card__date"
+          />
+          <div
+            class="feature-card__center-container"
+          >
+            <div
+              class="section__outer section__outer--inherit-color feature-card__title"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+`;
+
+exports[`<NavigationItem /> Should render correctly hrefExternal 1`] = `
+<div>
+  <a
+    class="card feature-card card--atomic card--not-disabled"
+    href="https://duckduckgo.com/"
+  >
+    <div
+      class="card__outer-container"
+    >
+      <div
+        class="card__background"
+      />
+      <div
+        class="card__content-container card__content-container--padded"
+      >
+        <div
+          aria-hidden="true"
+          class="feature-card__outer-container feature-card__outer-container--auto"
+        >
+          <div
+            class="feature-card__date"
+          />
+          <div
+            class="feature-card__center-container"
+          >
+            <div
+              class="section__outer section__outer--inherit-color feature-card__title"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+`;
+
+exports[`<NavigationItem /> Should render correctly with custom className 1`] = `
+<div>
+  <a
+    class="card feature-card test-custom-classname card--atomic card--not-disabled"
+    href="/test"
+  >
+    <div
+      class="card__outer-container"
+    >
+      <div
+        class="card__background"
+      />
+      <div
+        class="card__content-container card__content-container--padded"
+      >
+        <div
+          aria-hidden="true"
+          class="feature-card__outer-container feature-card__outer-container--auto"
+        >
+          <div
+            class="feature-card__date"
+          />
+          <div
+            class="feature-card__center-container"
+          >
+            <div
+              class="section__outer section__outer--inherit-color feature-card__title"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+`;
+
+exports[`<NavigationItem /> Should render with nextified href 1`] = `
+<div>
+  <a
+    class="card feature-card card--atomic card--not-disabled"
+    href="/blog/test"
+  >
+    <div
+      class="card__outer-container"
+    >
+      <div
+        class="card__background"
+      />
+      <div
+        class="card__content-container card__content-container--padded"
+      >
+        <div
+          aria-hidden="true"
+          class="feature-card__outer-container feature-card__outer-container--auto"
+        >
+          <div
+            class="feature-card__date"
+          />
+          <div
+            class="feature-card__center-container"
+          >
+            <div
+              class="section__outer section__outer--inherit-color feature-card__title"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+`;

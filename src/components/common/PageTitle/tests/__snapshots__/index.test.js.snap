@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PageTitle /> Should render correctly 1`] = `
+<div>
+  <h1
+    class="page-title__heading"
+  >
+    Test
+  </h1>
+  some text
+</div>
+`;
+
+exports[`<PageTitle /> Should render correctly with custom className 1`] = `
+<div>
+  <h1
+    class="page-title__heading test-custom-classname"
+  >
+    Test
+  </h1>
+  some text
+</div>
+`;
+
+exports[`<PageTitle /> Should render correctly with other props 1`] = `
+<div>
+  <a
+    class="text-link text-link--text-link text-link--no-padding text-link--inline page-title__link"
+    href="/test"
+  >
+    ⇠ test
+  </a>
+  <h1
+    class="page-title__heading page-title__heading--with-link"
+  >
+    Test
+  </h1>
+  some text
+</div>
+`;

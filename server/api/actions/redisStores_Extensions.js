@@ -1,0 +1,4 @@
+const REDIS_STORE_EXTENSIONS = [];
+
+export default { REDIS_STORE_EXTENSIONS };
+export { REDIS_STORE_EXTENSIONS };

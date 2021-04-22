@@ -1,0 +1,543 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AdminEmails /> should render correctly - index 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <div
+      class="skeleton__outer skeleton__section"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="skeleton__outer skeleton__card--compact"
+      style="margin-top: 1.2rem;"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="skeleton__outer skeleton__card--compact"
+      style="margin-top: 1.2rem;"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="skeleton__outer skeleton__card--compact"
+      style="margin-top: 1.2rem;"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="skeleton__outer skeleton__card--compact"
+      style="margin-top: 1.2rem;"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<AdminEmails /> should render correctly with admin user 1`] = `
+<div>
+  <div>
+    <a
+      class="text-link text-link--text-link text-link--no-padding text-link--inline page-title__link"
+      href="/admin"
+    >
+      ⇠ Admin
+    </a>
+    <h1
+      class="page-title__heading page-title__heading--with-link"
+    >
+      Admin emails
+    </h1>
+  </div>
+  <div>
+    <button
+      class="button__outer button__outer--regular button__outer--no-bouncy"
+      style="margin-right: 1rem; margin-bottom: 1rem;"
+      type="button"
+    >
+      <span
+        class="button__child"
+      >
+        Reload emails
+      </span>
+    </button>
+  </div>
+  <div
+    class="split-detail-view__outer admin-emails__split-view"
+  >
+    <div
+      class="split-detail-view__list-view"
+    >
+      <div />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<AdminEmails /> should render correctly with emails 1`] = `
+<div>
+  <div>
+    <a
+      class="text-link text-link--text-link text-link--no-padding text-link--inline page-title__link"
+      href="/admin"
+    >
+      ⇠ Admin
+    </a>
+    <h1
+      class="page-title__heading page-title__heading--with-link"
+    >
+      Admin emails
+    </h1>
+  </div>
+  <div>
+    <button
+      class="button__outer button__outer--regular button__outer--no-bouncy"
+      style="margin-right: 1rem; margin-bottom: 1rem;"
+      type="button"
+    >
+      <span
+        class="button__child"
+      >
+        Reload emails
+      </span>
+    </button>
+  </div>
+  <span
+    class="paragraph admin-analytics__count"
+  >
+    Showing 
+    3
+     of 
+    3
+     emails
+  </span>
+  <div
+    class="split-detail-view__outer admin-emails__split-view"
+  >
+    <div
+      class="split-detail-view__list-view"
+    >
+      <div>
+        <a
+          class="card admin-emails__card card--atomic card--not-disabled"
+          href="/admin/emails?highlight=1"
+          id="1"
+        >
+          <div
+            class="card__outer-container"
+          >
+            <div
+              class="card__background"
+            />
+            <div
+              class="card__content-container"
+            >
+              <div
+                class="split-detail-item__content"
+              >
+                <div
+                  class="subsection__outer"
+                >
+                  <h3
+                    class="subsection__heading subsection__heading--no-padding"
+                    id="email-1"
+                  >
+                    Email 1
+                  </h3>
+                  <span
+                    class="paragraph"
+                  >
+                    <br />
+                    id: 
+                    1
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a
+          class="card admin-emails__card card--atomic card--not-disabled"
+          href="/admin/emails?highlight=2"
+          id="2"
+        >
+          <div
+            class="card__outer-container"
+          >
+            <div
+              class="card__background"
+            />
+            <div
+              class="card__content-container"
+            >
+              <div
+                class="split-detail-item__content"
+              >
+                <div
+                  class="subsection__outer"
+                >
+                  <h3
+                    class="subsection__heading subsection__heading--no-padding"
+                    id="email-2"
+                  >
+                    Email 2
+                  </h3>
+                  <span
+                    class="paragraph"
+                  >
+                    <br />
+                    id: 
+                    2
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a
+          class="card admin-emails__card card--atomic card--not-disabled"
+          href="/admin/emails?highlight=3"
+          id="3"
+        >
+          <div
+            class="card__outer-container"
+          >
+            <div
+              class="card__background"
+            />
+            <div
+              class="card__content-container"
+            >
+              <div
+                class="split-detail-item__content"
+              >
+                <div
+                  class="subsection__outer"
+                >
+                  <h3
+                    class="subsection__heading subsection__heading--no-padding"
+                    id="email-3"
+                  >
+                    Email 3
+                  </h3>
+                  <span
+                    class="paragraph"
+                  >
+                    <br />
+                    id: 
+                    3
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<AdminEmails /> should render correctly with initial state 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <div
+      class="skeleton__outer skeleton__section"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="skeleton__outer skeleton__card--compact"
+      style="margin-top: 1.2rem;"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="skeleton__outer skeleton__card--compact"
+      style="margin-top: 1.2rem;"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="skeleton__outer skeleton__card--compact"
+      style="margin-top: 1.2rem;"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="skeleton__outer skeleton__card--compact"
+      style="margin-top: 1.2rem;"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<AdminEmails /> should render correctly with loadError 1`] = `
+<div>
+  <div>
+    <a
+      class="text-link text-link--text-link text-link--no-padding text-link--inline page-title__link"
+      href="/admin"
+    >
+      ⇠ Admin
+    </a>
+    <h1
+      class="page-title__heading page-title__heading--with-link"
+    >
+      Admin emails
+    </h1>
+  </div>
+  <div>
+    <button
+      class="button__outer button__outer--regular button__outer--no-bouncy"
+      style="margin-right: 1rem; margin-bottom: 1rem;"
+      type="button"
+    >
+      <span
+        class="button__child"
+      >
+        Reload emails
+      </span>
+    </button>
+  </div>
+  <span
+    class="paragraph"
+  >
+    <span
+      class="error"
+    >
+      Could not load emails
+      <br />
+      Something went wrong
+    </span>
+  </span>
+  <div
+    class="split-detail-view__outer admin-emails__split-view"
+  >
+    <div
+      class="split-detail-view__list-view"
+    >
+      <div />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<AdminEmails /> should render correctly with loading=true 1`] = `
+<div>
+  <div>
+    <a
+      class="text-link text-link--text-link text-link--no-padding text-link--inline page-title__link"
+      href="/admin"
+    >
+      ⇠ Admin
+    </a>
+    <h1
+      class="page-title__heading page-title__heading--with-link"
+    >
+      Admin emails
+    </h1>
+  </div>
+  <div>
+    <button
+      class="button__outer button__outer--regular button__outer--no-bouncy button__outer--disabled"
+      disabled=""
+      style="margin-right: 1rem; margin-bottom: 1rem;"
+      type="button"
+    >
+      <span
+        class="button__child button__child--loading"
+      >
+        Reload emails
+      </span>
+      <div
+        aria-hidden="true"
+        class="button__loading-spinner"
+      >
+        <div
+          class="spinner__outer"
+        >
+          <div
+            class="spinner__inner"
+          />
+          <div
+            class="spinner__inner"
+          />
+          <div
+            class="spinner__inner"
+          />
+          <div
+            class="spinner__inner"
+          />
+          <div
+            class="spinner__inner"
+          />
+          <div
+            class="spinner__inner"
+          />
+          <div
+            class="spinner__inner"
+          />
+          <div
+            class="spinner__inner"
+          />
+        </div>
+      </div>
+    </button>
+  </div>
+  <div
+    class="split-detail-view__outer admin-emails__split-view"
+  >
+    <div
+      class="split-detail-view__list-view"
+    >
+      <div />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<AdminEmails /> should render correctly with resendError 1`] = `
+<div>
+  <div>
+    <a
+      class="text-link text-link--text-link text-link--no-padding text-link--inline page-title__link"
+      href="/admin"
+    >
+      ⇠ Admin
+    </a>
+    <h1
+      class="page-title__heading page-title__heading--with-link"
+    >
+      Admin emails
+    </h1>
+  </div>
+  <div>
+    <button
+      class="button__outer button__outer--regular button__outer--no-bouncy"
+      style="margin-right: 1rem; margin-bottom: 1rem;"
+      type="button"
+    >
+      <span
+        class="button__child"
+      >
+        Reload emails
+      </span>
+    </button>
+  </div>
+  <div
+    class="split-detail-view__outer admin-emails__split-view"
+  >
+    <div
+      class="split-detail-view__list-view"
+    >
+      <div />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<AdminEmails /> should render correctly with resending=true 1`] = `
+<div>
+  <div>
+    <a
+      class="text-link text-link--text-link text-link--no-padding text-link--inline page-title__link"
+      href="/admin"
+    >
+      ⇠ Admin
+    </a>
+    <h1
+      class="page-title__heading page-title__heading--with-link"
+    >
+      Admin emails
+    </h1>
+  </div>
+  <div>
+    <button
+      class="button__outer button__outer--regular button__outer--no-bouncy"
+      style="margin-right: 1rem; margin-bottom: 1rem;"
+      type="button"
+    >
+      <span
+        class="button__child"
+      >
+        Reload emails
+      </span>
+    </button>
+  </div>
+  <div
+    class="split-detail-view__outer admin-emails__split-view"
+  >
+    <div
+      class="split-detail-view__list-view"
+    >
+      <div />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<AdminEmails /> should render correctly with user 1`] = `
+<div>
+  <div
+    class="section__outer"
+  >
+    <h2
+      class="section__heading"
+      id="admin-only"
+    >
+      Admin only
+    </h2>
+    <span
+      class="paragraph"
+    >
+      You need to be logged in with an admin account to view this content.
+      <br />
+      <a
+        class="text-link text-link--text-link text-link--no-padding text-link--inline"
+        href="/login"
+      >
+        Got a different admin account? Log in here.
+      </a>
+    </span>
+  </div>
+</div>
+`;

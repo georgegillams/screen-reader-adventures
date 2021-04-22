@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AdminOnly /> Should render correctly 1`] = `
+<div>
+  <div
+    class="section__outer"
+  >
+    <h2
+      class="section__heading"
+      id="admin-only"
+    >
+      Admin only
+    </h2>
+    <span
+      class="paragraph"
+    >
+      You need to be logged in with an admin account to view this content.
+      <br />
+      <a
+        class="text-link text-link--text-link text-link--no-padding text-link--inline"
+        href="/login"
+      >
+        Got a different admin account? Log in here.
+      </a>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<AdminOnly /> Should render correctly with admin user 1`] = `
+<div>
+  Test
+</div>
+`;
+
+exports[`<AdminOnly /> Should render correctly with user 1`] = `
+<div>
+  <div
+    class="section__outer"
+  >
+    <h2
+      class="section__heading"
+      id="admin-only"
+    >
+      Admin only
+    </h2>
+    <span
+      class="paragraph"
+    >
+      You need to be logged in with an admin account to view this content.
+      <br />
+      <a
+        class="text-link text-link--text-link text-link--no-padding text-link--inline"
+        href="/login"
+      >
+        Got a different admin account? Log in here.
+      </a>
+    </span>
+  </div>
+</div>
+`;

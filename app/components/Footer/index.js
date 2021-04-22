@@ -1,1 +1,0 @@
-export SRFooter from './SRFooter';

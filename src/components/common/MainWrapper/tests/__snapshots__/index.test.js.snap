@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MainWrapper /> Should render correctly 1`] = `
+<div>
+  <main
+    class="page-container__container"
+    id="main"
+  >
+    <div>
+      some text
+    </div>
+  </main>
+</div>
+`;
+
+exports[`<MainWrapper /> Should render correctly with custom className 1`] = `
+<div>
+  <main
+    class="page-container__container test-custom-classname"
+    id="main"
+  >
+    <div>
+      some text
+    </div>
+  </main>
+</div>
+`;

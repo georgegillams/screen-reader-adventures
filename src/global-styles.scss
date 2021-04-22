@@ -1,0 +1,68 @@
+/* stylelint-disable selector-max-type */
+/* stylelint-disable custom-property-empty-line-before */
+/* stylelint-disable selector-max-id */
+@import '~normalize.css';
+@import '~utils/tokens';
+@import './quattrocento';
+
+:root {
+  --checkbox-tick-color: #{$checkbox-tick-color};
+
+  --cta-color-dark-invert: #{$cta-color-dark-invert};
+  --cta-color-invert: #{$cta-color-invert};
+  --cta-color: #{$cta-color};
+
+  --link-color-hover: #{$link-color-hover};
+  --link-color-invert: #{$link-color-invert};
+  --link-color: #{$link-color};
+  --link-hover-color: #{$primary-color};
+
+  --primary-color-really-dark: #{$primary-color-really-dark};
+  --primary-color-dark: #{$primary-color-dark};
+  --primary-color-invert: #{$primary-color-invert};
+  --primary-color-light: #{$primary-color-light};
+  --primary-color: #{$primary-color};
+
+  --segmented-control-selected-color: #{$segmented-control-selected-color};
+}
+
+::selection {
+  background-color: #{$primary-color};
+  color: white;
+}
+
+// This makes box-sizing conform to the more-convenient IE standard.
+// See https://stackoverflow.com/a/4698091/6029750
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  line-height: 1;
+}
+
+body {
+  background-color: $background-color;
+  color: $not-black;
+  font-family: 'Quattrocento Sans', -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+
+  @media (prefers-color-scheme: dark) {
+    background-color: $background-color-invert;
+    color: $not-black-invert;
+  }
+}
+
+body.fontLoaded {
+  font-family: 'Quattrocento Sans', -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+
+#app {
+  min-width: 100%;
+  min-height: 100%;
+}

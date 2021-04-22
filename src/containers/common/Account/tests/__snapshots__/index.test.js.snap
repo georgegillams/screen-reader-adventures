@@ -1,0 +1,469 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Account /> should render correctly - index 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <div
+      class="skeleton__outer skeleton__section"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="skeleton__outer skeleton__button"
+      style="margin-top: 1.2rem;"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="skeleton__outer skeleton__button"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Account /> should render correctly with initial state 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <h1
+      class="page-title__heading"
+    >
+      Account
+    </h1>
+    <div
+      class="account__control-panel"
+    >
+      <button
+        class="button__outer button__outer--regular button__outer--no-bouncy account__button"
+        type="button"
+      >
+        <span
+          class="button__child"
+        >
+          Get a new verification email
+        </span>
+      </button>
+      <button
+        class="button__outer button__outer--destructive button__outer--no-bouncy button__outer--no-bouncy--destructive"
+        type="button"
+      >
+        <span
+          class="button__child"
+        >
+          Logout
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Account /> should render correctly with initial state 2`] = `
+<div>
+  <div
+    class=""
+  >
+    <h1
+      class="page-title__heading"
+    >
+      Account
+    </h1>
+    <div
+      class="account__control-panel"
+    >
+      <button
+        class="button__outer button__outer--regular button__outer--no-bouncy account__button"
+        type="button"
+      >
+        <span
+          class="button__child"
+        >
+          Get a new verification email
+        </span>
+      </button>
+      <button
+        class="button__outer button__outer--destructive button__outer--no-bouncy button__outer--no-bouncy--destructive"
+        type="button"
+      >
+        <span
+          class="button__child"
+        >
+          Logout
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Account /> should render correctly with logOutError 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <h1
+      class="page-title__heading"
+    >
+      Account
+    </h1>
+    <div
+      class="account__control-panel"
+    >
+      <button
+        class="button__outer button__outer--regular button__outer--no-bouncy account__button"
+        type="button"
+      >
+        <span
+          class="button__child"
+        >
+          Get a new verification email
+        </span>
+      </button>
+      <button
+        class="button__outer button__outer--destructive button__outer--no-bouncy button__outer--no-bouncy--destructive"
+        type="button"
+      >
+        <span
+          class="button__child"
+        >
+          Logout
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Account /> should render correctly with logOutResult 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <h1
+      class="page-title__heading"
+    >
+      Account
+    </h1>
+    <div
+      class="account__control-panel"
+    >
+      <button
+        class="button__outer button__outer--regular button__outer--no-bouncy account__button"
+        type="button"
+      >
+        <span
+          class="button__child"
+        >
+          Get a new verification email
+        </span>
+      </button>
+      <button
+        class="button__outer button__outer--destructive button__outer--no-bouncy button__outer--no-bouncy--destructive"
+        type="button"
+      >
+        <span
+          class="button__child"
+        >
+          Logout
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Account /> should render correctly with loggingOut=true 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <h1
+      class="page-title__heading"
+    >
+      Account
+    </h1>
+    <div
+      class="account__control-panel"
+    >
+      <button
+        class="button__outer button__outer--regular button__outer--no-bouncy account__button"
+        type="button"
+      >
+        <span
+          class="button__child"
+        >
+          Get a new verification email
+        </span>
+      </button>
+      <button
+        class="button__outer button__outer--destructive button__outer--no-bouncy button__outer--no-bouncy--destructive button__outer--disabled"
+        disabled=""
+        type="button"
+      >
+        <span
+          class="button__child button__child--loading"
+        >
+          Logout
+        </span>
+        <div
+          aria-hidden="true"
+          class="button__loading-spinner"
+        >
+          <div
+            class="spinner__outer"
+          >
+            <div
+              class="spinner__inner"
+            />
+            <div
+              class="spinner__inner"
+            />
+            <div
+              class="spinner__inner"
+            />
+            <div
+              class="spinner__inner"
+            />
+            <div
+              class="spinner__inner"
+            />
+            <div
+              class="spinner__inner"
+            />
+            <div
+              class="spinner__inner"
+            />
+            <div
+              class="spinner__inner"
+            />
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Account /> should render correctly with no user 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <div
+      class="skeleton__outer skeleton__section"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="skeleton__outer skeleton__button"
+      style="margin-top: 1.2rem;"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="skeleton__outer skeleton__button"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Account /> should render correctly with requestVerificationEmailError 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <h1
+      class="page-title__heading"
+    >
+      Account
+    </h1>
+    <div
+      class="account__control-panel"
+    >
+      <button
+        class="button__outer button__outer--regular button__outer--no-bouncy account__button"
+        type="button"
+      >
+        <span
+          class="button__child"
+        >
+          Get a new verification email
+        </span>
+      </button>
+      <button
+        class="button__outer button__outer--destructive button__outer--no-bouncy button__outer--no-bouncy--destructive"
+        type="button"
+      >
+        <span
+          class="button__child"
+        >
+          Logout
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Account /> should render correctly with requestVerificationEmailResult 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <h1
+      class="page-title__heading"
+    >
+      Account
+    </h1>
+    <div
+      class="account__control-panel"
+    >
+      <button
+        class="button__outer button__outer--regular button__outer--no-bouncy account__button"
+        type="button"
+      >
+        <span
+          class="button__child"
+        >
+          Get a new verification email
+        </span>
+      </button>
+      <button
+        class="button__outer button__outer--destructive button__outer--no-bouncy button__outer--no-bouncy--destructive"
+        type="button"
+      >
+        <span
+          class="button__child"
+        >
+          Logout
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Account /> should render correctly with requestingVerificationEmail=true 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <h1
+      class="page-title__heading"
+    >
+      Account
+    </h1>
+    <div
+      class="account__control-panel"
+    >
+      <button
+        class="button__outer button__outer--regular button__outer--no-bouncy button__outer--disabled account__button"
+        disabled=""
+        type="button"
+      >
+        <span
+          class="button__child button__child--loading"
+        >
+          Get a new verification email
+        </span>
+        <div
+          aria-hidden="true"
+          class="button__loading-spinner"
+        >
+          <div
+            class="spinner__outer"
+          >
+            <div
+              class="spinner__inner"
+            />
+            <div
+              class="spinner__inner"
+            />
+            <div
+              class="spinner__inner"
+            />
+            <div
+              class="spinner__inner"
+            />
+            <div
+              class="spinner__inner"
+            />
+            <div
+              class="spinner__inner"
+            />
+            <div
+              class="spinner__inner"
+            />
+            <div
+              class="spinner__inner"
+            />
+          </div>
+        </div>
+      </button>
+      <button
+        class="button__outer button__outer--destructive button__outer--no-bouncy button__outer--no-bouncy--destructive"
+        type="button"
+      >
+        <span
+          class="button__child"
+        >
+          Logout
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Account /> should render correctly with user with emailVerified=true 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <h1
+      class="page-title__heading"
+    >
+      Account
+    </h1>
+    <div
+      class="account__control-panel"
+    >
+      <button
+        class="button__outer button__outer--destructive button__outer--no-bouncy button__outer--no-bouncy--destructive"
+        type="button"
+      >
+        <span
+          class="button__child"
+        >
+          Logout
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;

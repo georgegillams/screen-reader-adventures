@@ -1,0 +1,48 @@
+{
+  "extends": "stylelint-config-skyscanner",
+  "rules": {
+    "selector-class-pattern": [
+      "([a-z0-9]+)+((__|--)[a-z0-9]+((-[a-z0-9]+)+)?(--)?([a-z0-9]+)+)?",
+      {
+        "resolveNestedSelectors": true
+      }
+    ],
+    "unit-blacklist": [
+      [
+        "px"
+      ],
+      {
+        "ignoreProperties": {
+          "px": [
+            "box-shadow",
+            "border"
+          ]
+        }
+      }
+    ],
+    "unit-disallowed-list": [
+      [
+        "px"
+      ],
+      {
+        "ignoreProperties": {
+          "px": [
+            "box-shadow",
+            "border"
+          ]
+        }
+      }
+    ],
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": [
+          "global"
+        ]
+      }
+    ],
+    "scale-unlimited/declaration-strict-value": "off",
+    "backpack/use-tokens": null,
+    "backpack/use-colors": null
+  }
+}

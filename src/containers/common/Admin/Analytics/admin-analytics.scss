@@ -1,0 +1,25 @@
+@import '~utils/tokens';
+
+.admin-analytics {
+  &__card-container {
+    margin-bottom: $spacing-lg;
+
+    @include card-container;
+  }
+
+  &__card {
+    display: inline-block;
+    width: 16rem;
+    margin: $spacing-xs;
+  }
+
+  &__control {
+    display: inline-block;
+    margin: 0 $spacing-base $spacing-base 0;
+  }
+
+  &__count {
+    display: inline-block;
+    margin: 0 0 $spacing-base 0;
+  }
+}

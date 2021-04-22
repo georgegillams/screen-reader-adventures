@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EmailVerifiedOnly /> Should render correctly 1`] = `
+<div>
+  <div
+    class="section__outer"
+  >
+    <h2
+      class="section__heading"
+      id="you-need-to-verify-your-email-before-completing-this-step."
+    >
+      You need to verify your email before completing this step.
+    </h2>
+    <a
+      class="text-link text-link--text-link text-link--no-padding text-link--inline"
+      href="/account"
+    >
+      Account
+    </a>
+  </div>
+</div>
+`;
+
+exports[`<EmailVerifiedOnly /> Should render correctly with user 1`] = `
+<div>
+  <div
+    class="section__outer"
+  >
+    <h2
+      class="section__heading"
+      id="you-need-to-verify-your-email-before-completing-this-step."
+    >
+      You need to verify your email before completing this step.
+    </h2>
+    <a
+      class="text-link text-link--text-link text-link--no-padding text-link--inline"
+      href="/account"
+    >
+      Account
+    </a>
+  </div>
+</div>
+`;
+
+exports[`<EmailVerifiedOnly /> Should render correctly with user with verified email 1`] = `
+<div>
+  Test
+</div>
+`;
