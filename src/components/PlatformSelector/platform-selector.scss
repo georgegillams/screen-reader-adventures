@@ -1,0 +1,11 @@
+@import '~utils/tokens';
+
+.platform-selector {
+  &__card-container {
+    @include card-container;
+  }
+
+  &__card {
+    margin: 0 0.5rem $spacing-base 0.5rem;
+  }
+}
