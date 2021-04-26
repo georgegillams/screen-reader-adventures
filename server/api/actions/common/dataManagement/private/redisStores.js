@@ -1,0 +1,8 @@
+import { REDIS_STORE_EXTENSIONS } from '../../../redisStores_Extensions';
+
+const COMMON_REDIS_INFORMATION_STORES = ['analytics', 'emails', 'notifications', 'users'];
+const REDIS_INFORMATION_STORES = [...COMMON_REDIS_INFORMATION_STORES, ...REDIS_STORE_EXTENSIONS];
+const REDIS_STORES = [...REDIS_INFORMATION_STORES, 'emailVerificationCodes', 'magiclinks', 'sessions'];
+
+export default { COMMON_REDIS_INFORMATION_STORES, REDIS_INFORMATION_STORES, REDIS_STORES };
+export { COMMON_REDIS_INFORMATION_STORES, REDIS_INFORMATION_STORES, REDIS_STORES };

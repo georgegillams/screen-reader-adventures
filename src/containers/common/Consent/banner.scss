@@ -1,0 +1,30 @@
+@import '~utils/tokens';
+
+.banner {
+  &__outer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    z-index: 100000;
+    width: 100vw;
+    justify-items: center;
+    justify-content: center;
+    border-top: solid $alternating-background-color-1 0.15rem;
+    background: $alternating-background-color-1;
+
+    @media (prefers-color-scheme: dark) {
+      border-top: solid white 0.15rem;
+      background: $alternating-background-color-1-invert;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    width: 100%;
+    max-width: 58rem;
+    padding: 1rem;
+    justify-content: space-around;
+    align-items: center;
+  }
+}

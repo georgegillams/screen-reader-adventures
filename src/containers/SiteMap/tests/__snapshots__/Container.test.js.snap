@@ -1,0 +1,292 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SiteMap /> should render correctly 1`] = `
+<div>
+  <h1
+    class="page-title__heading"
+  >
+    Site map
+  </h1>
+  <div
+    class="subsection__outer site-map__section"
+  >
+    <h3
+      class="subsection__heading"
+      id="design-🎨"
+    >
+      Design 🎨
+    </h3>
+    <span
+      class="paragraph"
+    >
+      <a
+        class="text-link text-link--text-link text-link--no-padding text-link--inline"
+        href="/privacy-policy"
+      >
+        Privacy Policy
+      </a>
+    </span>
+  </div>
+  <div
+    class="subsection__outer site-map__section"
+  >
+    <h3
+      class="subsection__heading"
+      id="other-stuff-🤷‍♂️"
+    >
+      Other stuff 🤷‍♂️
+    </h3>
+    <span
+      class="paragraph"
+    >
+      <a
+        class="text-link text-link--text-link text-link--no-padding text-link--inline"
+        href="/debug"
+      >
+        Debug tools
+      </a>
+      <br />
+      <a
+        class="text-link text-link--text-link text-link--no-padding text-link--inline"
+        href="/status"
+      >
+        Status
+      </a>
+    </span>
+  </div>
+  <div
+    class="subsection__outer site-map__section"
+  >
+    <h3
+      class="subsection__heading"
+      id="random-🐉"
+    >
+      Random 🐉
+    </h3>
+    <span
+      class="paragraph"
+    >
+      <a
+        aria-label="Robots.txt (opens in a new tab)"
+        class="text-link text-link--text-link text-link--no-padding text-link--inline"
+        href="/robots.txt"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Robots.txt
+        <div
+          class="text-link__icon-container"
+        >
+          <svg
+            class="icon text-link__icon"
+            height="18"
+            viewBox="0 0 24 24"
+            width="18"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12.5 11.3c.4.4 1 .4 1.4 0L19 6.2V9c0 .6.4 1 1 1s1-.4 1-1V4c0-.6-.4-1-1-1h-5c-.6 0-1 .4-1 1s.4 1 1 1h2.4l-4.9 4.9c-.4.4-.4 1 0 1.4zM19 19c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2V7c0-1.1.9-2 2-2h7v2H5v12h12v-7h2"
+            />
+          </svg>
+        </div>
+      </a>
+      <br />
+      <a
+        aria-label="SiteMap.xml (opens in a new tab)"
+        class="text-link text-link--text-link text-link--no-padding text-link--inline"
+        href="/sitemap.xml"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        SiteMap.xml
+        <div
+          class="text-link__icon-container"
+        >
+          <svg
+            class="icon text-link__icon"
+            height="18"
+            viewBox="0 0 24 24"
+            width="18"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12.5 11.3c.4.4 1 .4 1.4 0L19 6.2V9c0 .6.4 1 1 1s1-.4 1-1V4c0-.6-.4-1-1-1h-5c-.6 0-1 .4-1 1s.4 1 1 1h2.4l-4.9 4.9c-.4.4-.4 1 0 1.4zM19 19c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2V7c0-1.1.9-2 2-2h7v2H5v12h12v-7h2"
+            />
+          </svg>
+        </div>
+      </a>
+      <br />
+      <a
+        class="text-link text-link--text-link text-link--no-padding text-link--inline"
+        href="/404"
+      >
+        404 error page - not found
+      </a>
+      <br />
+      <a
+        class="text-link text-link--text-link text-link--no-padding text-link--inline"
+        href="/teapot"
+      >
+        418 error page - I'm a teapot
+      </a>
+    </span>
+  </div>
+  <div
+    class="subsection__outer site-map__section"
+  >
+    <h3
+      class="subsection__heading"
+      id="api"
+    >
+      API
+    </h3>
+    <span
+      class="paragraph"
+    >
+      <a
+        class="text-link text-link--text-link text-link--no-padding text-link--inline"
+        href="/api-docs"
+      >
+        API docs
+      </a>
+    </span>
+  </div>
+  <div
+    class="subsection__outer site-map__section"
+  >
+    <h3
+      class="subsection__heading"
+      id="accounts-🔑"
+    >
+      Accounts 🔑
+    </h3>
+    <span
+      class="paragraph"
+    >
+      <a
+        class="text-link text-link--text-link text-link--no-padding text-link--inline"
+        href="/account"
+      >
+        Account
+      </a>
+      <br />
+      <a
+        class="text-link text-link--text-link text-link--no-padding text-link--inline"
+        href="/sign-up"
+      >
+        Sign up
+      </a>
+      <br />
+      <a
+        class="text-link text-link--text-link text-link--no-padding text-link--inline"
+        href="/login"
+      >
+        Log in
+      </a>
+      <br />
+      <a
+        class="text-link text-link--text-link text-link--no-padding text-link--inline"
+        href="/email-verification"
+      >
+        Email verification
+      </a>
+      <br />
+      <a
+        class="text-link text-link--text-link text-link--no-padding text-link--inline"
+        href="/magic-login"
+      >
+        Magic login
+      </a>
+    </span>
+  </div>
+  <div
+    class="subsection__outer site-map__section"
+  >
+    <h3
+      class="subsection__heading"
+      id="admin-👮‍♂️"
+    >
+      Admin 👮‍♂️
+    </h3>
+    <span
+      class="paragraph"
+    >
+      <a
+        class="text-link text-link--text-link text-link--no-padding text-link--inline"
+        href="/admin"
+      >
+        Admin navigation
+      </a>
+      <br />
+      <a
+        class="text-link text-link--text-link text-link--no-padding text-link--inline"
+        href="/admin/analytics"
+      >
+        Analytics
+      </a>
+      <br />
+      <a
+        class="text-link text-link--text-link text-link--no-padding text-link--inline"
+        href="/admin/emails"
+      >
+        Emails
+      </a>
+      <br />
+      <a
+        class="text-link text-link--text-link text-link--no-padding text-link--inline"
+        href="/admin/notifications"
+      >
+        Notifications
+      </a>
+      <br />
+      <a
+        class="text-link text-link--text-link text-link--no-padding text-link--inline"
+        href="/admin/users"
+      >
+        Users
+      </a>
+    </span>
+  </div>
+  <div
+    class="subsection__outer site-map__section"
+  >
+    <h3
+      class="subsection__heading"
+      id="redirects"
+    >
+      Redirects
+    </h3>
+    <span
+      class="paragraph"
+    >
+      <div>
+        <a
+          class="text-link text-link--text-link text-link--no-padding text-link--inline"
+          href="/codebase"
+        >
+          /codebase ⇒ https://github.com/georgegillams/screen-reader-adventures
+        </a>
+        <br />
+      </div>
+      <div>
+        <a
+          class="text-link text-link--text-link text-link--no-padding text-link--inline"
+          href="/wp-admin"
+        >
+          /wp-admin ⇒ /admin
+        </a>
+        <br />
+      </div>
+      <div>
+        <a
+          class="text-link text-link--text-link text-link--no-padding text-link--inline"
+          href="/site-map"
+        >
+          /site-map ⇒ /sitemap
+        </a>
+        <br />
+      </div>
+    </span>
+  </div>
+</div>
+`;

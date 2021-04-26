@@ -1,0 +1,33 @@
+@import '~utils/tokens';
+
+.footer {
+  &__container {
+    display: flex;
+    height: 15rem;
+    padding: $spacing-lg $spacing-lg;
+    flex-direction: column;
+    justify-content: space-around;
+    border-top: solid $not-black 0.15rem;
+    background-color: $not-black;
+    background-position: center;
+    background-size: cover;
+    color: $not-black-invert;
+
+    @include bpk-breakpoint-mobile {
+      padding: $spacing-lg $spacing-base;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      border-top: solid $primary-color 0.15rem;
+      background-color: $background-color-elevated-colored-invert;
+    }
+  }
+
+  &__logo {
+    text-align: center;
+  }
+
+  &__tech {
+    text-align: center;
+  }
+}

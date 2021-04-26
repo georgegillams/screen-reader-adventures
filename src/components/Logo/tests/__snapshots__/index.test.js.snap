@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Logo /> Should render correctly 1`] = `
+<div>
+  <div
+    class="logo__container"
+  >
+    <a
+      class="logo__a"
+      href="/"
+    >
+      <h1
+        aria-label="Home page"
+        class="logo__heading"
+        role="button"
+      >
+        LOGO
+      </h1>
+    </a>
+  </div>
+</div>
+`;
+
+exports[`<Logo /> Should render correctly animated 1`] = `
+<div>
+  <div
+    class="logo__container"
+  >
+    <a
+      class="logo__a"
+      href="/"
+    >
+      <h1
+        aria-label="Home page"
+        class="logo__heading logo__subheading--animated"
+        role="button"
+      >
+        LOGO
+      </h1>
+    </a>
+  </div>
+</div>
+`;
+
+exports[`<Logo /> Should render correctly pride 1`] = `
+<div>
+  <div
+    class="logo__container"
+  >
+    <a
+      class="logo__a"
+      href="/"
+    >
+      <h1
+        aria-label="Home page"
+        class="logo__heading logo__heading--pride"
+        role="button"
+      >
+        LOGO
+      </h1>
+    </a>
+  </div>
+</div>
+`;
+
+exports[`<Logo /> Should render correctly with custom className 1`] = `
+<div>
+  <div
+    class="logo__container test-custom-classname"
+  >
+    <a
+      class="logo__a"
+      href="/"
+    >
+      <h1
+        aria-label="Home page"
+        class="logo__heading"
+        role="button"
+      >
+        LOGO
+      </h1>
+    </a>
+  </div>
+</div>
+`;

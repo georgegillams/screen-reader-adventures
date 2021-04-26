@@ -1,0 +1,33 @@
+@import '~utils/tokens';
+
+.admin-users {
+  &__card {
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  &__split-view {
+    flex: 1;
+    overflow: hidden;
+  }
+
+  &__control-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__button {
+    margin-right: $spacing-base;
+    margin-bottom: $spacing-base;
+  }
+
+  &__edit-button {
+    margin: $spacing-base 0;
+  }
+
+  &__count {
+    display: inline-block;
+    margin: 0 0 $spacing-base 0;
+  }
+}

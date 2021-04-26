@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NavigationItem /> Should render correctly 1`] = `
+<div>
+  <a
+    aria-label="name"
+    class="button__a button__outer button__outer--dark-text button__outer--bouncy button__outer--link"
+    href="/test"
+  >
+    <span
+      class="button__child"
+    >
+      name
+    </span>
+  </a>
+</div>
+`;
+
+exports[`<NavigationItem /> Should render correctly hrefExternal 1`] = `
+<div>
+  <a
+    aria-label="name"
+    class="button__a button__outer button__outer--dark-text button__outer--bouncy button__outer--link"
+    href="/test"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    <span
+      class="button__child"
+    >
+      name
+    </span>
+  </a>
+</div>
+`;
+
+exports[`<NavigationItem /> Should render correctly with custom className 1`] = `
+<div>
+  <a
+    aria-label="name"
+    class="button__a button__outer button__outer--dark-text button__outer--bouncy button__outer--link test-custom-classname"
+    href="/test"
+  >
+    <span
+      class="button__child"
+    >
+      name
+    </span>
+  </a>
+</div>
+`;

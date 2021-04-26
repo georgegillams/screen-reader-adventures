@@ -1,0 +1,69 @@
+@import '~utils/tokens';
+
+.split-detail-view {
+  &__outer {
+    display: flex;
+  }
+
+  &__list-view {
+    width: 30%;
+    min-width: 20rem;
+    max-width: 40rem;
+    height: 100%;
+    padding: $spacing-lg $spacing-base $spacing-lg 0;
+    overflow: scroll;
+
+    @include bpk-breakpoint-tablet {
+      width: 100%;
+      min-width: unset;
+      max-width: unset;
+      padding: 0;
+    }
+  }
+
+  &__detail-view {
+    display: flex;
+    width: 70%;
+    min-width: calc(100% - 40rem);
+    max-width: calc(100% - 20rem);
+    height: 100%;
+    padding: $spacing-lg 0 $spacing-lg $spacing-base;
+    justify-content: center;
+    overflow: scroll;
+
+    @include bpk-breakpoint-tablet {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: unset;
+      z-index: 4;
+      width: 100%;
+      min-width: unset;
+      max-width: unset;
+      height: calc(100vh - $spacing-lg);
+      padding: 4 * $spacing-lg $spacing-base $spacing-base $spacing-base;
+      background: $background-color;
+
+      @media (prefers-color-scheme: dark) {
+        background: $background-color-invert;
+      }
+    }
+  }
+
+  &__detail-view-content {
+    width: 100%;
+    max-width: 40rem;
+  }
+
+  &__close-button {
+    position: absolute;
+    top: 6rem;
+    right: $spacing-lg;
+    display: none;
+    z-index: 4;
+
+    @include bpk-breakpoint-tablet {
+      display: inherit;
+    }
+  }
+}

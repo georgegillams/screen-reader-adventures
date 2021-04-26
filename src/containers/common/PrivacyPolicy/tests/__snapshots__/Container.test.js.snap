@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PrivacyPolicy /> should render correctly - index 1`] = `
+<div>
+  <h1
+    class="page-title__heading"
+  >
+    Privacy policy
+  </h1>
+  <div
+    class="subsection__outer"
+  >
+    <h3
+      class="subsection__heading"
+      id="analytics"
+    >
+      Analytics
+    </h3>
+    <span
+      class="paragraph"
+    >
+      This site collects basic analytics information, namely the URL paths you visit within the site, and information about the device you are using. This is never shared with third-parties and never used to track you across other services.
+    </span>
+    <br />
+    <span
+      class="paragraph"
+    >
+      The information collected about your device includes browser, browser version, OS, OS version, and the first part of your IP address which gives a very, very rough location of access.
+    </span>
+  </div>
+  <div
+    class="subsection__outer"
+  >
+    <h3
+      class="subsection__heading"
+      id="accounts"
+    >
+      Accounts
+    </h3>
+    <span
+      class="paragraph"
+    >
+      When you sign-up for an account we ask for your name and email. We will never share these with third parties.
+    </span>
+  </div>
+  <div
+    class="subsection__outer"
+  >
+    <h3
+      class="subsection__heading"
+      id="cookies"
+    >
+      Cookies
+    </h3>
+    <span
+      class="paragraph"
+    >
+      To keep you logged in to your user account an authentication cookie will be stored on your machine. This will not be used to track usage, track other services you use, or correlate usage patterns with an individual.
+    </span>
+  </div>
+  <div
+    class="subsection__outer"
+  >
+    <h3
+      class="subsection__heading"
+      id="stripe"
+    >
+      Stripe
+    </h3>
+    <span
+      class="paragraph"
+    >
+      To enable payments on the site, we use Stripe. Data you enter when making a payment will be handled in accordance with
+       
+      <a
+        aria-label="Stripe's policy (opens in a new tab)"
+        class="text-link text-link--text-link text-link--no-padding text-link--inline"
+        href="https://stripe.com/privacy"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Stripe's policy
+        <div
+          class="text-link__icon-container"
+        >
+          <svg
+            class="icon text-link__icon"
+            height="18"
+            viewBox="0 0 24 24"
+            width="18"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12.5 11.3c.4.4 1 .4 1.4 0L19 6.2V9c0 .6.4 1 1 1s1-.4 1-1V4c0-.6-.4-1-1-1h-5c-.6 0-1 .4-1 1s.4 1 1 1h2.4l-4.9 4.9c-.4.4-.4 1 0 1.4zM19 19c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2V7c0-1.1.9-2 2-2h7v2H5v12h12v-7h2"
+            />
+          </svg>
+        </div>
+      </a>
+      .
+    </span>
+  </div>
+  <div
+    class="subsection__outer"
+  >
+    <h3
+      class="subsection__heading"
+      id="consent"
+    >
+      Consent
+    </h3>
+    <span
+      class="paragraph"
+    >
+      By clicking "Accept" on the cookie popup, you consent to cookies being stored on your machine, and data being handled as outlined on this page. You may revoke your permission at any time by clearing your local-storage.
+    </span>
+  </div>
+  <div
+    class="subsection__outer"
+  >
+    <h3
+      class="subsection__heading"
+      id="version"
+    >
+      Version
+    </h3>
+    <span
+      class="paragraph"
+    >
+      This is version 2 of the privacy policy. If the privacy policy changes, we'll re-prompt you for consent.
+    </span>
+  </div>
+</div>
+`;

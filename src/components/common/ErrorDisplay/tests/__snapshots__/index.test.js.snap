@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ErrorDisplay  /> Should render correctly 1`] = `<div />`;
+
+exports[`<ErrorDisplay  /> Should render correctly with children 1`] = `<div />`;
+
+exports[`<ErrorDisplay  /> Should render correctly with custom className 1`] = `<div />`;
+
+exports[`<ErrorDisplay  /> Should render correctly with message 1`] = `<div />`;
+
+exports[`<ErrorDisplay  /> Should render with empty error object and message 1`] = `
+<div>
+  <span
+    class="paragraph"
+  >
+    <span
+      class="error"
+    >
+      Test message
+    </span>
+  </span>
+</div>
+`;
+
+exports[`<ErrorDisplay  /> Should render with empty error object and no message 1`] = `
+<div>
+  <span
+    class="paragraph"
+  >
+    <span
+      class="error"
+    />
+  </span>
+</div>
+`;
+
+exports[`<ErrorDisplay  /> Should render with well-defined error object and message 1`] = `
+<div>
+  <span
+    class="paragraph"
+  >
+    <span
+      class="error"
+    >
+      Test message
+      <br />
+      Test error message
+    </span>
+  </span>
+</div>
+`;
+
+exports[`<ErrorDisplay  /> Should render with well-defined error object and no message 1`] = `
+<div>
+  <span
+    class="paragraph"
+  >
+    <span
+      class="error"
+    >
+      Test error message
+    </span>
+  </span>
+</div>
+`;

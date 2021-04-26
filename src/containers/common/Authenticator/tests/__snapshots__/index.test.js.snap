@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Authenticator /> should render correctly - index 1`] = `
+<div>
+  <div
+    class=""
+  />
+</div>
+`;
+
+exports[`<Authenticator /> should render correctly 1`] = `
+<div>
+  <div
+    class=""
+  />
+</div>
+`;

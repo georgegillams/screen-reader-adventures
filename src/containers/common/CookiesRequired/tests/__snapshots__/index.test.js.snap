@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CookiesRequired /> should render correctly - index 1`] = `<div />`;
+
+exports[`<CookiesRequired /> should render correctly with default state 1`] = `<div />`;

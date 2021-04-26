@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> Should render correctly 1`] = `
+<div>
+  <a
+    class="button__a button__outer button__outer--regular button__outer--no-bouncy button__outer--link"
+    href="/test"
+  >
+    <span
+      class="button__child"
+    />
+  </a>
+</div>
+`;
+
+exports[`<Button /> Should render correctly hrefExternal 1`] = `
+<div>
+  <a
+    class="button__a button__outer button__outer--regular button__outer--no-bouncy button__outer--link"
+    href="https://duckduckgo.com/"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    <span
+      class="button__child"
+    />
+  </a>
+</div>
+`;
+
+exports[`<Button /> Should render correctly with custom className 1`] = `
+<div>
+  <a
+    class="button__a button__outer button__outer--regular button__outer--no-bouncy button__outer--link test-custom-classname"
+    href="/test"
+  >
+    <span
+      class="button__child"
+    />
+  </a>
+</div>
+`;
+
+exports[`<Button /> Should render with nextified href 1`] = `
+<div>
+  <a
+    class="button__a button__outer button__outer--regular button__outer--no-bouncy button__outer--link"
+    href="/blog/test"
+  >
+    <span
+      class="button__child"
+    />
+  </a>
+</div>
+`;

@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Card /> Should render correctly 1`] = `
+<div>
+  <a
+    class="card card--atomic card--not-disabled"
+    href="/test"
+  >
+    <div
+      class="card__outer-container"
+    >
+      <div
+        class="card__background"
+      />
+      <div
+        class="card__content-container card__content-container--padded"
+      />
+    </div>
+  </a>
+</div>
+`;
+
+exports[`<Card /> Should render correctly hrefExternal 1`] = `
+<div>
+  <a
+    class="card card--atomic card--not-disabled"
+    href="https://duckduckgo.com/"
+  >
+    <div
+      class="card__outer-container"
+    >
+      <div
+        class="card__background"
+      />
+      <div
+        class="card__content-container card__content-container--padded"
+      />
+    </div>
+  </a>
+</div>
+`;
+
+exports[`<Card /> Should render correctly with custom className 1`] = `
+<div>
+  <a
+    class="card test-custom-classname card--atomic card--not-disabled"
+    href="/test"
+  >
+    <div
+      class="card__outer-container"
+    >
+      <div
+        class="card__background"
+      />
+      <div
+        class="card__content-container card__content-container--padded"
+      />
+    </div>
+  </a>
+</div>
+`;
+
+exports[`<Card /> Should render with nextified href 1`] = `
+<div>
+  <a
+    class="card card--atomic card--not-disabled"
+    href="/blog/test"
+  >
+    <div
+      class="card__outer-container"
+    >
+      <div
+        class="card__background"
+      />
+      <div
+        class="card__content-container card__content-container--padded"
+      />
+    </div>
+  </a>
+</div>
+`;

@@ -1,0 +1,12 @@
+@import '~utils/tokens';
+
+.admin-notifications {
+  &__control {
+    display: inline-block;
+    margin: 0 $spacing-base $spacing-base 0;
+  }
+
+  &__entity {
+    margin-bottom: 1rem;
+  }
+}

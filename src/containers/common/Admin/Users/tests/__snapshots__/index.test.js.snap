@@ -1,0 +1,1262 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AdminUsers /> should render correctly - index 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <div
+      class="skeleton__outer skeleton__section"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="skeleton__outer skeleton__card--compact"
+      style="margin-top: 1.2rem;"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="skeleton__outer skeleton__card--compact"
+      style="margin-top: 1.2rem;"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="skeleton__outer skeleton__card--compact"
+      style="margin-top: 1.2rem;"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="skeleton__outer skeleton__card--compact"
+      style="margin-top: 1.2rem;"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<AdminUsers /> should render correctly with admin user 1`] = `
+<div>
+  <div>
+    <a
+      class="text-link text-link--text-link text-link--no-padding text-link--inline page-title__link"
+      href="/admin"
+    >
+      ⇠ Admin
+    </a>
+    <h1
+      class="page-title__heading page-title__heading--with-link"
+    >
+      Admin users
+    </h1>
+  </div>
+  <div>
+    <button
+      class="button__outer button__outer--regular button__outer--no-bouncy admin-users__button"
+      type="button"
+    >
+      <span
+        class="button__child"
+      >
+        Reload users
+      </span>
+    </button>
+    <button
+      class="button__outer button__outer--regular button__outer--no-bouncy admin-users__button"
+      type="button"
+    >
+      <span
+        class="button__child"
+      >
+        Show filters
+      </span>
+    </button>
+  </div>
+  <div
+    class="split-detail-view__outer admin-users__split-view"
+  >
+    <div
+      class="split-detail-view__list-view"
+    >
+      <div>
+        <a
+          class="card admin-users__card card--atomic card--not-disabled"
+          href="/admin/users?highlight=new"
+        >
+          <div
+            class="card__outer-container"
+          >
+            <div
+              class="card__background"
+            />
+            <div
+              class="card__content-container"
+            >
+              <div
+                class="split-detail-item__content"
+              >
+                <div
+                  class="subsection__outer"
+                >
+                  <h3
+                    class="subsection__heading subsection__heading--no-padding"
+                    id="new-+"
+                  >
+                    New +
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<AdminUsers /> should render correctly with createError 1`] = `
+<div>
+  <div>
+    <a
+      class="text-link text-link--text-link text-link--no-padding text-link--inline page-title__link"
+      href="/admin"
+    >
+      ⇠ Admin
+    </a>
+    <h1
+      class="page-title__heading page-title__heading--with-link"
+    >
+      Admin users
+    </h1>
+  </div>
+  <div>
+    <button
+      class="button__outer button__outer--regular button__outer--no-bouncy admin-users__button"
+      type="button"
+    >
+      <span
+        class="button__child"
+      >
+        Reload users
+      </span>
+    </button>
+    <button
+      class="button__outer button__outer--regular button__outer--no-bouncy admin-users__button"
+      type="button"
+    >
+      <span
+        class="button__child"
+      >
+        Show filters
+      </span>
+    </button>
+  </div>
+  <div
+    class="split-detail-view__outer admin-users__split-view"
+  >
+    <div
+      class="split-detail-view__list-view"
+    >
+      <div>
+        <a
+          class="card admin-users__card card--atomic card--not-disabled"
+          href="/admin/users?highlight=new"
+        >
+          <div
+            class="card__outer-container"
+          >
+            <div
+              class="card__background"
+            />
+            <div
+              class="card__content-container"
+            >
+              <div
+                class="split-detail-item__content"
+              >
+                <div
+                  class="subsection__outer"
+                >
+                  <h3
+                    class="subsection__heading subsection__heading--no-padding"
+                    id="new-+"
+                  >
+                    New +
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<AdminUsers /> should render correctly with creating=true 1`] = `
+<div>
+  <div>
+    <a
+      class="text-link text-link--text-link text-link--no-padding text-link--inline page-title__link"
+      href="/admin"
+    >
+      ⇠ Admin
+    </a>
+    <h1
+      class="page-title__heading page-title__heading--with-link"
+    >
+      Admin users
+    </h1>
+  </div>
+  <div>
+    <button
+      class="button__outer button__outer--regular button__outer--no-bouncy admin-users__button"
+      type="button"
+    >
+      <span
+        class="button__child"
+      >
+        Reload users
+      </span>
+    </button>
+    <button
+      class="button__outer button__outer--regular button__outer--no-bouncy admin-users__button"
+      type="button"
+    >
+      <span
+        class="button__child"
+      >
+        Show filters
+      </span>
+    </button>
+  </div>
+  <div
+    class="split-detail-view__outer admin-users__split-view"
+  >
+    <div
+      class="split-detail-view__list-view"
+    >
+      <div>
+        <a
+          class="card admin-users__card card--atomic card--not-disabled"
+          href="/admin/users?highlight=new"
+        >
+          <div
+            class="card__outer-container"
+          >
+            <div
+              class="card__background"
+            />
+            <div
+              class="card__content-container"
+            >
+              <div
+                class="split-detail-item__content"
+              >
+                <div
+                  class="subsection__outer"
+                >
+                  <h3
+                    class="subsection__heading subsection__heading--no-padding"
+                    id="new-+"
+                  >
+                    New +
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<AdminUsers /> should render correctly with initial state 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <div
+      class="skeleton__outer skeleton__section"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="skeleton__outer skeleton__card--compact"
+      style="margin-top: 1.2rem;"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="skeleton__outer skeleton__card--compact"
+      style="margin-top: 1.2rem;"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="skeleton__outer skeleton__card--compact"
+      style="margin-top: 1.2rem;"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="skeleton__outer skeleton__card--compact"
+      style="margin-top: 1.2rem;"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<AdminUsers /> should render correctly with loadError 1`] = `
+<div>
+  <div>
+    <a
+      class="text-link text-link--text-link text-link--no-padding text-link--inline page-title__link"
+      href="/admin"
+    >
+      ⇠ Admin
+    </a>
+    <h1
+      class="page-title__heading page-title__heading--with-link"
+    >
+      Admin users
+    </h1>
+  </div>
+  <div>
+    <button
+      class="button__outer button__outer--regular button__outer--no-bouncy admin-users__button"
+      type="button"
+    >
+      <span
+        class="button__child"
+      >
+        Reload users
+      </span>
+    </button>
+    <button
+      class="button__outer button__outer--regular button__outer--no-bouncy admin-users__button"
+      type="button"
+    >
+      <span
+        class="button__child"
+      >
+        Show filters
+      </span>
+    </button>
+  </div>
+  <span
+    class="paragraph"
+  >
+    <span
+      class="error"
+    >
+      Could not load users
+      <br />
+      Something went wrong
+    </span>
+  </span>
+  <div
+    class="split-detail-view__outer admin-users__split-view"
+  >
+    <div
+      class="split-detail-view__list-view"
+    >
+      <div>
+        <a
+          class="card admin-users__card card--atomic card--not-disabled"
+          href="/admin/users?highlight=new"
+        >
+          <div
+            class="card__outer-container"
+          >
+            <div
+              class="card__background"
+            />
+            <div
+              class="card__content-container"
+            >
+              <div
+                class="split-detail-item__content"
+              >
+                <div
+                  class="subsection__outer"
+                >
+                  <h3
+                    class="subsection__heading subsection__heading--no-padding"
+                    id="new-+"
+                  >
+                    New +
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<AdminUsers /> should render correctly with loading=true 1`] = `
+<div>
+  <div>
+    <a
+      class="text-link text-link--text-link text-link--no-padding text-link--inline page-title__link"
+      href="/admin"
+    >
+      ⇠ Admin
+    </a>
+    <h1
+      class="page-title__heading page-title__heading--with-link"
+    >
+      Admin users
+    </h1>
+  </div>
+  <div>
+    <button
+      class="button__outer button__outer--regular button__outer--no-bouncy button__outer--disabled admin-users__button"
+      disabled=""
+      type="button"
+    >
+      <span
+        class="button__child button__child--loading"
+      >
+        Reload users
+      </span>
+      <div
+        aria-hidden="true"
+        class="button__loading-spinner"
+      >
+        <div
+          class="spinner__outer"
+        >
+          <div
+            class="spinner__inner"
+          />
+          <div
+            class="spinner__inner"
+          />
+          <div
+            class="spinner__inner"
+          />
+          <div
+            class="spinner__inner"
+          />
+          <div
+            class="spinner__inner"
+          />
+          <div
+            class="spinner__inner"
+          />
+          <div
+            class="spinner__inner"
+          />
+          <div
+            class="spinner__inner"
+          />
+        </div>
+      </div>
+    </button>
+    <button
+      class="button__outer button__outer--regular button__outer--no-bouncy admin-users__button"
+      type="button"
+    >
+      <span
+        class="button__child"
+      >
+        Show filters
+      </span>
+    </button>
+  </div>
+  <div
+    class="split-detail-view__outer admin-users__split-view"
+  >
+    <div
+      class="split-detail-view__list-view"
+    >
+      <div>
+        <a
+          class="card admin-users__card card--atomic card--not-disabled"
+          href="/admin/users?highlight=new"
+        >
+          <div
+            class="card__outer-container"
+          >
+            <div
+              class="card__background"
+            />
+            <div
+              class="card__content-container"
+            >
+              <div
+                class="split-detail-item__content"
+              >
+                <div
+                  class="subsection__outer"
+                >
+                  <h3
+                    class="subsection__heading subsection__heading--no-padding"
+                    id="new-+"
+                  >
+                    New +
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<AdminUsers /> should render correctly with removeError 1`] = `
+<div>
+  <div>
+    <a
+      class="text-link text-link--text-link text-link--no-padding text-link--inline page-title__link"
+      href="/admin"
+    >
+      ⇠ Admin
+    </a>
+    <h1
+      class="page-title__heading page-title__heading--with-link"
+    >
+      Admin users
+    </h1>
+  </div>
+  <div>
+    <button
+      class="button__outer button__outer--regular button__outer--no-bouncy admin-users__button"
+      type="button"
+    >
+      <span
+        class="button__child"
+      >
+        Reload users
+      </span>
+    </button>
+    <button
+      class="button__outer button__outer--regular button__outer--no-bouncy admin-users__button"
+      type="button"
+    >
+      <span
+        class="button__child"
+      >
+        Show filters
+      </span>
+    </button>
+  </div>
+  <div
+    class="split-detail-view__outer admin-users__split-view"
+  >
+    <div
+      class="split-detail-view__list-view"
+    >
+      <div>
+        <a
+          class="card admin-users__card card--atomic card--not-disabled"
+          href="/admin/users?highlight=new"
+        >
+          <div
+            class="card__outer-container"
+          >
+            <div
+              class="card__background"
+            />
+            <div
+              class="card__content-container"
+            >
+              <div
+                class="split-detail-item__content"
+              >
+                <div
+                  class="subsection__outer"
+                >
+                  <h3
+                    class="subsection__heading subsection__heading--no-padding"
+                    id="new-+"
+                  >
+                    New +
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<AdminUsers /> should render correctly with removing=true 1`] = `
+<div>
+  <div>
+    <a
+      class="text-link text-link--text-link text-link--no-padding text-link--inline page-title__link"
+      href="/admin"
+    >
+      ⇠ Admin
+    </a>
+    <h1
+      class="page-title__heading page-title__heading--with-link"
+    >
+      Admin users
+    </h1>
+  </div>
+  <div>
+    <button
+      class="button__outer button__outer--regular button__outer--no-bouncy admin-users__button"
+      type="button"
+    >
+      <span
+        class="button__child"
+      >
+        Reload users
+      </span>
+    </button>
+    <button
+      class="button__outer button__outer--regular button__outer--no-bouncy admin-users__button"
+      type="button"
+    >
+      <span
+        class="button__child"
+      >
+        Show filters
+      </span>
+    </button>
+  </div>
+  <div
+    class="split-detail-view__outer admin-users__split-view"
+  >
+    <div
+      class="split-detail-view__list-view"
+    >
+      <div>
+        <a
+          class="card admin-users__card card--atomic card--not-disabled"
+          href="/admin/users?highlight=new"
+        >
+          <div
+            class="card__outer-container"
+          >
+            <div
+              class="card__background"
+            />
+            <div
+              class="card__content-container"
+            >
+              <div
+                class="split-detail-item__content"
+              >
+                <div
+                  class="subsection__outer"
+                >
+                  <h3
+                    class="subsection__heading subsection__heading--no-padding"
+                    id="new-+"
+                  >
+                    New +
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<AdminUsers /> should render correctly with requestError 1`] = `
+<div>
+  <div>
+    <a
+      class="text-link text-link--text-link text-link--no-padding text-link--inline page-title__link"
+      href="/admin"
+    >
+      ⇠ Admin
+    </a>
+    <h1
+      class="page-title__heading page-title__heading--with-link"
+    >
+      Admin users
+    </h1>
+  </div>
+  <div>
+    <button
+      class="button__outer button__outer--regular button__outer--no-bouncy admin-users__button"
+      type="button"
+    >
+      <span
+        class="button__child"
+      >
+        Reload users
+      </span>
+    </button>
+    <button
+      class="button__outer button__outer--regular button__outer--no-bouncy admin-users__button"
+      type="button"
+    >
+      <span
+        class="button__child"
+      >
+        Show filters
+      </span>
+    </button>
+  </div>
+  <div
+    class="split-detail-view__outer admin-users__split-view"
+  >
+    <div
+      class="split-detail-view__list-view"
+    >
+      <div>
+        <a
+          class="card admin-users__card card--atomic card--not-disabled"
+          href="/admin/users?highlight=new"
+        >
+          <div
+            class="card__outer-container"
+          >
+            <div
+              class="card__background"
+            />
+            <div
+              class="card__content-container"
+            >
+              <div
+                class="split-detail-item__content"
+              >
+                <div
+                  class="subsection__outer"
+                >
+                  <h3
+                    class="subsection__heading subsection__heading--no-padding"
+                    id="new-+"
+                  >
+                    New +
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<AdminUsers /> should render correctly with requesting=true 1`] = `
+<div>
+  <div>
+    <a
+      class="text-link text-link--text-link text-link--no-padding text-link--inline page-title__link"
+      href="/admin"
+    >
+      ⇠ Admin
+    </a>
+    <h1
+      class="page-title__heading page-title__heading--with-link"
+    >
+      Admin users
+    </h1>
+  </div>
+  <div>
+    <button
+      class="button__outer button__outer--regular button__outer--no-bouncy admin-users__button"
+      type="button"
+    >
+      <span
+        class="button__child"
+      >
+        Reload users
+      </span>
+    </button>
+    <button
+      class="button__outer button__outer--regular button__outer--no-bouncy admin-users__button"
+      type="button"
+    >
+      <span
+        class="button__child"
+      >
+        Show filters
+      </span>
+    </button>
+  </div>
+  <div
+    class="split-detail-view__outer admin-users__split-view"
+  >
+    <div
+      class="split-detail-view__list-view"
+    >
+      <div>
+        <a
+          class="card admin-users__card card--atomic card--not-disabled"
+          href="/admin/users?highlight=new"
+        >
+          <div
+            class="card__outer-container"
+          >
+            <div
+              class="card__background"
+            />
+            <div
+              class="card__content-container"
+            >
+              <div
+                class="split-detail-item__content"
+              >
+                <div
+                  class="subsection__outer"
+                >
+                  <h3
+                    class="subsection__heading subsection__heading--no-padding"
+                    id="new-+"
+                  >
+                    New +
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<AdminUsers /> should render correctly with updateError 1`] = `
+<div>
+  <div>
+    <a
+      class="text-link text-link--text-link text-link--no-padding text-link--inline page-title__link"
+      href="/admin"
+    >
+      ⇠ Admin
+    </a>
+    <h1
+      class="page-title__heading page-title__heading--with-link"
+    >
+      Admin users
+    </h1>
+  </div>
+  <div>
+    <button
+      class="button__outer button__outer--regular button__outer--no-bouncy admin-users__button"
+      type="button"
+    >
+      <span
+        class="button__child"
+      >
+        Reload users
+      </span>
+    </button>
+    <button
+      class="button__outer button__outer--regular button__outer--no-bouncy admin-users__button"
+      type="button"
+    >
+      <span
+        class="button__child"
+      >
+        Show filters
+      </span>
+    </button>
+  </div>
+  <div
+    class="split-detail-view__outer admin-users__split-view"
+  >
+    <div
+      class="split-detail-view__list-view"
+    >
+      <div>
+        <a
+          class="card admin-users__card card--atomic card--not-disabled"
+          href="/admin/users?highlight=new"
+        >
+          <div
+            class="card__outer-container"
+          >
+            <div
+              class="card__background"
+            />
+            <div
+              class="card__content-container"
+            >
+              <div
+                class="split-detail-item__content"
+              >
+                <div
+                  class="subsection__outer"
+                >
+                  <h3
+                    class="subsection__heading subsection__heading--no-padding"
+                    id="new-+"
+                  >
+                    New +
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<AdminUsers /> should render correctly with updating=true 1`] = `
+<div>
+  <div>
+    <a
+      class="text-link text-link--text-link text-link--no-padding text-link--inline page-title__link"
+      href="/admin"
+    >
+      ⇠ Admin
+    </a>
+    <h1
+      class="page-title__heading page-title__heading--with-link"
+    >
+      Admin users
+    </h1>
+  </div>
+  <div>
+    <button
+      class="button__outer button__outer--regular button__outer--no-bouncy admin-users__button"
+      type="button"
+    >
+      <span
+        class="button__child"
+      >
+        Reload users
+      </span>
+    </button>
+    <button
+      class="button__outer button__outer--regular button__outer--no-bouncy admin-users__button"
+      type="button"
+    >
+      <span
+        class="button__child"
+      >
+        Show filters
+      </span>
+    </button>
+  </div>
+  <div
+    class="split-detail-view__outer admin-users__split-view"
+  >
+    <div
+      class="split-detail-view__list-view"
+    >
+      <div>
+        <a
+          class="card admin-users__card card--atomic card--not-disabled"
+          href="/admin/users?highlight=new"
+        >
+          <div
+            class="card__outer-container"
+          >
+            <div
+              class="card__background"
+            />
+            <div
+              class="card__content-container"
+            >
+              <div
+                class="split-detail-item__content"
+              >
+                <div
+                  class="subsection__outer"
+                >
+                  <h3
+                    class="subsection__heading subsection__heading--no-padding"
+                    id="new-+"
+                  >
+                    New +
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<AdminUsers /> should render correctly with user 1`] = `
+<div>
+  <div
+    class="section__outer"
+  >
+    <h2
+      class="section__heading"
+      id="admin-only"
+    >
+      Admin only
+    </h2>
+    <span
+      class="paragraph"
+    >
+      You need to be logged in with an admin account to view this content.
+      <br />
+      <a
+        class="text-link text-link--text-link text-link--no-padding text-link--inline"
+        href="/login"
+      >
+        Got a different admin account? Log in here.
+      </a>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<AdminUsers /> should render correctly with users 1`] = `
+<div>
+  <div>
+    <a
+      class="text-link text-link--text-link text-link--no-padding text-link--inline page-title__link"
+      href="/admin"
+    >
+      ⇠ Admin
+    </a>
+    <h1
+      class="page-title__heading page-title__heading--with-link"
+    >
+      Admin users
+    </h1>
+  </div>
+  <div>
+    <button
+      class="button__outer button__outer--regular button__outer--no-bouncy admin-users__button"
+      type="button"
+    >
+      <span
+        class="button__child"
+      >
+        Reload users
+      </span>
+    </button>
+    <button
+      class="button__outer button__outer--regular button__outer--no-bouncy admin-users__button"
+      type="button"
+    >
+      <span
+        class="button__child"
+      >
+        Show filters
+      </span>
+    </button>
+  </div>
+  <span
+    class="paragraph admin-analytics__count"
+  >
+    Showing 
+    3
+     of 
+    3
+     users
+  </span>
+  <div
+    class="split-detail-view__outer admin-users__split-view"
+  >
+    <div
+      class="split-detail-view__list-view"
+    >
+      <div>
+        <a
+          class="card admin-users__card card--atomic card--not-disabled"
+          href="/admin/users?highlight=new"
+        >
+          <div
+            class="card__outer-container"
+          >
+            <div
+              class="card__background"
+            />
+            <div
+              class="card__content-container"
+            >
+              <div
+                class="split-detail-item__content"
+              >
+                <div
+                  class="subsection__outer"
+                >
+                  <h3
+                    class="subsection__heading subsection__heading--no-padding"
+                    id="new-+"
+                  >
+                    New +
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a
+          class="card admin-users__card card--atomic card--not-disabled"
+          href="/admin/users?highlight=1"
+          id="1"
+        >
+          <div
+            class="card__outer-container"
+          >
+            <div
+              class="card__background"
+            />
+            <div
+              class="card__content-container"
+            >
+              <div
+                class="split-detail-item__content"
+              >
+                <div
+                  class="subsection__outer"
+                >
+                  <h3
+                    class="subsection__heading subsection__heading--no-padding"
+                    id="name"
+                  >
+                    name
+                  </h3>
+                  <span
+                    class="paragraph"
+                  >
+                    <br />
+                    id: 
+                    1
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a
+          class="card admin-users__card card--atomic card--not-disabled"
+          href="/admin/users?highlight=2"
+          id="2"
+        >
+          <div
+            class="card__outer-container"
+          >
+            <div
+              class="card__background"
+            />
+            <div
+              class="card__content-container"
+            >
+              <div
+                class="split-detail-item__content"
+              >
+                <div
+                  class="subsection__outer"
+                >
+                  <h3
+                    class="subsection__heading subsection__heading--no-padding"
+                    id="another"
+                  >
+                    another
+                  </h3>
+                  <span
+                    class="paragraph"
+                  >
+                    <br />
+                    id: 
+                    2
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a
+          class="card admin-users__card card--atomic card--not-disabled"
+          href="/admin/users?highlight=3"
+          id="3"
+        >
+          <div
+            class="card__outer-container"
+          >
+            <div
+              class="card__background"
+            />
+            <div
+              class="card__content-container"
+            >
+              <div
+                class="split-detail-item__content"
+              >
+                <div
+                  class="subsection__outer"
+                >
+                  <h3
+                    class="subsection__heading subsection__heading--no-padding"
+                    id="a-third"
+                  >
+                    a third
+                  </h3>
+                  <span
+                    class="paragraph"
+                  >
+                    <br />
+                    id: 
+                    3
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;

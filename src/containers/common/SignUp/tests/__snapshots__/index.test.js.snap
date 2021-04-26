@@ -1,0 +1,200 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SignUp /> should render correctly - index 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <div
+      class="skeleton__outer skeleton__section"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="skeleton__outer skeleton__input"
+      style="margin-top: 1.2rem;"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="skeleton__outer skeleton__button"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<SignUp /> should render correctly with initial state 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <div
+      class="skeleton__outer skeleton__section"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="skeleton__outer skeleton__input"
+      style="margin-top: 1.2rem;"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="skeleton__outer skeleton__button"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<SignUp /> should render correctly with signUpError 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <div
+      class="skeleton__outer skeleton__section"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="skeleton__outer skeleton__input"
+      style="margin-top: 1.2rem;"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="skeleton__outer skeleton__button"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<SignUp /> should render correctly with signUpResult 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <div
+      class="skeleton__outer skeleton__section"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="skeleton__outer skeleton__input"
+      style="margin-top: 1.2rem;"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="skeleton__outer skeleton__button"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<SignUp /> should render correctly with signingUp=true 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <div
+      class="skeleton__outer skeleton__section"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="skeleton__outer skeleton__input"
+      style="margin-top: 1.2rem;"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+    <div
+      class="skeleton__outer skeleton__button"
+    >
+      <div
+        class="skeleton__shimmer"
+        style="margin-left: -0px;"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<SignUp /> should render correctly with user 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <div
+      class="section__outer"
+    >
+      <h2
+        class="section__heading"
+        id="you're-logged-in"
+      >
+        You're logged in
+      </h2>
+      <span
+        class="paragraph"
+      >
+        <a
+          class="text-link text-link--text-link text-link--no-padding text-link--inline"
+          href="/account"
+        >
+          Go to your account.
+        </a>
+      </span>
+    </div>
+  </div>
+</div>
+`;

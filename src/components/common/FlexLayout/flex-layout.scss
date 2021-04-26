@@ -1,0 +1,14 @@
+@import '~utils/tokens';
+
+.flex-layout {
+  &__grow {
+    display: flex;
+    height: calc(100vh - 5.5rem);
+    padding: 0 $spacing-lg;
+    flex-flow: column;
+
+    @include bpk-breakpoint-mobile {
+      padding: 0 $spacing-base;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@import '~utils/tokens';
+
+.account {
+  &__details {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: $spacing-base;
+  }
+
+  &__button {
+    margin-bottom: $spacing-base;
+  }
+
+  &__control-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

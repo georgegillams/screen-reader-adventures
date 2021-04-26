@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Teapot /> should render correctly 1`] = `
+<div>
+  <main
+    class="not-found__container"
+    id="main"
+  >
+    <h1
+      class="page-title__heading not-found__container"
+    >
+      Error 418 - I'm a teapot.
+    </h1>
+    <div
+      class="subsection__outer"
+    >
+      <span
+        class="paragraph"
+      >
+        Coffee cannot be brewed inside a teapot context. The resulting entity body MAY be short and stout.
+      </span>
+    </div>
+  </main>
+</div>
+`;

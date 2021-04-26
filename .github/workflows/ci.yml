@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,25 +21,34 @@ jobs:
           echo "github_ref ${{ github.ref }}"
           echo "github_event_name ${{ github.event_name }}"
 
-      - name: system install
-        run: |
-          sudo apt-get update
-          sudo apt-get install -yyq ca-certificates libappindicator1 libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libnss3 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 gconf-service lsb-release wget xdg-utils fonts-liberation zip
+      - name: Cache npm dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
 
       - name: npm install
-        run: npm ci
-
-      - name: build
-        run: npm run build:test
+        run: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci
 
       - name: lint
-        run: npm run test:lint
+        run: npm run lint
 
-      - name: jest
-        run: npm run test:jest
+      - name: jest test
+        run: npm test
 
-      - name: snapshot test
-        run: npm run backstopjs:test
+  snapshot-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repo
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: run snapshot tests
+        run: |
+          ./scripts/docker/prepare.sh
+          ./scripts/docker/run-tests.sh
 
       - name: save snapshots
         if: failure()
@@ -48,24 +57,32 @@ jobs:
           name: bitmaps_reference
           path: backstop_data/bitmaps_reference
 
-      - name: commit changes to branch
-        if: failure()
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Snapshot changes
-          push_options: --force
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [test, snapshot-test]
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
 
-      - name: build AWS
-        run: |
-          if [ "${{ github.ref }}" == "refs/heads/main" ] && [ "${{ github.event_name }}" != "pull_request" ]; then
-            STRIPE_PUBLIC_API_KEY=${{ secrets.STRIPE_PUBLIC_API_KEY }} npm run build:aws
-            zip -r build build
-          fi;
+    steps:
+      # Checkout the repo
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Cache npm dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+
+      - name: npm install
+        run: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm ci
+
+      - name: build
+        run: npm run build
 
       - name: deploy
         run: |
-          if [ "${{ github.ref }}" == "refs/heads/main" ] && [ "${{ github.event_name }}" != "pull_request" ]; then
-            echo "${{ secrets.EC2_RSA }}" > ./identityFile.txt
-            chmod 400 ./identityFile.txt
-            scp -o "StrictHostKeyChecking=no" -i ./identityFile.txt -r ./build.zip ubuntu@ec2-35-178-235-11.eu-west-2.compute.amazonaws.com:/home/ubuntu/screen-reader-adventures/
-          fi;
+          zip -r build build
+          echo "${{ secrets.EC2_RSA }}" > ./identityFile.txt
+          chmod 400 ./identityFile.txt
+          scp -o "StrictHostKeyChecking=no" -i ./identityFile.txt -r ./build.zip ubuntu@ec2-35-178-235-11.eu-west-2.compute.amazonaws.com:/home/ubuntu/screen-reader-adventures/

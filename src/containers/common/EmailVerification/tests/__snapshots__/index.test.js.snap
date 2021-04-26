@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EmailVerification /> should render correctly - index 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <h1
+      class="page-title__heading"
+    >
+      Confirming email
+    </h1>
+  </div>
+</div>
+`;
+
+exports[`<EmailVerification /> should render correctly with initial state 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <h1
+      class="page-title__heading"
+    >
+      Confirming email
+    </h1>
+  </div>
+</div>
+`;
+
+exports[`<EmailVerification /> should render correctly with user 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <h1
+      class="page-title__heading"
+    >
+      Email confirmed
+    </h1>
+    <span
+      class="paragraph"
+    >
+      Thank you for confirming your email address
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<EmailVerification /> should render correctly with verifyError 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <h1
+      class="page-title__heading"
+    >
+      Confirming email
+    </h1>
+    <span
+      class="paragraph"
+    >
+      <span
+        class="error"
+      >
+        Something went wrong whilst confirming your email
+        <br />
+        Invalid verification link
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<EmailVerification /> should render correctly with verifying=true 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <h1
+      class="page-title__heading"
+    >
+      Confirming email
+    </h1>
+  </div>
+</div>
+`;

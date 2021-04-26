@@ -1,0 +1,11 @@
+@import '~utils/tokens';
+
+.sign-up {
+  &__link {
+    margin-top: $spacing-base;
+  }
+
+  &__form {
+    margin-top: $spacing-base;
+  }
+}

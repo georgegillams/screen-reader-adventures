@@ -1,0 +1,7 @@
+@import '~utils/tokens';
+
+.home {
+  &__platform-selector {
+    margin: $spacing-base 0 $spacing-lg 0;
+  }
+}

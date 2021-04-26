@@ -1,0 +1,311 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Authenticator /> should render correctly - index 1`] = `
+<div>
+  <header
+    role="banner"
+  >
+    <div
+      class="navigation-bar__bar-placeholder"
+    />
+    <div
+      class="navigation-bar__container"
+    >
+      <div
+        class="navigation-bar__bar"
+      >
+        <div
+          class="navigation-bar__mobile-container navigation-bar__mobile-container--left"
+        >
+          <button
+            aria-expanded="false"
+            aria-label="Menu"
+            class="burger-button__outer navigation-bar__burger-button"
+            type="button"
+          >
+            <div
+              class="burger-button__inner"
+            >
+              <div
+                class="burger-button__line burger-button__line__one navigation-bar__burger-button__line"
+              />
+              <div
+                class="burger-button__line burger-button__line__two navigation-bar__burger-button__line"
+              />
+              <div
+                class="burger-button__line burger-button__line__three navigation-bar__burger-button__line"
+              />
+            </div>
+          </button>
+        </div>
+        <div
+          class="navigation-bar__logo-container"
+        >
+          <div
+            class="logo__container logo__container--no-padding"
+          >
+            <a
+              class="logo__a"
+              href="/"
+            >
+              <h1
+                aria-label="Home page"
+                class="logo__heading logo__subheading--animated logo__heading--no-padding"
+                role="button"
+              >
+                LOGO
+              </h1>
+            </a>
+          </div>
+        </div>
+        <div
+          class="navigation-bar__mobile-container navigation-bar__mobile-container--rgt"
+        >
+          <div
+            class="skeleton__outer skeleton__button--small"
+          >
+            <div
+              class="skeleton__shimmer"
+              style="margin-left: -0px;"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+`;
+
+exports[`<Authenticator /> should render correctly with default state 1`] = `
+<div>
+  <header
+    role="banner"
+  >
+    <div
+      class="navigation-bar__bar-placeholder"
+    />
+    <div
+      class="navigation-bar__container"
+    >
+      <div
+        class="navigation-bar__bar"
+      >
+        <div
+          class="navigation-bar__mobile-container navigation-bar__mobile-container--left"
+        >
+          <button
+            aria-expanded="false"
+            aria-label="Menu"
+            class="burger-button__outer navigation-bar__burger-button"
+            type="button"
+          >
+            <div
+              class="burger-button__inner"
+            >
+              <div
+                class="burger-button__line burger-button__line__one navigation-bar__burger-button__line"
+              />
+              <div
+                class="burger-button__line burger-button__line__two navigation-bar__burger-button__line"
+              />
+              <div
+                class="burger-button__line burger-button__line__three navigation-bar__burger-button__line"
+              />
+            </div>
+          </button>
+        </div>
+        <div
+          class="navigation-bar__logo-container"
+        >
+          <div
+            class="logo__container logo__container--no-padding"
+          >
+            <a
+              class="logo__a"
+              href="/"
+            >
+              <h1
+                aria-label="Home page"
+                class="logo__heading logo__subheading--animated logo__heading--no-padding"
+                role="button"
+              >
+                LOGO
+              </h1>
+            </a>
+          </div>
+        </div>
+        <div
+          class="navigation-bar__mobile-container navigation-bar__mobile-container--rgt"
+        >
+          <div
+            class="skeleton__outer skeleton__button--small"
+          >
+            <div
+              class="skeleton__shimmer"
+              style="margin-left: -0px;"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+`;
+
+exports[`<Authenticator /> should render correctly with null user 1`] = `
+<div>
+  <header
+    role="banner"
+  >
+    <div
+      class="navigation-bar__bar-placeholder"
+    />
+    <div
+      class="navigation-bar__container"
+    >
+      <div
+        class="navigation-bar__bar"
+      >
+        <div
+          class="navigation-bar__mobile-container navigation-bar__mobile-container--left"
+        >
+          <button
+            aria-expanded="false"
+            aria-label="Menu"
+            class="burger-button__outer navigation-bar__burger-button"
+            type="button"
+          >
+            <div
+              class="burger-button__inner"
+            >
+              <div
+                class="burger-button__line burger-button__line__one navigation-bar__burger-button__line"
+              />
+              <div
+                class="burger-button__line burger-button__line__two navigation-bar__burger-button__line"
+              />
+              <div
+                class="burger-button__line burger-button__line__three navigation-bar__burger-button__line"
+              />
+            </div>
+          </button>
+        </div>
+        <div
+          class="navigation-bar__logo-container"
+        >
+          <div
+            class="logo__container logo__container--no-padding"
+          >
+            <a
+              class="logo__a"
+              href="/"
+            >
+              <h1
+                aria-label="Home page"
+                class="logo__heading logo__subheading--animated logo__heading--no-padding"
+                role="button"
+              >
+                LOGO
+              </h1>
+            </a>
+          </div>
+        </div>
+        <div
+          class="navigation-bar__mobile-container navigation-bar__mobile-container--rgt"
+        >
+          <a
+            aria-label="Login"
+            class="button__a button__outer button__outer--dark-text button__outer--bouncy button__outer--link"
+            href="/login"
+          >
+            <span
+              class="button__child"
+            >
+              Login
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+`;
+
+exports[`<Authenticator /> should render correctly with user 1`] = `
+<div>
+  <header
+    role="banner"
+  >
+    <div
+      class="navigation-bar__bar-placeholder"
+    />
+    <div
+      class="navigation-bar__container"
+    >
+      <div
+        class="navigation-bar__bar"
+      >
+        <div
+          class="navigation-bar__mobile-container navigation-bar__mobile-container--left"
+        >
+          <button
+            aria-expanded="false"
+            aria-label="Menu"
+            class="burger-button__outer navigation-bar__burger-button"
+            type="button"
+          >
+            <div
+              class="burger-button__inner"
+            >
+              <div
+                class="burger-button__line burger-button__line__one navigation-bar__burger-button__line"
+              />
+              <div
+                class="burger-button__line burger-button__line__two navigation-bar__burger-button__line"
+              />
+              <div
+                class="burger-button__line burger-button__line__three navigation-bar__burger-button__line"
+              />
+            </div>
+          </button>
+        </div>
+        <div
+          class="navigation-bar__logo-container"
+        >
+          <div
+            class="logo__container logo__container--no-padding"
+          >
+            <a
+              class="logo__a"
+              href="/"
+            >
+              <h1
+                aria-label="Home page"
+                class="logo__heading logo__subheading--animated logo__heading--no-padding"
+                role="button"
+              >
+                LOGO
+              </h1>
+            </a>
+          </div>
+        </div>
+        <div
+          class="navigation-bar__mobile-container navigation-bar__mobile-container--rgt"
+        >
+          <a
+            aria-label="Account"
+            class="button__a button__outer button__outer--dark-text button__outer--bouncy button__outer--link"
+            href="/account"
+          >
+            <span
+              class="button__child"
+            >
+              Account
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+`;

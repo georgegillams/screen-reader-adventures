@@ -1,0 +1,16 @@
+@import '~utils/tokens';
+
+.footer-nav {
+  &__container {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__link {
+    margin: 0.5rem 0.5rem 0 0.5rem;
+  }
+}

@@ -1,0 +1,331 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HomePage /> should render correctly 1`] = `
+<div>
+  <main
+    class="page-container__container common-layout__grow"
+    id="main"
+  >
+    <div
+      class="page-container__container page-container__container--regular page-container__container--center"
+    >
+      <h1
+        class="page-title__heading"
+      >
+        Welcome 👋
+      </h1>
+      <span
+        class="paragraph"
+      >
+        Learning to use a screen reader can be tedious and difficult. Screen Reader Adventures provides an effective way to learn with fun game stages, each introducing new shortcuts and techniques. When you can navigate all the stages of this game, you'll have the knowledge required to design and build more accessibile products.
+      </span>
+      <span
+        class="paragraph"
+      >
+        To get started, select the platform you wish to learn on.
+      </span>
+      <div
+        class="home__platform-selector"
+      >
+        <div
+          class="platform-selector__card-container"
+        >
+          <a
+            aria-label="macOS"
+            class="card feature-card feature-card--narrow-compact platform-selector__card card--atomic card--not-disabled"
+            href="/settings/macOS"
+          >
+            <div
+              class="card__outer-container"
+            >
+              <div
+                class="card__background"
+              />
+              <div
+                class="card__content-container card__content-container--padded"
+              >
+                <div
+                  aria-hidden="true"
+                  class="feature-card__outer-container feature-card__outer-container--narrow-compact"
+                >
+                  <div
+                    class="feature-card__date feature-card__date--narrow-compact"
+                  />
+                  <div
+                    class="feature-card__center-container feature-card__center-container--narrow-compact"
+                  >
+                    <div
+                      class="section__outer section__outer--inherit-color feature-card__title"
+                    >
+                      <h2
+                        class="section__heading section__heading--no-padding"
+                        id="macos"
+                      >
+                        macOS
+                      </h2>
+                    </div>
+                    <div
+                      class="feature-card__children"
+                    >
+                      <span
+                        class="paragraph"
+                      >
+                        Select to learn with VoiceOver for macOS
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+          <button
+            aria-disabled="true"
+            aria-label="iOS"
+            class="card feature-card feature-card--narrow-compact platform-selector__card card--atomic card--disabled"
+            tabindex="-1"
+            type="button"
+          >
+            <div
+              class="card__outer-container"
+            >
+              <div
+                class="card__background card__background--disabled"
+              />
+              <div
+                class="card__content-container card__content-container--padded"
+              >
+                <div
+                  aria-hidden="true"
+                  class="feature-card__outer-container feature-card__outer-container--narrow-compact"
+                >
+                  <div
+                    class="feature-card__date feature-card__date--narrow-compact"
+                  />
+                  <div
+                    class="feature-card__center-container feature-card__center-container--narrow-compact"
+                  >
+                    <div
+                      class="section__outer section__outer--inherit-color feature-card__title"
+                    >
+                      <h2
+                        class="section__heading section__heading--no-padding section__heading--disabled"
+                        id="ios"
+                      >
+                        iOS
+                      </h2>
+                    </div>
+                    <div
+                      class="feature-card__children"
+                    >
+                      <span
+                        class="paragraph"
+                      >
+                        Coming later…
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </button>
+          <button
+            aria-disabled="true"
+            aria-label="Android"
+            class="card feature-card feature-card--narrow-compact platform-selector__card card--atomic card--disabled"
+            tabindex="-1"
+            type="button"
+          >
+            <div
+              class="card__outer-container"
+            >
+              <div
+                class="card__background card__background--disabled"
+              />
+              <div
+                class="card__content-container card__content-container--padded"
+              >
+                <div
+                  aria-hidden="true"
+                  class="feature-card__outer-container feature-card__outer-container--narrow-compact"
+                >
+                  <div
+                    class="feature-card__date feature-card__date--narrow-compact"
+                  />
+                  <div
+                    class="feature-card__center-container feature-card__center-container--narrow-compact"
+                  >
+                    <div
+                      class="section__outer section__outer--inherit-color feature-card__title"
+                    >
+                      <h2
+                        class="section__heading section__heading--no-padding section__heading--disabled"
+                        id="android"
+                      >
+                        Android
+                      </h2>
+                    </div>
+                    <div
+                      class="feature-card__children"
+                    >
+                      <span
+                        class="paragraph"
+                      >
+                        Coming later…
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </button>
+          <button
+            aria-disabled="true"
+            aria-label="Windows"
+            class="card feature-card feature-card--narrow-compact platform-selector__card card--atomic card--disabled"
+            tabindex="-1"
+            type="button"
+          >
+            <div
+              class="card__outer-container"
+            >
+              <div
+                class="card__background card__background--disabled"
+              />
+              <div
+                class="card__content-container card__content-container--padded"
+              >
+                <div
+                  aria-hidden="true"
+                  class="feature-card__outer-container feature-card__outer-container--narrow-compact"
+                >
+                  <div
+                    class="feature-card__date feature-card__date--narrow-compact"
+                  />
+                  <div
+                    class="feature-card__center-container feature-card__center-container--narrow-compact"
+                  >
+                    <div
+                      class="section__outer section__outer--inherit-color feature-card__title"
+                    >
+                      <h2
+                        class="section__heading section__heading--no-padding section__heading--disabled"
+                        id="windows"
+                      >
+                        Windows
+                      </h2>
+                    </div>
+                    <div
+                      class="feature-card__children"
+                    >
+                      <span
+                        class="paragraph"
+                      >
+                        Coming later…
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer
+    class="footer__container"
+    id="footer"
+  >
+    <div
+      class="logo__container footer__logo logo__container--centred logo__container--no-padding"
+    >
+      <a
+        class="logo__a"
+        href="/"
+      >
+        <h1
+          aria-label="Home page"
+          class="logo__heading logo__heading--no-padding"
+          role="button"
+        >
+          LOGO
+        </h1>
+      </a>
+    </div>
+    <div
+      class="footer__tech"
+    >
+      <span
+        class="paragraph tech-specs__container"
+        theme="allWhite"
+      >
+        Built in
+        <a
+          href="https://reactjs.org/"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <img
+            alt="React"
+            class="tech-specs__icon"
+            height="5"
+            src="IMAGE_MOCK"
+            width="5"
+          />
+        </a>
+        and
+        <a
+          href="https://redux.js.org/"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <img
+            alt="Redux"
+            class="tech-specs__icon"
+            height="5"
+            src="IMAGE_MOCK"
+            width="5"
+          />
+        </a>
+        Hosted on
+        <a
+          href="https://aws.amazon.com/"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <img
+            alt="Amazon Web Services"
+            class="tech-specs__icon"
+            height="5"
+            src="IMAGE_MOCK"
+            style="margin-top: .8rem; max-width: 2.9rem;"
+            width="8.28"
+          />
+        </a>
+      </span>
+    </div>
+    <div
+      class="footer-nav__container footer__nav"
+    >
+      <a
+        class="text-link text-link--text-link text-link--no-padding text-link--text-link--all-white text-link--inline footer-nav__link"
+        href="/sitemap"
+      >
+        Site map
+      </a>
+      <a
+        class="text-link text-link--text-link text-link--no-padding text-link--text-link--all-white text-link--inline footer-nav__link"
+        href="/status"
+      >
+        Status
+      </a>
+      <a
+        class="text-link text-link--text-link text-link--no-padding text-link--text-link--all-white text-link--inline footer-nav__link"
+        href="/privacy-policy"
+      >
+        Privacy
+      </a>
+    </div>
+  </footer>
+</div>
+`;

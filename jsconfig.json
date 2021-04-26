@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "helpers/*": [
+        "shared/helpers/*"
+      ],
+      "server-utils/*": [
+        "server/utils/*"
+      ],
+      "client-utils/*": [
+        "src/utils/*"
+      ],
+    }
+  },
+  "exclude": [
+    "node_modules",
+  ]
+}

@@ -1,3 +1,9 @@
-semi: true
-trailingComma: all
-singleQuote: true
+{
+  "arrowParens": "avoid",
+  "singleQuote": true,
+  "jsxBracketSameLine": true,
+  "trailingComma": "es5",
+  "printWidth": 120,
+  "semi": true,
+  "endOfLine": "lf"
+}

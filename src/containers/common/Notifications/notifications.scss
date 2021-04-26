@@ -1,0 +1,9 @@
+@import '~utils/tokens';
+
+.notifications {
+  &__notification {
+    &:not(:last-of-type) {
+      margin-bottom: $spacing-base;
+    }
+  }
+}

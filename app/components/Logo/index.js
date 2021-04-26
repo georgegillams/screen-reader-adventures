@@ -1,1 +1,0 @@
-export SRLogo from './SRLogo';

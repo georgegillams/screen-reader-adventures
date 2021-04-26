@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Consent /> should render correctly - index 1`] = `
+<div>
+  <div>
+    <div
+      class="banner__outer"
+    >
+      <div
+        class="banner__inner"
+      >
+        <div
+          class="section__outer consent__section consent__section--banner"
+        >
+          <h2
+            class="section__heading section__heading--no-padding consent__section-text"
+            id="privacy-and-cookies"
+          >
+            Privacy and cookies
+          </h2>
+          <span
+            class="paragraph"
+          >
+            To provide the best possible experience, we would like to use cookies and handle your data in accordance with our 
+            <a
+              class="text-link text-link--text-link text-link--no-padding text-link--inline"
+              href="/privacy-policy"
+            >
+              Privacy policy
+            </a>
+            .
+            <br />
+          </span>
+        </div>
+        <div>
+          <button
+            class="button__outer button__outer--regular button__outer--no-bouncy consent__button"
+            type="button"
+          >
+            <span
+              class="button__child"
+            >
+              Accept
+            </span>
+          </button>
+          <button
+            class="button__outer button__outer--regular button__outer--no-bouncy consent__button"
+            type="button"
+          >
+            <span
+              class="button__child"
+            >
+              Dismiss
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Consent /> should render correctly 1`] = `
+<div>
+  <div />
+</div>
+`;
+
+exports[`<Consent /> should render correctly with consent allowed 1`] = `
+<div>
+  <div />
+</div>
+`;
+
+exports[`<Consent /> should render correctly with consent deferred 1`] = `
+<div>
+  <div />
+</div>
+`;
+
+exports[`<Consent /> should render correctly with consent deferred and reason 1`] = `
+<div>
+  <div />
+</div>
+`;

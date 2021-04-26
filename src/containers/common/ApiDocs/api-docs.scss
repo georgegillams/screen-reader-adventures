@@ -1,0 +1,18 @@
+@import '~utils/tokens';
+
+.api-docs {
+  &__table {
+    width: 100%;
+    margin-top: $paragraph-margin-top;
+  }
+
+  &__description {
+    display: inline-block;
+    width: 15rem;
+  }
+
+  &__method {
+    display: inline-block;
+    width: 3.4rem;
+  }
+}
