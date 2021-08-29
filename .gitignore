@@ -19,6 +19,7 @@ yarn-error.log
 
 # built stuff
 build
+deploy
 app/helpers
 helpers/helpers
 server/helpers

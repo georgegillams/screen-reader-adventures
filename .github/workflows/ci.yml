@@ -59,13 +59,15 @@ jobs:
         run: |
           if [ "${{ github.ref }}" == "refs/heads/main" ] && [ "${{ github.event_name }}" != "pull_request" ]; then
             STRIPE_PUBLIC_API_KEY=${{ secrets.STRIPE_PUBLIC_API_KEY }} npm run build:aws
-            zip -r build build
           fi;
 
       - name: deploy
         run: |
           if [ "${{ github.ref }}" == "refs/heads/main" ] && [ "${{ github.event_name }}" != "pull_request" ]; then
+            mkdir -p deploy && mv build deploy/ && cp package* deploy/ && cp -R config deploy/ && cp -R scripts deploy/ && mkdir -p deploy/app && cp -R server deploy/ && cp -R helpers deploy/
+            zipFileName="screen_reader_adventures-$(date +%s)"
+            zip -r $zipFileName deploy
             echo "${{ secrets.EC2_RSA }}" > ./identityFile.txt
             chmod 400 ./identityFile.txt
-            scp -o "StrictHostKeyChecking=no" -i ./identityFile.txt -r ./build.zip ubuntu@ec2-35-178-235-11.eu-west-2.compute.amazonaws.com:/home/ubuntu/screen-reader-adventures/
+            scp -o "StrictHostKeyChecking=no" -i ./identityFile.txt -r ./$zipFileName.zip ubuntu@ec2-35-178-235-11.eu-west-2.compute.amazonaws.com:/home/ubuntu/neo/
           fi;
